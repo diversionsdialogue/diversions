@@ -1,0 +1,127 @@
+---
+// Diversions site header (omgebouwd vanuit design/components.jsx <Header/>).
+// Logo + NL-nav + zoek-icoon + "Start een project"-CTA + mobiel hamburger-menu.
+// Toetsenbord-/drawer-toegankelijkheid: hamburger is een echte <button> met
+// aria-expanded + aria-controls naar het mobiele menu.
+import Search from "@/components/global/Search.astro";
+
+// Nav-hrefs verwijzen naar de WERKELIJKE bestaande routes (inventaris.json).
+//   Werk     -> /work (cases-overzicht; /cases-overzichtspagina is gederedupliceerd
+//               weg en 301't naar /work, opschoning 2026-05-31)
+//   Services -> /onze-diensten (services-overzicht, bestaande URL)
+//   Over ons -> /wij-zijn-diversions
+// "Doelgroepen" uit het design is in de intake GEDROPT (geen bestemming) en
+// daarom hier WEGGELATEN — zie rapport (FLAG).
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "Werk", href: "/work" },
+  { label: "Services", href: "/onze-diensten" },
+  { label: "Blog", href: "/blog" },
+  { label: "Over ons", href: "/wij-zijn-diversions" },
+  { label: "Contact", href: "/contact" },
+];
+
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === "/" ? path === "/" : path === href || path.startsWith(href + "/");
+---
+
+<header class="site-header" data-site-header>
+  <a href="/" class="brand" aria-label="Diversions home">
+    <img src="/diversions-logo.svg" alt="Diversions" width="130" height="30" />
+  </a>
+
+  <nav class="nav-desktop" aria-label="Hoofdnavigatie">
+    {
+      navLinks.map((link) => (
+        <a
+          href={link.href}
+          aria-current={isActive(link.href) ? "page" : undefined}
+        >
+          {link.label}
+        </a>
+      ))
+    }
+  </nav>
+
+  <div class="header-actions">
+    <Search />
+    <a href="/contact" class="btn btn-primary btn-arrow header-cta-desktop">
+      Start een project
+    </a>
+    <button
+      class="icon-btn menu-btn"
+      type="button"
+      aria-label="Menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      data-menu-toggle
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        aria-hidden="true"
+        data-icon-open
+      >
+        <path d="M4 7h16"></path>
+        <path d="M4 12h16"></path>
+        <path d="M4 17h16"></path>
+      </svg>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        aria-hidden="true"
+        data-icon-close
+        style="display:none"
+      >
+        <path d="M6 6l12 12"></path>
+        <path d="M18 6 6 18"></path>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+  {
+    navLinks.map((link) => (
+      <a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>
+        {link.label}
+      </a>
+    ))
+  }
+  <a href="/contact">Start een project →</a>
+</div>
+
+<script is:inline>
+  (function () {
+    const toggle = document.querySelector("[data-menu-toggle]");
+    const menu = document.querySelector("[data-mobile-menu]");
+    if (!toggle || !menu) return;
+    const iconOpen = toggle.querySelector("[data-icon-open]");
+    const iconClose = toggle.querySelector("[data-icon-close]");
+    let open = false;
+    const setOpen = (next) => {
+      open = next;
+      toggle.setAttribute("aria-expanded", String(next));
+      menu.classList.toggle("open", next);
+      if (iconOpen) iconOpen.style.display = next ? "none" : "";
+      if (iconClose) iconClose.style.display = next ? "" : "none";
+    };
+    toggle.addEventListener("click", () => setOpen(!open));
+    menu.querySelectorAll("a").forEach((a) =>
+      a.addEventListener("click", () => setOpen(false))
+    );
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && open) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+  })();
+</script>

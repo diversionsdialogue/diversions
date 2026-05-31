@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact — Diversions</title>
+<meta name="description" content="Vertel ons over je project. We reageren binnen één werkdag." />
+<link rel="stylesheet" href="colors_and_type.css" />
+<link rel="stylesheet" href="site.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  .header-cta-desktop { display: inline-flex; }
+  @media (max-width: 600px) { .header-cta-desktop { display: none; } }
+  .contact-hero {
+    padding: 64px 32px 48px;
+  }
+  @media (min-width: 768px) {
+    .contact-hero { padding: 96px 56px 72px; }
+  }
+  .contact-hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 0 0 20px;
+    max-width: 14ch;
+    text-wrap: balance;
+  }
+  .contact-hero-title em { font-style: normal; color: var(--color-yellow-500); }
+  .contact-hero-lead {
+    font-family: var(--font-subtitle);
+    font-weight: 400;
+    font-size: clamp(17px, 1.6vw, 20px);
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 48ch;
+    margin: 0;
+  }
+  .contact-section { padding: 24px 32px 96px; }
+  @media (min-width: 768px) { .contact-section { padding: 24px 56px 120px; } }
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip naar inhoud</a>
+<div class="shell">
+  <div class="surface">
+    <div id="header-root"></div>
+
+    <main id="main">
+      <section class="contact-hero">
+        <span class="eyebrow">Contact</span>
+        <h1 class="contact-hero-title">Laten we iets <em>moois</em> bouwen.</h1>
+        <p class="contact-hero-lead">
+          Een korte intro is genoeg om te starten. Vertel wat je voor ogen hebt — we lezen alles en reageren binnen één werkdag.
+        </p>
+      </section>
+
+      <div id="marquee-root"></div>
+
+      <section class="contact-section">
+        <div class="contact-layout">
+          <div id="form-root"></div>
+          <div id="info-root"></div>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-root"></div>
+  </div>
+</div>
+
+<script type="text/babel" src="components.jsx"></script>
+<script type="text/babel" src="contact-form.jsx"></script>
+
+<script type="text/babel">
+ReactDOM.createRoot(document.getElementById("header-root")).render(<Header active="contact" />);
+ReactDOM.createRoot(document.getElementById("marquee-root")).render(
+  <Marquee tone="ink" items={[
+    "antwoord binnen 1 werkdag","gratis kennismaking","amsterdam · NL","sinds 2018","bel · mail · loop binnen"
+  ]} speed={50} />
+);
+ReactDOM.createRoot(document.getElementById("form-root")).render(<ContactForm />);
+ReactDOM.createRoot(document.getElementById("info-root")).render(<ContactInfo />);
+ReactDOM.createRoot(document.getElementById("footer-root")).render(<Footer />);
+</script>
+
+</body>
+</html>

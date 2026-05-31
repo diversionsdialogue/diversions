@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pagina niet gevonden — Diversions</title>
+<meta name="description" content="Deze pagina bestaat niet (meer). Ga terug naar de homepage." />
+<link rel="stylesheet" href="colors_and_type.css" />
+<link rel="stylesheet" href="site.css" />
+<link rel="stylesheet" href="not-found.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip naar inhoud</a>
+
+<div class="shell">
+  <div class="surface">
+    <div id="header-root"></div>
+
+    <main id="main" class="nf-main">
+      <section class="nf-hero">
+        <span class="nf-eyebrow">
+          <span class="nf-dot"></span>
+          Foutmelding 404
+        </span>
+
+        <h1 class="nf-title">
+          Hmm — deze<br/>
+          afslag <em>klopt niet</em>.
+        </h1>
+
+        <p class="nf-body">
+          De pagina die je zoekt bestaat niet (meer). Misschien is hij verhuisd,
+          hernoemd, of nooit echt geweest. Excuses voor het ongemak — probeer
+          het nog eens of ga terug naar de homepage.
+        </p>
+
+        <div class="nf-actions">
+          <a href="index.html" class="btn btn-primary nf-btn-primary">
+            Terug naar home
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="m6 4 4 4-4 4"/>
+            </svg>
+          </a>
+          <a href="contact.html" class="btn btn-ghost nf-btn-ghost">
+            Iets gebroken? Laat het ons weten
+          </a>
+        </div>
+      </section>
+
+      <!-- Big decorative 404 numerals -->
+      <div class="nf-numerals" aria-hidden="true">
+        <span class="nf-num">4</span>
+        <span class="nf-num nf-num-zero">
+          <svg viewBox="0 0 200 280" preserveAspectRatio="none">
+            <ellipse cx="100" cy="140" rx="78" ry="118" fill="none" stroke="currentColor" stroke-width="14"/>
+          </svg>
+        </span>
+        <span class="nf-num">4</span>
+      </div>
+
+      <!-- Suggestions row -->
+      <section class="nf-suggest">
+        <h2 class="nf-suggest-title">Misschien zocht je…</h2>
+        <ul class="nf-suggest-list">
+          <li>
+            <a href="services.html">
+              <span class="nf-link-label">Onze diensten</span>
+              <span class="nf-link-arrow">→</span>
+            </a>
+            <p>Wat we doen — branding, digitaal en strategie.</p>
+          </li>
+          <li>
+            <a href="werk.html">
+              <span class="nf-link-label">Werk</span>
+              <span class="nf-link-arrow">→</span>
+            </a>
+            <p>Recente projecten en cases uit de studio.</p>
+          </li>
+          <li>
+            <a href="blog.html">
+              <span class="nf-link-label">Blog</span>
+              <span class="nf-link-arrow">→</span>
+            </a>
+            <p>Notities, schrijfsels en losse gedachten.</p>
+          </li>
+          <li>
+            <a href="contact.html">
+              <span class="nf-link-label">Contact</span>
+              <span class="nf-link-arrow">→</span>
+            </a>
+            <p>Een idee bespreken? Een koffie boeken? Hier.</p>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <div id="footer-root"></div>
+  </div>
+</div>
+
+<script type="text/babel" src="components.jsx"></script>
+<script type="text/babel">
+ReactDOM.createRoot(document.getElementById("header-root")).render(<Header active={null} />);
+ReactDOM.createRoot(document.getElementById("footer-root")).render(<Footer />);
+</script>
+
+</body>
+</html>

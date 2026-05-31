@@ -1,0 +1,35 @@
+---
+// Fundations
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
+
+// CONVERT-META (route A, bouwen-in-astro)
+//   bron: /privacy-statement
+//   nieuwe_url: /privacy-statement
+//   juridische pagina; inhoud verwijst naar PDF. Zelden gewijzigd -> Astro.
+//   Afbeelding (decoratieve gif) gedropt (geen inhoudelijke waarde).
+//   THEME (Fase 1): omgezet naar de proza-leeslayout (ArticleLayout, drop-cap UIT).
+---
+
+<ArticleLayout
+  title="Privacy Statement Diversions.nl"
+  eyebrow="Juridisch"
+  seo={{
+    title: "Privacy statement | Diversions",
+    description:
+      "Diversions Dialogue BV deelt de laatste versie van ons privacy statement.",
+  }}
+>
+  <p>
+    Diversions Dialogue BV deelt graag de laatste versie van ons privacy
+    statement met je. Je vindt deze in de pdf.
+  </p>
+  <p>
+    {/* HANDMATIG: PDF wijst nog naar oude WP-uploads. Voor livegang opnieuw
+        hosten (Astro public/ of CDN) en pad bijwerken. */}
+    <a
+      href="https://www.diversions.nl/wp-content/uploads/2023/02/privacystatement.pdf"
+      rel="noopener"
+      target="_blank">PDF Privacy Statement</a
+    >
+  </p>
+</ArticleLayout>

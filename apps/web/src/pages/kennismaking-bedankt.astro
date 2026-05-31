@@ -1,0 +1,39 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+// CONVERT-META (route A, bouwen-in-astro)
+//   bron: /kennismaking-bedankt (bevestigingspagina na formulierinzending)
+//   nieuwe_url: /kennismaking-bedankt
+//   noindex: bevestigingspagina hoort niet in de index.
+---
+
+<BaseLayout
+  seo={{
+    title: "Bedankt voor je interesse | Diversions",
+    description: "Je reactie is verstuurd. We nemen snel contact met je op.",
+    noindex: true,
+  }}
+>
+  <section class="bg-white overflow-hidden relative">
+    <Wrapper variant="prose" class="pt-24 lg:pt-32 pb-24 text-center">
+      <Text tag="h1" variant="displayMD" class="tracking-tighter text-accent-800">
+        Bedankt voor je interesse
+      </Text>
+      <p class="mt-6 text-base text-accent-500">
+        Je reactie is verstuurd. We nemen contact met je op.
+      </p>
+      <p class="mt-4 text-base text-accent-500">Tot snel!</p>
+      <p class="mt-8 font-semibold text-accent-800">
+        William Burghout<br />
+        <span class="font-normal text-accent-500">Diversions.nl</span>
+      </p>
+      <div class="mt-10 flex justify-center">
+        <Button isLink href="/" size="base" variant="accent">Terug naar home</Button>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

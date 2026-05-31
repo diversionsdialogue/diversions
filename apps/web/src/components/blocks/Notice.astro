@@ -1,0 +1,31 @@
+---
+/**
+ * Notice — small inline note / "Onze regel" callout.
+ * Parity block: Sanity `noticeBlock`.
+ * Design source: `.callout` in design/article.css / services-detail.html.
+ *
+ * Props (CLAUDE.md §4 / Sanity noticeBlock):
+ *   label  string  — small uppercase label (e.g. "Onze regel")
+ *   text   string  — body of the note
+ */
+interface Props {
+  label: string;
+  text: string;
+  class?: string;
+}
+
+const { label, text, class: className = "" } = Astro.props;
+---
+
+<aside
+  class:list={[
+    "my-7 rounded-lg border-l-[3px] border-yellow-500 bg-pink-200 px-5 py-4 font-sans text-[15px] leading-relaxed text-base-700",
+    className,
+  ]}
+>
+  <strong
+    class="mb-1.5 block font-subtitle text-xs font-semibold uppercase tracking-[0.14em] text-yellow-700"
+    >{label}</strong
+  >
+  {text}
+</aside>

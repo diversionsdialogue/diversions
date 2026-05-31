@@ -1,0 +1,95 @@
+---
+/**
+ * ShareRail — "Delen" + X/LinkedIn-deellinks + kopieer-link-knop.
+ * Omgebouwd vanuit design/blog-components.jsx <ShareRail/>.
+ * De deel-URL's worden server-side opgebouwd uit de absolute pagina-URL
+ * (Astro.site + pathname); de kopieerknop gebruikt navigator.clipboard.
+ */
+interface Props {
+  title?: string;
+}
+const { title = "" } = Astro.props;
+
+// Absolute URL van het huidige artikel (valt terug op pathname als site ontbreekt).
+const pageUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href;
+const shareText = title;
+
+const xUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+  pageUrl
+)}&text=${encodeURIComponent(shareText)}`;
+const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+  pageUrl
+)}`;
+---
+
+<div class="post-share">
+  <span class="label">Delen</span>
+  <a
+    href={xUrl}
+    class="icon-btn"
+    aria-label="Deel op X (Twitter)"
+    target="_blank"
+    rel="noopener"
+  >
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path
+        d="M18.244 2H21l-6.51 7.44L22 22h-6.94l-4.84-6.32L4.6 22H2l6.97-7.96L1.5 2h7.07l4.38 5.79L18.244 2Zm-1.22 18h1.65L7.05 4H5.32l11.7 16Z"
+      ></path>
+    </svg>
+  </a>
+  <a
+    href={linkedInUrl}
+    class="icon-btn"
+    aria-label="Deel op LinkedIn"
+    target="_blank"
+    rel="noopener"
+  >
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.6"
+      aria-hidden="true"
+    >
+      <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+      <path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 13v4"></path>
+    </svg>
+  </a>
+  <button
+    type="button"
+    class="icon-btn"
+    aria-label="Kopieer link"
+    data-copy-link
+    data-url={pageUrl}
+  >
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      aria-hidden="true"
+    >
+      <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+      <path d="M5 15V6a2 2 0 0 1 2-2h9"></path>
+    </svg>
+  </button>
+</div>
+
+<script is:inline>
+  (function () {
+    const btn = document.querySelector("[data-copy-link]");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      const url = btn.getAttribute("data-url") || window.location.href;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function () {
+          btn.setAttribute("aria-label", "Link gekopieerd");
+          setTimeout(function () {
+            btn.setAttribute("aria-label", "Kopieer link");
+          }, 2000);
+        });
+      }
+    });
+  })();
+</script>

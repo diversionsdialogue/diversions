@@ -1,0 +1,108 @@
+---
+// ServicesLayout.astro — long-form services-detail-leeslayout.
+// Omgebouwd vanuit design/services-detail.html + design/article.css. Gebruikt
+// de volledige site-chrome (Navigation + Footer via BaseLayout) en de
+// .article-template-scope uit global.css. De body komt in
+// Content-Collections-modus als platte markdown-HTML binnen via <slot/> en
+// wordt door de .article-typografie netjes opgemaakt. De rijke Sanity-blokken
+// worden hier NIET gerenderd (dat is de latere Portable-Text-route).
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ArticleTOC from "@/components/global/article/ArticleTOC.astro";
+
+interface Props {
+  frontmatter: {
+    service: string;
+    description: string;
+  };
+  /** Slug van deze dienst, voor canonical/breadcrumb (zie [...slug].astro). */
+  id?: string;
+  /** Geschatte leestijd in minuten (berekend in [...slug].astro). */
+  readingMinutes?: number;
+  /**
+   * Toon een hero-afbeelding bovenaan. Default UIT: het services-schema heeft
+   * geen thumbnail/afbeelding-veld (zie CLAUDE.md §2), dus er is geen bron.
+   * Geflagd; zet pas aan als het schema een afbeelding krijgt.
+   */
+  showHero?: boolean;
+}
+const { frontmatter, id, readingMinutes, showHero = false } = Astro.props;
+
+// --- Structured data: BreadcrumbList (Home > Diensten > deze dienst) ---------
+const siteUrl = import.meta.env.SITE || "https://diversions.nl";
+const breadcrumbSchema = id
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: new URL("/", siteUrl).toString(),
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Diensten",
+          item: new URL("/services", siteUrl).toString(),
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: frontmatter.service,
+          item: new URL(`/services/${id}`, siteUrl).toString(),
+        },
+      ],
+    }
+  : undefined;
+---
+
+<BaseLayout
+  jsonLd={breadcrumbSchema}
+  seo={{
+    title: frontmatter.service,
+    description: frontmatter.description,
+  }}
+>
+  <div class="article-template">
+    <div class="article-shell">
+      <ArticleTOC title="Onze diensten" />
+
+      <article id="article" class="article">
+        <span class="article-eyebrow">Diensten</span>
+        <h1>{frontmatter.service}</h1>
+        <p class="article-lead">{frontmatter.description}</p>
+        <div class="article-meta">
+          {
+            readingMinutes && (
+              <span>
+                <strong>{readingMinutes} min</strong> leestijd
+              </span>
+            )
+          }
+        </div>
+
+        {
+          showHero && (
+            <div class="article-hero-img">
+              {/* Placeholder: services-schema heeft (nog) geen afbeelding. */}
+            </div>
+          )
+        }
+
+        <slot />
+
+        <div class="chapter-pager">
+          <a href="/work" class="chapter-link prev">
+            <div class="label">Vorige</div>
+            <div class="title">Bekijk werk</div>
+          </a>
+          <a href="/contact" class="chapter-link next">
+            <div class="label">Volgende</div>
+            <div class="title">Start een project</div>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</BaseLayout>

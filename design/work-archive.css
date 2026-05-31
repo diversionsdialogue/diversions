@@ -1,0 +1,526 @@
+/* =========================================================================
+   Werk — overzichtspagina-styles
+   3x2 grid van portrait-cards. Iedere thumbnail is een mini-mockup
+   gemaakt van CSS/HTML — geen externe screenshots, dus altijd scherp.
+   ========================================================================= */
+
+/* ---------------- HEAD ---------------- */
+.wa-head {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: end;
+  padding: 56px 32px 40px;
+}
+@media (min-width: 768px) {
+  .wa-head {
+    grid-template-columns: 1.6fr 1fr;
+    gap: 80px;
+    padding: 72px 40px 48px;
+  }
+}
+@media (min-width: 1024px) {
+  .wa-head { padding: 96px 56px 56px; }
+}
+
+.wa-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5.6vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.wa-intro {
+  font-family: var(--font-sans);
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 32ch;
+  text-wrap: pretty;
+}
+
+/* ---------------- GRID ---------------- */
+.wa-grid-section {
+  padding: 0 32px 96px;
+}
+@media (min-width: 768px) { .wa-grid-section { padding: 0 40px 112px; } }
+@media (min-width: 1024px) { .wa-grid-section { padding: 0 56px 128px; } }
+
+.wa-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px 24px;
+}
+@media (min-width: 640px) { .wa-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1024px) { .wa-grid { grid-template-columns: repeat(3, 1fr); gap: 40px 28px; } }
+
+.wa-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--duration-base) var(--ease);
+}
+.wa-card:hover { transform: translateY(-3px); }
+
+.wa-thumb {
+  aspect-ratio: 3 / 2;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  background: var(--color-accent-100);
+  border: 1px solid var(--border);
+  isolation: isolate;
+}
+
+.wa-meta { padding: 0 2px; }
+
+.wa-name {
+  font-family: var(--font-subtitle);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--ink);
+  margin: 0 0 4px;
+  text-decoration: none;
+}
+.wa-cat {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--ink-mute);
+  margin: 0;
+}
+
+/* =========================================================================
+   PREVIEW 1 — Atelier Noord: pastel band + color mosaic
+   ========================================================================= */
+.wa-preview { width: 100%; height: 100%; position: relative; }
+
+.wa-preview-ovra {
+  background: var(--color-pink-100);
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  gap: 14px;
+}
+.wa-preview-band {
+  background: rgba(255,255,255,0.7);
+  padding: 8px 12px;
+  border-radius: 4px;
+  align-self: flex-start;
+}
+.wa-preview-logo {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.wa-preview-copy {
+  background: rgba(255,255,255,0.7);
+  padding: 12px 14px;
+  border-radius: 6px;
+}
+.wa-preview-copy h4 {
+  font-family: var(--font-subtitle);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--ink);
+  margin: 0;
+}
+.wa-preview-mosaic {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  aspect-ratio: 3 / 2;
+}
+.wa-preview-mosaic span { display: block; border-radius: 3px; }
+
+/* =========================================================================
+   PREVIEW 2 — MessUp: vertical stripes + bold display text
+   ========================================================================= */
+.wa-preview-stripes {
+  background: #000;
+  position: relative;
+  overflow: hidden;
+}
+.wa-stripes {
+  position: absolute;
+  inset: 0;
+  display: flex;
+}
+.wa-stripes span {
+  flex: 1;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.wa-stripes span:nth-child(odd) { background: #000; }
+.wa-stripes span:nth-child(even) { background: #0a0a0a; }
+.wa-stripes-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.wa-stripes-text h4 {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4.6vw, 40px);
+  line-height: 0.95;
+  color: #fff;
+  margin: 0;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+.wa-stripes-text em {
+  font-style: italic;
+  font-family: var(--font-quote);
+  font-weight: 400;
+  color: var(--color-yellow-300);
+  letter-spacing: 0;
+}
+
+/* =========================================================================
+   PREVIEW 3 — Hof & Co: lavender top, green type-spec block
+   ========================================================================= */
+.wa-preview-fonts {
+  display: flex;
+  flex-direction: column;
+}
+.wa-fonts-top {
+  background: oklch(0.86 0.07 295);
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 38%;
+  position: relative;
+  overflow: hidden;
+}
+.wa-fonts-display {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 38px);
+  line-height: 0.9;
+  color: #fff;
+  letter-spacing: -0.04em;
+}
+.wa-fonts-display.alt { color: var(--ink); }
+.wa-fonts-badge {
+  background: var(--color-yellow-300);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.wa-fonts-spec {
+  background: oklch(0.6 0.13 158);
+  color: #fff;
+  flex: 1;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.wa-fonts-spec h5 {
+  font-family: var(--font-subtitle);
+  font-weight: 600;
+  font-size: 12px;
+  margin: 0 0 8px;
+  color: rgba(255,255,255,0.85);
+}
+.wa-fonts-tag {
+  font-family: var(--font-subtitle);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+.wa-fonts-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.wa-fonts-name.muted {
+  color: rgba(255,255,255,0.55);
+  margin-top: auto;
+  align-self: flex-end;
+}
+
+/* =========================================================================
+   PREVIEW 4 — Veld Magazine: editorial, yellow + pink shape
+   ========================================================================= */
+.wa-preview-editorial {
+  background: var(--color-yellow-300);
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.wa-edi-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-family: var(--font-subtitle);
+  font-size: 10px;
+  color: var(--ink);
+}
+.wa-edi-tag { letter-spacing: 0.06em; }
+.wa-edi-shape {
+  width: 56px;
+  height: 32px;
+  background: radial-gradient(circle at 30% 50%, var(--color-pink-300) 0 30%, transparent 31%),
+              radial-gradient(circle at 70% 50%, var(--color-accent-400) 0 30%, transparent 31%),
+              var(--color-pink-200);
+  border-radius: 8px;
+}
+.wa-edi-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 14px 14px 12px;
+}
+.wa-edi-card h5 {
+  font-family: var(--font-display);
+  font-size: 14px;
+  line-height: 1.1;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+.wa-edi-card p {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.wa-edi-sub {
+  font-family: var(--font-subtitle);
+  font-weight: 600;
+  font-size: 11px;
+  color: var(--ink);
+  margin: 6px 0 0;
+}
+.wa-edi-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 4px;
+}
+.wa-edi-row span {
+  background: var(--color-pink-200);
+  border-radius: 6px;
+  aspect-ratio: 1 / 1;
+  display: block;
+}
+.wa-edi-row span:nth-child(2) { background: var(--color-accent-300); }
+.wa-edi-row span:nth-child(3) { background: var(--color-pink-300); }
+
+/* =========================================================================
+   PREVIEW 5 — Stop Boys: blue + wave
+   ========================================================================= */
+.wa-preview-wave {
+  background: oklch(0.62 0.18 250);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.wa-wave-top {
+  padding: 18px 18px 0;
+  flex: 0 0 50%;
+  position: relative;
+  z-index: 2;
+}
+.wa-wave-top h4 {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.6vw, 38px);
+  line-height: 0.95;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+.wa-wave-svg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 38%;
+  width: 100%;
+  height: 22%;
+  color: oklch(0.78 0.12 230);
+  z-index: 1;
+}
+.wa-wave-copy {
+  margin-top: auto;
+  background: #fff;
+  padding: 14px;
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+}
+.wa-wave-copy p {
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0;
+}
+
+/* =========================================================================
+   PREVIEW 6 — Stadsmuseum Tilburg: testimonial mint
+   ========================================================================= */
+.wa-preview-mint {
+  background: oklch(0.92 0.06 165);
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 12px;
+}
+.wa-mint-top {
+  display: flex;
+  justify-content: flex-end;
+}
+.wa-mint-band {
+  display: block;
+  width: 60%;
+  height: 4px;
+  background: var(--color-yellow-500);
+  border-radius: 2px;
+}
+.wa-mint-quote {
+  background: #fff;
+  border-radius: 6px;
+  padding: 12px 14px;
+  position: relative;
+}
+.wa-mint-mark {
+  font-family: var(--font-display);
+  font-size: 24px;
+  color: var(--color-yellow-500);
+  line-height: 1;
+  display: block;
+  margin-bottom: 4px;
+}
+.wa-mint-quote p {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 0;
+}
+.wa-mint-card {
+  margin-top: auto;
+  background: oklch(0.78 0.09 165);
+  padding: 12px 14px;
+  border-radius: 6px;
+}
+.wa-mint-card p {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 0;
+  text-align: center;
+}
+
+/* =========================================================================
+   HIRE-US BAND
+   ========================================================================= */
+.wa-hire {
+  background: #babf9e;
+  color: var(--ink);
+  border-radius: 0;
+}
+.wa-hire-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+  padding: 56px 32px;
+}
+@media (min-width: 768px) {
+  .wa-hire-inner {
+    grid-template-columns: 1.7fr 1fr;
+    gap: 48px;
+    padding: 80px 56px;
+  }
+}
+
+.wa-hire-eyebrow {
+  font-family: var(--font-subtitle);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  opacity: 0.75;
+}
+.wa-hire-eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--ink);
+  opacity: 0.6;
+  display: inline-block;
+}
+
+.wa-hire-title {
+  font-family: var(--font-subtitle);
+  font-weight: 600;
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.3;
+  color: var(--ink);
+  margin: 0 0 16px;
+  text-wrap: balance;
+}
+
+.wa-hire-body {
+  font-family: var(--font-sans);
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 50ch;
+}
+
+.wa-hire-cta {
+  justify-self: start;
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  background: var(--ink-strong);
+  color: #fff;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  font-family: var(--font-subtitle);
+  font-weight: 500;
+  font-size: 16px;
+  transition: transform var(--duration-base) var(--ease), background var(--duration-base) var(--ease);
+}
+@media (min-width: 768px) { .wa-hire-cta { justify-self: end; width: 184px; height: 184px; } }
+.wa-hire-cta:hover { background: var(--color-yellow-500); transform: translateY(-2px); }
+.wa-hire-cta svg { width: 22px; height: 22px; }

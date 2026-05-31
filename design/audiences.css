@@ -1,0 +1,239 @@
+/* =========================================================================
+   Doelgroepen — page-specific styles
+   Layout follows the Outkast services template:
+   - Split hero (dark sage panel + image)
+   - Bordered intro tekstblok (new addition vs Outkast)
+   - 2-column headline → 2x3 audience grid with concentric-rings backdrop
+   ========================================================================= */
+
+/* ---------------- HERO ---------------- */
+.aud-hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 32px;
+}
+@media (min-width: 768px) {
+  .aud-hero {
+    grid-template-columns: 1fr 1.6fr;
+    gap: 20px;
+    padding: 40px;
+  }
+}
+@media (min-width: 1024px) {
+  .aud-hero { padding: 48px 56px; gap: 24px; }
+}
+
+.aud-hero-panel {
+  background: var(--color-accent-700);          /* deep sage */
+  color: #fff;
+  border-radius: 18px;
+  padding: 32px 28px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .aud-hero-panel { padding: 36px 32px; min-height: 420px; }
+}
+
+.aud-hero-spark {
+  width: 56px;
+  height: 56px;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.aud-hero-eyebrow {
+  font-family: var(--font-subtitle);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.aud-hero-title {
+  font-family: var(--font-subtitle);
+  font-weight: 600;
+  font-size: clamp(24px, 2.4vw, 32px);
+  line-height: 1.2;
+  color: #fff;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.aud-hero-image {
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--color-accent-200);
+  min-height: 320px;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .aud-hero-image { min-height: 420px; }
+}
+.aud-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------------- INTRO BLOCK (the new addition) ---------------- */
+.aud-intro-wrap {
+  padding: 0 32px 0;
+}
+@media (min-width: 768px) {
+  .aud-intro-wrap { padding: 0 40px; }
+}
+@media (min-width: 1024px) {
+  .aud-intro-wrap { padding: 0 56px; }
+}
+
+.aud-intro {
+  border: 1.5px solid var(--color-yellow-500);   /* terracotta border, matches the screenshot's red outline */
+  border-radius: 14px;
+  padding: 28px 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .aud-intro {
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    padding: 36px 40px;
+    align-items: start;
+  }
+}
+
+.aud-intro-label {
+  font-family: var(--font-subtitle);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-yellow-600);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.aud-intro-label::before {
+  content: "";
+  width: 22px;
+  height: 2px;
+  background: var(--color-yellow-500);
+  display: inline-block;
+}
+
+.aud-intro-body p {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 0 0 14px;
+  max-width: 62ch;
+}
+.aud-intro-body p:last-child { margin-bottom: 0; }
+.aud-intro-body p:first-child {
+  font-family: var(--font-subtitle);
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+/* ---------------- AUDIENCE GRID ---------------- */
+.aud-grid-section {
+  padding: 80px 32px 96px;
+}
+@media (min-width: 768px) {
+  .aud-grid-section { padding: 96px 40px 112px; }
+}
+@media (min-width: 1024px) {
+  .aud-grid-section { padding: 120px 56px 128px; }
+}
+
+.aud-grid-head {
+  margin-bottom: 56px;
+  max-width: 760px;
+}
+
+.aud-grid-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+  text-wrap: balance;
+}
+.aud-grid-title em {
+  font-style: normal;
+  color: var(--color-yellow-500);
+}
+
+.aud-grid-wrap {
+  position: relative;
+}
+
+.aud-rings {
+  position: absolute;
+  right: -120px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(360px, 50vw, 620px);
+  color: var(--color-accent-200);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+@media (max-width: 767px) {
+  .aud-rings {
+    right: -180px;
+    top: auto;
+    bottom: -100px;
+    transform: none;
+    width: 420px;
+    opacity: 0.4;
+  }
+}
+
+.aud-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px 56px;
+}
+@media (min-width: 640px) {
+  .aud-grid { grid-template-columns: 1fr 1fr; gap: 40px 56px; }
+}
+@media (min-width: 1024px) {
+  .aud-grid { gap: 48px 80px; }
+}
+
+.aud-card h3 {
+  font-family: var(--font-subtitle);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+
+.aud-card p {
+  font-family: var(--font-sans);
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 36ch;
+}

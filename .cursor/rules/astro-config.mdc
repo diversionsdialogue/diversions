@@ -1,0 +1,11 @@
+---
+description: Astro config — site URL, Tailwind Vite plugin, sitemap only
+globs: apps/web/astro.config.*
+---
+
+# Astro configuration
+
+- **Integrations:** `apps/web/astro.config.mjs` registers **`@astrojs/sitemap`** only. Do not add integrations (e.g. MDX) in config unless they are added to `apps/web/package.json` and required by the project.
+- **Tailwind:** Styled via **`@tailwindcss/vite`** in `vite.plugins` — not `@astrojs/tailwind`.
+- **Site URL:** `site` is set in this file; SEO components also use layout-level props — keep production URL consistent with deployment.
+- **Markdown / Shiki:** `markdown` and top-level `shikiConfig` are defined here; respect `drafts` and theme settings when touching content rendering.

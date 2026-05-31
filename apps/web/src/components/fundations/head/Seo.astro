@@ -1,0 +1,97 @@
+---
+import { AstroSeo } from "@lexingtonthemes/seo";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: {
+    url: string;
+    alt?: string;
+  };
+  type?: "website" | "article";
+  publishedTime?: string;
+  noindex?: boolean;
+}
+
+const {
+  title: pageTitle,
+  description: pageDescription,
+  image: pageImage,
+  type = "website",
+  publishedTime,
+  noindex = false,
+} = Astro.props;
+
+// Site defaults (no siteSettings collection in this project)
+const siteTitle = "Diversions";
+const siteDescription =
+  "Diversions helpt organisaties klaar te staan voor de klant van vandaag en morgen — van onderzoek en customer journeys tot conversie en groei.";
+// `import.meta.env.SITE` komt uit astro.config.mjs (`site: https://diversions.nl`).
+// De fallback wordt in productie niet gebruikt, maar staat op het echte domein
+// zodat canonicals nooit op een placeholder uitkomen.
+const siteUrl = import.meta.env.SITE || "https://diversions.nl";
+
+// Default deel-/og-afbeelding op site-niveau (absolute URL t.o.v. siteUrl).
+const defaultOgImage = new URL(
+  "/assets/diversions-logo.svg",
+  siteUrl,
+).toString();
+
+// Use page-specific values or fall back to site defaults
+const title = pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle;
+const description = pageDescription || siteDescription;
+const canonical = new URL(Astro.url.pathname, siteUrl).toString();
+
+// Image: page-specifieke afbeelding (relatieve paden absoluut maken), anders de
+// site-default. Zo heeft elke pagina altijd een og:image.
+const rawImage = pageImage?.url || defaultOgImage;
+const ogImageUrl = rawImage.startsWith("http")
+  ? rawImage
+  : new URL(rawImage, siteUrl).toString();
+const ogImageAlt = pageImage?.alt || title;
+// MIME-type afleiden uit de extensie (default jpeg; SVG-logo netjes labelen).
+const ogImageType = ogImageUrl.endsWith(".svg")
+  ? "image/svg+xml"
+  : ogImageUrl.endsWith(".png")
+    ? "image/png"
+    : ogImageUrl.endsWith(".webp")
+      ? "image/webp"
+      : "image/jpeg";
+
+const twitterHandle = "";
+---
+
+<AstroSeo
+  title={title}
+  description={description}
+  canonical={canonical}
+  noindex={noindex}
+  openGraph={{
+    url: canonical,
+    title: title,
+    description: description,
+    images: [
+      {
+        url: ogImageUrl,
+        width: 1200,
+        height: 630,
+        alt: ogImageAlt,
+        type: ogImageType,
+      },
+    ],
+    site_name: siteTitle,
+    type: type,
+    locale: "nl_NL",
+    ...(type === "article" &&
+      publishedTime && {
+        article: {
+          publishedTime: publishedTime,
+        },
+      }),
+  }}
+  twitter={{
+    handle: twitterHandle,
+    site: twitterHandle,
+    cardType: "summary_large_image",
+  }}
+/>

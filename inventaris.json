@@ -1,0 +1,4414 @@
+[
+  {
+    "oude_url": "/diversions-motor-groei",
+    "titel": "Diversions: motor voor groei",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/onze-diensten",
+    "titel": "Onze diensten",
+    "type": "pagina",
+    "bestemming": "bouwen-in-astro",
+    "nieuwe_url": "/onze-diensten",
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 63,
+      "positie": "3.51",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "structurele pagina (services-overzicht)"
+  },
+  {
+    "oude_url": "/updates",
+    "titel": "Updates",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). gedropt in SEO-fase (akkoord gebruiker 2026-05-31); 301 -> /blog"
+  },
+  {
+    "oude_url": "/?page_id=924",
+    "titel": "Ons werk",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "leeg/test bestand (0 tekens), geen verkeer"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "DRAFT/leeg/test -> droppen (gebruikersbeslissing); geen meetbaar verkeer"
+  },
+  {
+    "oude_url": "/kennismaking-bedankt",
+    "titel": "Kennismaking - bedankt!",
+    "type": "pagina",
+    "bestemming": "bouwen-in-astro",
+    "nieuwe_url": "/kennismaking-bedankt",
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "backlinks-checken"
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "overige gepubliceerde pagina - voorlopig bouwen-in-astro; bestemming beoordelen; weinig/geen verkeer + dunne content - keep/drop beoordelen (backlinks-check in SEO-fase)"
+  },
+  {
+    "oude_url": "/marketing-innovatie-adviseur",
+    "titel": "Innovatie adviseur nodig?",
+    "type": "pagina",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 6,
+      "positie": "17.83",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/onze-diensten",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /onze-diensten. dienst/long-form -> service",
+    "gone": false
+  },
+  {
+    "oude_url": "/?page_id=2290",
+    "titel": "Wat we doen",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "pending concept, niet live (?page_id), geen verkeer"
+    },
+    "redirect_naar": "/onze-diensten",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "ongesloten shortcode - opschonen in convert; PENDING concept met ?page_id-URL, niet in sitemap, geen GSC-data -> droppen (gebruikersbeslissing); bevestigen"
+  },
+  {
+    "oude_url": "/?page_id=2565",
+    "titel": "Onze diensten oud",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "draft, niet live, geen verkeerdata"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "ongesloten shortcode - opschonen in convert; DRAFT/concept, niet in sitemap, geen GSC-data -> droppen (gebruikersbeslissing); bevestigen"
+  },
+  {
+    "oude_url": "/?page_id=2857",
+    "titel": "Blog nieuw",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "draft, niet live, geen verkeerdata"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "DRAFT/concept, niet in sitemap, geen GSC-data -> droppen (gebruikersbeslissing); bevestigen"
+  },
+  {
+    "oude_url": "/?page_id=3018",
+    "titel": "Wat is SEO? En 26 andere veel gestelde vragen over zoekmachine optimalisatie",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "draft, niet live, geen verkeerdata"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "DRAFT/concept, niet in sitemap, geen GSC-data -> droppen (gebruikersbeslissing); bevestigen"
+  },
+  {
+    "oude_url": "/?page_id=3360",
+    "titel": "SEO cursus",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "draft, niet live, geen verkeerdata"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "bevat Gravity Form (zie formulieren-inventaris); DRAFT/concept, niet in sitemap, geen GSC-data -> droppen (gebruikersbeslissing); bevestigen"
+  },
+  {
+    "oude_url": "/?page_id=4647",
+    "titel": "Test",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "leeg/test bestand (0 tekens), geen verkeer"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "DRAFT/leeg/test -> droppen (gebruikersbeslissing); geen meetbaar verkeer"
+  },
+  {
+    "oude_url": "/?page_id=67465",
+    "titel": "Blog pagina",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "draft, niet live, geen verkeerdata"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "DRAFT/concept, niet in sitemap, geen GSC-data -> droppen (gebruikersbeslissing); bevestigen"
+  },
+  {
+    "oude_url": "/?page_id=67820",
+    "titel": "Persona’s patiënt journey",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "draft, niet live, geen verkeerdata"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "DRAFT/concept, niet in sitemap, geen GSC-data -> droppen (gebruikersbeslissing); bevestigen"
+  },
+  {
+    "oude_url": "/?page_id=67983",
+    "titel": "Cases - Erfrechtshulp",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "draft, niet live, geen verkeerdata"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "DRAFT/concept, niet in sitemap, geen GSC-data -> droppen (gebruikersbeslissing); bevestigen"
+  },
+  {
+    "oude_url": "/?page_id=69848",
+    "titel": "(zonder titel)",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "draft, niet live, geen verkeerdata"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "DRAFT/concept, niet in sitemap, geen GSC-data -> droppen (gebruikersbeslissing); bevestigen"
+  },
+  {
+    "oude_url": "/?page_id=69982",
+    "titel": "Accountancy",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "draft, niet live, geen verkeerdata"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "DRAFT/concept, niet in sitemap, geen GSC-data -> droppen (gebruikersbeslissing); bevestigen"
+  },
+  {
+    "oude_url": "/?page_id=72720",
+    "titel": "Diary study",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "draft, niet live, geen verkeerdata"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "DRAFT/concept, niet in sitemap, geen GSC-data -> droppen (gebruikersbeslissing); bevestigen"
+  },
+  {
+    "oude_url": "/?page_id=72762",
+    "titel": "Accountancy chat start",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "leeg/test bestand (0 tekens), geen verkeer"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "DRAFT/leeg/test -> droppen (gebruikersbeslissing); geen meetbaar verkeer"
+  },
+  {
+    "oude_url": "/?page_id=72782",
+    "titel": "Accountancy vragen",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "draft, niet live, geen verkeerdata"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "DRAFT/concept, niet in sitemap, geen GSC-data -> droppen (gebruikersbeslissing); bevestigen"
+  },
+  {
+    "oude_url": "/contact-2",
+    "titel": "Contact",
+    "type": "pagina",
+    "bestemming": "bouwen-in-astro",
+    "nieuwe_url": "/contact",
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "backlinks-checken"
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "bevat Gravity Form (zie formulieren-inventaris); structurele pagina (contact); weinig/geen verkeer + dunne content - keep/drop beoordelen (backlinks-check in SEO-fase)"
+  },
+  {
+    "oude_url": "/volgende-stap-voor-de-maag-lever-darm-stichting",
+    "titel": "Volgende stap voor de Maag Lever Darm Stichting",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); 410 GONE, geen redirect. funnel/CTA-landingspagina, eigenaar beheert -> bouwen-in-astro",
+    "gone": true
+  },
+  {
+    "oude_url": "/videocall-plannen",
+    "titel": "Videocall plannen",
+    "type": "pagina",
+    "bestemming": "bouwen-in-astro",
+    "nieuwe_url": "/videocall-plannen",
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 1,
+      "positie": "9",
+      "backlinks": null,
+      "keep_reden": "backlinks-checken"
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "bevat Gravity Form (zie formulieren-inventaris); funnel/CTA-landingspagina, eigenaar beheert -> bouwen-in-astro; weinig/geen verkeer + dunne content - keep/drop beoordelen (backlinks-check in SEO-fase)"
+  },
+  {
+    "oude_url": "/contentmarketing-motor-groei",
+    "titel": "Contentmarketing: groeien door jezelf te zijn",
+    "type": "pagina",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 182,
+      "positie": "28.03",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/onze-diensten",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /onze-diensten. dienst/long-form -> service",
+    "gone": false
+  },
+  {
+    "oude_url": "/seo-marketing",
+    "titel": "SEO Marketing: meer bezoekers - meer resultaat",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 370,
+      "positie": "57.63",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). body ~460 woorden incompleet t.o.v. Beaver Builder - LIVE-PAGINA NAHALEN in convert-fase (geverifieerd: MD bevat alleen 4 FAQ-blokken); 4 FAQ-items -> faqBlock; dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/conversie-optimalisatie",
+    "titel": "Conversie optimalisatie: meer resultaat",
+    "type": "pagina",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 2763,
+      "positie": "56.62",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/onze-diensten",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /onze-diensten. dienst/long-form -> service",
+    "gone": false
+  },
+  {
+    "oude_url": "/online-marketing-apeldoorn",
+    "titel": "Online marketing bureau Apeldoorn",
+    "type": "pagina",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 3,
+      "vertoningen": 5833,
+      "positie": "31.76",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /. dienst/long-form -> service",
+    "gone": false
+  },
+  {
+    "oude_url": "/online-marketing-amersfoort",
+    "titel": "Online marketing bureau Amersfoort",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 5222,
+      "positie": "44.54",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); 410 GONE, geen redirect. dienst/long-form -> service",
+    "gone": true
+  },
+  {
+    "oude_url": "/online-marketing-amsterdam",
+    "titel": "Online marketing bureau Amsterdam",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 3608,
+      "positie": "54.93",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/online-marketing-utrecht",
+    "titel": "Online marketing bureau Utrecht",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 2,
+      "positie": "9",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/zoekmachine-optimalisatie-utrecht",
+    "titel": "Zoekmachine optimalisatie Utrecht",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). ongesloten shortcode - opschonen in convert; dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/seo-marketing/wat-is-seo",
+    "titel": "Wat is SEO?",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). ongesloten shortcode - opschonen in convert; dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/seo-marketing/zoekmachine-optimalisatie-inzetten",
+    "titel": "Zoekmachine optimalisatie inzetten: wat is de meerwaarde?",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). ongesloten shortcode - opschonen in convert; dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/seo-marketing/wat-is-een-zoekwoord",
+    "titel": "Wat is een zoekwoord? En wat is de waarde ervan?",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 259,
+      "positie": "51.19",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). ongesloten shortcode - opschonen in convert; dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/seo-marketing/organisch-en-betaald-zoekverkeer",
+    "titel": "Organisch en betaald zoekverkeer: wat is het verschil?",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 973,
+      "positie": "25.13",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). 4 FAQ-items -> faqBlock; dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/seo-marketing/linkbuilding-wat-is-het",
+    "titel": "Linkbuilding: wat is het en waarom is het belangrijk?",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 7419,
+      "positie": "44.68",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). ongesloten shortcode - opschonen in convert; dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/seo-marketing/interne-inbound-links",
+    "titel": "Interne & inbound links",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 21,
+      "positie": "57.67",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). ongesloten shortcode - opschonen in convert; dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/ab-testen",
+    "titel": "A/B testen",
+    "type": "pagina",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 5005,
+      "positie": "34.76",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/onze-diensten",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /onze-diensten. dienst/long-form -> service",
+    "gone": false
+  },
+  {
+    "oude_url": "/multivariate-testing",
+    "titel": "Multivariate testing",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 9,
+      "positie": "14.78",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/conversie-optimalisatie-specialist",
+    "titel": "Conversie optimalisatie specialist",
+    "type": "pagina",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 11410,
+      "positie": "27.04",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/onze-diensten",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /onze-diensten. 4 FAQ-items -> faqBlock; dienst/long-form -> service",
+    "gone": false
+  },
+  {
+    "oude_url": "/interviews-en-panels",
+    "titel": "Interviews en panels",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/services/interviews-en-panels",
+    "sanity_type": "service",
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/interviews-en-panels",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/de-weg-naar-klantfrustratie-is-geplaveid-met-goede-bedoelingen",
+    "titel": "De weg naar klantfrustratie is geplaveid met goede bedoelingen",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 3,
+      "positie": "22.33",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/customer-journey-passend-bij-iedere-generatie",
+    "titel": "Customer journey: passend bij iedere generatie",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/services/customer-journey-passend-bij-iedere-generatie",
+    "sanity_type": "service",
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 33,
+      "positie": "33.55",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/customer-journey-passend-bij-iedere-generatie",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/customer-journey-kpi-dashboards",
+    "titel": "Customer journey: KPI &amp; Dashboards",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 10,
+      "positie": "9.3",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); 410 GONE, geen redirect. dienst/long-form -> service",
+    "gone": true
+  },
+  {
+    "oude_url": "/heatmaps",
+    "titel": "Heatmaps",
+    "type": "pagina",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 142,
+      "positie": "19.47",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/gebruikerstesten",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /services/gebruikerstesten. ongesloten shortcode - opschonen in convert; dienst/long-form -> service",
+    "gone": false
+  },
+  {
+    "oude_url": "/conversie-optimalisatie-onderzoek",
+    "titel": "Conversie optimalisatie: niet alleen online",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 11,
+      "positie": "48.73",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/seo-calculator",
+    "titel": "SEO Calculator: bereken de waarde van SEO",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 1,
+      "vertoningen": 588,
+      "positie": "35.96",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). 3 FAQ-items -> faqBlock; dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/conversie-optimalisatie-bureau",
+    "titel": "Conversie optimalisatie bureau",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 5584,
+      "positie": "37.61",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). 4 FAQ-items -> faqBlock; dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/redirect-calculator",
+    "titel": "redirect calculator",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "redirect-stub"
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). redirect-stub (17 tekens) -> 301 direct naar /services/seo-calculator (dubbele hop vermeden)"
+  },
+  {
+    "oude_url": "/",
+    "titel": "Diversions I Van Inzichten naar Oplossingen",
+    "type": "pagina",
+    "bestemming": "bouwen-in-astro",
+    "nieuwe_url": "/",
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 45,
+      "vertoningen": 647,
+      "positie": "11.76",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "structurele pagina (home)"
+  },
+  {
+    "oude_url": "/journey-de-kracht-van-het-klantperspectief",
+    "titel": "Journey: de kracht van het klantperspectief",
+    "type": "pagina",
+    "bestemming": "bouwen-in-astro",
+    "nieuwe_url": "/journey-de-kracht-van-het-klantperspectief",
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 4,
+      "positie": "6.75",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "bevat Gravity Form (zie formulieren-inventaris); funnel/CTA-landingspagina, eigenaar beheert -> bouwen-in-astro"
+  },
+  {
+    "oude_url": "/propositie-creatie-van-concept-naar-succes",
+    "titel": "Propositie ontwikkeling: zo maak je de start [checklist]",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/services/propositie-creatie-van-concept-naar-succes",
+    "sanity_type": "service",
+    "seo": {
+      "verkeer_12mnd": 17,
+      "vertoningen": 10098,
+      "positie": "23.93",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/propositie-creatie-van-concept-naar-succes",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). 3 FAQ-items -> faqBlock; dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/generation-journey",
+    "titel": "Generation journey",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/services/generation-journey",
+    "sanity_type": "service",
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 53,
+      "positie": "8.3",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/generation-journey",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/privacy-statement",
+    "titel": "Privacy statement",
+    "type": "pagina",
+    "bestemming": "bouwen-in-astro",
+    "nieuwe_url": "/privacy-statement",
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 21,
+      "positie": "16.67",
+      "backlinks": null,
+      "keep_reden": "backlinks-checken"
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "juridische pagina -> kan ook legalPage (Sanity) worden; voorstel: bouwen-in-astro want zelden gewijzigd; structurele pagina (legal); weinig/geen verkeer + dunne content - keep/drop beoordelen (backlinks-check in SEO-fase)"
+  },
+  {
+    "oude_url": "/data-rechten",
+    "titel": "Data rechten",
+    "type": "pagina",
+    "bestemming": "bouwen-in-astro",
+    "nieuwe_url": "/data-rechten",
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "juridische pagina -> kan ook legalPage (Sanity) worden; voorstel: bouwen-in-astro want zelden gewijzigd; structurele pagina (legal)"
+  },
+  {
+    "oude_url": "/cro-doorlopende-groei",
+    "titel": "CRO: maak werk van doorlopende groei",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 462,
+      "positie": "43.83",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/cases-overzichtspagina",
+    "titel": "Cases - Overzichtspagina",
+    "type": "pagina",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 37,
+      "positie": "5.35",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/work",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "DEDUP overzicht (sitemap-opschoning, akkoord gebruiker 2026-05-31): dubbel met /work. Pagina verwijderd, 301 -> /work.",
+    "gone": false
+  },
+  {
+    "oude_url": "/contact",
+    "titel": "Contact",
+    "type": "pagina",
+    "bestemming": "bouwen-in-astro",
+    "nieuwe_url": "/contact",
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "backlinks-checken"
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "structurele pagina (contact); weinig/geen verkeer + dunne content - keep/drop beoordelen (backlinks-check in SEO-fase)"
+  },
+  {
+    "oude_url": "/insights",
+    "titel": "Kwalitatief onderzoek: de basis voor succes",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/services/insights",
+    "sanity_type": "service",
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 128,
+      "positie": "45.12",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/insights",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/marketing-automation",
+    "titel": "Marketing Automation: effectief van eerste contact tot verkoop",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 2910,
+      "positie": "75.9",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); 410 GONE, geen redirect. dienst/long-form -> service",
+    "gone": true
+  },
+  {
+    "oude_url": "/cases-overzichtspagina/leefjepensioen",
+    "titel": "Case - Leefjepensioen.nl",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/work/leefjepensioen",
+    "sanity_type": "workItem",
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 48,
+      "positie": "12.69",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/work/leefjepensioen",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). case -> workItem"
+  },
+  {
+    "oude_url": "/cases-overzichtspagina/case-erfrechtshulp",
+    "titel": "Case - Erfrechtshulp",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/work/case-erfrechtshulp",
+    "sanity_type": "workItem",
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 32,
+      "positie": "18.94",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/work/case-erfrechtshulp",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). case -> workItem"
+  },
+  {
+    "oude_url": "/cases-overzichtspagina/case-ggnet",
+    "titel": "Case - GGNet",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/work/case-ggnet",
+    "sanity_type": "workItem",
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 15,
+      "positie": "36.47",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/work/case-ggnet",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). case -> workItem"
+  },
+  {
+    "oude_url": "/cases-overzichtspagina/case-twynstragudde",
+    "titel": "Case - TwynstraGudde",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). case -> workItem"
+  },
+  {
+    "oude_url": "/cases-overzichtspagina/case-rodekruis",
+    "titel": "Case - Rode Kruis",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/work/case-rodekruis",
+    "sanity_type": "workItem",
+    "seo": {
+      "verkeer_12mnd": 1,
+      "vertoningen": 24,
+      "positie": "25.12",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/work/case-rodekruis",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). case -> workItem"
+  },
+  {
+    "oude_url": "/innovatie-intake",
+    "titel": "Innovatie intake",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (sitemap-opschoning, akkoord gebruiker 2026-05-31); oud, 410 GONE, geen redirect.",
+    "gone": true
+  },
+  {
+    "oude_url": "/onderzoeksbureau",
+    "titel": "Onderzoeksbureau Diversions: onderzoek met meerwaarde",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/services/onderzoeksbureau",
+    "sanity_type": "service",
+    "seo": {
+      "verkeer_12mnd": 1,
+      "vertoningen": 936,
+      "positie": "40.76",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/onderzoeksbureau",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/micro-journey-de-waardevolle-verdieping-op-customer-journeys",
+    "titel": "Micro journey: de waardevolle verdieping op customer journeys",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/services/micro-journey-de-waardevolle-verdieping-op-customer-journeys",
+    "sanity_type": "service",
+    "seo": {
+      "verkeer_12mnd": 3,
+      "vertoningen": 499,
+      "positie": "42.73",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/micro-journey-de-waardevolle-verdieping-op-customer-journeys",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/customer-journey",
+    "titel": "Customer journey: de waarde voor jouw organisatie",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/services/customer-journey",
+    "sanity_type": "service",
+    "seo": {
+      "verkeer_12mnd": 1,
+      "vertoningen": 5430,
+      "positie": "69.89",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/customer-journey",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/patient-journey",
+    "titel": "Patient Journey: insights voor betere zorg",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/services/patient-journey",
+    "sanity_type": "service",
+    "seo": {
+      "verkeer_12mnd": 2,
+      "vertoningen": 881,
+      "positie": "40.46",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/patient-journey",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/project-starten",
+    "titel": "Project starten",
+    "type": "pagina",
+    "bestemming": "bouwen-in-astro",
+    "nieuwe_url": "/project-starten",
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 34,
+      "positie": "5.85",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "funnel/CTA-landingspagina, eigenaar beheert -> bouwen-in-astro"
+  },
+  {
+    "oude_url": "/eyetracking-simulatie",
+    "titel": "Eye tracking simulatie: usability test nieuwe stijl",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/services/eyetracking-simulatie",
+    "sanity_type": "service",
+    "seo": {
+      "verkeer_12mnd": 3,
+      "vertoningen": 308,
+      "positie": "33.18",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/eyetracking-simulatie",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/communicatiebureau",
+    "titel": "Communicatiebureau Diversions",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 10,
+      "positie": "5.5",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/design-sprint",
+    "titel": "Design Sprint: effectief innoveren",
+    "type": "pagina",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 3,
+      "vertoningen": 3760,
+      "positie": "32",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/onze-diensten",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /onze-diensten. 3 FAQ-items -> faqBlock; 5 accordion-items (geen Q&A: inhoudslijst/glossarium) - handmatig beoordelen; dienst/long-form -> service",
+    "gone": false
+  },
+  {
+    "oude_url": "/gebruikerstesten",
+    "titel": "Gebruikerstesten: live of op afstand",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/services/gebruikerstesten",
+    "sanity_type": "service",
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 3389,
+      "positie": "45.35",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/gebruikerstesten",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/nps-enquete",
+    "titel": "NPS Enquete nieuwe stijl - Net Promoter Score",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/services/nps-enquete",
+    "sanity_type": "service",
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 394,
+      "positie": "22.43",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/nps-enquete",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/cases-overzichtspagina/case-demondnietvergeten",
+    "titel": "Case - De Mond Niet Vergeten!",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). case -> workItem"
+  },
+  {
+    "oude_url": "/cases-overzichtspagina/pensioencursus",
+    "titel": "Case - Pensioencursus.nl",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/work/pensioencursus",
+    "sanity_type": "workItem",
+    "seo": {
+      "verkeer_12mnd": 1,
+      "vertoningen": 277,
+      "positie": "16.41",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/work/pensioencursus",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). case -> workItem"
+  },
+  {
+    "oude_url": "/diary-study",
+    "titel": "Diary study: de kracht van een doorlopende gebruikerstest",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/services/diary-study",
+    "sanity_type": "service",
+    "seo": {
+      "verkeer_12mnd": 9,
+      "vertoningen": 573,
+      "positie": "13.82",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/diary-study",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/cookie-statement",
+    "titel": "Cookie statement",
+    "type": "pagina",
+    "bestemming": "bouwen-in-astro",
+    "nieuwe_url": "/cookie-statement",
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 10,
+      "positie": "24",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "juridische pagina -> kan ook legalPage (Sanity) worden; voorstel: bouwen-in-astro want zelden gewijzigd; structurele pagina (legal)"
+  },
+  {
+    "oude_url": "/wij-zijn-diversions",
+    "titel": "Wij zijn Diversions",
+    "type": "pagina",
+    "bestemming": "bouwen-in-astro",
+    "nieuwe_url": "/wij-zijn-diversions",
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 17,
+      "vertoningen": 252,
+      "positie": "5.98",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "structurele pagina (over-ons)"
+  },
+  {
+    "oude_url": "/diversions-algemene-voorwaarden",
+    "titel": "Algemene voorwaarden",
+    "type": "pagina",
+    "bestemming": "bouwen-in-astro",
+    "nieuwe_url": "/diversions-algemene-voorwaarden",
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "backlinks-checken"
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "juridische pagina -> kan ook legalPage (Sanity) worden; voorstel: bouwen-in-astro want zelden gewijzigd; structurele pagina (legal); weinig/geen verkeer + dunne content - keep/drop beoordelen (backlinks-check in SEO-fase)"
+  },
+  {
+    "oude_url": "/onderzoeksbureau-zorg",
+    "titel": "Onderzoeksbureau Zorg: onderzoek met meerwaarde",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/services/onderzoeksbureau-zorg",
+    "sanity_type": "service",
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 271,
+      "positie": "24.83",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/onderzoeksbureau-zorg",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/onderzoeksbureau-fondsenwerving",
+    "titel": "Onderzoeksbureau Fondsenwerving: in het hart van de donateur",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/services/onderzoeksbureau-fondsenwerving",
+    "sanity_type": "service",
+    "seo": {
+      "verkeer_12mnd": 1,
+      "vertoningen": 71,
+      "positie": "9.69",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/onderzoeksbureau-fondsenwerving",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/pretest",
+    "titel": "Pretest: starten in 3 eenvoudige stappen",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/services/pretest",
+    "sanity_type": "service",
+    "seo": {
+      "verkeer_12mnd": 12,
+      "vertoningen": 1255,
+      "positie": "17.68",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/pretest",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/onderzoeksbureau-reclame",
+    "titel": "Onderzoeksbureau Reclame: pretesting & effectmeting",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/services/onderzoeksbureau-reclame",
+    "sanity_type": "service",
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 161,
+      "positie": "25.49",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/onderzoeksbureau-reclame",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/cases-overzichtspagina/case-caser",
+    "titel": "Case - Caser",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/work/case-caser",
+    "sanity_type": "workItem",
+    "seo": {
+      "verkeer_12mnd": 1,
+      "vertoningen": 162,
+      "positie": "8.84",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/work/case-caser",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). case -> workItem"
+  },
+  {
+    "oude_url": "/sitemap",
+    "titel": "Sitemap",
+    "type": "pagina",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 23,
+      "positie": "6.39",
+      "backlinks": null,
+      "keep_reden": "WP sitemap-stub; Astro genereert eigen sitemap"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /. WP [wp_sitemap_page]-stub -> droppen, Astro genereert eigen sitemap",
+    "gone": false
+  },
+  {
+    "oude_url": "/diversions-richtlijnen-respondenten",
+    "titel": "Diversions Richtlijnen Respondenten",
+    "type": "pagina",
+    "bestemming": "bouwen-in-astro",
+    "nieuwe_url": "/diversions-richtlijnen-respondenten",
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "juridische pagina -> kan ook legalPage (Sanity) worden; voorstel: bouwen-in-astro want zelden gewijzigd; structurele pagina (legal)"
+  },
+  {
+    "oude_url": "/innovatiebureau",
+    "titel": "Innovatiebureau Diversions: van idee naar succes",
+    "type": "pagina",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 547,
+      "positie": "15.22",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/onze-diensten",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /onze-diensten. dienst/long-form -> service",
+    "gone": false
+  },
+  {
+    "oude_url": "/communicatie-strategie",
+    "titel": "Communicatie strategie: effectief communiceren [checklist]",
+    "type": "pagina",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 9,
+      "vertoningen": 6315,
+      "positie": "29.58",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/onze-diensten",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /onze-diensten. dienst/long-form -> service",
+    "gone": false
+  },
+  {
+    "oude_url": "/72547-2",
+    "titel": "(zonder titel)",
+    "type": "pagina",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 1,
+      "positie": "10",
+      "backlinks": null,
+      "keep_reden": "leeg/test bestand (0 tekens), geen verkeer"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /. DRAFT/leeg/test -> droppen (gebruikersbeslissing); geen meetbaar verkeer",
+    "gone": false
+  },
+  {
+    "oude_url": "/freedcamp",
+    "titel": "Freedcamp",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). gedropt in SEO-fase (akkoord gebruiker 2026-05-31); 301 -> /"
+  },
+  {
+    "oude_url": "/freedcamp-lovah",
+    "titel": "Freedcamp - Lovah",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). gedropt in SEO-fase (akkoord gebruiker 2026-05-31); 301 -> /"
+  },
+  {
+    "oude_url": "/onderzoek",
+    "titel": "Onderzoek Doe-Het-Zelf",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/services/onderzoek",
+    "sanity_type": "service",
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 47,
+      "positie": "7.17",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/onderzoek",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/onderzoek-socials",
+    "titel": "Onderzoek Socials",
+    "type": "pagina",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /. gedropt in SEO-fase (akkoord gebruiker 2026-05-31); 301 -> /",
+    "gone": false
+  },
+  {
+    "oude_url": "/ai-onderzoek",
+    "titel": "AI onderzoek: hoe het werkt",
+    "type": "pagina",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/services/ai-onderzoek",
+    "sanity_type": "service",
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 15,
+      "positie": "6.73",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/ai-onderzoek",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service"
+  },
+  {
+    "oude_url": "/bison",
+    "titel": "Bison diary study",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). gedropt in SEO-fase (akkoord gebruiker 2026-05-31); 301 -> /"
+  },
+  {
+    "oude_url": "/privacy-statement-pensioencursus",
+    "titel": "Privacy statement: pensioencursus",
+    "type": "pagina",
+    "bestemming": "bouwen-in-astro",
+    "nieuwe_url": "/privacy-statement-pensioencursus",
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 1,
+      "vertoningen": 14,
+      "positie": "26.43",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "juridische pagina -> kan ook legalPage (Sanity) worden; voorstel: bouwen-in-astro want zelden gewijzigd; structurele pagina (legal)"
+  },
+  {
+    "oude_url": "/pensioencursus-pensioen-in-zicht-plus",
+    "titel": "Pensioencursus: Pensioen in Zicht Plus",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). gedropt in SEO-fase (akkoord gebruiker 2026-05-31); 301 -> /"
+  },
+  {
+    "oude_url": "/accountancy-chat",
+    "titel": "Accountancy chat",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). gedropt in SEO-fase (akkoord gebruiker 2026-05-31); 301 -> /"
+  },
+  {
+    "oude_url": "/accountancy-slot",
+    "titel": "Accountancy tot slot",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). gedropt in SEO-fase (akkoord gebruiker 2026-05-31); 301 -> /"
+  },
+  {
+    "oude_url": "/accountancy-video",
+    "titel": "Accountancy video",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "backlinks-checken"
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). gedropt in SEO-fase (akkoord gebruiker 2026-05-31); 301 -> / (geen/weinig verkeer, dunne content)"
+  },
+  {
+    "oude_url": "/bison-bonus-materiaal",
+    "titel": "Bison Bonus materiaal",
+    "type": "pagina",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "backlinks-checken"
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). gedropt in SEO-fase (akkoord gebruiker 2026-05-31); 301 -> / (geen/weinig verkeer, dunne content)"
+  },
+  {
+    "oude_url": "/?p=2789",
+    "titel": "3 valkuilen voor iedere online campagne",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "draft, niet live, geen verkeerdata"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "bevat Gravity Form (zie formulieren-inventaris); DRAFT/concept, niet in sitemap, geen GSC-data -> droppen (gebruikersbeslissing); bevestigen"
+  },
+  {
+    "oude_url": "/?p=68224",
+    "titel": "(zonder titel)",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "draft, niet live, geen verkeerdata"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "DRAFT/concept, niet in sitemap, geen GSC-data -> droppen (gebruikersbeslissing); bevestigen"
+  },
+  {
+    "oude_url": "/?p=70900",
+    "titel": "(zonder titel)",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "dubbele slug, draft zonder titel"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "dubbele-slug draft -> droppen"
+  },
+  {
+    "oude_url": "/?p=71595",
+    "titel": "Onbewust kiezen: ontdek het breingeheim met neuromarketing",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "draft met herbruikbaar blok - inhoud beoordelen"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "Gedropt: niet-gepubliceerd DRAFT-bericht (gebruikersbeslissing: drafts droppen). verwijst naar herbruikbaar blok (refs ['71846']) NIET in export - HANDMATIG OPHALEN in convert-fase; 1 accordion-items (geen Q&A: inhoudslijst/glossarium) - handmatig beoordelen; DRAFT, niet live, GEEN verkeerdata - voorstel: importeren als post NA contentcheck (herbruikbaar blok ophalen), anders droppen"
+  },
+  {
+    "oude_url": "/?p=71617",
+    "titel": "Het snelle brein: ontdek het breingeheim met neuromarketing",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "draft met herbruikbaar blok - inhoud beoordelen"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "Gedropt: niet-gepubliceerd DRAFT-bericht (gebruikersbeslissing: drafts droppen). verwijst naar herbruikbaar blok (refs ['71846']) NIET in export - HANDMATIG OPHALEN in convert-fase; 1 accordion-items (geen Q&A: inhoudslijst/glossarium) - handmatig beoordelen; DRAFT, niet live, GEEN verkeerdata - voorstel: importeren als post NA contentcheck (herbruikbaar blok ophalen), anders droppen"
+  },
+  {
+    "oude_url": "/?p=71622",
+    "titel": "Effectief belonen: ontdek het breingeheim",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "draft met herbruikbaar blok - inhoud beoordelen"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "Gedropt: niet-gepubliceerd DRAFT-bericht (gebruikersbeslissing: drafts droppen). verwijst naar herbruikbaar blok (refs ['71846']) NIET in export - HANDMATIG OPHALEN in convert-fase; 4 accordion-items (geen Q&A: inhoudslijst/glossarium) - handmatig beoordelen; DRAFT, niet live, GEEN verkeerdata - voorstel: importeren als post NA contentcheck (herbruikbaar blok ophalen), anders droppen"
+  },
+  {
+    "oude_url": "/?p=71628",
+    "titel": "Het automatische proces: ontdek het breingeheim met neuromarketing",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "draft met herbruikbaar blok - inhoud beoordelen"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "Gedropt: niet-gepubliceerd DRAFT-bericht (gebruikersbeslissing: drafts droppen). verwijst naar herbruikbaar blok (refs ['71846']) NIET in export - HANDMATIG OPHALEN in convert-fase; 1 accordion-items (geen Q&A: inhoudslijst/glossarium) - handmatig beoordelen; DRAFT, niet live, GEEN verkeerdata - voorstel: importeren als post NA contentcheck (herbruikbaar blok ophalen), anders droppen"
+  },
+  {
+    "oude_url": "/?p=71637",
+    "titel": "Vergelijken: ontdek het breingeheim met neuromarketing",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "draft met herbruikbaar blok - inhoud beoordelen"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "Gedropt: niet-gepubliceerd DRAFT-bericht (gebruikersbeslissing: drafts droppen). verwijst naar herbruikbaar blok (refs ['71846']) NIET in export - HANDMATIG OPHALEN in convert-fase; 1 accordion-items (geen Q&A: inhoudslijst/glossarium) - handmatig beoordelen; DRAFT, niet live, GEEN verkeerdata - voorstel: importeren als post NA contentcheck (herbruikbaar blok ophalen), anders droppen"
+  },
+  {
+    "oude_url": "/?p=71758",
+    "titel": "(Mee bezig) Het seriële positie-effect: ontdek het breingeheim met neuromarketing",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "draft, niet live, geen verkeerdata"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "3 accordion-items (geen Q&A: inhoudslijst/glossarium) - handmatig beoordelen; DRAFT/concept, niet in sitemap, geen GSC-data -> droppen (gebruikersbeslissing); bevestigen"
+  },
+  {
+    "oude_url": "/?p=71768",
+    "titel": "(Mee bezig) Confirmation bias: ontdekt het breingeheim met neuromarketing",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "draft, niet live, geen verkeerdata"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "4 accordion-items (geen Q&A: inhoudslijst/glossarium) - handmatig beoordelen; DRAFT/concept, niet in sitemap, geen GSC-data -> droppen (gebruikersbeslissing); bevestigen"
+  },
+  {
+    "oude_url": "/?p=72403",
+    "titel": "USP of propositie: wat zijn de verschillen?",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "draft, niet live, geen verkeerdata"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "DRAFT/concept, niet in sitemap, geen GSC-data -> droppen (gebruikersbeslissing); bevestigen"
+  },
+  {
+    "oude_url": "/?p=72507",
+    "titel": "Website-onderzoek",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "concept-onderzoeksvorm, nooit gepubliceerd, geen verkeer"
+    },
+    "redirect_naar": "/onderzoek",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "3 FAQ-items -> faqBlock; DRAFT uit onbenutte 'onderzoeksvormen'-reeks (herhalend sjabloon, ~4.5k tekens, faq=3) - niet live, geen GSC-data; voorstel droppen + 301 naar /onderzoek. LET OP groepsbeslissing: als de klant deze dienstpagina's alsnog wil lanceren -> importeren als 'service' (12 stuks)"
+  },
+  {
+    "oude_url": "/?p=72516",
+    "titel": "Panelonderzoek",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "concept-onderzoeksvorm, nooit gepubliceerd, geen verkeer"
+    },
+    "redirect_naar": "/onderzoek",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "3 FAQ-items -> faqBlock; DRAFT uit onbenutte 'onderzoeksvormen'-reeks (herhalend sjabloon, ~4.5k tekens, faq=3) - niet live, geen GSC-data; voorstel droppen + 301 naar /onderzoek. LET OP groepsbeslissing: als de klant deze dienstpagina's alsnog wil lanceren -> importeren als 'service' (12 stuks)"
+  },
+  {
+    "oude_url": "/?p=72525",
+    "titel": "Lezersonderzoek",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "concept-onderzoeksvorm, nooit gepubliceerd, geen verkeer"
+    },
+    "redirect_naar": "/onderzoek",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "3 FAQ-items -> faqBlock; DRAFT uit onbenutte 'onderzoeksvormen'-reeks (herhalend sjabloon, ~4.5k tekens, faq=3) - niet live, geen GSC-data; voorstel droppen + 301 naar /onderzoek. LET OP groepsbeslissing: als de klant deze dienstpagina's alsnog wil lanceren -> importeren als 'service' (12 stuks)"
+  },
+  {
+    "oude_url": "/?p=72534",
+    "titel": "Communicatie-onderzoek",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "concept-onderzoeksvorm, nooit gepubliceerd, geen verkeer"
+    },
+    "redirect_naar": "/onderzoek",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "3 FAQ-items -> faqBlock; DRAFT uit onbenutte 'onderzoeksvormen'-reeks (herhalend sjabloon, ~4.5k tekens, faq=3) - niet live, geen GSC-data; voorstel droppen + 301 naar /onderzoek. LET OP groepsbeslissing: als de klant deze dienstpagina's alsnog wil lanceren -> importeren als 'service' (12 stuks)"
+  },
+  {
+    "oude_url": "/?p=72552",
+    "titel": "Woonwensenonderzoek",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "concept-onderzoeksvorm, nooit gepubliceerd, geen verkeer"
+    },
+    "redirect_naar": "/onderzoek",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "3 FAQ-items -> faqBlock; DRAFT uit onbenutte 'onderzoeksvormen'-reeks (herhalend sjabloon, ~4.5k tekens, faq=3) - niet live, geen GSC-data; voorstel droppen + 301 naar /onderzoek. LET OP groepsbeslissing: als de klant deze dienstpagina's alsnog wil lanceren -> importeren als 'service' (12 stuks)"
+  },
+  {
+    "oude_url": "/?p=72555",
+    "titel": "Behoefte-onderzoek",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "concept-onderzoeksvorm, nooit gepubliceerd, geen verkeer"
+    },
+    "redirect_naar": "/onderzoek",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "3 FAQ-items -> faqBlock; DRAFT uit onbenutte 'onderzoeksvormen'-reeks (herhalend sjabloon, ~4.5k tekens, faq=3) - niet live, geen GSC-data; voorstel droppen + 301 naar /onderzoek. LET OP groepsbeslissing: als de klant deze dienstpagina's alsnog wil lanceren -> importeren als 'service' (12 stuks)"
+  },
+  {
+    "oude_url": "/?p=72570",
+    "titel": "Online onderzoek",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "concept-onderzoeksvorm, nooit gepubliceerd, geen verkeer"
+    },
+    "redirect_naar": "/onderzoek",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "3 FAQ-items -> faqBlock; DRAFT uit onbenutte 'onderzoeksvormen'-reeks (herhalend sjabloon, ~4.5k tekens, faq=3) - niet live, geen GSC-data; voorstel droppen + 301 naar /onderzoek. LET OP groepsbeslissing: als de klant deze dienstpagina's alsnog wil lanceren -> importeren als 'service' (12 stuks)"
+  },
+  {
+    "oude_url": "/?p=72573",
+    "titel": "Face-to-face onderzoek",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "concept-onderzoeksvorm, nooit gepubliceerd, geen verkeer"
+    },
+    "redirect_naar": "/onderzoek",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "3 FAQ-items -> faqBlock; DRAFT uit onbenutte 'onderzoeksvormen'-reeks (herhalend sjabloon, ~4.5k tekens, faq=3) - niet live, geen GSC-data; voorstel droppen + 301 naar /onderzoek. LET OP groepsbeslissing: als de klant deze dienstpagina's alsnog wil lanceren -> importeren als 'service' (12 stuks)"
+  },
+  {
+    "oude_url": "/?p=72587",
+    "titel": "Diepte-interviews",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "draft, niet live, geen verkeerdata"
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "3 FAQ-items -> faqBlock; DRAFT/concept, niet in sitemap, geen GSC-data -> droppen (gebruikersbeslissing); bevestigen"
+  },
+  {
+    "oude_url": "/contact",
+    "titel": "Contact",
+    "type": "bericht",
+    "bestemming": "bouwen-in-astro",
+    "nieuwe_url": "/contact",
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "backlinks-checken"
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "structurele pagina (contact); weinig/geen verkeer + dunne content - keep/drop beoordelen (backlinks-check in SEO-fase)"
+  },
+  {
+    "oude_url": "/diversions-aan-de-wieg-van-generatiemarketing-nl",
+    "titel": "Diversions aan de wieg van Generatiemarketing.nl",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 12,
+      "positie": "9.33",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). "
+  },
+  {
+    "oude_url": "/becel-ford-generatiemarketing",
+    "titel": "Ons artikel op Frankwatching: Becel en Ford over Generatiemarketing",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). "
+  },
+  {
+    "oude_url": "/campagne-maag-lever-darm-stichting",
+    "titel": "Kudos voor online campagne Maag Lever Darm Stichting",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 28,
+      "positie": "30.32",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); 410 GONE, geen redirect.",
+    "gone": true
+  },
+  {
+    "oude_url": "/innovatie-hoe-maak-goed-idee-zakelijk-succes",
+    "titel": "Innovatief idee? Zet de stap naar zakelijk succes",
+    "type": "bericht",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 1193,
+      "positie": "48.42",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/onze-diensten",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /onze-diensten. verwijst naar herbruikbaar blok (refs ['72418']) NIET in export - HANDMATIG OPHALEN in convert-fase; 4 FAQ-items -> faqBlock",
+    "gone": false
+  },
+  {
+    "oude_url": "/hoe-content-kracht-bedrijf-versterkt",
+    "titel": "Hoe content de kracht van jouw bedrijf versterkt",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). "
+  },
+  {
+    "oude_url": "/optimaliseer-je-landingspagina",
+    "titel": "Optimaliseer je landingspagina in drie stappen",
+    "type": "bericht",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 713,
+      "positie": "28.92",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /.",
+    "gone": false
+  },
+  {
+    "oude_url": "/automation-resultaat",
+    "titel": "Marketing automation: meer resultaat door slim te werken",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 5,
+      "positie": "23",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). "
+  },
+  {
+    "oude_url": "/5-tips-publiek-boeien-met-content",
+    "titel": "5 tips: hoe je jouw publiek écht boeit met content",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 39,
+      "positie": "31.87",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). "
+  },
+  {
+    "oude_url": "/valkuilen-contentmarketing",
+    "titel": "5 valkuilen op het pad van contentmarketing",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). "
+  },
+  {
+    "oude_url": "/kpi-online-resultaat",
+    "titel": "KPI: gericht sturen op online resultaat",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 189,
+      "positie": "38.45",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); 410 GONE, geen redirect.",
+    "gone": true
+  },
+  {
+    "oude_url": "/waardevolle-content",
+    "titel": "Hoe content de kracht van jouw bedrijf versterkt",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 8,
+      "positie": "30.12",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). "
+  },
+  {
+    "oude_url": "/de-bezoeker-van-je-website-vindt-lange-teksten-saai-toch",
+    "titel": "De bezoeker van je website vindt lange teksten saai, toch?",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). "
+  },
+  {
+    "oude_url": "/cbs-vijftigduizend-bedrijven-verdienen-vooral-online",
+    "titel": "CBS: vijftigduizend bedrijven verdienen vooral online",
+    "type": "bericht",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 1,
+      "vertoningen": 42,
+      "positie": "20.1",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /. verwijst naar herbruikbaar blok (refs ['72418']) NIET in export - HANDMATIG OPHALEN in convert-fase",
+    "gone": false
+  },
+  {
+    "oude_url": "/kpi-dashboards-meer-inzicht-betrokkenheid",
+    "titel": "KPI Dashboards: meer inzicht & betrokkenheid",
+    "type": "bericht",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 4806,
+      "positie": "41.12",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /.",
+    "gone": false
+  },
+  {
+    "oude_url": "/meet-seo-succes-google-analytics",
+    "titel": "Meet je SEO succes met Google Analytics",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 149,
+      "positie": "43.08",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). verwijst naar herbruikbaar blok (refs ['72355']) NIET in export - HANDMATIG OPHALEN in convert-fase"
+  },
+  {
+    "oude_url": "/?p=72457",
+    "titel": "Klantonderzoek",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "concept-onderzoeksvorm, nooit gepubliceerd, geen verkeer"
+    },
+    "redirect_naar": "/onderzoek",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "3 FAQ-items -> faqBlock; DRAFT uit onbenutte 'onderzoeksvormen'-reeks (herhalend sjabloon, ~4.5k tekens, faq=3) - niet live, geen GSC-data; voorstel droppen + 301 naar /onderzoek. LET OP groepsbeslissing: als de klant deze dienstpagina's alsnog wil lanceren -> importeren als 'service' (12 stuks)"
+  },
+  {
+    "oude_url": "/?p=72461",
+    "titel": "Medewerkersonderzoek",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "concept-onderzoeksvorm, nooit gepubliceerd, geen verkeer"
+    },
+    "redirect_naar": "/onderzoek",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "2 FAQ-items -> faqBlock; DRAFT uit onbenutte 'onderzoeksvormen'-reeks (herhalend sjabloon, ~4.5k tekens, faq=3) - niet live, geen GSC-data; voorstel droppen + 301 naar /onderzoek. LET OP groepsbeslissing: als de klant deze dienstpagina's alsnog wil lanceren -> importeren als 'service' (12 stuks)"
+  },
+  {
+    "oude_url": "/?p=72467",
+    "titel": "Imago-onderzoek",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "concept-onderzoeksvorm, nooit gepubliceerd, geen verkeer"
+    },
+    "redirect_naar": "/onderzoek",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "3 FAQ-items -> faqBlock; DRAFT uit onbenutte 'onderzoeksvormen'-reeks (herhalend sjabloon, ~4.5k tekens, faq=3) - niet live, geen GSC-data; voorstel droppen + 301 naar /onderzoek. LET OP groepsbeslissing: als de klant deze dienstpagina's alsnog wil lanceren -> importeren als 'service' (12 stuks)"
+  },
+  {
+    "oude_url": "/?p=72476",
+    "titel": "Naamsbekendheidonderzoek",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": "concept-onderzoeksvorm, nooit gepubliceerd, geen verkeer"
+    },
+    "redirect_naar": "/onderzoek",
+    "status": {
+      "intake": "klaar",
+      "convert": "n.v.t."
+    },
+    "notities": "3 FAQ-items -> faqBlock; DRAFT uit onbenutte 'onderzoeksvormen'-reeks (herhalend sjabloon, ~4.5k tekens, faq=3) - niet live, geen GSC-data; voorstel droppen + 301 naar /onderzoek. LET OP groepsbeslissing: als de klant deze dienstpagina's alsnog wil lanceren -> importeren als 'service' (12 stuks)"
+  },
+  {
+    "oude_url": "/seo-waarde-tool",
+    "titel": "SEO waarde 2021: waarom optimaliseren nooit stopt [tool]",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 27,
+      "positie": "55.89",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). verwijst naar herbruikbaar blok (refs ['72355']) NIET in export - HANDMATIG OPHALEN in convert-fase"
+  },
+  {
+    "oude_url": "/goede-voornemens-van-inzicht-naar-betrokkenheid",
+    "titel": "Goede voornemens: van inzicht naar betrokkenheid",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). "
+  },
+  {
+    "oude_url": "/zoeken-met-google-wat-mensen-wensen",
+    "titel": "Zoeken met Google: wat mensen wensen",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 47,
+      "positie": "26.17",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). verwijst naar herbruikbaar blok (refs ['72355']) NIET in export - HANDMATIG OPHALEN in convert-fase"
+  },
+  {
+    "oude_url": "/overtuigingsprincipes",
+    "titel": "Overtuigingsprincipes & 37 +1 breingeheimen",
+    "type": "bericht",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/blog/overtuigingsprincipes",
+    "sanity_type": "post",
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 91,
+      "positie": "19.38",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/blog/overtuigingsprincipes",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). verwijst naar herbruikbaar blok (refs ['71846']) NIET in export - HANDMATIG OPHALEN in convert-fase; 3 FAQ-items -> faqBlock"
+  },
+  {
+    "oude_url": "/google-optimize-conversie-optimalisatie",
+    "titel": "Google Optimize: de gratis tool voor conversie optimalisatie",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). "
+  },
+  {
+    "oude_url": "/seo-calculator-in-spotlights-op-frankwatching",
+    "titel": "SEO calculator in spotlights op Frankwatching",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). verwijst naar herbruikbaar blok (refs ['72355']) NIET in export - HANDMATIG OPHALEN in convert-fase"
+  },
+  {
+    "oude_url": "/homepage-optimalisatie-sliders-gebruiken-of-niet",
+    "titel": "Homepage optimalisatie: sliders gebruiken of niet?",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 20,
+      "positie": "38.5",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). "
+  },
+  {
+    "oude_url": "/content-recycling-omdat-nieuw-niet-altijd-beter",
+    "titel": "Content recycling: omdat nieuw niet altijd beter is",
+    "type": "bericht",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 5,
+      "positie": "10.8",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /.",
+    "gone": false
+  },
+  {
+    "oude_url": "/mkb-benchmark2018",
+    "titel": "Weten hoe het zit: onze MKB Benchmark 2018",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). "
+  },
+  {
+    "oude_url": "/mobile-testkit-verhoog-je-conversie-met-gericht-onderzoek",
+    "titel": "Mobile testkit: verhoog je conversie met gericht onderzoek",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). "
+  },
+  {
+    "oude_url": "/e-motions-echte-emoties-op-het-web",
+    "titel": "E-motions: echte emoties op het web",
+    "type": "bericht",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 55,
+      "positie": "14.38",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /.",
+    "gone": false
+  },
+  {
+    "oude_url": "/onderzoeksruimte-apeldoorn",
+    "titel": "Nu geopend: de Diversions onderzoeksruimte",
+    "type": "bericht",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 161,
+      "positie": "15.59",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/onderzoeksbureau",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /services/onderzoeksbureau.",
+    "gone": false
+  },
+  {
+    "oude_url": "/nalaten-aan-een-goed-doel-de-drijfveren-onderzocht",
+    "titel": "Nalaten aan een goed doel: de drijfveren onderzocht",
+    "type": "bericht",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/blog/nalaten-aan-een-goed-doel-de-drijfveren-onderzocht",
+    "sanity_type": "post",
+    "seo": {
+      "verkeer_12mnd": 2,
+      "vertoningen": 49,
+      "positie": "44.37",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/blog/nalaten-aan-een-goed-doel-de-drijfveren-onderzocht",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31)."
+  },
+  {
+    "oude_url": "/goede-doelen-marketing",
+    "titel": "Goede doelen marketing: tijd voor nieuwe wegen",
+    "type": "bericht",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 1,
+      "vertoningen": 97,
+      "positie": "41.28",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/onderzoeksbureau-fondsenwerving",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /services/onderzoeksbureau-fondsenwerving.",
+    "gone": false
+  },
+  {
+    "oude_url": "/seo-voor-google-en-bing-3-verschillen",
+    "titel": "SEO voor Google en Bing: 3  verschillen",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 1,
+      "vertoningen": 155,
+      "positie": "14.88",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). verwijst naar herbruikbaar blok (refs ['72355']) NIET in export - HANDMATIG OPHALEN in convert-fase"
+  },
+  {
+    "oude_url": "/gravity-forms-formulieren",
+    "titel": "Formulier maken? Ontdek de kracht van Gravity Forms",
+    "type": "bericht",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 1099,
+      "positie": "35.91",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /.",
+    "gone": false
+  },
+  {
+    "oude_url": "/wordpress-hosting",
+    "titel": "WordPress hosting? Kies de partner die bij je past",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). "
+  },
+  {
+    "oude_url": "/wp-rocket",
+    "titel": "Snelle WordPress website? WP Rocket helpt je op weg",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 6,
+      "positie": "15",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); 410 GONE, geen redirect.",
+    "gone": true
+  },
+  {
+    "oude_url": "/wordpress-bureau-tijd-voor-online-groei",
+    "titel": "WordPress Bureau: tijd voor online groei",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 3,
+      "positie": "42",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). "
+  },
+  {
+    "oude_url": "/wanneer-is-google-opgericht",
+    "titel": "Wanneer is Google opgericht? Tijd voor Google-weetjes",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 3,
+      "vertoningen": 4742,
+      "positie": "8.59",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). verwijst naar herbruikbaar blok (refs ['72355']) NIET in export - HANDMATIG OPHALEN in convert-fase"
+  },
+  {
+    "oude_url": "/content-opfrisbeurt",
+    "titel": "Interactieve content: geef je content een opfrisbeurt",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 328,
+      "positie": "13.98",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). "
+  },
+  {
+    "oude_url": "/search-console",
+    "titel": "Search console van Google: onmisbaar",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 2,
+      "positie": "1",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); 410 GONE, geen redirect. verwijst naar herbruikbaar blok (refs ['72355']) NIET in export - HANDMATIG OPHALEN in convert-fase; 3 FAQ-items -> faqBlock",
+    "gone": true
+  },
+  {
+    "oude_url": "/seo-resultaten-meten-met-google-analytics",
+    "titel": "SEO resultaten meten met Google Analytics",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 661,
+      "positie": "25.07",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). verwijst naar herbruikbaar blok (refs ['72355']) NIET in export - HANDMATIG OPHALEN in convert-fase"
+  },
+  {
+    "oude_url": "/wordpress-specialist",
+    "titel": "WordPress specialist nodig? Wij staan voor je klaar",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 1,
+      "positie": "5",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). 4 FAQ-items -> faqBlock"
+  },
+  {
+    "oude_url": "/google-rankings-meten",
+    "titel": "Je Google rankings meten? Kies uit drie gratis tools",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 5,
+      "vertoningen": 16226,
+      "positie": "26.51",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). verwijst naar herbruikbaar blok (refs ['72355']) NIET in export - HANDMATIG OPHALEN in convert-fase"
+  },
+  {
+    "oude_url": "/rich-content",
+    "titel": "Rich content: onderscheid je van de massa",
+    "type": "bericht",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 136,
+      "positie": "21.29",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /. 3 FAQ-items -> faqBlock",
+    "gone": false
+  },
+  {
+    "oude_url": "/rich-content-plaats-een-calculator-op-je-site",
+    "titel": "Rich content: plaats een calculator op je site",
+    "type": "bericht",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /.",
+    "gone": false
+  },
+  {
+    "oude_url": "/rich-content-en-interactieve-afbeeldingen",
+    "titel": "Rich content en interactieve afbeeldingen",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 34,
+      "positie": "55.06",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). "
+  },
+  {
+    "oude_url": "/basic-seo-koppel-search-console-aan-analytics",
+    "titel": "Basic SEO: koppel Search Console aan Analytics",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 6,
+      "positie": "6.5",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). verwijst naar herbruikbaar blok (refs ['72355']) NIET in export - HANDMATIG OPHALEN in convert-fase"
+  },
+  {
+    "oude_url": "/leadgeneratie-marketing-automation-hoe-laat-je-leads-converteren",
+    "titel": "Leadgeneratie & marketing automation: de weg naar conversie",
+    "type": "bericht",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 353,
+      "positie": "38.67",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /.",
+    "gone": false
+  },
+  {
+    "oude_url": "/marketingautomation-2020-trends-op-een-rij",
+    "titel": "Marketing automation 2021 – trends op een rij",
+    "type": "bericht",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /.",
+    "gone": false
+  },
+  {
+    "oude_url": "/kpi-bij-marketing-automation",
+    "titel": "KPI bij marketing automation",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 250,
+      "positie": "33.48",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). "
+  },
+  {
+    "oude_url": "/hubspot-marketing-automation-tools-langs-de-meetlat",
+    "titel": "Hubspot: marketing automation tools langs de meetlat",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 227,
+      "positie": "38.52",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). "
+  },
+  {
+    "oude_url": "/mautic-de-marketing-automation-tool-langs-de-meetlat",
+    "titel": "Mautic: marketing automation tools langs de meetlat",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 572,
+      "positie": "13.92",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). 3 FAQ-items -> faqBlock"
+  },
+  {
+    "oude_url": "/seo-diensten-die-bouwen-aan-je-online-succes",
+    "titel": "SEO diensten die bouwen aan je online succes",
+    "type": "bericht",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 6684,
+      "positie": "23.76",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /. verwijst naar herbruikbaar blok (refs ['72355']) NIET in export - HANDMATIG OPHALEN in convert-fase",
+    "gone": false
+  },
+  {
+    "oude_url": "/copernica-automation-tools-langs-de-meetlat",
+    "titel": "Copernica: automation tools langs de meetlat",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 111,
+      "positie": "23.78",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). "
+  },
+  {
+    "oude_url": "/van-kennisquiz-tot-mbti-test-je-maakt-het-in-wordpress",
+    "titel": "Van kennisquiz tot MBTI-test: je maakt het in WordPress",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 4,
+      "positie": "4.75",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). "
+  },
+  {
+    "oude_url": "/web-vitals-de-invloed-op-je-seo",
+    "titel": "Web vitals: de invloed op je SEO",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": null,
+      "vertoningen": null,
+      "positie": null,
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). verwijst naar herbruikbaar blok (refs ['72355']) NIET in export - HANDMATIG OPHALEN in convert-fase"
+  },
+  {
+    "oude_url": "/marketing-automation-plugin-voor-wordpress-wat-is-er-mogelijk",
+    "titel": "WordPress Marketing automation plugins: wat is er mogelijk?",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 97,
+      "positie": "23.69",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). 3 FAQ-items -> faqBlock"
+  },
+  {
+    "oude_url": "/besparen-op-marketingkosten-doe-het-met-beleid",
+    "titel": "Besparen op marketingkosten: doe het met beleid",
+    "type": "bericht",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 282,
+      "positie": "28.2",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /.",
+    "gone": false
+  },
+  {
+    "oude_url": "/nieuwe-website-vragen-vooraf",
+    "titel": "Nieuwe website nodig? Stel deze 5 vragen vooraf",
+    "type": "bericht",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 124,
+      "positie": "47.66",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /.",
+    "gone": false
+  },
+  {
+    "oude_url": "/customerjourney-mapping-de-route",
+    "titel": "Customer journey mapping: de route",
+    "type": "bericht",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/blog/customerjourney-mapping-de-route",
+    "sanity_type": "post",
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 279,
+      "positie": "35.54",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/blog/customerjourney-mapping-de-route",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31)."
+  },
+  {
+    "oude_url": "/customerjourney-optimalisatie-personalisatie",
+    "titel": "Customer journey: optimalisatie & personalisatie",
+    "type": "bericht",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 970,
+      "positie": "37.94",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/onze-diensten",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /onze-diensten.",
+    "gone": false
+  },
+  {
+    "oude_url": "/uitdaging-voor-het-begrijpen-van-de-customer-journey",
+    "titel": "Uitdaging voor het begrijpen van de customer journey",
+    "type": "bericht",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/blog/uitdaging-voor-het-begrijpen-van-de-customer-journey",
+    "sanity_type": "post",
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 475,
+      "positie": "12.4",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/blog/uitdaging-voor-het-begrijpen-van-de-customer-journey",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31)."
+  },
+  {
+    "oude_url": "/template-customer-journey",
+    "titel": "TEMPLATE: customer journey",
+    "type": "bericht",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/blog/template-customer-journey",
+    "sanity_type": "post",
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 634,
+      "positie": "44.29",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/blog/template-customer-journey",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31)."
+  },
+  {
+    "oude_url": "/patient-ervaring",
+    "titel": "Patient journey mapping",
+    "type": "bericht",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/blog/patient-ervaring",
+    "sanity_type": "post",
+    "seo": {
+      "verkeer_12mnd": 3,
+      "vertoningen": 928,
+      "positie": "27.26",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/blog/patient-ervaring",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31)."
+  },
+  {
+    "oude_url": "/beleving-verbeteren",
+    "titel": "Patiëntbeleving verbeteren",
+    "type": "bericht",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 1,
+      "vertoningen": 93,
+      "positie": "9.92",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/services/patient-journey",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /services/patient-journey.",
+    "gone": false
+  },
+  {
+    "oude_url": "/coping-stijlen-hoe-mensen-omgaan-met-een-ziekte",
+    "titel": "Coping stijlen - Hoe mensen omgaan met een ziekte",
+    "type": "bericht",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/blog/coping-stijlen-hoe-mensen-omgaan-met-een-ziekte",
+    "sanity_type": "post",
+    "seo": {
+      "verkeer_12mnd": 21,
+      "vertoningen": 6767,
+      "positie": "9.61",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/blog/coping-stijlen-hoe-mensen-omgaan-met-een-ziekte",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31)."
+  },
+  {
+    "oude_url": "/template-patient-journey",
+    "titel": "TEMPLATE: Patient Journey",
+    "type": "bericht",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/blog/template-patient-journey",
+    "sanity_type": "post",
+    "seo": {
+      "verkeer_12mnd": 12,
+      "vertoningen": 1024,
+      "positie": "37.37",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/blog/template-patient-journey",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31)."
+  },
+  {
+    "oude_url": "/groepsdiscussie",
+    "titel": "Groepsdiscussies: de kracht van interactie",
+    "type": "bericht",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/blog/groepsdiscussie",
+    "sanity_type": "post",
+    "seo": {
+      "verkeer_12mnd": 1,
+      "vertoningen": 378,
+      "positie": "5.3",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/blog/groepsdiscussie",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). 3 FAQ-items -> faqBlock"
+  },
+  {
+    "oude_url": "/online-onderzoek",
+    "titel": "Online onderzoek: de voor- en nadelen",
+    "type": "bericht",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/blog/online-onderzoek",
+    "sanity_type": "post",
+    "seo": {
+      "verkeer_12mnd": 4,
+      "vertoningen": 1376,
+      "positie": "31.16",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/blog/online-onderzoek",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). LIVE artikel met '-2'-slug (duplicaat-draft wordt gedropt) -> nieuwe schone slug /blog/online-onderzoek; oude /online-onderzoek-2 301 naar nieuw"
+  },
+  {
+    "oude_url": "/productlancering",
+    "titel": "Productlancering: de weg naar succes - 9 + 1 tips",
+    "type": "bericht",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 7226,
+      "positie": "33.63",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /. verwijst naar herbruikbaar blok (refs ['72418']) NIET in export - HANDMATIG OPHALEN in convert-fase",
+    "gone": false
+  },
+  {
+    "oude_url": "/wat-is-een-pretest-zo-bespaar-je-tijd-en-marketingbudget",
+    "titel": "Wat is een pretest? Zo bespaar je tijd en marketingbudget",
+    "type": "bericht",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/blog/wat-is-een-pretest-zo-bespaar-je-tijd-en-marketingbudget",
+    "sanity_type": "post",
+    "seo": {
+      "verkeer_12mnd": 4,
+      "vertoningen": 1522,
+      "positie": "13.25",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/blog/wat-is-een-pretest-zo-bespaar-je-tijd-en-marketingbudget",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31)."
+  },
+  {
+    "oude_url": "/voorbeelden-van-pretesting",
+    "titel": "Voorbeelden van pretesting: zo werkt het",
+    "type": "bericht",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/blog/voorbeelden-van-pretesting",
+    "sanity_type": "post",
+    "seo": {
+      "verkeer_12mnd": 2,
+      "vertoningen": 490,
+      "positie": "21.53",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/blog/voorbeelden-van-pretesting",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31)."
+  },
+  {
+    "oude_url": "/gebruikerstest-vier-stappen",
+    "titel": "Zo voer je een gebruikerstest uit in vier stappen",
+    "type": "bericht",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/blog/gebruikerstest-vier-stappen",
+    "sanity_type": "post",
+    "seo": {
+      "verkeer_12mnd": 3,
+      "vertoningen": 1253,
+      "positie": "14.69",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/blog/gebruikerstest-vier-stappen",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31)."
+  },
+  {
+    "oude_url": "/gebruikerstest-voorbeeld",
+    "titel": "Gebruikerstest: voorbeelden uit de praktijk",
+    "type": "bericht",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/blog/gebruikerstest-voorbeeld",
+    "sanity_type": "post",
+    "seo": {
+      "verkeer_12mnd": 6,
+      "vertoningen": 1221,
+      "positie": "31.44",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/blog/gebruikerstest-voorbeeld",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31)."
+  },
+  {
+    "oude_url": "/priming-de-waarde-voor-marketing",
+    "titel": "Priming & de waarde voor marketing",
+    "type": "bericht",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/blog/priming-de-waarde-voor-marketing",
+    "sanity_type": "post",
+    "seo": {
+      "verkeer_12mnd": 3,
+      "vertoningen": 497,
+      "positie": "17.29",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/blog/priming-de-waarde-voor-marketing",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). verwijst naar herbruikbaar blok (refs ['71846']) NIET in export - HANDMATIG OPHALEN in convert-fase; 1 accordion-items (geen Q&A: inhoudslijst/glossarium) - handmatig beoordelen"
+  },
+  {
+    "oude_url": "/framing-ontdek-het-breingeheim",
+    "titel": "Framing & de waarde voor marketing",
+    "type": "bericht",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/blog/framing-ontdek-het-breingeheim",
+    "sanity_type": "post",
+    "seo": {
+      "verkeer_12mnd": 6,
+      "vertoningen": 902,
+      "positie": "31.12",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/blog/framing-ontdek-het-breingeheim",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). 2 accordion-items (geen Q&A: inhoudslijst/glossarium) - handmatig beoordelen"
+  },
+  {
+    "oude_url": "/beperkte-keuze-de-waarde-voor-marketing",
+    "titel": "Beperkte keuze & de waarde voor marketing",
+    "type": "bericht",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/blog/beperkte-keuze-de-waarde-voor-marketing",
+    "sanity_type": "post",
+    "seo": {
+      "verkeer_12mnd": 0,
+      "vertoningen": 286,
+      "positie": "29.99",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/blog/beperkte-keuze-de-waarde-voor-marketing",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). 6 accordion-items (geen Q&A: inhoudslijst/glossarium) - handmatig beoordelen"
+  },
+  {
+    "oude_url": "/sociaal-bewijs-ontdek-het-breingeheim-van-neuromarketing",
+    "titel": "Sociaal bewijs: ontdek het breingeheim van neuromarketing",
+    "type": "bericht",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/blog/sociaal-bewijs-ontdek-het-breingeheim-van-neuromarketing",
+    "sanity_type": "post",
+    "seo": {
+      "verkeer_12mnd": 1,
+      "vertoningen": 269,
+      "positie": "18.91",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/blog/sociaal-bewijs-ontdek-het-breingeheim-van-neuromarketing",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). 10 accordion-items (geen Q&A: inhoudslijst/glossarium) - handmatig beoordelen"
+  },
+  {
+    "oude_url": "/marketing-propositie-aan-de-slag-met-het-stappenplan",
+    "titel": "Marketing propositie: aan de slag met het stappenplan",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 4,
+      "vertoningen": 6518,
+      "positie": "31.4",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (niet-geindexeerd, akkoord gebruiker 2026-05-31); geen redirect (404). verwijst naar herbruikbaar blok (refs ['72418']) NIET in export - HANDMATIG OPHALEN in convert-fase; 1 FAQ-items -> faqBlock"
+  },
+  {
+    "oude_url": "/waardepropositie-ontwikkelen-template",
+    "titel": "Waardepropositie ontwikkelen [template]",
+    "type": "bericht",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 4,
+      "vertoningen": 3092,
+      "positie": "42.51",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/onze-diensten",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /onze-diensten. verwijst naar herbruikbaar blok (refs ['72418']) NIET in export - HANDMATIG OPHALEN in convert-fase",
+    "gone": false
+  },
+  {
+    "oude_url": "/wat-is-een-unique-selling-point-usp-check",
+    "titel": "Wat is een Unique Selling Point? [USP check]",
+    "type": "bericht",
+    "bestemming": "droppen",
+    "nieuwe_url": null,
+    "sanity_type": null,
+    "seo": {
+      "verkeer_12mnd": 4,
+      "vertoningen": 7688,
+      "positie": "13.74",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": null,
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); 410 GONE, geen redirect. verwijst naar herbruikbaar blok (refs ['72418']) NIET in export - HANDMATIG OPHALEN in convert-fase; 4 accordion-items (geen Q&A: inhoudslijst/glossarium) - handmatig beoordelen",
+    "gone": true
+  },
+  {
+    "oude_url": "/samenwerken-met-generatie-z-lees-ons-boek",
+    "titel": "Anders dan jij denkt: het verhaal achter ons boek over Generatie Z",
+    "type": "bericht",
+    "bestemming": "importeren-naar-sanity",
+    "nieuwe_url": "/blog/samenwerken-met-generatie-z-lees-ons-boek",
+    "sanity_type": "post",
+    "seo": {
+      "verkeer_12mnd": 5,
+      "vertoningen": 539,
+      "positie": "16.56",
+      "backlinks": null,
+      "keep_reden": null
+    },
+    "redirect_naar": "/blog/samenwerken-met-generatie-z-lees-ons-boek",
+    "status": {
+      "intake": "klaar",
+      "convert": "klaar"
+    },
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31)."
+  }
+]

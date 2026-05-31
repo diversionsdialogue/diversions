@@ -1,0 +1,116 @@
+---
+/**
+ * Faq — accessible question/answer accordion.
+ * Parity block: same fields as the Sanity `faqBlock` type.
+ * Design source: <FAQ items> in design/components.jsx / article-extras.jsx.
+ *
+ * Accessibility (lives here, NOT in the schema):
+ *   - native <button> per question → keyboard operable (Enter/Space) for free
+ *   - aria-expanded reflects open state
+ *   - aria-controls links each button to its answer region (id),
+ *     and the region is aria-labelledby the button.
+ *
+ * SEO: emits FAQPage Schema.org JSON-LD so search engines parse the Q&A.
+ *
+ * Props (keep in sync with CLAUDE.md §4 / Sanity faqBlock):
+ *   items[]  { question, answer }
+ *   open?    index of the item open on load (default: 0; -1 = all closed)
+ */
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FaqItem[];
+  open?: number;
+  class?: string;
+}
+
+const { items = [], open = 0, class: className = "" } = Astro.props;
+
+// Stable, unique id base so multiple FAQ blocks on one page don't collide.
+const uid = `faq-${Math.random().toString(36).slice(2, 8)}`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: items.map((it) => ({
+    "@type": "Question",
+    name: it.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: it.answer,
+    },
+  })),
+};
+---
+
+<div
+  class:list={["faq-accordion border-t border-accent-300", className]}
+  data-faq
+>
+  {
+    items.map((item, i) => {
+      const isOpen = i === open;
+      const btnId = `${uid}-q-${i}`;
+      const panelId = `${uid}-a-${i}`;
+      return (
+        <div class="border-b border-accent-300">
+          <h3 class="m-0">
+            <button
+              type="button"
+              id={btnId}
+              aria-expanded={isOpen ? "true" : "false"}
+              aria-controls={panelId}
+              class="faq-q flex w-full cursor-pointer items-center justify-between gap-4 bg-transparent px-2 py-5 text-left font-display text-[17px] text-base-700"
+            >
+              <span>{item.question}</span>
+              <span
+                class="faq-plus flex size-8 shrink-0 items-center justify-center rounded-full bg-accent-100 text-lg text-yellow-600 transition-transform duration-200"
+                aria-hidden="true"
+              >
+                +
+              </span>
+            </button>
+          </h3>
+          <div
+            id={panelId}
+            role="region"
+            aria-labelledby={btnId}
+            hidden={!isOpen}
+            class="faq-a px-2 pb-5 font-sans text-base leading-relaxed text-base-500"
+          >
+            {item.answer}
+          </div>
+        </div>
+      );
+    })
+  }
+</div>
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+<style>
+  .faq-q[aria-expanded="true"] .faq-plus {
+    transform: rotate(45deg);
+    background: var(--color-yellow-500);
+    color: #fff;
+  }
+</style>
+
+<script>
+  // Progressive enhancement: works without JS (first item open / hidden attr).
+  document.querySelectorAll<HTMLElement>("[data-faq]").forEach((root) => {
+    const buttons = root.querySelectorAll<HTMLButtonElement>(".faq-q");
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const expanded = btn.getAttribute("aria-expanded") === "true";
+        const panelId = btn.getAttribute("aria-controls");
+        const panel = panelId ? document.getElementById(panelId) : null;
+        btn.setAttribute("aria-expanded", expanded ? "false" : "true");
+        if (panel) panel.hidden = expanded;
+      });
+    });
+  });
+</script>

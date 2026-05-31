@@ -1,0 +1,167 @@
+---
+// Layout + chrome
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import BlogHeader from "@/components/global/blog/BlogHeader.astro";
+import ShareRail from "@/components/global/blog/ShareRail.astro";
+import AuthorCard from "@/components/global/blog/AuthorCard.astro";
+import Newsletter from "@/components/global/blog/Newsletter.astro";
+import RelatedPosts from "@/components/global/blog/RelatedPosts.astro";
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    author: string;
+    pubDate: Date | string;
+    image: { url: any; alt?: string };
+    tags?: string[];
+  };
+  id: string;
+  /** Geschatte leestijd in minuten (zie [...slug].astro). */
+  readingMinutes?: number;
+}
+const { frontmatter, id, readingMinutes } = Astro.props;
+
+// Eerste tag als label, anders generiek "Artikel".
+const tagLabel = frontmatter.tags?.[0] ?? "Artikel";
+
+// Datum in NL-notatie.
+const dateText = new Date(frontmatter.pubDate).toLocaleDateString("nl-NL", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+const dateIso = new Date(frontmatter.pubDate).toISOString();
+
+// Initialen voor de byline-avatar.
+const initials = frontmatter.author
+  .split(/\s+/)
+  .filter(Boolean)
+  .slice(0, 2)
+  .map((w) => w[0]?.toUpperCase() ?? "")
+  .join("");
+
+// image.url is via image() een ImageMetadata-object; voor og:image (SEO) hebben
+// we een string-URL nodig (.src). Strings (remote URL's) gaan ongewijzigd door.
+const coverSrc = frontmatter.image?.url;
+const ogImageUrl =
+  typeof coverSrc === "string" ? coverSrc : (coverSrc?.src ?? "");
+
+// --- Structured data (Schema.org) -------------------------------------------
+// BlogPosting + BreadcrumbList voor dit artikel. Absolute URL's t.o.v. siteUrl.
+const siteUrl = import.meta.env.SITE || "https://diversions.nl";
+const postUrl = new URL(`/blog/${id}`, siteUrl).toString();
+const absImage = ogImageUrl
+  ? ogImageUrl.startsWith("http")
+    ? ogImageUrl
+    : new URL(ogImageUrl, siteUrl).toString()
+  : new URL("/assets/diversions-logo.svg", siteUrl).toString();
+
+const blogPostingSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: frontmatter.title,
+  description: frontmatter.description,
+  image: absImage,
+  datePublished: dateIso,
+  author: { "@type": "Person", name: frontmatter.author },
+  publisher: {
+    "@type": "Organization",
+    name: "Diversions",
+    logo: {
+      "@type": "ImageObject",
+      url: new URL("/assets/diversions-logo.svg", siteUrl).toString(),
+    },
+  },
+  mainEntityOfPage: { "@type": "WebPage", "@id": postUrl },
+  ...(frontmatter.tags?.length ? { keywords: frontmatter.tags.join(", ") } : {}),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: new URL("/", siteUrl).toString(),
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Blog",
+      item: new URL("/blog", siteUrl).toString(),
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: frontmatter.title,
+      item: postUrl,
+    },
+  ],
+};
+---
+
+<BaseLayout
+  hideNavigation={true}
+  jsonLd={[blogPostingSchema, breadcrumbSchema]}
+  seo={{
+    title: frontmatter.title,
+    description: frontmatter.description,
+    image: ogImageUrl
+      ? { url: ogImageUrl, alt: frontmatter.image?.alt }
+      : undefined,
+    type: "article",
+    publishedTime: dateIso,
+  }}
+>
+  <div class="blog-template">
+    <BlogHeader />
+
+    <article id="post" class="post-shell">
+      <header class="post-header">
+        <span class="post-tag">{tagLabel}</span>
+        <h1 class="post-title">{frontmatter.title}</h1>
+        <p class="post-deck">{frontmatter.description}</p>
+        <div class="post-byline">
+          <span class="author">
+            <span class="avatar-sm">{initials}</span>
+            {frontmatter.author}
+          </span>
+          <span class="sep"></span>
+          <time datetime={dateIso}>{dateText}</time>
+          {
+            readingMinutes && (
+              <>
+                <span class="sep" />
+                <span>{readingMinutes} min leestijd</span>
+              </>
+            )
+          }
+        </div>
+      </header>
+
+      <div class="post-cover">
+        <img
+          src={frontmatter.image.url}
+          alt={frontmatter.image.alt ?? ""}
+          width={1280}
+          height={720}
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+
+      <div class="post-body">
+        <slot />
+      </div>
+
+      <ShareRail title={frontmatter.title} />
+      <AuthorCard name={frontmatter.author} />
+      <Newsletter />
+    </article>
+
+    <RelatedPosts currentId={id} />
+  </div>
+</BaseLayout>

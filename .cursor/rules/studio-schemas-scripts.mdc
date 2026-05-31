@@ -1,0 +1,11 @@
+---
+description: Sanity Studio schemas — register types, coordinate with web + migration
+globs: apps/studio/schemas/**,scripts/**
+---
+
+# Studio schemas and scripts
+
+- **Registered types:** `apps/studio/schemas/index.ts` exports exactly five documents: **`teamMember`**, **`workItem`**, **`service`**, **`post`**, **`legalPage`**. `structure.ts` lists the same five.
+- **`siteSettings.ts`:** Exists on disk but is **not** in `schemaTypes` — do not assume Studio has site settings until it is registered and wired in the web app.
+- **Field parity:** Any schema change must be reflected in `apps/web/src/lib/sanity/queries.ts`, `types.ts`, `transforms.ts`, and **`scripts/PROJECT_CONTENT_MODEL.ts`** / **`scripts/migrate-to-sanity.ts`** as needed.
+- **Migration env:** Migration reads `SANITY_PROJECT_ID` (and related) from **`apps/web/.env`**; **`SANITY_TOKEN`** must be set in the environment to write. Use `--validate` / `--dry-run` / `--seed-all` as implemented in the script; do not invent new flags without implementing them.

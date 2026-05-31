@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Blog — Diversions</title>
+<meta name="description" content="Schrijfsels, cases en notities uit onze studio — over merken, web, ontwerp en wat we deze week leerden." />
+<link rel="stylesheet" href="colors_and_type.css" />
+<link rel="stylesheet" href="site.css" />
+<link rel="stylesheet" href="blog-archive.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip naar inhoud</a>
+
+<div class="shell">
+  <div class="surface">
+    <div id="header-root"></div>
+
+    <main id="main">
+      <!-- =================== HEAD: title + inline subscribe =================== -->
+      <section class="ba-head">
+        <div class="ba-head-text">
+          <h1 class="ba-title">Welkom op onze blog.</h1>
+          <p class="ba-intro">
+            We zijn een team van makers en developers dat schrijft over wat we leren — over merken, sites, ontwerp en het soms-rommelige proces ertussen.
+          </p>
+        </div>
+        <form class="ba-subscribe" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Verstuurd ✓';">
+          <div class="ba-subscribe-row">
+            <input type="email" required placeholder="Vul je e-mail in" aria-label="E-mailadres" />
+            <button type="submit" class="ba-subscribe-icon" aria-label="Aanmelden">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m6 4 4 4-4 4"/></svg>
+            </button>
+          </div>
+          <button type="submit" class="ba-subscribe-btn">Inschrijven</button>
+        </form>
+      </section>
+
+      <!-- =================== HERO IMAGE (half height) =================== -->
+      <section class="ba-hero">
+        <img src="assets/blog1.jpeg" alt="Werkende ontwerper aan een tafel met kunstwerken op de achtergrond" />
+      </section>
+
+      <!-- =================== FILTERS =================== -->
+      <nav class="ba-filters" aria-label="Categorieën">
+        <a href="#" class="ba-filter active" data-cat="all">Alles</a>
+        <a href="#" class="ba-filter" data-cat="design">Design</a>
+        <a href="#" class="ba-filter" data-cat="dev">Web&nbsp;Dev</a>
+        <a href="#" class="ba-filter" data-cat="ux">UX</a>
+        <a href="#" class="ba-filter" data-cat="proces">Proces</a>
+        <a href="#" class="ba-filter" data-cat="ai">AI</a>
+      </nav>
+
+      <!-- =================== POSTS GRID =================== -->
+      <div id="ba-grid-root"></div>
+
+      <!-- =================== PAGINATION =================== -->
+      <div id="ba-pager-root"></div>
+    </main>
+
+    <!-- =================== SUBSCRIBE BAND =================== -->
+    <section class="ba-cta" style="background-color: rgb(186, 191, 158)">
+      <div class="ba-cta-inner">
+        <span class="ba-cta-eyebrow">Inschrijven</span>
+        <h2 class="ba-cta-title">
+          Schrijf je in op onze<br/>nieuwsbrief — zo blijf je<br/>op de hoogte van al ons werk.
+        </h2>
+        <p class="ba-cta-body">
+          Elke donderdag rond 14:00 sturen we één e-mail: de beste artikelen uit onze blog, plus de laatste projecten en notities uit de studio. Geen spam, eenvoudig uit te schrijven.
+        </p>
+        <form class="ba-cta-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Verstuurd ✓';">
+          <div class="ba-cta-input-row">
+            <input type="email" required placeholder="Vul je e-mail in" aria-label="E-mailadres" />
+            <button type="submit" class="ba-cta-icon" aria-label="Aanmelden">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m6 4 4 4-4 4"/></svg>
+            </button>
+          </div>
+          <button type="submit" class="ba-cta-btn">Inschrijven</button>
+        </form>
+      </div>
+    </section>
+
+    <div id="footer-root"></div>
+  </div>
+</div>
+
+<script type="text/babel" src="components.jsx"></script>
+<script type="text/babel" src="blog-archive.jsx"></script>
+<script type="text/babel">
+ReactDOM.createRoot(document.getElementById("header-root")).render(<Header active="blog" />);
+ReactDOM.createRoot(document.getElementById("footer-root")).render(<Footer />);
+ReactDOM.createRoot(document.getElementById("ba-grid-root")).render(<BlogArchive />);
+</script>
+
+</body>
+</html>

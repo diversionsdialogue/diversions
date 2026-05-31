@@ -1,0 +1,47 @@
+---
+import Seo from "@/components/fundations/head/Seo.astro";
+import Meta from "@/components/fundations/head/Meta.astro";
+import Fonts from "@/components/fundations/head/Fonts.astro";
+import Favicons from "@/components/fundations/head/Favicons.astro";
+import JsonLd from "@/components/fundations/head/JsonLd.astro";
+// Scripts
+import FuseJS from "@/components/fundations/scripts/FuseJS.astro";
+import KeenSlider from "@/components/fundations/scripts/KeenSlider.astro";
+
+interface Props {
+  seo?: {
+    title?: string;
+    description?: string;
+    image?: { url: string; alt?: string };
+    type?: "website" | "article";
+    publishedTime?: string;
+    noindex?: boolean;
+  };
+  /** Extra paginaspecifieke JSON-LD (bv. BreadcrumbList, BlogPosting). */
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const { seo, jsonLd } = Astro.props;
+
+// Site-brede Organization JSON-LD (op elke pagina). siteUrl uit astro.config.mjs.
+const siteUrl = import.meta.env.SITE || "https://diversions.nl";
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Diversions",
+  url: siteUrl,
+  logo: new URL("/assets/diversions-logo.svg", siteUrl).toString(),
+  description:
+    "Diversions helpt organisaties klaar te staan voor de klant van vandaag en morgen — van onderzoek en customer journeys tot conversie en groei.",
+};
+---
+
+<Seo {...seo} />
+<Meta />
+<Fonts />
+<Favicons />
+<JsonLd schema={organizationSchema} />
+{jsonLd && <JsonLd schema={jsonLd} />}
+<!-- Scripts -->
+<FuseJS />
+<KeenSlider />

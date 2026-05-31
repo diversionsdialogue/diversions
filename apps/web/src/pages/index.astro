@@ -1,0 +1,252 @@
+---
+// Diversions home (herbouwd vanuit design/home-sections.jsx + components.jsx).
+// Secties in design-volgorde: hero, marquee, services, work, quote, contact-cta.
+// Echte content: services-rij en work-grid komen uit de collections (getAllServices /
+// getAllWorkItems). Hero-meta + quote zijn design-content (geen collection-bron) en
+// daarom GEFLAGD als design-placeholder voor de content-eigenaar.
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getAllServices, getAllWorkItems } from "@/lib/data";
+
+// --- Services (home): vier hoofddiensten uit het design, gekoppeld aan echte
+//     services-detailroutes waar er een logische match is. De korte
+//     omschrijvingen komen uit het design (de collection-descriptions zijn vaak
+//     lang/SEO-achtig). nieuwe_url uit content: /services/<slug>.
+const services = [
+  {
+    n: "01",
+    title: "Onderzoek & insights",
+    desc: "Kwalitatief en kwantitatief klantonderzoek dat de wensen achter het gedrag blootlegt — de basis voor elke verbetering.",
+    href: "/services/onderzoek",
+  },
+  {
+    n: "02",
+    title: "Customer journey",
+    desc: "Denken en innoveren vanuit het perspectief van de klant. Een krachtig startpunt om je dienstverlening te optimaliseren.",
+    href: "/services/customer-journey",
+  },
+  {
+    n: "03",
+    title: "Conversie-optimalisatie",
+    desc: "Doorlopend testen en verbeteren. Meer rendement uit je online activiteiten, stap voor stap en meetbaar.",
+    href: "/services/conversie-optimalisatie",
+  },
+  {
+    n: "04",
+    title: "SEO & online marketing",
+    desc: "Beter gevonden worden door de juiste mensen. Van zoekwoordstrategie tot organisch en betaald zoekverkeer.",
+    // /services/seo-marketing is verwijderd (niet-geindexeerd-opschoning 2026-05-31).
+    // Tijdelijk naar het diensten-overzicht; eigenaar kan dit later herrichten.
+    href: "/onze-diensten",
+  },
+];
+
+// --- Work (home): eerste vier cases uit de work-collection. Echte titel +
+//     thumbnail + route (work/<id>). De thumbnails zijn nog placeholders uit de
+//     conversie (quality-fase vervangt ze door echte WP-beelden).
+const allWork = await getAllWorkItems();
+const featuredWork = allWork.slice(0, 4).map((item) => ({
+  title: item.data.work,
+  client: item.data.client ?? item.data.company,
+  year: item.data.year,
+  img: item.data.thumbnail?.url,
+  alt: item.data.thumbnail?.alt ?? "",
+  href: `/work/${item.slug}`,
+}));
+
+const marqueeItems = [
+  "Onderzoek",
+  "Customer journey",
+  "Conversie-optimalisatie",
+  "SEO",
+  "Insights",
+  "Innovatie",
+  "Strategie",
+];
+---
+
+<BaseLayout
+  seo={{
+    title: "Diversions — Insights & oplossingen",
+    description:
+      "Diversions helpt organisaties klaar te staan voor de klant van vandaag en morgen. Van onderzoek en customer journeys tot conversie en groei.",
+  }}
+>
+  {/* ---------------- HERO ---------------- */}
+  <section class="hero" id="top">
+    <div class="hero-grid">
+      <h1 class="hero-title">
+        Van inzichten<br />naar <em>oplossingen</em>.
+      </h1>
+      <div>
+        <p class="hero-intro">
+          Diversions helpt organisaties <strong>klaar te staan voor de klant</strong>
+          van vandaag en morgen — van onderzoek en customer journeys tot conversie en
+          groei.
+        </p>
+        <div class="hero-cta-row">
+          <a href="/contact" class="btn btn-primary btn-arrow">Start een project</a>
+          <a href="#work" class="btn btn-outline">Bekijk werk</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      {/* HANDMATIG/quality (Fase 6): hero-beeld is een design-placeholder. */}
+      <img src="/img/hero.png" alt="" />
+    </div>
+
+    {/* hero-meta: design-content (geen collection-bron) — GEFLAGD als placeholder. */}
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="label">Studio</div>
+        <div class="value">Utrecht, NL</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="label">Focus</div>
+        <div class="value">Onderzoek · Journey · Groei</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="label">Werkwijze</div>
+        <div class="value">Test in Progress</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="label">Beschikbaar</div>
+        <div class="value" style="color: var(--color-yellow-600)">
+          ● voor nieuwe projecten
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ---------------- MARQUEE ---------------- */}
+  <div class="marquee marquee-peach" aria-hidden="true">
+    <div class="marquee-track">
+      <span>
+        {
+          marqueeItems.map((it) => (
+            <>
+              <span style="display:inline-flex;align-items:center">{it}</span>
+              <span class="dot"></span>
+            </>
+          ))
+        }
+      </span>
+      <span>
+        {
+          marqueeItems.map((it) => (
+            <>
+              <span style="display:inline-flex;align-items:center">{it}</span>
+              <span class="dot"></span>
+            </>
+          ))
+        }
+      </span>
+    </div>
+  </div>
+
+  {/* ---------------- SERVICES ---------------- */}
+  <section class="section" id="services">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Wat we doen</span>
+        <h2 class="section-title">
+          Eén team, van inzicht <em>tot resultaat</em>.
+        </h2>
+      </div>
+      <p class="section-lead">
+        We werken in compacte teams waarin onderzoek, strategie en uitvoering dicht op
+        elkaar zitten. Geen losse overdracht, wel snelle iteraties.
+      </p>
+    </div>
+
+    <div class="services-list">
+      {
+        services.map((it) => (
+          <a class="service-row" href={it.href}>
+            <span class="service-num">{it.n}</span>
+            <h3 class="service-title">{it.title}</h3>
+            <p class="service-desc">{it.desc}</p>
+            <span class="service-arrow" aria-hidden="true">
+              →
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  {/* ---------------- WORK ---------------- */}
+  <section class="section" id="work" style="background: var(--color-accent-100)">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Geselecteerd werk</span>
+        <h2 class="section-title">Recent gemaakt — met aandacht.</h2>
+      </div>
+      <p class="section-lead">
+        Een greep uit de cases waar we trots op zijn. Vraag gerust naar de rest — niet
+        alles staat online.
+      </p>
+    </div>
+
+    <div class="work-grid">
+      {
+        featuredWork.map((c) => (
+          <a class="work-card" href={c.href}>
+            <div class="img-wrap">
+              {c.img ? <img src={c.img} alt={c.alt} loading="lazy" decoding="async" /> : null}
+            </div>
+            <div class="body">
+              <span class="work-tag">Case</span>
+              <h3 class="work-title">{c.title}</h3>
+              {c.client ? <p class="work-desc">{c.client}</p> : null}
+              <div class="work-meta">
+                <span>{c.year ?? "Diversions"}</span>
+                <span>Lees verder →</span>
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  {/* ---------------- QUOTE (design-content, GEFLAGD als placeholder) ---------------- */}
+  <section class="section" id="about">
+    <div class="quote-block">
+      <span class="quote-mark" aria-hidden="true">"</span>
+      <p class="quote-text">
+        We helpen organisaties om klaar te staan voor de klant van vandaag en morgen —
+        van het eerste inzicht tot een meetbaar resultaat.
+      </p>
+      <div class="quote-attr">
+        <span class="avatar" aria-hidden="true">DV</span>
+        <div>
+          <div class="quote-who">Team Diversions</div>
+          <div class="quote-role">Insights &amp; oplossingen</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ---------------- CONTACT CTA ---------------- */}
+  <section class="contact-cta" id="contact-cta">
+    <div>
+      <span class="eyebrow">Klaar om te beginnen</span>
+      <h2 class="contact-cta-title">
+        Laten we iets <em>moois</em> bouwen.
+      </h2>
+    </div>
+    <div>
+      <p class="contact-cta-text">
+        Vertel ons over je project — een kort bericht is genoeg om te starten. We
+        reageren binnen één werkdag.
+      </p>
+      <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+        <a href="/contact" class="btn btn-primary btn-arrow">Stuur een bericht</a>
+        <a href="mailto:hallo@diversions.nl" class="btn btn-ghost-light">
+          hallo@diversions.nl
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

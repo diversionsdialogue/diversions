@@ -1,0 +1,153 @@
+---
+// 404 — Pagina niet gevonden, in de Diversions-huisstijl.
+// Design source: design/404.html + design/not-found.css.
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const suggestions = [
+  {
+    href: "/services",
+    label: "Onze diensten",
+    text: "Wat we doen — branding, digitaal en strategie.",
+  },
+  {
+    href: "/work",
+    label: "Werk",
+    text: "Recente projecten en cases uit de studio.",
+  },
+  {
+    href: "/blog",
+    label: "Blog",
+    text: "Notities, schrijfsels en losse gedachten.",
+  },
+  {
+    href: "/contact",
+    label: "Contact",
+    text: "Een idee bespreken? Een koffie boeken? Hier.",
+  },
+];
+---
+
+<BaseLayout
+  seo={{
+    title: "Pagina niet gevonden — Diversions",
+    description: "Deze pagina bestaat niet (meer). Ga terug naar de homepage.",
+    noindex: true,
+  }}
+>
+  <main class="px-8 pt-14 md:px-14 md:pt-24 lg:px-[72px] lg:pt-[120px]">
+    <!-- Hero -->
+    <section class="mx-auto flex max-w-[760px] flex-col items-center text-center">
+      <span
+        class="mb-7 inline-flex items-center gap-2.5 rounded-full bg-yellow-50 px-3.5 py-1.5 font-subtitle text-[11px] font-semibold uppercase tracking-[0.18em] text-yellow-700"
+      >
+        <span class="size-1.5 animate-pulse rounded-full bg-yellow-500"></span>
+        Foutmelding 404
+      </span>
+
+      <h1
+        class="m-0 mb-7 font-display text-[clamp(44px,7vw,80px)] leading-none tracking-[-0.02em] text-base-700 text-balance"
+      >
+        Hmm — deze afslag <em class="font-normal not-italic text-yellow-600"
+          >klopt niet</em
+        >.
+      </h1>
+
+      <p
+        class="m-0 mb-9 max-w-[52ch] font-sans text-base leading-relaxed text-base-500 text-pretty"
+      >
+        De pagina die je zoekt bestaat niet (meer). Misschien is hij verhuisd,
+        hernoemd, of nooit echt geweest. Excuses voor het ongemak — probeer het
+        nog eens of ga terug naar de homepage.
+      </p>
+
+      <div class="mb-14 flex flex-wrap justify-center gap-3">
+        <a
+          href="/"
+          class="group inline-flex h-11 items-center gap-2 rounded-lg bg-yellow-500 px-6 font-subtitle text-[15px] font-semibold text-white transition-colors duration-200 hover:bg-yellow-600"
+        >
+          Terug naar home
+          <span
+            class="transition-transform duration-200 group-hover:translate-x-1"
+            aria-hidden="true">&rarr;</span
+          >
+        </a>
+        <a
+          href="/contact"
+          class="inline-flex h-11 items-center rounded-lg border border-accent-300 bg-transparent px-6 font-subtitle text-[15px] font-semibold text-base-700 transition-colors duration-200 hover:bg-accent-50"
+        >
+          Iets gebroken? Laat het ons weten
+        </a>
+      </div>
+    </section>
+
+    <!-- Decorative numerals -->
+    <div
+      class="flex items-center justify-center gap-[clamp(16px,4vw,56px)] text-accent-300"
+      aria-hidden="true"
+    >
+      <span
+        class="font-display text-[clamp(140px,24vw,280px)] leading-[0.85] tracking-[-0.03em] text-accent-300"
+        >4</span
+      >
+      <span
+        class="inline-flex h-[clamp(140px,24vw,280px)] w-[clamp(100px,17vw,200px)] animate-[nfspin_22s_linear_infinite] items-center justify-center text-yellow-500"
+      >
+        <svg viewBox="0 0 200 280" preserveAspectRatio="none" class="h-full w-full">
+          <ellipse
+            cx="100"
+            cy="140"
+            rx="78"
+            ry="118"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="14"></ellipse>
+        </svg>
+      </span>
+      <span
+        class="font-display text-[clamp(140px,24vw,280px)] leading-[0.85] tracking-[-0.03em] text-accent-300"
+        >4</span
+      >
+    </div>
+
+    <!-- Suggestions -->
+    <section
+      class="mx-auto mt-6 max-w-[1100px] border-t border-accent-300 px-0 pb-24 pt-16 md:pb-[120px] md:pt-20"
+    >
+      <h2
+        class="mb-10 text-center font-subtitle text-[11px] font-semibold uppercase tracking-[0.18em] text-base-400"
+      >
+        Misschien zocht je…
+      </h2>
+      <ul
+        class="grid list-none grid-cols-1 gap-0 p-0 sm:grid-cols-2 lg:grid-cols-4"
+      >
+        {
+          suggestions.map((s) => (
+            <li class="border-t border-accent-300 px-6 pb-7 pt-6 sm:[&:nth-child(2)]:border-l sm:[&:nth-child(4)]:border-l sm:[&:nth-child(2)]:border-accent-300 sm:[&:nth-child(4)]:border-accent-300 lg:border-l lg:border-accent-300 lg:first:border-l-0">
+              <a
+                href={s.href}
+                class="group mb-2 flex items-baseline justify-between gap-3 font-display text-[22px] leading-tight text-base-700 no-underline transition-colors duration-200 hover:text-yellow-600"
+              >
+                <span>{s.label}</span>
+                <span class="font-subtitle text-base text-base-400 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-yellow-600">
+                  &rarr;
+                </span>
+              </a>
+              <p class="m-0 font-sans text-[13.5px] leading-relaxed text-base-500">
+                {s.text}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  @keyframes nfspin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>

@@ -1,0 +1,54 @@
+[
+  {
+    "naam": "Contactformulier",
+    "in_scope": true,
+    "gf_id": "1",
+    "gevonden_op": ["/contact-2"],
+    "velden": ["velden onbekend - bij gebruiker navragen (vermoedelijk: naam, e-mail, telefoon, bericht)"],
+    "huidige_bestemming": "mail naar info@diversions.nl (te bevestigen)",
+    "gewenste_n8n_acties": ["mail via Mailjet naar info@diversions.nl", "bevestigingsmail naar invuller", "rij toevoegen in Google Sheets (gebruikersbeslissing 2026-05-31)"],
+    "afzender": "info@diversions.nl",
+    "status_fase4": "Astro-formulier af (/contact, client-side POST naar PUBLIC_CONTACT_WEBHOOK_URL, honeypot + AVG-consent + noscript). n8n-workflow opgeleverd als importeerbare JSON: n8n/contactformulier.workflow.json (Webhook contact-diversions -> honeypot -> Mailjet notificatie info@ -> Mailjet bevestiging -> Google Sheets append -> 200). OPEN bij gebruiker: importeren, credentials koppelen (Mailjet + Google Sheets), sheet 'Inzendingen' klaarzetten, webhook-URL in apps/web/.env, testen (curl + CORS + echte formuliertest) en publiceren. Zie n8n/README-contactformulier.md.",
+    "notities": "ENIGE formulier in scope voor nu (gebruikersbeslissing: rest uitgesteld). Embed [gravityform id=1] op /contact-2. Live /contact (pagina) en het bericht /contact zijn dunne stubs zonder eigen GF; consolideren naar 1 contactpagina in Astro (Fase 4). AVG-consentvinkje toegevoegd. Veldnamen (naam/e-mail/telefoon/bericht) aanname; bevestigen bij gebruiker indien oude GF afweek."
+  },
+  {
+    "naam": "Videocall plannen",
+    "in_scope": false,
+    "gf_id": "32",
+    "gevonden_op": ["/videocall-plannen"],
+    "velden": ["velden onbekend - later navragen"],
+    "huidige_bestemming": "onbekend - later navragen",
+    "gewenste_n8n_acties": ["mail/notificatie naar Diversions", "bevestiging naar invuller", "evt. agenda-/Calendly-koppeling"],
+    "notities": "UITGESTELD - buiten scope voor nu (gebruikersbeslissing: formulieren later, alleen contact). Korte funnel-pagina voor het plannen van een 15-min videocall."
+  },
+  {
+    "naam": "Journey: kracht van het klantperspectief (aanvraag/download)",
+    "in_scope": false,
+    "gf_id": "onbekend",
+    "gevonden_op": ["/journey-de-kracht-van-het-klantperspectief"],
+    "velden": ["velden onbekend - later navragen"],
+    "huidige_bestemming": "onbekend - later navragen",
+    "gewenste_n8n_acties": ["mail/notificatie naar Diversions", "bevestiging naar invuller"],
+    "notities": "UITGESTELD - buiten scope voor nu (gebruikersbeslissing). GF embedded op long-form journey-pagina (bestemming: bouwen-in-astro)."
+  },
+  {
+    "naam": "SEO cursus (aanmelding)",
+    "in_scope": false,
+    "gf_id": "onbekend",
+    "gevonden_op": ["/?page_id=3360 (DRAFT-seo-cursus, niet live)"],
+    "velden": ["velden onbekend - later navragen"],
+    "huidige_bestemming": "onbekend - later navragen",
+    "gewenste_n8n_acties": ["mail/notificatie naar Diversions", "bevestiging naar invuller"],
+    "notities": "UITGESTELD - buiten scope voor nu. Staat op een DRAFT-pagina die in inventaris.json op droppen staat; vervalt tenzij de SEO-cursuspagina alsnog gelanceerd wordt."
+  },
+  {
+    "naam": "3 valkuilen voor iedere online campagne (download/lead)",
+    "in_scope": false,
+    "gf_id": "onbekend",
+    "gevonden_op": ["/?p=2789 (DRAFT-effect-campagnes, niet live)"],
+    "velden": ["velden onbekend - later navragen"],
+    "huidige_bestemming": "onbekend - later navragen",
+    "gewenste_n8n_acties": ["mail/notificatie naar Diversions", "bevestiging + levering download naar invuller"],
+    "notities": "UITGESTELD - buiten scope voor nu. Staat op een DRAFT-bericht dat in inventaris.json op droppen staat; vermoedelijk een lead-magnet/downloadformulier."
+  }
+]

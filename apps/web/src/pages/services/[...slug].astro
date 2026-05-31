@@ -1,0 +1,30 @@
+---
+import readingTime from "reading-time";
+import ServicesLayout from "../../layouts/ServicesLayout.astro";
+import PortableText from "@/components/global/PortableText.astro";
+import { getAllServices } from "@/lib/data";
+import { portableTextToPlainText } from "@/lib/sanity/portableText";
+
+export async function getStaticPaths() {
+  const services = await getAllServices();
+  return services.map((page) => ({
+    params: { slug: page.slug ?? page.id },
+    props: { page },
+    trailingSlash: false,
+  }));
+}
+const { page } = Astro.props;
+
+// Leestijd uit de platte tekst van de Portable-Text-body (reading-time, ~200 wpm).
+const plain = portableTextToPlainText(page.body);
+const minutes = plain
+  ? Math.max(1, Math.round(readingTime(plain).minutes))
+  : undefined;
+---
+<ServicesLayout
+  frontmatter={page.data}
+  id={page.slug ?? page.id}
+  readingMinutes={minutes}
+>
+  <PortableText value={page.body} />
+</ServicesLayout>

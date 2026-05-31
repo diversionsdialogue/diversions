@@ -1,0 +1,108 @@
+---
+/**
+ * Video — poster with click-to-load embed (no third-party autoload).
+ * Parity block: Sanity `videoBlock`.
+ * Design source: <VideoBlock poster label> in design/components.jsx (#video-root).
+ *
+ * AVG / privacy: the embed (YouTube/Vimeo/etc.) is NOT requested on page load.
+ * Only the local poster shows; the iframe is injected on click. This avoids
+ * setting third-party cookies before interaction.
+ *   >>> Fase 6 (AVG-consent): gate the click so the iframe only loads after
+ *       the visitor has accepted marketing/embed cookies. Marked here. <<<
+ *
+ * Props (CLAUDE.md §4 / Sanity videoBlock):
+ *   videoUrl  string  — embeddable URL (used as iframe src on click)
+ *   poster    { url, alt? } | string  — local poster image
+ *   label?    string  — overlay caption
+ */
+interface Props {
+  videoUrl: string;
+  poster: { url: string; alt?: string } | string;
+  label?: string;
+  class?: string;
+}
+
+const {
+  videoUrl,
+  poster,
+  label = "Bekijk de video",
+  class: className = "",
+} = Astro.props;
+
+const posterUrl = typeof poster === "string" ? poster : poster.url;
+const posterAlt = typeof poster === "string" ? "" : (poster.alt ?? "");
+---
+
+<div
+  class:list={[
+    "video-block relative my-8 aspect-video cursor-pointer overflow-hidden rounded-2xl border border-accent-300 bg-base-900",
+    className,
+  ]}
+  data-video
+  data-video-url={videoUrl}
+  role="button"
+  tabindex="0"
+  aria-label={label}
+>
+  <img
+    src={posterUrl}
+    alt={posterAlt}
+    class="video-poster absolute inset-0 h-full w-full object-cover opacity-85"
+    loading="lazy"
+    decoding="async"
+  />
+  <div
+    class="video-overlay pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-4 bg-gradient-to-b from-transparent to-black/40 text-white"
+  >
+    <span
+      class="flex size-[72px] items-center justify-center rounded-full bg-yellow-500 text-white transition-transform duration-200"
+    >
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 22 22"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path d="M6 4l13 7-13 7z"></path>
+      </svg>
+    </span>
+    <span class="font-subtitle text-sm font-semibold tracking-wide">{label}</span
+    >
+  </div>
+</div>
+
+<style>
+  .video-block:hover .video-overlay span:first-child {
+    transform: scale(1.05);
+  }
+</style>
+
+<script>
+  function loadEmbed(el: HTMLElement) {
+    const url = el.getAttribute("data-video-url");
+    if (!url || el.dataset.loaded === "true") return;
+    // Fase 6: insert AVG-consent check before this point.
+    const iframe = document.createElement("iframe");
+    iframe.src = url;
+    iframe.title = el.getAttribute("aria-label") || "Video";
+    iframe.allow =
+      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    iframe.allowFullscreen = true;
+    iframe.className = "absolute inset-0 h-full w-full border-0";
+    el.innerHTML = "";
+    el.appendChild(iframe);
+    el.dataset.loaded = "true";
+    el.style.cursor = "default";
+  }
+
+  document.querySelectorAll<HTMLElement>("[data-video]").forEach((el) => {
+    el.addEventListener("click", () => loadEmbed(el));
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        loadEmbed(el);
+      }
+    });
+  });
+</script>

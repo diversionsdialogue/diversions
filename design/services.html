@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Diensten — Diversions</title>
+<meta name="description" content="Onze diensten — branding, web, motion, productontwerp en meer. Bekijk wat we doen, voor wie en met welke aanpak." />
+<link rel="stylesheet" href="colors_and_type.css" />
+<link rel="stylesheet" href="site.css" />
+<link rel="stylesheet" href="services-archive.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip naar inhoud</a>
+
+<div class="shell">
+  <div class="surface">
+    <div id="header-root"></div>
+
+    <main id="main">
+      <!-- =================== HERO: card + image =================== -->
+      <section class="sa-hero">
+        <a href="#diensten" class="sa-hero-card" style="background-color: rgb(186, 191, 158)">
+          <span class="sa-hero-spark" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M32 8v16M32 40v16M8 32h16M40 32h16M14 14l11 11M39 39l11 11M50 14l-11 11M14 50l11-11"/>
+            </svg>
+          </span>
+          <span class="sa-hero-card-text">
+            Klaar om aan jullie<br/>volgende project te werken
+          </span>
+        </a>
+        <div class="sa-hero-image">
+          <img src="assets/about.jpeg" alt="Werkplek met daglicht en planten" />
+        </div>
+      </section>
+
+      <!-- =================== SECTION HEADER =================== -->
+      <header class="sa-header" id="diensten">
+        <div class="sa-header-left">
+          <span class="sa-eyebrow">— Wat we doen</span>
+          <h1 class="sa-title">
+            We bouwen merken en producten<br/>die zorgvuldig ontworpen zijn.
+          </h1>
+        </div>
+
+        <div class="sa-header-right">
+          <nav class="sa-tags" aria-label="Filter op tag">
+            <a href="#" class="sa-tag active" data-tag="all">Alles</a>
+            <a href="#" class="sa-tag" data-tag="branding">branding</a>
+            <a href="#" class="sa-tag" data-tag="digital">digital</a>
+            <a href="#" class="sa-tag" data-tag="strategie">strategie</a>
+            <a href="#" class="sa-tag" data-tag="motion">motion</a>
+            <a href="#" class="sa-tag" data-tag="research">research</a>
+          </nav>
+        </div>
+      </header>
+
+      <!-- =================== GRID + PAGINATION =================== -->
+      <div id="sa-grid-root"></div>
+
+      <!-- =================== DARK CTA BAND =================== -->
+      <section class="sa-cta" style="background-color: rgb(186, 191, 158)">
+        <div class="sa-cta-text">
+          <span class="sa-cta-eyebrow">— Klaar om te starten?</span>
+          <h2 class="sa-cta-title">
+            Heb je een idee?<br/>Dan helpen we je graag<br/>om het te bouwen.
+          </h2>
+          <p class="sa-cta-body">
+            Neem contact op om te starten — we zijn altijd bereid om te helpen. Je krijgt binnen een paar dagen een offerte en een eerlijk voorstel terug.
+          </p>
+        </div>
+        <a href="contact.html" class="sa-cta-circle">
+          Contact
+          <span aria-hidden="true">→</span>
+        </a>
+      </section>
+    </main>
+
+    <div id="footer-root"></div>
+  </div>
+</div>
+
+<script type="text/babel" src="components.jsx"></script>
+<script type="text/babel" src="services-archive.jsx"></script>
+<script type="text/babel">
+ReactDOM.createRoot(document.getElementById("header-root")).render(<Header active="services" />);
+ReactDOM.createRoot(document.getElementById("footer-root")).render(<Footer />);
+ReactDOM.createRoot(document.getElementById("sa-grid-root")).render(<ServicesArchive />);
+</script>
+
+</body>
+</html>

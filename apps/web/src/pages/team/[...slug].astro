@@ -1,0 +1,19 @@
+---
+import TeamLayout from "../../layouts/TeamLayout.astro";
+import PortableText from "@/components/global/PortableText.astro";
+import { getAllTeamMembers } from "@/lib/data";
+
+export async function getStaticPaths() {
+  const team = await getAllTeamMembers();
+  return team.map((page) => ({
+    params: { slug: page.slug ?? page.id },
+    props: { page },
+    trailingSlash: false,
+  }));
+}
+const { page } = Astro.props;
+---
+
+<TeamLayout frontmatter={page.data} id={page.slug ?? page.id}>
+  <PortableText value={page.body} />
+</TeamLayout>

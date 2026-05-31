@@ -1,0 +1,12 @@
+---
+description: Sanity client, GROQ, transforms, Portable Text, images — stay in sync
+globs: apps/web/src/lib/sanity/**,apps/web/src/lib/data.ts
+---
+
+# Sanity data layer (`lib/sanity` + `data.ts`)
+
+- **Toggle:** `USE_SANITY` lives in **`apps/web/src/lib/data.ts`** (not `.env`).
+- **Modules:** Keep `client.ts`, `fetch.ts`, `queries.ts`, `types.ts`, `transforms.ts`, `image.ts`, `portableText.ts`, and `index.ts` coherent — query projections must match `types.ts`; **`transforms.ts`** must output the same **shape** components expect from Content Collections (see file header comments).
+- **Images:** Use **`urlFor`** / helpers from `image.ts` for Sanity assets; do not hand-parse asset refs in random pages.
+- **Portable Text:** `@portabletext/to-html` is available; use `portableText.ts` for consistency if converting blocks. Sanity `body` fields in this project are **string/markdown-oriented** in schemas — do not assume Portable Text documents without checking schemas and migration output.
+- **Env:** `apps/web/.env.example` documents `SANITY_PROJECT_ID`, `SANITY_DATASET`, `SANITY_API_VERSION`, optional `SANITY_READ_TOKEN`.

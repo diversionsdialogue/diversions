@@ -1,0 +1,337 @@
+/* =========================================================================
+   Diversions — colors_and_type.css
+   ---------------------------------------------------------------------------
+   Single-file foundation: CSS custom props for color + typography roles,
+   plus semantic element styles (h1, h2, p, code, blockquote, etc).
+   Drop into any HTML file with: <link rel="stylesheet" href="colors_and_type.css" />
+
+   Anchor hexes (from the brand brief):
+     #ED6C52 terracotta  → --primary               (CTA, brand punch)
+     #F0A98A coral       → --primary-soft          (hover, soft accent)
+     #BABF9E sage        → --accent                (warm green-grey)
+     #F3BF8F peach       → --peach                 (warm surface)
+     #F4E0A3 butter      → --butter                (the warm body wash)
+     #575756 warm grey   → --ink                   (body text, headings)
+
+   The scale-based vars (--color-base-*, --color-yellow-*, etc.) are kept
+   identical to the production Tailwind @theme tokens so a Tailwind class
+   like `bg-yellow-500` matches what you see here.
+   ========================================================================= */
+
+/* ------------------------------------------------------------------------- */
+/* 1. WEBFONTS                                                                */
+/*    - Bungee: self-hosted from fonts/Bungee-Regular.ttf (uploaded).         */
+/*    - Anek Latin + Source Sans 3 + Nunito Sans: Google Fonts CDN.           */
+/*      (Re-upload zips to swap to self-hosted.)                              */
+/*    - Avenir: licensed; Nunito Sans italic stands in for quotes.            */
+/* ------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Bungee";
+  src: url("fonts/Bungee-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("fonts/SourceSans3-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("fonts/SourceSans3-Italic-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 200 900;
+  font-style: italic;
+  font-display: swap;
+}
+@import url("https://fonts.googleapis.com/css2?family=Anek+Latin:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;1,400&display=swap");
+
+:root {
+  /* -----------------------------------------------------------------------
+     COLOR — full scales (Tailwind-matched)
+     ----------------------------------------------------------------------- */
+
+  /* base — warm grey (ink, borders, neutrals).  Anchor: 600 ≈ #575756 */
+  --color-base-50:  oklch(0.980 0.002 85);
+  --color-base-100: oklch(0.952 0.003 85);
+  --color-base-200: oklch(0.895 0.004 85);
+  --color-base-300: oklch(0.800 0.005 85);
+  --color-base-400: oklch(0.680 0.005 85);
+  --color-base-500: oklch(0.560 0.005 85);
+  --color-base-600: oklch(0.462 0.004 85);   /* ≈ #575756  */
+  --color-base-700: oklch(0.400 0.004 85);
+  --color-base-800: oklch(0.340 0.003 85);
+  --color-base-900: oklch(0.270 0.003 85);
+  --color-base-950: oklch(0.200 0.003 85);
+
+  /* accent — sage / peach / butter (warm body neutrals). Anchor: 400 ≈ #BABF9E sage, 100 ≈ butter wash */
+  --color-accent-50:  oklch(0.975 0.018 85);
+  --color-accent-100: oklch(0.945 0.035 88);
+  --color-accent-200: oklch(0.905 0.055 75);
+  --color-accent-300: oklch(0.860 0.045 100);
+  --color-accent-400: oklch(0.790 0.035 112);
+  --color-accent-500: oklch(0.680 0.035 115);
+  --color-accent-600: oklch(0.560 0.030 118);
+  --color-accent-700: oklch(0.460 0.025 120);
+  --color-accent-800: oklch(0.370 0.020 118);
+  --color-accent-900: oklch(0.300 0.018 115);
+  --color-accent-950: oklch(0.220 0.015 112);
+
+  /* yellow — TERRACOTTA (primary brand / CTA). Anchor: 500 ≈ #ED6C52, 300 ≈ #F0A98A coral */
+  --color-yellow-50:  oklch(0.975 0.015 45);
+  --color-yellow-100: oklch(0.945 0.035 42);
+  --color-yellow-200: oklch(0.895 0.060 40);
+  --color-yellow-300: oklch(0.795 0.105 38);   /* coral */
+  --color-yellow-400: oklch(0.740 0.140 38);
+  --color-yellow-500: oklch(0.685 0.175 38);   /* terracotta */
+  --color-yellow-600: oklch(0.600 0.165 36);
+  --color-yellow-700: oklch(0.510 0.140 34);
+  --color-yellow-800: oklch(0.420 0.115 32);
+  --color-yellow-900: oklch(0.345 0.090 30);
+  --color-yellow-950: oklch(0.235 0.060 30);
+
+  /* pink — butter / coral highlight (soft surfaces, quotes). Class name kept for legacy compat. */
+  --color-pink-50:  oklch(0.985 0.015 95);
+  --color-pink-100: oklch(0.965 0.035 92);
+  --color-pink-200: oklch(0.935 0.065 92);    /* butter ≈ #F4E0A3 */
+  --color-pink-300: oklch(0.900 0.080 88);
+  --color-pink-400: oklch(0.855 0.095 78);    /* peach  ≈ #F3BF8F */
+  --color-pink-500: oklch(0.795 0.105 55);    /* coral  ≈ #F0A98A */
+  --color-pink-600: oklch(0.700 0.130 48);
+  --color-pink-700: oklch(0.600 0.140 42);
+  --color-pink-800: oklch(0.500 0.130 38);
+  --color-pink-900: oklch(0.410 0.110 35);
+  --color-pink-950: oklch(0.280 0.080 32);
+
+  /* -----------------------------------------------------------------------
+     COLOR — semantic aliases.
+     Use these in components; never hardcode anchors elsewhere.
+     ----------------------------------------------------------------------- */
+  --primary:        var(--color-yellow-500);   /* terracotta CTA */
+  --primary-hover:  var(--color-yellow-600);
+  --primary-soft:   var(--color-yellow-300);   /* coral, soft fills */
+  --primary-tint:   var(--color-yellow-50);    /* tag bg, very light */
+
+  --accent:         var(--color-accent-400);   /* sage */
+  --accent-deep:    var(--color-accent-700);
+  --accent-soft:    var(--color-accent-200);   /* peach */
+  --accent-tint:    var(--color-accent-50);
+
+  --butter:         var(--color-pink-200);     /* warm butter highlight */
+  --butter-soft:    var(--color-accent-100);   /* default body wash */
+  --peach:          var(--color-pink-400);
+  --coral:          var(--color-pink-500);
+
+  --ink:            var(--color-base-700);     /* primary text */
+  --ink-soft:       var(--color-base-500);     /* secondary text */
+  --ink-mute:       var(--color-base-400);     /* tertiary, captions */
+  --ink-strong:     var(--color-base-900);     /* warm-black, dark surfaces */
+
+  --bg:             var(--color-accent-100);   /* default page background */
+  --bg-card:        #ffffff;                   /* cards, surfaces */
+  --bg-quote:       var(--color-pink-200);     /* quote / highlight blocks */
+  --bg-code:        var(--color-accent-50);
+
+  --border:         var(--color-accent-300);
+  --border-strong:  var(--color-accent-600);
+
+  /* Foreground roles (bg + fg pairs) */
+  --fg1:            var(--color-base-700);     /* primary fg on light bg */
+  --fg2:            var(--color-base-500);     /* secondary fg */
+  --fg3:            var(--color-base-400);     /* tertiary fg */
+  --fg-on-primary:  #ffffff;                   /* fg on terracotta */
+  --fg-on-dark:     #ffffff;                   /* fg on base-900 */
+
+  /* Focus ring */
+  --ring:           var(--color-yellow-600);
+
+  /* -----------------------------------------------------------------------
+     TYPOGRAPHY — font stacks
+     ----------------------------------------------------------------------- */
+  --font-display:   "Bungee", ui-sans-serif, system-ui, sans-serif;       /* h1, hero, big numbers */
+  --font-subtitle:  "Anek Latin", ui-sans-serif, system-ui, sans-serif;   /* h2/h3, eyebrows, buttons, labels */
+  --font-sans:      "Source Sans 3", "Source Sans Pro", ui-sans-serif, system-ui, sans-serif;  /* body */
+  --font-quote:     "Avenir", "Avenir Next", "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:      ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", monospace;
+
+  /* Type scale (used by the semantic styles below) */
+  --fs-hero:    56px;   --lh-hero:    1.02;
+  --fs-h1:      42px;   --lh-h1:      1.05;
+  --fs-h2:      28px;   --lh-h2:      1.15;
+  --fs-h3:      22px;   --lh-h3:      1.2;
+  --fs-subtitle:24px;   --lh-subtitle:1.25;
+  --fs-body:    16px;   --lh-body:    1.55;
+  --fs-small:   14px;   --lh-small:   1.5;
+  --fs-eyebrow: 12px;   --lh-eyebrow: 1.2;
+
+  /* -----------------------------------------------------------------------
+     SPACING / RADIUS / SHADOW — small but useful
+     ----------------------------------------------------------------------- */
+  --space-1:  4px;   --space-2:  8px;   --space-3: 12px;
+  --space-4: 16px;   --space-5: 20px;   --space-6: 24px;
+  --space-8: 32px;   --space-10: 40px;  --space-12: 48px;
+  --space-16: 64px;  --space-20: 80px;  --space-24: 96px;
+
+  --radius-sm:  6px;
+  --radius-md:  10px;       /* default for buttons */
+  --radius-lg:  16px;       /* cards */
+  --radius-xl:  20px;       /* hero, big surfaces */
+  --radius-full: 999px;
+
+  --shadow-sm:  0 1px 2px rgba(60, 50, 40, .04);
+  --shadow-md:  0 4px 12px -2px rgba(60, 50, 40, .08);
+  --shadow-lg:  0 10px 40px -12px rgba(60, 50, 40, .18);
+  --shadow-pop: 0 12px 30px -10px rgba(237, 108, 82, .35);  /* terracotta glow */
+
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+  --ease:          cubic-bezier(.2, .7, .2, 1);
+}
+
+/* ------------------------------------------------------------------------- */
+/* 2. SEMANTIC ELEMENT STYLES                                                */
+/*    These are bare element selectors so any HTML using <h1>, <p>, <a>      */
+/*    inherits the brand voice without classes.                              */
+/* ------------------------------------------------------------------------- */
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display + headings */
+h1, .h1 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  line-height: var(--lh-h1);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 var(--space-4);
+  text-wrap: balance;
+}
+.hero-title {                       /* opt-in for biggest display use */
+  font-family: var(--font-display);
+  font-size: var(--fs-hero);
+  line-height: var(--lh-hero);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+h2, .h2 {
+  font-family: var(--font-subtitle);
+  font-weight: 600;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  color: var(--ink);
+  margin: 0 0 var(--space-3);
+  text-wrap: balance;
+}
+h3, .h3 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+  color: var(--ink);
+  margin: 0 0 var(--space-2);
+}
+.subtitle {
+  font-family: var(--font-subtitle);
+  font-weight: 500;
+  font-size: var(--fs-subtitle);
+  line-height: var(--lh-subtitle);
+  color: var(--ink-soft);
+}
+
+/* Eyebrow / section label — uppercase, tracked */
+.eyebrow {
+  font-family: var(--font-subtitle);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-yellow-600);
+}
+
+/* Body */
+p {
+  margin: 0 0 var(--space-4);
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+p:last-child { margin-bottom: 0; }
+small, .small {
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--ink-mute);
+}
+
+/* Links */
+a {
+  color: var(--color-yellow-600);
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in oklch, var(--color-yellow-500) 40%, transparent);
+  text-underline-offset: 3px;
+  transition: color var(--duration-base) var(--ease),
+              text-decoration-color var(--duration-base) var(--ease);
+}
+a:hover {
+  color: var(--color-yellow-700);
+  text-decoration-color: var(--color-yellow-500);
+}
+
+/* Quote — Avenir / Nunito Sans, italic */
+blockquote, .quote {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 0;
+  max-width: 56ch;
+  text-wrap: pretty;
+}
+
+/* Code */
+code, kbd, samp, pre {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+code {
+  background: var(--bg-code);
+  color: var(--color-yellow-700);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+pre {
+  background: var(--bg-code);
+  color: var(--ink);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  border: 1px solid var(--border);
+}
+pre code { background: transparent; padding: 0; color: inherit; }
+
+/* Horizontal rule */
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: var(--space-8) 0;
+}
+
+/* Selection */
+::selection { background: var(--color-yellow-300); color: var(--ink); }
+
+/* Focus ring (keyboard only — most browsers handle this w/ :focus-visible) */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 6px;
+}

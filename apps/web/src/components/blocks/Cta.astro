@@ -1,0 +1,98 @@
+---
+/**
+ * Cta — terracotta (default) or sage CTA card.
+ * Parity block: same fields as the Sanity `ctaBlock` type.
+ * Design source: `.accent-block` (+ `.sage`) in design/services-detail.html.
+ * Reuses fundations/elements/Button.astro for the action.
+ *
+ * Props (keep in sync with CLAUDE.md §4 / Sanity ctaBlock):
+ *   heading      string   — card title
+ *   text         string   — supporting paragraph
+ *   buttonLabel  string   — button text
+ *   buttonHref   string   — button target
+ *   variant      "default" | "sage"  — terracotta vs. soft sage card
+ *   image?       { url, alt }  — optional illustration
+ */
+import Button from "@/components/fundations/elements/Button.astro";
+
+interface Props {
+  heading: string;
+  text?: string;
+  buttonLabel: string;
+  buttonHref: string;
+  variant?: "default" | "sage";
+  image?: { url: string; alt?: string };
+  class?: string;
+}
+
+const {
+  heading,
+  text,
+  buttonLabel,
+  buttonHref,
+  variant = "default",
+  image,
+  class: className = "",
+} = Astro.props;
+
+const isSage = variant === "sage";
+
+const cardClass = isSage
+  ? "bg-accent-100 text-base-700 border border-accent-300"
+  : "bg-yellow-500 text-white";
+
+const headingClass = isSage ? "text-base-700" : "text-white";
+const textClass = isSage ? "text-base-500" : "text-white/85";
+
+// On terracotta cards the button reads white-on-light; on sage cards it is the
+// terracotta accent. Button.astro `none` variant + explicit classes.
+const buttonClass = isSage
+  ? "bg-yellow-500 text-white hover:bg-yellow-600 focus:ring-yellow-600"
+  : "bg-white text-yellow-700 hover:bg-yellow-50 focus:ring-white";
+---
+
+<div
+  class:list={[
+    "grid grid-cols-1 gap-4 rounded-2xl p-8 sm:grid-cols-[1.4fr_auto] sm:items-center sm:gap-8 sm:px-10 sm:py-9",
+    cardClass,
+    className,
+  ]}
+>
+  <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-6">
+    {
+      image?.url && (
+        <img
+          src={image.url}
+          alt={image.alt ?? ""}
+          class="h-20 w-20 shrink-0 rounded-xl object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+      )
+    }
+    <div>
+      <h3 class:list={["font-display text-2xl leading-tight", headingClass]}>
+        {heading}
+      </h3>
+      {
+        text && (
+          <p class:list={["mt-2 text-[15px] leading-relaxed", textClass]}>
+            {text}
+          </p>
+        )
+      }
+    </div>
+  </div>
+
+  <Button
+    variant="none"
+    size="base"
+    isLink={true}
+    href={buttonHref}
+    gap="xs"
+    class:list={["self-start whitespace-nowrap font-semibold", buttonClass]}
+  >
+    {buttonLabel}
+    <span slot="right-icon" aria-hidden="true">&rarr;</span>
+  </Button>
+</div>

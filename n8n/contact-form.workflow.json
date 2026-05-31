@@ -1,0 +1,130 @@
+{
+  "name": "Diversions - Contactformulier",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "diversions-contact",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "f1a0b2c3-0001-4a00-8000-000000000001",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        260,
+        300
+      ],
+      "webhookId": "diversions-contact"
+    },
+    {
+      "parameters": {
+        "fromEmail": "info@diversions.nl",
+        "fromName": "Diversions website",
+        "toEmail": "info@diversions.nl",
+        "subject": "=Nieuw contactformulier van {{ $json.body.name }}",
+        "html": "=<h2>Nieuw bericht via het contactformulier</h2>\n<p><strong>Naam:</strong> {{ $json.body.name }}</p>\n<p><strong>E-mail:</strong> {{ $json.body.email }}</p>\n<p><strong>Telefoon:</strong> {{ $json.body.phone || 'niet opgegeven' }}</p>\n<p><strong>Bericht:</strong><br>{{ $json.body.message }}</p>\n<p><strong>AVG-consent:</strong> {{ $json.body.consent ? 'ja' : 'nee' }}</p>",
+        "additionalFields": {
+          "replyTo": "={{ $json.body.email }}"
+        }
+      },
+      "id": "f1a0b2c3-0002-4a00-8000-000000000002",
+      "name": "Mailjet - Notificatie naar Diversions",
+      "type": "n8n-nodes-base.mailjet",
+      "typeVersion": 1,
+      "position": [
+        500,
+        300
+      ],
+      "credentials": {
+        "mailjetEmailApi": {
+          "id": "REPLACE_WITH_MAILJET_CREDENTIAL_ID",
+          "name": "Mailjet Diversions"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "info@diversions.nl",
+        "fromName": "Diversions",
+        "toEmail": "={{ $json.body.email }}",
+        "subject": "Bedankt voor je bericht - Diversions",
+        "html": "=<p>Hallo {{ $json.body.name }},</p>\n<p>Bedankt voor je bericht. We hebben je aanvraag ontvangen en nemen zo snel mogelijk contact met je op.</p>\n<p>Met vriendelijke groet,<br>Team Diversions</p>\n<hr>\n<p style=\"color:#888;font-size:12px\">Dit is een automatische bevestiging. Je hoeft hier niet op te antwoorden.</p>",
+        "additionalFields": {}
+      },
+      "id": "f1a0b2c3-0003-4a00-8000-000000000003",
+      "name": "Mailjet - Bevestiging naar invuller",
+      "type": "n8n-nodes-base.mailjet",
+      "typeVersion": 1,
+      "position": [
+        740,
+        300
+      ],
+      "credentials": {
+        "mailjetEmailApi": {
+          "id": "REPLACE_WITH_MAILJET_CREDENTIAL_ID",
+          "name": "Mailjet Diversions"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { \"ok\": true } }}",
+        "options": {}
+      },
+      "id": "f1a0b2c3-0004-4a00-8000-000000000004",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        980,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Mailjet - Notificatie naar Diversions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mailjet - Notificatie naar Diversions": {
+      "main": [
+        [
+          {
+            "node": "Mailjet - Bevestiging naar invuller",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mailjet - Bevestiging naar invuller": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false,
+  "pinData": {},
+  "meta": {
+    "description": "Contactformulier diversions.nl. Webhook (POST) -> Mailjet notificatie naar info@diversions.nl -> Mailjet bevestiging naar invuller -> Respond 200 {ok:true}. Geen secrets in dit bestand: Mailjet via n8n-credential."
+  }
+}

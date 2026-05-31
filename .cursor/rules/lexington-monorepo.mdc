@@ -1,0 +1,13 @@
+---
+description: Lexington Themes pnpm monorepo — web vs studio, filters, minimal diffs
+alwaysApply: true
+---
+
+# Lexington monorepo conventions
+
+- **Package manager:** pnpm workspaces (`pnpm-workspace.yaml`). Prefer root scripts: `pnpm dev`, `pnpm dev:web`, `pnpm dev:studio`, `pnpm build:web`, `pnpm build:studio`, migration scripts on the root `package.json`.
+- **Apps:** `apps/web` is the Astro site (`@lexington/web`); `apps/studio` is Sanity Studio (`@lexington/studio`). Do not install site-only dependencies into the studio package or vice versa unless there is a deliberate shared need.
+- **Path aliases:** Follow existing `@/` imports in `apps/web` as configured in `apps/web/tsconfig.json`.
+- **Spelling:** The UI primitives folder is **`fundations`** — do not “fix” or rename it; update imports would churn the whole tree.
+- **Scope:** Keep changes minimal and localized; match existing naming, formatting, and component patterns.
+- **Accuracy:** Do not claim integrations or dependencies that are not in the relevant `package.json` or `astro.config.mjs` / `sanity.config.ts`.

@@ -1,0 +1,40 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+// CONVERT-META (route A, bouwen-in-astro)
+//   bron: /videocall-plannen
+//   nieuwe_url: /videocall-plannen
+//   funnel/CTA-landingspagina met Gravity Form (id=32).
+//   HANDMATIG (Fase 4 / forms-agent): het inplan-formulier is bewust NIET nu
+//     opgebouwd; het wordt in Fase 4 als werkend n8n-formulier teruggeplaatst
+//     (velden uit inventaris-formulieren.json). Tot die tijd: korte intro + verwijzing
+//     naar /contact.
+//   AFBEELDING (videocall.jpg, 2016/06) gedropt: decoratief.
+//   intake: weinig verkeer + dunne content -> keep/drop beoordelen in SEO-fase.
+---
+
+<BaseLayout
+  seo={{
+    title: "Videocall plannen | Diversions",
+    description:
+      "In circa 15 minuten tonen we je graag alle mogelijkheden van conversie-optimalisatie. Plan een video call.",
+    noindex: true,
+  }}
+>
+  <section class="bg-white">
+    <Wrapper variant="prose" class="pt-24 lg:pt-32 pb-24">
+      <h1>Tijd voor een video call</h1>
+      <p>
+        In circa 15 minuten tonen we je graag alle mogelijkheden van
+        conversie-optimalisatie. Met wie mogen we de call plannen?
+      </p>
+      {/* HANDMATIG (Fase 4 / forms-agent): Gravity Form id=32 (videocall plannen).
+          Nog op te bouwen als n8n-formulier. Voorlopig verwijzing naar contact. */}
+      <p>
+        Neem <a href="/contact">contact met ons op</a> om een video call in te plannen.
+      </p>
+    </Wrapper>
+  </section>
+</BaseLayout>

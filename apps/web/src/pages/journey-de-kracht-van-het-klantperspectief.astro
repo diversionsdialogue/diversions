@@ -1,0 +1,111 @@
+---
+// Fundations
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import NumberedList from "@/components/blocks/NumberedList.astro";
+import Cta from "@/components/blocks/Cta.astro";
+
+// CONVERT-META (route A, bouwen-in-astro)
+//   bron: /journey-de-kracht-van-het-klantperspectief
+//   nieuwe_url: /journey-de-kracht-van-het-klantperspectief
+//   funnel/CTA-landingspagina, in WP gebouwd met Beaver Builder.
+//   VERDACHT/opgeschoond: de export bevatte BB-residu ("Click here to edit Spacer
+//     module", lege ### kopjes) en DUBBELE secties (de journey-definities stonden
+//     2x: een keer als kaart met "Lees meer"-link, een keer als losse tekst). Ik heb
+//     ontdubbeld en de BB-residu verwijderd. De drie journey-varianten verwijzen naar
+//     de bestaande Sanity-services.
+//   De 3 "kaders" zijn omgezet naar het NumberedList-blok (genummerde stappen).
+//   HANDMATIG (Fase 4 / forms-agent): onderaan stond een Gravity Form (id=1) ->
+//     placeholder; bedraad in Fase 4. CTA-link wees naar /home/kennismaking-planning/
+//     -> doorverwezen naar /contact.
+//   AFBEELDINGEN (profits/journey/chat-2 png's, 2017/09) gedropt: decoratief.
+//   THEME (Fase 1): TWIJFELGEVAL -> omgezet naar proza-leeslayout (ArticleLayout).
+//     Overwegend proza met één NumberedList-blok in de leeskolom; afsluitende CTA
+//     in de "after"-slot. FLAG: blijft inhoudelijk een funnel/landing; intake/Fase 4
+//     beoordeelt of dit een formulier-landing wordt.
+---
+
+<ArticleLayout
+  title="Journey: de kracht van het klantperspectief"
+  eyebrow="Werkwijze"
+  seo={{
+    title: "Journey: de kracht van het klantperspectief | Diversions",
+    description:
+      "Met customer, generation en patient journeys breng je de motieven en verwachtingen van klanten in beeld. Zo leg je de basis voor optimalisatie.",
+  }}
+>
+  <p>
+    Hoe ervaart een klant jouw diensten en processen? Om het antwoord op deze vraag
+    te geven investeren steeds meer organisaties in journeys (klantreizen). De
+    journeys helpen motieven en verwachtingen van klanten in beeld te brengen. Zo
+    wordt de basis gelegd voor optimalisatie van proposities en dienstverlening.
+  </p>
+  <p>
+    Journeys kennen verschillende vormen. Meest gebruikt is de customer journey.
+    Deze geeft weer wat een klant doet en ervaart tijdens het orienteren, kopen of
+    gebruiken van een product of dienst. Customer journeys bieden hiermee een
+    micro-perspectief: er wordt primair gekeken naar de relaties tussen individuele
+    consumentengroepen en een specifieke organisatie.
+  </p>
+
+  <h2>Customer journey</h2>
+  <p>
+    Wat een klant doet en ervaart tijdens het orienteren, kopen of gebruiken van een
+    product of dienst.
+    <a href="/services/customer-journey">Lees meer</a>.
+  </p>
+
+  <h2>Generation journey</h2>
+  <p>
+    Diversions introduceerde een nieuwe vorm: de generation journey. Deze journey is
+    ontwikkeld vanuit een macro-perspectief. We geven weer op welke wijze
+    generatiegenoten verschillende levensfasen doorleven. Welke invloed hebben
+    gedeelde ervaringen, overtuigingen en voorkeuren van een generatie op de wereld
+    om hen heen?
+    <a href="/services/generation-journey">Lees meer</a>.
+  </p>
+
+  <h2>Patient journey</h2>
+  <p>
+    Tot slot zijn er de branchespecifieke journeys, waarvan de patient journey het
+    meest bekend is. Diversions helpt je graag bij de keuze voor de methode die het
+    beste aansluit bij de vraagstukken van jouw organisatie.
+    <a href="/services/patient-journey">Lees meer</a>.
+  </p>
+
+  <NumberedList
+    title="Werken binnen kaders"
+    items={[
+      {
+        label: "Het doel staat centraal",
+        text: "Centraal staat het doel dat je voor ogen hebt. De verwachtingen over de invulling van journeys verschillen soms. Wat is het uitgangspunt voor jouw organisatie: wil je puur kijken naar de touchpoints, de momenten waarop contact plaatsvindt tussen klant en organisatie? Of naar de beleving van het totale proces en de verschillende beinvloeders die daarbij een rol spelen?",
+      },
+      {
+        label: "Definitie van de klant",
+        text: "Tweede uitgangspunt is de definitie van de klant. Verschillende klantgroepen hebben een eigen perspectief op de kwaliteit van je dienstverlening. Een scherpe klantfocus voorkomt discussies en helpt het optimalisatieproces te versnellen. Maar je kunt ook kiezen voor een challenge, waarbij duidelijk wordt in hoeverre klantgroepen verschillen en hoe je hierop kunt inspelen.",
+      },
+      {
+        label: "Sta stil bij de vervolgstappen",
+        text: "Tot slot is het goed vooraf stil te staan bij de vervolgstappen. De journey levert je nieuwe inzichten en verbeterideeen op. Maar deze vertalen naar concrete optimalisaties in de praktijk is niet vanzelfsprekend. Kan direct worden gestart met implementatie of is verdiepen met bijvoorbeeld propositie design gewenst?",
+      },
+    ]}
+  />
+
+  <h2>Zijn alle uitgangspunten helder?</h2>
+  <p>
+    Dan heb je een stevige basis gelegd om optimaal rendement uit je journey te
+    halen. Wij gaan graag - geheel vrijblijvend - met je in gesprek om de
+    mogelijkheden te bespreken.
+  </p>
+
+  <Wrapper slot="after" variant="standard" class="pb-24">
+    {/* HANDMATIG (Fase 4 / forms-agent): hier stond een Gravity Form (id=1).
+        Vervangen door CTA totdat het n8n-formulier in Fase 4 is bedraad. */}
+    <Cta
+      heading="Klantervaring verbeteren?"
+      text="Deel je ambities en maak kennis met de mogelijkheden van Diversions."
+      buttonLabel="Contact opnemen"
+      buttonHref="/contact"
+    />
+  </Wrapper>
+</ArticleLayout>

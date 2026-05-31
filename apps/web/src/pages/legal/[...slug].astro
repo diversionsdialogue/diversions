@@ -1,0 +1,19 @@
+---
+import LegalLayout from "@/layouts/LegalLayout.astro";
+import PortableText from "@/components/global/PortableText.astro";
+import { getAllLegalPages } from "@/lib/data";
+
+export async function getStaticPaths() {
+  const legal = await getAllLegalPages();
+  return legal.map((page) => ({
+    params: { slug: page.slug ?? page.id },
+    props: { page },
+    trailingSlash: false,
+  }));
+}
+const { page } = Astro.props;
+---
+
+<LegalLayout frontmatter={page.data}>
+  <PortableText value={page.body} />
+</LegalLayout>

@@ -1,0 +1,58 @@
+---
+/**
+ * NumberedList — numbered steps (werkwijze) or stats list.
+ * Parity block: Sanity `numberedList`.
+ * Design source: numbered <ol> "werkwijze" / stats in design/services-detail.html.
+ *
+ * Each item may carry an explicit `number` (e.g. a stat "92%") or fall back to
+ * its 1-based position (steps). This covers both readings flagged in CLAUDE.md §4.
+ *
+ * Props (CLAUDE.md §4 / Sanity numberedList):
+ *   title?  string
+ *   items[] { number?, label, text? }
+ */
+interface NumberedItem {
+  number?: string;
+  label: string;
+  text?: string;
+}
+
+interface Props {
+  title?: string;
+  items: NumberedItem[];
+  class?: string;
+}
+
+const { title, items = [], class: className = "" } = Astro.props;
+---
+
+<div class:list={["my-8", className]}>
+  {
+    title && (
+      <h3 class="mb-4 font-subtitle text-xl font-semibold text-base-700">
+        {title}
+      </h3>
+    )
+  }
+  <ol class="m-0 list-none space-y-4 p-0" role="list">
+    {
+      items.map((item, i) => (
+        <li class="flex gap-4">
+          <span class="flex size-9 shrink-0 items-center justify-center rounded-full bg-yellow-500 font-subtitle text-sm font-semibold text-white">
+            {item.number ?? i + 1}
+          </span>
+          <div class="pt-1">
+            <span class="font-subtitle font-semibold text-base-700">
+              {item.label}
+            </span>
+            {item.text && (
+              <p class="mt-1 text-[15px] leading-relaxed text-base-500">
+                {item.text}
+              </p>
+            )}
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</div>

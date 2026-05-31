@@ -1,0 +1,13 @@
+---
+description: Content Collections — content.config.ts, Zod parity, glob loaders, images
+globs: apps/web/src/content/**,apps/web/src/content.config.ts
+---
+
+# Content Collections discipline
+
+- **Single config:** All collections are defined in `apps/web/src/content.config.ts` using **`defineCollection`** + **`glob`** loaders (`astro/loaders`). There is **no MDX collection** in this repo.
+- **Folders:** Exactly five — `team/`, `work/`, `services/`, `posts/`, `legal/` under `apps/web/src/content/`. Collection keys: `team`, `work`, `services`, `posts`, `legal`.
+- **Images:** Where the schema uses `({ image }) =>`, image fields are `z.object({ url: image(), alt: z.string() })`. Paths may be absolute site paths like `"/src/images/..."` or remote URLs (see `team/1.md`). Do not change image field shapes without updating Sanity schemas, `transforms.ts`, and consumers.
+- **Frontmatter vs body:** Frontmatter must satisfy Zod; long-form copy lives in the markdown **body**.
+- **Samples:** When adding fields, mirror a real file pattern (e.g. `apps/web/src/content/posts/1.md`, `apps/web/src/content/work/1.md`).
+- **Migration:** `scripts/PROJECT_CONTENT_MODEL.ts` and `scripts/migrate-to-sanity.ts` depend on field parity — update them when collections change.

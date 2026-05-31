@@ -1,0 +1,51 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+// CONVERT-META (route A, bouwen-in-astro)
+//   bron: /project-starten
+//   nieuwe_url: /project-starten
+//   funnel-pagina: meerstaps projectaanvraag-formulier (Project -> Beschrijving ->
+//   Contact), inclusief bestandsupload van een briefing.
+//   HANDMATIG (Fase 4 / forms-agent): het meerstapsformulier + de upload zijn bewust
+//     NIET nu opgebouwd; ze komen in Fase 4 als werkend n8n-formulier terug. Velden
+//     staan in de WP-export + inventaris-formulieren.json. Tot die tijd: intro +
+//     contactgegevens.
+---
+
+<BaseLayout
+  seo={{
+    title: "Start je project | Diversions",
+    description:
+      "Wij helpen je graag om snel de basis voor je project te leggen. Laat ons weten wat je wensen zijn.",
+  }}
+>
+  <section class="bg-white">
+    <Wrapper variant="prose" class="pt-24 lg:pt-32 pb-24">
+      <h1>Start je project</h1>
+      <p>
+        <strong
+          >Wij helpen je graag om snel de basis voor je project te leggen. Laat ons
+          weten wat je wensen zijn!</strong
+        >
+      </p>
+      <p>
+        We kunnen je helpen met onderzoek, propositie-ontwikkeling, optimalisatie,
+        communicatie of een algemene vraag. Heb je al een schriftelijke briefing? Dan
+        kun je die straks meesturen.
+      </p>
+      {/* HANDMATIG (Fase 4 / forms-agent): meerstaps projectaanvraag-formulier
+          (onderwerp, briefing ja/nee, projectomschrijving, briefing-upload [docx/pdf/
+          doc, max 5MB] + aanhef, naam, organisatie, e-mail, telefoon).
+          Op te bouwen als n8n-formulier in Fase 4. */}
+      <h2>Contactgegevens</h2>
+      <p>We nemen graag contact met je op om je exacte wensen door te spreken.</p>
+      <ul>
+        <li>E-mail: <a href="mailto:info@diversions.nl">info@diversions.nl</a></li>
+        <li>Adres: Prins Willem-Alexanderlaan 705, 7311 ST Apeldoorn</li>
+      </ul>
+      <p>Of ga direct naar onze <a href="/contact">contactpagina</a>.</p>
+    </Wrapper>
+  </section>
+</BaseLayout>

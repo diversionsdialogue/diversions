@@ -1,0 +1,79 @@
+---
+/**
+ * BulletList — bullets, or a two-column "venn" comparison.
+ * Parity block: Sanity `bulletList`.
+ * Design source: <ul> and `.venn` cells in design/services-detail.html.
+ *
+ * - columns = 1 (default): a single bullet list with optional title.
+ * - columns = 2: renders items as side-by-side cards (the venn layout); each
+ *   item is then a heading + text + sub-bullets group.
+ *
+ * Props (CLAUDE.md §4 / Sanity bulletList):
+ *   title?    string
+ *   columns?  1 | 2          — single list vs. two-column compare
+ *   items[]   string                              (columns = 1)
+ *           | { heading, text?, items?[] }        (columns = 2)
+ */
+interface VennCell {
+  heading: string;
+  text?: string;
+  items?: string[];
+}
+
+interface Props {
+  title?: string;
+  columns?: 1 | 2;
+  items: string[] | VennCell[];
+  class?: string;
+}
+
+const { title, columns = 1, items = [], class: className = "" } = Astro.props;
+const cellTints = ["bg-pink-400/30", "bg-accent-400/30"];
+---
+
+<div class:list={["my-8", className]}>
+  {
+    title && (
+      <h3 class="mb-4 font-subtitle text-xl font-semibold text-base-700">
+        {title}
+      </h3>
+    )
+  }
+
+  {
+    columns === 2 ? (
+      <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        {(items as VennCell[]).map((cell, i) => (
+          <div
+            class:list={[
+              "rounded-2xl border border-accent-300 p-5",
+              cellTints[i % cellTints.length],
+            ]}
+          >
+            <h4 class="mb-2 font-display text-lg text-base-700">
+              {cell.heading}
+            </h4>
+            {cell.text && (
+              <p class="m-0 text-sm leading-relaxed text-base-500">
+                {cell.text}
+              </p>
+            )}
+            {cell.items && cell.items.length > 0 && (
+              <ul class="mt-2 list-disc pl-[18px] text-sm text-base-500 marker:text-yellow-500">
+                {cell.items.map((li) => (
+                  <li class="my-1">{li}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
+      </div>
+    ) : (
+      <ul class="list-disc pl-6 text-base-500 marker:text-yellow-500">
+        {(items as string[]).map((li) => (
+          <li class="my-2 leading-relaxed">{li}</li>
+        ))}
+      </ul>
+    )
+  }
+</div>

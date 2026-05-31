@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gereedschap dient het werk — Diversions</title>
+<meta name="description" content="Een korte notitie over waarom we onze stack klein en saai houden." />
+<link rel="stylesheet" href="colors_and_type.css" />
+<link rel="stylesheet" href="site.css" />
+<link rel="stylesheet" href="blog.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<a href="#post" class="skip-link">Skip naar artikel</a>
+<div class="shell">
+  <div class="surface">
+    <div id="header-root"></div>
+
+    <article id="post" class="post-shell">
+      <header class="post-header">
+        <span class="post-tag">Notitie · Werkwijze</span>
+        <h1 class="post-title">Gereedschap dient het werk, niet andersom.</h1>
+        <p class="post-deck">
+          Een korte notitie over waarom we onze stack klein en saai houden — en waarom dat onze opdrachtgevers uiteindelijk meer oplevert dan een lijstje hippe frameworks.
+        </p>
+        <div class="post-byline">
+          <span class="author"><span class="avatar-sm">JK</span> Joris Kamp</span>
+          <span class="sep"></span>
+          <span>22 april 2026</span>
+          <span class="sep"></span>
+          <span>6 min leestijd</span>
+        </div>
+      </header>
+
+      <div class="post-cover">
+        <img src="assets/blog1.jpeg" alt="Werkbank met materiaal en gereedschap" />
+      </div>
+
+      <div class="post-body">
+        <p class="lead">
+          Toen we Diversions begonnen kozen we bewust voor een kleine stack. Astro voor sites, React voor apps, Tailwind voor styling, een headless CMS naar smaak. Acht jaar later staat die keuze nog steeds. Niet omdat we niets nieuws geprobeerd hebben — wel omdat het verleidelijk is om <strong>het gereedschap</strong> te verwarren met <strong>het werk</strong>.
+        </p>
+
+        <p>
+          Een nieuwe framework voelt elke maand als de oplossing. Edge-rendering, server components, signals, runes. Allemaal interessant. Allemaal nuttig in het juiste project. Maar wij merken: hoe meer wij ons focussen op de toolchain, hoe minder aandacht we hebben voor het probleem dat we eigenlijk moeten oplossen.
+        </p>
+
+        <h2>Wat we kiezen, en waarom</h2>
+        <p>
+          Onze drie criteria voor stack-keuzes zijn wat saaier dan we ooit dachten dat ze zouden zijn:
+        </p>
+        <ol>
+          <li><strong>Kan ons team het over twee jaar nog onderhouden?</strong> Niet wij — jullie team.</li>
+          <li><strong>Is het goed gedocumenteerd, met een gezonde community?</strong> Geen single-vendor-lock.</li>
+          <li><strong>Lost het een echt probleem op?</strong> Niet "is het sneller dan X" — sneller op welk vlak, voor wie?</li>
+        </ol>
+
+        <h2>Een voorbeeld</h2>
+        <p>
+          Vorig jaar bouwden we een marketingsite voor een uitgever met negen taalversies en zo'n 400 pagina's. De vraag: "kunnen jullie dit in Next.js doen, want dat staat in de aanbesteding". Ons antwoord was: <em>ja, maar zou je het willen?</em>
+        </p>
+        <p>
+          We hebben de site uiteindelijk in Astro gebouwd. Build-tijd: 18 seconden. Pagina-snelheid: een halve seconde sneller dan de Next-variant. Onderhoudslast voor hun redactie: minimaal. Het hippere framework had hier niets toegevoegd, behalve een grotere kans dat de site over drie jaar onderhouden moet worden door iemand die "die versie van Next" niet meer kent.
+        </p>
+
+        <hr />
+
+        <h2>Saai is een complimenten</h2>
+        <p>
+          We zien "saai" steeds vaker als een compliment. Saaie tools zijn voorspelbaar. Voorspelbare tools laten je vroeg in een traject afspraken maken die nog steeds kloppen wanneer je live gaat. En die ruimte gebruik je dan voor wat <em>wel</em> moet schitteren — het werk zelf.
+        </p>
+
+        <p>
+          Dat is wat we bedoelen met onze regel: <strong>gereedschap dient het werk, niet andersom</strong>. Een mooie zin om in een leeg notitieblok te schrijven. Een lastige om vol te houden. Maar wel de juiste.
+        </p>
+      </div>
+
+      <div id="share-root"></div>
+      <div id="author-root"></div>
+      <div id="newsletter-root"></div>
+    </article>
+
+    <div id="related-root"></div>
+    <div id="footer-root"></div>
+  </div>
+</div>
+
+<script type="text/babel" src="components.jsx"></script>
+<script type="text/babel" src="blog-components.jsx"></script>
+
+<script type="text/babel">
+ReactDOM.createRoot(document.getElementById("header-root")).render(<Header active="blog" />);
+ReactDOM.createRoot(document.getElementById("share-root")).render(<ShareRail />);
+ReactDOM.createRoot(document.getElementById("author-root")).render(
+  <AuthorCard
+    initials="JK"
+    name="Joris Kamp"
+    role="Co-founder, developer"
+    bio="Joris is co-founder en developer bij Diversions. Hij schrijft af en toe over werk, gereedschap, en de plekken waar die elkaar raken."
+  />
+);
+ReactDOM.createRoot(document.getElementById("newsletter-root")).render(<Newsletter />);
+ReactDOM.createRoot(document.getElementById("related-root")).render(
+  <RelatedPosts items={[
+    { tag: "Case study", read: "8 min", date: "april 2026", title: "Atelier Noord — een huisstijl die meegroeit", excerpt: "Hoe we een nieuwe identiteit en site bouwden voor een meubelmaker uit Groningen.", img: "assets/work1.png" },
+    { tag: "Notitie",    read: "4 min", date: "maart 2026", title: "Drie redenen om geen design system te bouwen", excerpt: "En vier redenen waarom je het waarschijnlijk toch moet doen.", img: "assets/about.jpeg" },
+    { tag: "Werkwijze",  read: "5 min", date: "februari 2026", title: "Eén richting laten zien, geen drie", excerpt: "Waarom wij in presentaties bewust niet meerdere ontwerprichtingen tonen.", img: "assets/hero.png" },
+  ]} />
+);
+ReactDOM.createRoot(document.getElementById("footer-root")).render(<Footer />);
+</script>
+
+</body>
+</html>

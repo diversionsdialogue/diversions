@@ -1,0 +1,303 @@
+---
+// Assets
+import Shape3 from "@/components/assets/Shape3.astro";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+// CONVERT-META (route A, bouwen-in-astro)
+//   geconsolideerd uit: /contact-2 (Gravity Form id=1), /contact (stub), bericht /contact (stub)
+//   nieuwe_url: /contact
+//   FASE 4 (forms-agent): n8n-koppeling bedraad. Het formulier verstuurt client-side
+//     (fetch POST) naar de n8n-webhook. De URL komt uit de env-var
+//     PUBLIC_CONTACT_WEBHOOK_URL (NIET hardcoden). Acties in n8n: Mailjet-mail naar
+//     info@diversions.nl + bevestigingsmail naar de invuller. Veldnamen contactformulier
+//     (GF id=1) nog te bevestigen bij gebruiker; aanname uit inventaris-formulieren.json
+//     (naam, e-mail, telefoon, bericht) + AVG-consentvinkje + honeypot (anti-spam).
+
+// PUBLIC_-prefix is vereist zodat de var in de static client-bundle terechtkomt.
+const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL ?? "";
+---
+
+<BaseLayout
+  seo={{
+    title: "Contact | Diversions",
+    description:
+      "Tijd om de weg naar online groei in te slaan? Laat een bericht achter of bel ons.",
+  }}
+>
+  <section class="bg-white overflow-hidden relative">
+    <Wrapper variant="standard" class="pt-24 lg:pt-32 pb-12">
+      <div class="grid items-start grid-cols-1 gap-4 lg:grid-cols-3 mx-auto">
+        <div
+          class="w-full bg-accent-500 p-10 lg:p-12 h-full rounded-2xl flex flex-col justify-between"
+        >
+          <Shape3 class="size-12 md:size-24 text-accent-200" />
+          <div class="mt-12">
+            <Text tag="h1" variant="displayMD" class="tracking-tighter text-white">
+              Wij helpen je graag
+            </Text>
+            <p class="mt-6 text-accent-100 text-base">
+              Tijd om de weg naar online groei in te slaan? Laat een bericht
+              achter of bel <a class="underline" href="tel:0552032193"
+                >(055) 20 32 193</a
+              >.
+            </p>
+            <dl class="mt-10 space-y-4 text-accent-100 text-sm">
+              <div>
+                <dt class="font-semibold text-white">Adres</dt>
+                <dd>Waterloseweg 7a, 7311 JG Apeldoorn</dd>
+              </div>
+              <div>
+                <dt class="font-semibold text-white">E-mail</dt>
+                <dd>
+                  <a class="underline" href="mailto:info@diversions.nl"
+                    >info@diversions.nl</a
+                  >
+                </dd>
+              </div>
+              <div>
+                <dt class="font-semibold text-white">Bel ons</dt>
+                <dd><a class="underline" href="tel:0552032193">055 20 32 193</a></dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <form
+          id="contact-form"
+          method="POST"
+          data-webhook={webhookUrl}
+          class="lg:col-span-2 bg-accent-50 p-10 lg:p-16 rounded-2xl"
+        >
+          <!-- Fase 4: client-side verzending naar n8n-webhook via env-var (PUBLIC_CONTACT_WEBHOOK_URL). -->
+          <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+            <div class="sm:col-span-2">
+              <label
+                for="name"
+                class="block text-sm font-semibold leading-6 text-accent-500"
+                >Naam</label
+              >
+              <div class="mt-2.5">
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  autocomplete="name"
+                  required
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-accent-500 ring-1 ring-inset ring-accent-100 placeholder:text-accent-400 focus:ring-2 focus:ring-inset focus:ring-accent-300 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-semibold leading-6 text-accent-500"
+                >E-mail</label
+              >
+              <div class="mt-2.5">
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-accent-500 ring-1 ring-inset ring-accent-100 placeholder:text-accent-400 focus:ring-2 focus:ring-inset focus:ring-accent-300 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm leading-6">
+                <label for="phone" class="block font-semibold text-accent-500"
+                  >Telefoon</label
+                >
+                <p id="phone-description" class="text-accent-400">Optioneel</p>
+              </div>
+              <div class="mt-2.5">
+                <input
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  autocomplete="tel"
+                  aria-describedby="phone-description"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-accent-500 ring-1 ring-inset ring-accent-100 placeholder:text-accent-400 focus:ring-2 focus:ring-inset focus:ring-accent-300 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+            <div class="sm:col-span-2">
+              <div class="flex justify-between text-sm leading-6">
+                <label
+                  for="message"
+                  class="block text-sm font-semibold leading-6 text-accent-500"
+                  >Hoe kunnen we je helpen?</label
+                >
+                <p id="message-description" class="text-accent-400">
+                  Max. 500 tekens
+                </p>
+              </div>
+              <div class="mt-2.5">
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  maxlength="500"
+                  required
+                  aria-describedby="message-description"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-accent-500 ring-1 ring-inset ring-accent-100 placeholder:text-accent-400 focus:ring-2 focus:ring-inset focus:ring-accent-300 sm:text-sm sm:leading-6"
+                ></textarea>
+              </div>
+            </div>
+            <div class="sm:col-span-2">
+              <label class="flex items-start gap-3 text-sm text-accent-500">
+                <input
+                  type="checkbox"
+                  name="consent"
+                  required
+                  class="mt-1 rounded border-accent-200 text-accent-500 focus:ring-accent-300"
+                />
+                <span>
+                  Ik ga akkoord met de verwerking van mijn gegevens volgens het
+                  <a class="underline" href="/privacy-statement">privacy statement</a>.
+                </span>
+              </label>
+            </div>
+            <!--
+              Honeypot anti-spam: voor mensen verborgen veld dat leeg moet blijven.
+              Bots vullen het vaak in; de client-side handler annuleert dan de submit.
+              aria-hidden + tabindex=-1 + autocomplete=off houden het weg van echte gebruikers.
+            -->
+            <div class="hidden" aria-hidden="true">
+              <label for="company-website">Laat dit veld leeg</label>
+              <input
+                type="text"
+                name="company_website"
+                id="company-website"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+          <!-- Statusmelding (succes/fout). aria-live zodat screenreaders het oppikken. -->
+          <p
+            id="contact-status"
+            role="status"
+            aria-live="polite"
+            class="mt-6 hidden text-sm font-semibold"
+          >
+          </p>
+          <!--
+            Fallback zonder JS: als JS uit staat, wordt het formulier niet verstuurd.
+            De directe contactgegevens (mail/telefoon) staan al links op de pagina.
+          -->
+          <noscript>
+            <p class="mt-6 text-sm font-semibold text-accent-500">
+              Dit formulier heeft JavaScript nodig. Mail ons gerust direct op
+              <a class="underline" href="mailto:info@diversions.nl">info@diversions.nl</a>
+              of bel <a class="underline" href="tel:0552032193">(055) 20 32 193</a>.
+            </p>
+          </noscript>
+          <div class="mt-10 flex w-full">
+            <Button
+              id="contact-submit"
+              type="submit"
+              size="base"
+              variant="accent"
+              class="w-full"
+            >
+              Versturen
+            </Button>
+          </div>
+        </form>
+      </div>
+    </Wrapper>
+  </section>
+
+  <script>
+    const form = document.getElementById("contact-form") as HTMLFormElement | null;
+    const status = document.getElementById("contact-status");
+    const submitBtn = document.getElementById("contact-submit") as
+      | HTMLButtonElement
+      | null;
+
+    if (form && status && submitBtn) {
+      const webhook = form.dataset.webhook ?? "";
+
+      const setStatus = (msg: string, ok: boolean) => {
+        status.textContent = msg;
+        status.classList.remove("hidden", "text-green-700", "text-red-600");
+        status.classList.add(ok ? "text-green-700" : "text-red-600");
+      };
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        // Honeypot: ingevuld => vermoedelijk bot. Stilletjes negeren,
+        // maar de gebruiker (mens) een succesmelding tonen.
+        const honeypot = form.elements.namedItem(
+          "company_website"
+        ) as HTMLInputElement | null;
+        if (honeypot && honeypot.value.trim() !== "") {
+          setStatus("Bedankt! Je bericht is verstuurd.", true);
+          form.reset();
+          return;
+        }
+
+        // Browser-validatie (verplichte velden, geldig e-mailadres, AVG-consent).
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        if (!webhook) {
+          setStatus(
+            "Verzenden is nog niet geconfigureerd. Mail ons direct op info@diversions.nl.",
+            false
+          );
+          return;
+        }
+
+        const formData = new FormData(form);
+        const payload = {
+          name: (formData.get("name") as string) ?? "",
+          email: (formData.get("email") as string) ?? "",
+          phone: (formData.get("phone") as string) ?? "",
+          message: (formData.get("message") as string) ?? "",
+          consent: formData.get("consent") === "on",
+          company_website: (formData.get("company_website") as string) ?? "",
+        };
+
+        submitBtn.disabled = true;
+        submitBtn.classList.add("opacity-60", "cursor-not-allowed");
+        const originalLabel = submitBtn.textContent;
+        submitBtn.textContent = "Versturen…";
+
+        try {
+          const res = await fetch(webhook, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+          setStatus(
+            "Bedankt! Je bericht is verstuurd. We nemen snel contact met je op.",
+            true
+          );
+          form.reset();
+        } catch (err) {
+          console.error("Contactformulier verzenden mislukt:", err);
+          setStatus(
+            "Er ging iets mis bij het verzenden. Probeer het later opnieuw of mail ons op info@diversions.nl.",
+            false
+          );
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove("opacity-60", "cursor-not-allowed");
+          submitBtn.textContent = originalLabel;
+        }
+      });
+    }
+  </script>
+</BaseLayout>

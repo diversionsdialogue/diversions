@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Diversions — Web­development en creatieve studio</title>
+<meta name="description" content="Diversions is een kleine creatieve studio uit Amsterdam. We maken merken, sites en producten — voor mensen, niet voor algoritmes." />
+<link rel="stylesheet" href="colors_and_type.css" />
+<link rel="stylesheet" href="site.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  /* Tweakable theme overrides applied at runtime via CSS variables on :root */
+  :root[data-vibe="warm"]   { --bg: var(--color-pink-200); }
+  :root[data-vibe="bold"]   { --bg: var(--color-accent-100); }
+  :root[data-accent="coral"]   { --color-yellow-500: var(--color-pink-500); --color-yellow-600: var(--color-pink-600); }
+  :root[data-accent="sage"]    { --color-yellow-500: var(--color-accent-600); --color-yellow-600: var(--color-accent-700); }
+  :root[data-accent="terracotta"] { /* default */ }
+  .header-cta-desktop { display: inline-flex; }
+  @media (max-width: 600px) { .header-cta-desktop { display: none; } }
+</style>
+</head>
+<body>
+<a href="#top" class="skip-link">Skip naar inhoud</a>
+<div class="shell">
+  <div class="surface">
+    <div id="header-root"></div>
+    <main id="main">
+      <div id="hero-root"></div>
+      <div id="marquee-root"></div>
+      <div id="services-root"></div>
+      <div id="work-root"></div>
+      <div id="quote-root"></div>
+      <div id="cta-root"></div>
+    </main>
+    <div id="footer-root"></div>
+  </div>
+</div>
+<div id="tweaks-root"></div>
+
+<script type="text/babel" src="components.jsx"></script>
+<script type="text/babel" src="home-sections.jsx"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks-config.jsx"></script>
+
+<script type="text/babel">
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "accent": "terracotta",
+  "vibe": "default",
+  "marqueeTone": "peach",
+  "marqueeOn": true,
+  "showQuote": true,
+  "darkCTA": true
+}/*EDITMODE-END*/;
+
+function applyTheme(t) {
+  document.documentElement.dataset.accent = t.accent;
+  document.documentElement.dataset.vibe = t.vibe;
+}
+
+function App() {
+  const [tweaks, setTweaks] = React.useState(TWEAK_DEFAULTS);
+  React.useEffect(() => { applyTheme(tweaks); }, [tweaks]);
+  return (
+    <>
+      {ReactDOM.createPortal(<Header active="home" />, document.getElementById("header-root"))}
+      {ReactDOM.createPortal(<Hero />, document.getElementById("hero-root"))}
+      {tweaks.marqueeOn && ReactDOM.createPortal(
+        <Marquee tone={tweaks.marqueeTone} items={[
+          "merkstrategie","webdevelopment","UI ontwerp","UX onderzoek","art direction","copywriting","content","redactie","productontwerp"
+        ]} speed={45} />,
+        document.getElementById("marquee-root")
+      )}
+      {ReactDOM.createPortal(<Services />, document.getElementById("services-root"))}
+      {ReactDOM.createPortal(<Work />, document.getElementById("work-root"))}
+      {tweaks.showQuote && ReactDOM.createPortal(<Quote />, document.getElementById("quote-root"))}
+      {tweaks.darkCTA && ReactDOM.createPortal(<ContactCTA />, document.getElementById("cta-root"))}
+      {ReactDOM.createPortal(<Footer />, document.getElementById("footer-root"))}
+      <SiteTweaks tweaks={tweaks} setTweaks={setTweaks} />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("tweaks-root")).render(<App />);
+</script>
+
+</body>
+</html>

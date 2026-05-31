@@ -1,0 +1,121 @@
+---
+// Preview/reference page for the Diversions block components (Fase 1).
+// Visual + a11y check of: Cta, Faq, Quote, Notice, Video, NumberedList, BulletList.
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Cta from "@/components/blocks/Cta.astro";
+import Faq from "@/components/blocks/Faq.astro";
+import Quote from "@/components/blocks/Quote.astro";
+import Notice from "@/components/blocks/Notice.astro";
+import Video from "@/components/blocks/Video.astro";
+import NumberedList from "@/components/blocks/NumberedList.astro";
+import BulletList from "@/components/blocks/BulletList.astro";
+
+const faqItems = [
+  {
+    question: "Hoe lang duurt een typisch traject?",
+    answer:
+      "De meeste opdrachten lopen tussen vier en acht weken. We maken altijd een vaste planning vóór we starten.",
+  },
+  {
+    question: "Werken jullie met vaste prijs of nacalculatie?",
+    answer:
+      "Allebei mogelijk. Voor afgebakende projecten geven we een vaste prijs; voor langere trajecten werken we vaker op dagprijs.",
+  },
+  {
+    question: "Hosten en onderhouden jullie sites na oplevering?",
+    answer:
+      "Voor onze marketingsites: ja — een vast bedrag per maand voor hosting, monitoring en kleine aanpassingen.",
+  },
+];
+
+const steps = [
+  { label: "Intake", text: "Een gesprek van een uur. Geen verkooppraatje. We luisteren." },
+  { label: "Voorstel", text: "Binnen één week. Korte scope, vaste prijs of dagprijs, planning." },
+  { label: "Verkenning", text: "Week 1: research, interviews, eerste richtingen." },
+  { label: "Bouw", text: "Ontwerpen en bouwen, met wekelijkse demo's." },
+];
+
+const venn = [
+  {
+    heading: "Onderzoek",
+    text: "Gedaan vóór je iets bouwt. Open vragen, kwalitatief.",
+    items: ["Interviews", "Field studies", "Diary studies"],
+  },
+  {
+    heading: "Validatie",
+    text: "Gedaan nadat je iets gebouwd hebt. Gesloten vragen, kwantitatief.",
+    items: ["Usability tests", "A/B-tests", "Analytics"],
+  },
+];
+---
+
+<BaseLayout
+  seo={{ title: "Blokken — systeem · Diversions", noindex: true }}
+>
+  <section class="bg-white">
+    <Wrapper variant="standard" class="py-20">
+      <h1 class="font-display text-4xl text-base-700">Blok-componenten</h1>
+      <p class="mt-4 max-w-2xl text-base-500">
+        Visuele referentie voor de speciale blokken (Fase 1). De FAQ is met
+        Tab/Enter/Spatie te bedienen en draagt FAQPage-JSON-LD.
+      </p>
+
+      <div class="mx-auto mt-12 max-w-[760px] space-y-2">
+        <h2 class="font-display text-2xl text-base-700">CTA — default</h2>
+        <Cta
+          heading="Op zoek naar een nieuwe identiteit?"
+          text="Vraag onze merkstrategie-deck op — een uitleg van het traject in 12 pagina's."
+          buttonLabel="Vraag aan"
+          buttonHref="/contact"
+        />
+
+        <h2 class="pt-8 font-display text-2xl text-base-700">CTA — sage</h2>
+        <Cta
+          variant="sage"
+          heading="Liever even sparren?"
+          text="Plan een vrijblijvend kennismakingsgesprek van dertig minuten."
+          buttonLabel="Plan een gesprek"
+          buttonHref="/contact"
+        />
+
+        <h2 class="pt-8 font-display text-2xl text-base-700">Quote</h2>
+        <Quote
+          quote="Een goed ontwerp is onzichtbaar — het laat het werk doen wat het moet doen."
+          author="Marieke van der Velde"
+          role="Creative director, Diversions"
+        />
+
+        <h2 class="pt-8 font-display text-2xl text-base-700">Notice / Onze regel</h2>
+        <Notice
+          label="Onze regel"
+          text="Gereedschap dient het werk, niet andersom. We kiezen technologie op wat je team over twee jaar nog comfortabel kan onderhouden."
+        />
+
+        <h2 class="pt-8 font-display text-2xl text-base-700">NumberedList</h2>
+        <NumberedList title="Onze werkwijze" items={steps} />
+
+        <h2 class="pt-8 font-display text-2xl text-base-700">BulletList — 1 kolom</h2>
+        <BulletList
+          items={[
+            "Je begint iets nieuws en hebt nog geen naam of huisstijl.",
+            "Je bestaande merk past niet meer bij waar je organisatie naartoe gaat.",
+          ]}
+        />
+
+        <h2 class="pt-8 font-display text-2xl text-base-700">BulletList — 2 kolommen (venn)</h2>
+        <BulletList columns={2} items={venn} />
+
+        <h2 class="pt-8 font-display text-2xl text-base-700">Video (klik-om-te-laden, AVG)</h2>
+        <Video
+          videoUrl="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+          poster="/assets/work1.png"
+          label="Bekijk: een traject in 90 seconden"
+        />
+
+        <h2 class="pt-8 font-display text-2xl text-base-700">FAQ (toetsenbord + JSON-LD)</h2>
+        <Faq items={faqItems} />
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

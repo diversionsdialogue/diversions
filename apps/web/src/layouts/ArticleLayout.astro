@@ -1,0 +1,63 @@
+---
+/**
+ * ArticleLayout — gecentreerde leeslayout voor PROZA-/tekstpagina's (inhoud +
+ * legal) ZONDER de blog-meubels (geen ShareRail/AuthorCard/Newsletter/Related).
+ * Behoudt juist de VOLLEDIGE site-header (Navigation) + Footer via BaseLayout.
+ *
+ * Gebruikt dezelfde .post-shell + .post-body-typografie als BlogLayout, zodat de
+ * leeservaring consistent is. Drop-cap op de eerste paragraaf is hier OPTIONEEL
+ * (default uit) — juridische teksten houden we rustig (prop `dropcap`).
+ *
+ * Slots:
+ *   (default) — de tekstkolom (komt in .post-shell > .post-body)
+ *   "after"   — optionele FULL-WIDTH inhoud ná de leeskolom (bv. CTA-banden)
+ */
+interface Props {
+  title: string;
+  eyebrow?: string;
+  date?: Date | string;
+  /** Drop-cap op de eerste paragraaf van de body. Default: false (rustig). */
+  dropcap?: boolean;
+  seo?: {
+    title?: string;
+    description?: string;
+    image?: { url: string; alt?: string };
+    type?: "website" | "article";
+    publishedTime?: string;
+    noindex?: boolean;
+  };
+}
+import BaseLayout from "@/layouts/BaseLayout.astro";
+const { title, eyebrow, date, dropcap = false, seo } = Astro.props;
+
+const dateText = date
+  ? new Date(date).toLocaleDateString("nl-NL", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    })
+  : undefined;
+const dateIso = date ? new Date(date).toISOString() : undefined;
+---
+
+<BaseLayout seo={seo}>
+  <article class="post-shell">
+    <header class="post-header">
+      {eyebrow && <span class="post-tag">{eyebrow}</span>}
+      <h1 class="post-title">{title}</h1>
+      {
+        dateText && (
+          <div class="post-byline">
+            <time datetime={dateIso}>{dateText}</time>
+          </div>
+        )
+      }
+    </header>
+
+    <div class:list={["post-body", { "post-body--dropcap": dropcap }]}>
+      <slot />
+    </div>
+  </article>
+
+  <slot name="after" />
+</BaseLayout>

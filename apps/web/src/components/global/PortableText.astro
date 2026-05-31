@@ -1,0 +1,129 @@
+---
+/**
+ * PortableText — rendert een Sanity Portable-Text `body` array met de ECHTE
+ * blok-componenten uit components/blocks/ (CLAUDE.md §4), niet de placeholder-
+ * divs uit lib/sanity/portableText.ts.
+ *
+ * Werkwijze: standaardknopen (block/image: tekst, koppen, lijsten, marks,
+ * inline-afbeeldingen) worden per aaneengesloten reeks via @portabletext/to-html
+ * naar HTML gerenderd; custom object-types (ctaBlock, faqBlock, …) worden door
+ * hun Astro-component gerenderd. De volgorde blijft exact behouden.
+ */
+import { toHTML, type PortableTextComponents } from "@portabletext/to-html";
+import { urlFor } from "@/lib/sanity/image";
+import Cta from "@/components/blocks/Cta.astro";
+import Faq from "@/components/blocks/Faq.astro";
+import Video from "@/components/blocks/Video.astro";
+import Notice from "@/components/blocks/Notice.astro";
+import Quote from "@/components/blocks/Quote.astro";
+import BulletList from "@/components/blocks/BulletList.astro";
+import NumberedList from "@/components/blocks/NumberedList.astro";
+
+interface Props {
+  value?: any[];
+}
+const { value = [] } = Astro.props;
+const blocks = Array.isArray(value) ? value : [];
+
+// Object-types die door een Astro-component worden gerenderd (niet via to-html).
+const CUSTOM = new Set([
+  "ctaBlock",
+  "faqBlock",
+  "videoBlock",
+  "noticeBlock",
+  "quoteBlock",
+  "bulletList",
+  "numberedList",
+]);
+
+// HTML-serializers voor de standaardreeks (inline-afbeeldingen + link-marks).
+const htmlComponents: PortableTextComponents = {
+  types: {
+    image: ({ value }) => {
+      const url = value?.asset ? urlFor(value).url() : value?.url || "";
+      const alt = value?.alt || "";
+      return url
+        ? `<img src="${url}" alt="${alt}" loading="lazy" decoding="async" />`
+        : "";
+    },
+  },
+  marks: {
+    link: ({ children, value }) => {
+      const href = value?.href || "#";
+      const external = /^https?:\/\//i.test(href);
+      const attrs = external
+        ? ` target="_blank" rel="noopener noreferrer"`
+        : "";
+      return `<a href="${href}"${attrs}>${children}</a>`;
+    },
+  },
+};
+
+// Groepeer aaneengesloten standaardknopen; render custom knopen los, op volgorde.
+type Segment = { kind: "html"; nodes: any[] } | { kind: "component"; node: any };
+const segments: Segment[] = [];
+for (const node of blocks) {
+  if (node && CUSTOM.has(node._type)) {
+    segments.push({ kind: "component", node });
+  } else {
+    const last = segments[segments.length - 1];
+    if (last && last.kind === "html") last.nodes.push(node);
+    else segments.push({ kind: "html", nodes: [node] });
+  }
+}
+
+const posterFor = (poster: any): { url: string; alt?: string } | string => {
+  if (poster && typeof poster === "object" && poster.asset) {
+    return { url: urlFor(poster).url(), alt: poster.alt };
+  }
+  return typeof poster === "string" ? poster : "";
+};
+
+const ctaImageFor = (image: any): { url: string; alt?: string } | undefined => {
+  if (image && typeof image === "object" && image.asset) {
+    return { url: urlFor(image).url(), alt: image.alt };
+  }
+  return undefined;
+};
+---
+
+{
+  segments.map((seg) =>
+    seg.kind === "html" ? (
+      <Fragment set:html={toHTML(seg.nodes, { components: htmlComponents })} />
+    ) : seg.node._type === "ctaBlock" ? (
+      <Cta
+        heading={seg.node.heading}
+        text={seg.node.text}
+        buttonLabel={seg.node.buttonLabel}
+        buttonHref={seg.node.buttonHref}
+        variant={seg.node.variant}
+        image={ctaImageFor(seg.node.image)}
+      />
+    ) : seg.node._type === "faqBlock" ? (
+      <Faq items={seg.node.items ?? []} open={seg.node.open ?? 0} />
+    ) : seg.node._type === "videoBlock" ? (
+      <Video
+        videoUrl={seg.node.videoUrl}
+        poster={posterFor(seg.node.poster)}
+        label={seg.node.label}
+      />
+    ) : seg.node._type === "noticeBlock" ? (
+      <Notice label={seg.node.label} text={seg.node.text} />
+    ) : seg.node._type === "quoteBlock" ? (
+      <Quote
+        quote={seg.node.quote}
+        author={seg.node.author}
+        role={seg.node.role}
+      />
+    ) : seg.node._type === "bulletList" ? (
+      <BulletList
+        title={seg.node.title}
+        columns={seg.node.columns}
+        items={seg.node.items ?? []}
+      />
+    ) : seg.node._type === "numberedList" ? (
+      <NumberedList title={seg.node.title} items={seg.node.items ?? []} />
+    ) : null
+  )
+}

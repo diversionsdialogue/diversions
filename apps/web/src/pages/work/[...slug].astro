@@ -1,0 +1,19 @@
+---
+import WorkLayout from "../../layouts/WorkLayout.astro";
+import PortableText from "@/components/global/PortableText.astro";
+import { getAllWorkItems } from "@/lib/data";
+
+export async function getStaticPaths() {
+  const work = await getAllWorkItems();
+  return work.map((page) => ({
+    params: { slug: page.slug ?? page.id },
+    props: { page },
+    trailingSlash: false,
+  }));
+}
+const { page } = Astro.props;
+---
+
+<WorkLayout frontmatter={page.data} id={page.slug ?? page.id}>
+  <PortableText value={page.body} />
+</WorkLayout>

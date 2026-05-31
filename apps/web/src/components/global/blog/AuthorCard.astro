@@ -1,0 +1,35 @@
+---
+/**
+ * AuthorCard — "Geschreven door" + auteur + bio.
+ * Omgebouwd vanuit design/blog-components.jsx <AuthorCard/>.
+ * Initialen worden afgeleid van de auteursnaam.
+ * FLAG (content-eigenaar): de bio is een PLACEHOLDER. Per auteur een echte bio
+ * aanleveren (bijv. via een team-/auteurslijst of frontmatter-veld).
+ */
+interface Props {
+  name: string;
+  bio?: string;
+}
+const { name, bio } = Astro.props;
+
+const initials = name
+  .split(/\s+/)
+  .filter(Boolean)
+  .slice(0, 2)
+  .map((w) => w[0]?.toUpperCase() ?? "")
+  .join("");
+
+// PLACEHOLDER-bio (FLAG): vervangen door echte auteursbio's.
+const bioText =
+  bio ??
+  `${name} schrijft voor Diversions over onderzoek, innovatie en marketing.`;
+---
+
+<div class="author-card">
+  <span class="avatar-lg">{initials}</span>
+  <div>
+    <div class="author-meta-eyebrow">Geschreven door</div>
+    <h4>{name}</h4>
+    <p>{bioText}</p>
+  </div>
+</div>

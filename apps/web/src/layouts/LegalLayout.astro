@@ -1,0 +1,21 @@
+---
+// THEME (Fase 1): omgebouwd naar dezelfde gecentreerde proza-leeslayout als de
+// losse legal-/proza-pagina's, via ArticleLayout (volledige nav + footer, geen
+// blog-meubels, drop-cap uit). Houdt de markdown-legal-entries consistent met de
+// .astro-legal-pagina's.
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<ArticleLayout
+  title={frontmatter.page}
+  eyebrow="Juridisch"
+  date={frontmatter.pubDate}
+  seo={{
+    title: frontmatter.page,
+    description: `${frontmatter.page} van Diversions.`,
+    type: "article",
+  }}
+>
+  <slot />
+</ArticleLayout>

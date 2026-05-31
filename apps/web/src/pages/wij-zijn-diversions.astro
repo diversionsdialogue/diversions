@@ -1,0 +1,159 @@
+---
+// Fundations
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Cta from "@/components/blocks/Cta.astro";
+
+// CONVERT-META (route A, bouwen-in-astro)
+//   bron: /wij-zijn-diversions
+//   nieuwe_url: /wij-zijn-diversions
+//   structurele pagina (over-ons). Bevatte ankernavigatie (#verhaal/#wortels/...),
+//   teamfoto's, twee teamquotes en drie dienstkaarten onderaan.
+//   AFBEELDINGEN (voor quality-agent, Fase 6): WP-bronnen als comments bij elk blok.
+//     Decoratieve sfeerfoto's (prins1-5) zijn gedropt; de twee teamfoto's
+//     (Ieteke, William) zijn als HANDMATIG-placeholder gemarkeerd want
+//     inhoudelijk relevant. Alt-teksten ontbraken grotendeels -> quality.
+//   De afsluitende dienstkaarten zijn als drie korte CTA-blokken weergegeven.
+//   THEME (Fase 1): tekstkolom omgezet van Wrapper variant="prose" naar de
+//     gecentreerde .post-shell/.post-body-leeslayout (ArticleLayout). Drop-cap
+//     bewust UIT (proza met ankernav). De CTA-blokken blijven full-width in de
+//     "after"-slot.
+---
+
+<ArticleLayout
+  title="Wij zijn Diversions"
+  eyebrow="Over ons"
+  seo={{
+    title: "Wij zijn Diversions | over ons",
+    description:
+      "Het bureau dat werkt op het snijvlak van onderzoek en innovatie. Ons verhaal, onze wortels, ons netwerk en onze liefde voor het vak.",
+  }}
+>
+  <p>
+    Welkom bij Diversions: het bureau dat werkt op het snijvlak van
+    <strong>onderzoek en innovatie</strong>.
+  </p>
+  <p>Leuk dat je meer over ons wilt weten! We delen graag:</p>
+  <ul>
+    <li><a href="#verhaal">ons verhaal</a></li>
+    <li><a href="#wortels">onze wortels</a></li>
+    <li><a href="#netwerk">ons netwerk</a></li>
+    <li><a href="#vak">onze liefde voor het vak</a></li>
+  </ul>
+
+  <h2 id="verhaal">Ons verhaal</h2>
+  <p>
+    Diversions is gestart in 2013. Onze ambitie was (en is) om ons niet te beperken
+    tot het opstellen van plannen en rapportages. Wij willen
+    <strong>oplossingen</strong> bieden. Voor ieder vraagstuk.
+  </p>
+  <p>Hoe we dat doen? Dat verschilt per klant.</p>
+  <p>
+    We starten regelmatig met de ontwikkeling van
+    <strong>marketingcommunicatie</strong>. Maar even zo vaak vormt een onderzoek
+    het startpunt. Het is maar net waar het project om vraagt.
+  </p>
+  <p>
+    Juist door te schakelen tussen inzichten en oplossingen behalen we de
+    <strong>beste resultaten</strong>. Voor klanten klein en groot. Van startup tot
+    marktleider.
+  </p>
+  {/* HANDMATIG/quality (Fase 6): decoratieve sfeerfoto's gedropt
+      (prins1.jpg t/m prins5.jpg, 2021/12). Geen inhoudelijke waarde. */}
+
+  <h2 id="wortels">Onze wortels</h2>
+  <p>
+    De oprichters van Diversions zijn specialisten in communicatie en marketing.
+    <strong>Nieuwsgierig</strong>. Praktisch. Altijd op zoek naar een verklaring
+    voor <strong>menselijk gedrag</strong>.
+  </p>
+  <p>
+    We willen <strong>ontdekken</strong> waarom klanten voor je kiezen, je
+    waarderen en je aanbevelen. Maar ook op welke terreinen
+    <strong>verbetering</strong> mogelijk is.
+  </p>
+
+  <h2 id="netwerk">Ons netwerk</h2>
+  <p>
+    De <strong>vaste kern</strong> van Diversions is klein, maar we werken voor
+    grote klanten. Ook internationaal. Hoe dat kan?
+  </p>
+  <p>
+    Wij stellen voor iedere klant een <strong>team op maat</strong> samen. Uit ons
+    netwerk selecteren we de meest geschikte specialisten. Daarbij kijken we niet
+    alleen naar expertise, maar ook naar de feeling die mensen hebben bij het
+    onderwerp waaraan ze werken.
+  </p>
+  <p>
+    Het effect daarvan: onze klanten beschrijven ons als
+    <strong>betrokken en pro-actief</strong>. Dat is waar we voor staan.
+  </p>
+
+  <h2 id="vak">Liefde voor het vak</h2>
+  <p>
+    Bij Diversions hebben we plezier in ons werk. Dat merk je als je met ons
+    samenwerkt. Maar je ziet het ook aan de <strong>projecten</strong> die we op
+    eigen titel uitvoeren.
+  </p>
+  <p>
+    Zomaar een paar voorbeelden. We schreven het boekje
+    <strong>"breingeheimen"</strong>, nog voor de neuromarketinghype begon. We
+    voeren verschillende onderzoeken uit onder generaties (in 2024 onder andere een
+    groot gen Z-onderzoek). En we onderhouden een grote kennisbank op het terrein
+    van <a href="https://generationjourney.nl/" rel="noopener" target="_blank"
+      >generatiemarketing</a
+    >.
+  </p>
+  <p>
+    Het houdt ons scherp. En onze klanten
+    <strong>profiteren direct van de kennis</strong> die we met de eigen projecten
+    opdoen.
+  </p>
+  <p>
+    Spreekt ons verhaal je aan? Neem dan contact op en ontdek hoe Diversions je
+    verder helpt bij onderzoek, innovatie en marketing:
+    <a href="tel:0552032193">055 20 32 193</a>.
+  </p>
+
+  <h2>Het team</h2>
+  {/* HANDMATIG/quality (Fase 6): teamfoto's herhosten.
+      Ieteke: https://www.diversions.nl/wp-content/uploads/2024/02/ieteke-diversions.jpg
+      William: https://www.diversions.nl/wp-content/uploads/2024/02/william-diversions.png */}
+  <blockquote>
+    <p>"Klanten verrassen met de inzichten uit onze onderzoeken: dat verveelt nooit."</p>
+    <p><strong>Ieteke de Vries</strong></p>
+  </blockquote>
+  <blockquote>
+    <p>"Het blijft magisch om een goed idee uit te werken tot een concrete oplossing."</p>
+    <p><strong>William Burghout</strong></p>
+  </blockquote>
+
+  <Wrapper
+    slot="after"
+    variant="standard"
+    class="pb-24 grid grid-cols-1 gap-4 lg:grid-cols-3"
+    id="info"
+  >
+    <Cta
+      heading="Onderzoek"
+      text="Nieuwe inzichten in de behoeften van je klant."
+      buttonLabel="Lees meer"
+      buttonHref="/services/onderzoeksbureau"
+      variant="sage"
+    />
+    <Cta
+      heading="Innovatie"
+      text="Van idee naar succes."
+      buttonLabel="Lees meer"
+      buttonHref="/services/propositie-creatie-van-concept-naar-succes"
+      variant="sage"
+    />
+    <Cta
+      heading="Communicatie"
+      text="Stap voor stap je resultaten verbeteren."
+      buttonLabel="Lees meer"
+      buttonHref="/services/conversie-optimalisatie"
+      variant="sage"
+    />
+  </Wrapper>
+</ArticleLayout>

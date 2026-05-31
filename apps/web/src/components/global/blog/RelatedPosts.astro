@@ -1,0 +1,64 @@
+---
+/**
+ * RelatedPosts — "Lees ook" + 3-koloms grid met ECHTE recente posts.
+ * Omgebouwd vanuit design/blog-components.jsx <RelatedPosts/>.
+ * Sluit het huidige artikel uit, sorteert op pubDate (nieuw → oud) en pakt de
+ * eerste drie. Thumbnails via <Image> (astro:assets) uit post.data.image.url.
+ */
+import { getAllPosts } from "@/lib/data";
+
+interface Props {
+  currentId: string;
+}
+const { currentId } = Astro.props;
+
+const allPosts = await getAllPosts();
+const related = allPosts
+  .filter((p) => p.slug !== currentId)
+  .sort(
+    (a, b) =>
+      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+  )
+  .slice(0, 3);
+
+const fmtDate = (d: Date | string) =>
+  new Date(d).toLocaleDateString("nl-NL", { month: "long", year: "numeric" });
+---
+
+{
+  related.length > 0 && (
+    <section class="related">
+      <div class="related-inner">
+        <div class="related-head">
+          <h2>Lees ook</h2>
+          <a href="/blog">Alle artikelen →</a>
+        </div>
+        <div class="related-grid">
+          {related.map((p) => (
+            <a href={`/blog/${p.slug}`} class="related-card">
+              <div class="img">
+                <img
+                  src={p.data.image.url}
+                  alt={p.data.image.alt ?? ""}
+                  width={520}
+                  height={325}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="body">
+                <span class="meta">{p.data.tags?.[0] ?? "Artikel"}</span>
+                <h3>{p.data.title}</h3>
+                <p class="excerpt">{p.data.description}</p>
+                <div class="read-more">
+                  <span>{fmtDate(p.data.pubDate)}</span>
+                  <span>Lees →</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

@@ -1,0 +1,17 @@
+---
+/**
+ * JsonLd.astro — generieke Schema.org JSON-LD emitter.
+ * Geeft een willekeurig schema-object door als <script type="application/ld+json">.
+ * Gebruikt door BaseHead (Organization), BlogLayout (BlogPosting + BreadcrumbList)
+ * en de detail-layouts (BreadcrumbList).
+ *
+ * NB: De FAQ-blokcomponent (Faq.astro) levert zelf al FAQPage JSON-LD — daar dus
+ * niet dupliceren.
+ */
+interface Props {
+  schema: Record<string, unknown> | Record<string, unknown>[];
+}
+const { schema } = Astro.props;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />

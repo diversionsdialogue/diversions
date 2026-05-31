@@ -1,0 +1,248 @@
+---
+// ArticleTOC.astro — sticky inhoudsopgave voor de long-form leeslayout.
+// Omgebouwd vanuit design/article-toc.jsx naar een Astro-component met een
+// inline client-script. De TOC wordt client-side opgebouwd uit de echte
+// <h2>/<h3>-koppen binnen .article, zodat het toevoegen van een sectie
+// alleen HTML (markdown) is. Scroll-spy markeert de actieve sectie, een
+// leesvoortgangsbalk toont de positie, en een mobiele trigger klapt de TOC
+// in/uit. Heeft de article geen h2's, dan verbergt de wrap zich netjes.
+interface Props {
+  /** Titel boven de TOC (design: "Onze diensten"). */
+  title?: string;
+  /** CSS-selector van de article-container die gescand wordt. */
+  articleSelector?: string;
+}
+const { title = "Op deze pagina", articleSelector = "#article" } = Astro.props;
+---
+
+<div
+  class="toc-wrap"
+  data-toc-wrap
+  data-article-selector={articleSelector}
+  data-empty="true"
+>
+  <button
+    class="toc-mobile-trigger"
+    type="button"
+    aria-expanded="false"
+    aria-controls="toc-body"
+    data-toc-trigger
+  >
+    <span data-toc-trigger-label>Inhoud · 0%</span>
+    <svg
+      class="chev"
+      width="14"
+      height="8"
+      viewBox="0 0 14 8"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M1 1.5 7 6.5l6-5"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"></path>
+    </svg>
+  </button>
+
+  <nav class="toc" id="toc-body" aria-label="Inhoudsopgave">
+    <div class="toc-eyebrow">Inhoud</div>
+    <h2 class="toc-title">{title}</h2>
+    <div class="toc-progress-label">
+      <span>Voortgang</span><span data-toc-progress-label>0%</span>
+    </div>
+    <div class="toc-progress">
+      <div class="toc-progress-bar" data-toc-progress-bar></div>
+    </div>
+    <ol data-toc-list></ol>
+  </nav>
+</div>
+
+<script>
+  function slugify(s: string): string {
+    return s
+      .toLowerCase()
+      .normalize("NFKD")
+      .replace(/[̀-ͯ]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "");
+  }
+
+  type Section = {
+    id: string;
+    text: string;
+    el: HTMLElement;
+    children: { id: string; text: string; el: HTMLElement }[];
+  };
+
+  function initTOC(wrap: HTMLElement) {
+    const articleSelector = wrap.dataset.articleSelector || "#article";
+    const article = document.querySelector<HTMLElement>(articleSelector);
+    const list = wrap.querySelector<HTMLOListElement>("[data-toc-list]");
+    const bar = wrap.querySelector<HTMLElement>("[data-toc-progress-bar]");
+    const pct = wrap.querySelector<HTMLElement>("[data-toc-progress-label]");
+    const triggerLabel = wrap.querySelector<HTMLElement>(
+      "[data-toc-trigger-label]",
+    );
+    const trigger = wrap.querySelector<HTMLButtonElement>("[data-toc-trigger]");
+    const tocBody = wrap.querySelector<HTMLElement>("#toc-body");
+    if (!article || !list) return;
+
+    // Bouw de boom uit de echte koppen.
+    const headings = Array.from(
+      article.querySelectorAll<HTMLElement>("h2, h3"),
+    );
+    const usedIds = new Set<string>();
+    const sections: Section[] = [];
+    let current: Section | null = null;
+    headings.forEach((el) => {
+      if (!el.id) {
+        let base = slugify(el.textContent || "") || "sectie";
+        let id = base;
+        let n = 2;
+        while (usedIds.has(id) || document.getElementById(id)) {
+          id = base + "-" + n++;
+        }
+        el.id = id;
+      }
+      usedIds.add(el.id);
+      if (el.tagName === "H2") {
+        current = { id: el.id, text: el.textContent || "", el, children: [] };
+        sections.push(current);
+      } else if (current) {
+        current.children.push({ id: el.id, text: el.textContent || "", el });
+      }
+    });
+
+    // Geen h2's → verberg de TOC netjes.
+    if (sections.length === 0) {
+      wrap.dataset.empty = "true";
+      return;
+    }
+    wrap.dataset.empty = "false";
+
+    // Render de lijst.
+    list.innerHTML = "";
+    sections.forEach((h2, i) => {
+      const li = document.createElement("li");
+      li.className = "toc-h2-item";
+      li.dataset.id = h2.id;
+
+      const a = document.createElement("a");
+      a.className = "toc-h2-link";
+      a.href = "#" + h2.id;
+      a.dataset.id = h2.id;
+      const num = document.createElement("span");
+      num.className = "num";
+      num.textContent = String(i + 1).padStart(2, "0");
+      const label = document.createElement("span");
+      label.textContent = h2.text;
+      a.append(num, label);
+      li.appendChild(a);
+
+      if (h2.children.length > 0) {
+        const ul = document.createElement("ul");
+        ul.className = "toc-h3-list";
+        h2.children.forEach((h3) => {
+          const cli = document.createElement("li");
+          const ca = document.createElement("a");
+          ca.href = "#" + h3.id;
+          ca.dataset.id = h3.id;
+          ca.dataset.parent = h2.id;
+          ca.textContent = h3.text;
+          cli.appendChild(ca);
+          ul.appendChild(cli);
+        });
+        li.appendChild(ul);
+      }
+      list.appendChild(li);
+    });
+
+    // Sluit de mobiele TOC bij een klik op een link.
+    list.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", () => {
+        tocBody?.classList.remove("open");
+        trigger?.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Vlakke lijst voor scroll-spy.
+    const flat: { kind: "h2" | "h3"; id: string; el: HTMLElement; parent?: string }[] =
+      [];
+    sections.forEach((h2) => {
+      flat.push({ kind: "h2", id: h2.id, el: h2.el });
+      h2.children.forEach((h3) =>
+        flat.push({ kind: "h3", id: h3.id, el: h3.el, parent: h2.id }),
+      );
+    });
+
+    const h2Items = Array.from(
+      list.querySelectorAll<HTMLElement>(".toc-h2-item"),
+    );
+    const h2Links = Array.from(
+      list.querySelectorAll<HTMLElement>(".toc-h2-link"),
+    );
+    const h3Links = Array.from(
+      list.querySelectorAll<HTMLElement>(".toc-h3-list a"),
+    );
+
+    function onScroll() {
+      const top = window.scrollY + 120;
+      let curH2 = sections[0]?.id || null;
+      let curH3: string | null = null;
+      flat.forEach((item) => {
+        const y = item.el.getBoundingClientRect().top + window.scrollY;
+        if (y <= top) {
+          if (item.kind === "h2") {
+            curH2 = item.id;
+            curH3 = null;
+          } else {
+            curH2 = item.parent || curH2;
+            curH3 = item.id;
+          }
+        }
+      });
+
+      h2Items.forEach((li) =>
+        li.classList.toggle("active", li.dataset.id === curH2),
+      );
+      h2Links.forEach((a) =>
+        a.classList.toggle("active", a.dataset.id === curH2),
+      );
+      h3Links.forEach((a) =>
+        a.classList.toggle("active", a.dataset.id === curH3),
+      );
+
+      // Voortgang door de article-body.
+      const rect = article!.getBoundingClientRect();
+      const total = article!.offsetHeight - window.innerHeight;
+      const passed = Math.min(Math.max(-rect.top, 0), Math.max(total, 1));
+      const progress = Math.round((passed / Math.max(total, 1)) * 100);
+      if (bar) bar.style.width = progress + "%";
+      if (pct) pct.textContent = progress + "%";
+      if (triggerLabel) triggerLabel.textContent = "Inhoud · " + progress + "%";
+    }
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+
+    // Mobiele toggle.
+    trigger?.addEventListener("click", () => {
+      const open = tocBody?.classList.toggle("open");
+      trigger.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
+
+  function boot() {
+    document
+      .querySelectorAll<HTMLElement>("[data-toc-wrap]")
+      .forEach((wrap) => initTOC(wrap));
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+</script>

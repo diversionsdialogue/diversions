@@ -1,0 +1,270 @@
+{
+  "name": "Diversions — Contactformulier verwerken",
+  "meta": {
+    "description": "Ontvangt inzendingen van het contactformulier op diversions.nl (statische Astro-site, client-side fetch POST naar de webhook). Honeypot-check tegen spam, daarna Mailjet-notificatie naar info@diversions.nl, een bevestigingsmail naar de invuller en een rij in Google Sheets als back-up/overzicht. Afzender = info@diversions.nl (gebruikersbeslissing 2026-05-31). CORS beperkt tot https://diversions.nl."
+  },
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "contact-diversions",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "https://diversions.nl"
+        }
+      },
+      "id": "node-webhook",
+      "name": "Webhook: contactformulier",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 300],
+      "webhookId": "contact-diversions"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "honeypot-leeg",
+              "leftValue": "={{ $json.body.company_website }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "node-honeypot",
+      "name": "Honeypot leeg? (anti-spam)",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "fromEmail": "info@diversions.nl",
+        "fromName": "Diversions website",
+        "toEmail": "info@diversions.nl",
+        "subject": "=Nieuw contactbericht via de website — {{ $json.body.name }}",
+        "text": "=Er is een nieuw bericht binnengekomen via het contactformulier op diversions.nl.\n\nNaam: {{ $json.body.name }}\nE-mail: {{ $json.body.email }}\nTelefoon: {{ $json.body.phone || '—' }}\n\nBericht:\n{{ $json.body.message }}\n\n—\nAVG-consent gegeven: {{ $json.body.consent ? 'ja' : 'NEE — controleer!' }}\nVerzonden: {{ $now.toISO() }}",
+        "additionalFields": {
+          "replyTo": "={{ $json.body.email }}"
+        }
+      },
+      "id": "node-mail-notify",
+      "name": "Mailjet: notificatie naar info@",
+      "type": "n8n-nodes-base.mailjet",
+      "typeVersion": 1,
+      "position": [520, 200],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "mailjetEmailApi": {
+          "id": "VERVANG_MAILJET_CRED_ID",
+          "name": "Mailjet — Diversions"
+        }
+      },
+      "notes": "Reply-To = e-mail van de invuller, zodat 'Beantwoorden' direct naar de afzender gaat. fromEmail moet een GEVERIFIEERDE sender/domein in Mailjet zijn."
+    },
+    {
+      "parameters": {
+        "fromEmail": "info@diversions.nl",
+        "fromName": "Diversions",
+        "toEmail": "={{ $('Webhook: contactformulier').item.json.body.email }}",
+        "subject": "We hebben je bericht ontvangen — Diversions",
+        "text": "=Hoi {{ $('Webhook: contactformulier').item.json.body.name }},\n\nBedankt voor je bericht. We hebben het in goede orde ontvangen en nemen snel contact met je op.\n\nVoor de volledigheid je bericht:\n\"{{ $('Webhook: contactformulier').item.json.body.message }}\"\n\nHeb je met spoed een vraag? Bel ons gerust op (055) 20 32 193.\n\nMet vriendelijke groet,\nTeam Diversions\ninfo@diversions.nl",
+        "additionalFields": {}
+      },
+      "id": "node-mail-confirm",
+      "name": "Mailjet: bevestiging naar invuller",
+      "type": "n8n-nodes-base.mailjet",
+      "typeVersion": 1,
+      "position": [780, 200],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "mailjetEmailApi": {
+          "id": "VERVANG_MAILJET_CRED_ID",
+          "name": "Mailjet — Diversions"
+        }
+      },
+      "notes": "Verwijst naar de Webhook-node (niet $json) omdat de Mailjet-notificatienode ervoor de payload heeft vervangen door zijn API-antwoord."
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "VERVANG_SPREADSHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Inzendingen",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Tijdstip": "={{ $now.toISO() }}",
+            "Naam": "={{ $('Webhook: contactformulier').item.json.body.name }}",
+            "E-mail": "={{ $('Webhook: contactformulier').item.json.body.email }}",
+            "Telefoon": "={{ $('Webhook: contactformulier').item.json.body.phone }}",
+            "Bericht": "={{ $('Webhook: contactformulier').item.json.body.message }}",
+            "Consent": "={{ $('Webhook: contactformulier').item.json.body.consent }}",
+            "Bron": "contactformulier diversions.nl"
+          },
+          "matchingColumns": [],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "node-sheets",
+      "name": "Google Sheets: inzending opslaan",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [1040, 200],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "onError": "continueRegularOutput",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "VERVANG_GSHEETS_CRED_ID",
+          "name": "Google Sheets — Diversions"
+        }
+      },
+      "notes": "Secundair: als dit faalt, gaat de flow tóch door naar de 200-respons (de lead is al gemaild). Maak in het sheet een tabblad 'Inzendingen' met kopregel: Tijdstip | Naam | E-mail | Telefoon | Bericht | Consent | Bron. Selecteer na import het juiste spreadsheet + tabblad in de resource-pickers."
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { \"success\": true } }}",
+        "options": {}
+      },
+      "id": "node-respond-ok",
+      "name": "Respond 200 (OK)",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1300, 200]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { \"success\": true } }}",
+        "options": {}
+      },
+      "id": "node-respond-spam",
+      "name": "Respond 200 (spam, stil genegeerd)",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [520, 460],
+      "notes": "Honeypot ingevuld => vermoedelijk bot. We geven 200 terug (zodat de bot 'succes' ziet) maar versturen/loggen niets."
+    },
+    {
+      "parameters": {
+        "content": "### Inkomend + spamfilter\nWebhook ontvangt de JSON-POST van het Astro-contactformulier (`$json.body.*`). De honeypot-check laat alleen echte inzendingen door; bots (verborgen veld ingevuld) krijgen stil een 200.",
+        "height": 240,
+        "width": 460,
+        "color": 4
+      },
+      "id": "sticky-in",
+      "name": "Sticky: inkomend",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [-20, 100]
+    },
+    {
+      "parameters": {
+        "content": "### Verwerken\n1) Mailjet-notificatie naar info@diversions.nl (reply-to = invuller).\n2) Bevestigingsmail naar de invuller.\n3) Rij toevoegen in Google Sheets (secundair).\nDaarna 200 terug naar de browser.",
+        "height": 240,
+        "width": 1040,
+        "color": 5
+      },
+      "id": "sticky-process",
+      "name": "Sticky: verwerken",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [500, 60]
+    }
+  ],
+  "connections": {
+    "Webhook: contactformulier": {
+      "main": [
+        [
+          {
+            "node": "Honeypot leeg? (anti-spam)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Honeypot leeg? (anti-spam)": {
+      "main": [
+        [
+          {
+            "node": "Mailjet: notificatie naar info@",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond 200 (spam, stil genegeerd)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mailjet: notificatie naar info@": {
+      "main": [
+        [
+          {
+            "node": "Mailjet: bevestiging naar invuller",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mailjet: bevestiging naar invuller": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets: inzending opslaan",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets: inzending opslaan": {
+      "main": [
+        [
+          {
+            "node": "Respond 200 (OK)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

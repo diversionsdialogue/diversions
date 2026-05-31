@@ -1,0 +1,11 @@
+---
+description: Astro pages — routing, layouts, data source consistency
+globs: apps/web/src/pages/**
+---
+
+# Pages and routing
+
+- **Layouts:** Prefer `BaseLayout` from `apps/web/src/layouts/BaseLayout.astro` for marketing pages unless an existing layout (e.g. `TeamLayout`) is already used in that route family.
+- **Dynamic routes:** Use existing patterns — **`[...slug].astro`** for team, work, services, legal detail, and **`blog/posts/[...slug].astro`** for posts; **`blog/tags/[tag].astro`** for tag filtering.
+- **Data fetching:** Many files use `getCollection` from `astro:content`. That is correct for **Content Collections mode**. If `USE_SANITY` in `apps/web/src/lib/data.ts` is `true`, list/detail pages should use **`@/lib/data`** helpers (`getAllPosts`, etc.) so Sanity and transforms are applied consistently — avoid duplicating divergent fetch logic.
+- **Do not invent routes** (e.g. changelog, help center) unless new files are actually added under `pages/`.

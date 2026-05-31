@@ -1,0 +1,44 @@
+---
+/**
+ * Quote — centered pull-quote with optional attribution.
+ * Parity block: Sanity `quoteBlock`.
+ * Design source: `.pullquote` in design/article.css / services-detail.html.
+ *
+ * Props (CLAUDE.md §4 / Sanity quoteBlock):
+ *   quote   string  — the quote text
+ *   author? string  — name
+ *   role?   string  — role / company
+ */
+interface Props {
+  quote: string;
+  author?: string;
+  role?: string;
+  class?: string;
+}
+
+const { quote, author, role, class: className = "" } = Astro.props;
+---
+
+<figure class:list={["my-10 py-2 text-center", className]}>
+  <span
+    class="mb-3 block font-display text-5xl leading-[0.6] text-yellow-500"
+    aria-hidden="true">&ldquo;</span
+  >
+  <blockquote
+    class="mx-auto max-w-[36ch] font-quote text-[clamp(20px,2.3vw,26px)] italic leading-snug text-balance text-base-700"
+  >
+    {quote}
+  </blockquote>
+  {
+    (author || role) && (
+      <figcaption class="mt-4 font-subtitle text-[13px] font-semibold tracking-wide text-base-700">
+        {author}
+        {role && (
+          <span class="mt-0.5 block font-sans font-normal tracking-normal text-base-400">
+            {role}
+          </span>
+        )}
+      </figcaption>
+    )
+  }
+</figure>
