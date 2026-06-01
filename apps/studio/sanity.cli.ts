@@ -5,5 +5,5 @@ export default defineCliConfig({
     projectId: process.env.SANITY_STUDIO_PROJECT_ID || "jbrcqdez",
     dataset: process.env.SANITY_STUDIO_DATASET || "production",
   },
-  studioHost: "lexington-starter",
+  studioHost: "diversions-studio",
 });
