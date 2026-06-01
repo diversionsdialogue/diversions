@@ -11,6 +11,12 @@ interface Props {
   type?: "website" | "article";
   publishedTime?: string;
   noindex?: boolean;
+  /**
+   * Canonical-override. Standaard is dat de eigen absolute pagina-URL. Een
+   * detailpagina kan dit zetten vanuit `seo.canonicalUrl` (Sanity) wanneer een
+   * andere URL de "officiële" versie is (bv. samengevoegde/gemigreerde content).
+   */
+  canonical?: string;
 }
 
 const {
@@ -20,6 +26,7 @@ const {
   type = "website",
   publishedTime,
   noindex = false,
+  canonical: canonicalOverride,
 } = Astro.props;
 
 // Site defaults (no siteSettings collection in this project)
@@ -40,7 +47,13 @@ const defaultOgImage = new URL(
 // Use page-specific values or fall back to site defaults
 const title = pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle;
 const description = pageDescription || siteDescription;
-const canonical = new URL(Astro.url.pathname, siteUrl).toString();
+// Canonical: expliciete override (seo.canonicalUrl) — relatief pad absoluut
+// maken t.o.v. siteUrl — anders de eigen absolute pagina-URL.
+const canonical = canonicalOverride
+  ? canonicalOverride.startsWith("http")
+    ? canonicalOverride
+    : new URL(canonicalOverride, siteUrl).toString()
+  : new URL(Astro.url.pathname, siteUrl).toString();
 
 // Image: page-specifieke afbeelding (relatieve paden absoluut maken), anders de
 // site-default. Zo heeft elke pagina altijd een og:image.

@@ -1,12 +1,14 @@
 import { defineType, defineField } from "sanity";
 import { RocketIcon } from "@sanity/icons";
 import { bodyField } from "./blocks/bodyField";
+import { seoField, seoFieldset } from "./objects/seoField";
 
 export const service = defineType({
   name: "service",
   title: "Service",
   type: "document",
   icon: RocketIcon,
+  fieldsets: [seoFieldset],
   fields: [
     defineField({
       name: "service",
@@ -30,6 +32,7 @@ export const service = defineType({
       validation: (rule) => rule.required(),
     }),
     bodyField({ required: true }),
+    seoField(),
   ],
   preview: {
     select: {

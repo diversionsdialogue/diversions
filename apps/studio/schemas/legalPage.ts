@@ -1,11 +1,13 @@
 import { defineType, defineField } from "sanity";
 import { DocumentTextIcon } from "@sanity/icons";
+import { seoField, seoFieldset } from "./objects/seoField";
 
 export const legalPage = defineType({
   name: "legalPage",
   title: "Legal Page",
   type: "document",
   icon: DocumentTextIcon,
+  fieldsets: [seoFieldset],
   fields: [
     defineField({
       name: "page",
@@ -28,6 +30,7 @@ export const legalPage = defineType({
       description: "Legal content in markdown format",
       validation: (rule) => rule.required(),
     }),
+    seoField(),
   ],
   preview: {
     select: {

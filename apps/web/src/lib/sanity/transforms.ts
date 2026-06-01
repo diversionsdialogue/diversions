@@ -11,6 +11,7 @@ import type {
   SanityService,
   SanityPost,
   SanityLegalPage,
+  SanitySeo,
 } from "./types";
 
 /**
@@ -37,6 +38,28 @@ function safeImageUrl(source: any): string {
   } catch {
     return "";
   }
+}
+
+/**
+ * Optioneel `seo`-object naar de Content-Collection-achtige vorm. Volledig
+ * additief: ontbreekt `seo`, dan geven we `undefined` terug en verandert er
+ * niets aan het bestaande gedrag. De ogImage wordt — net als image/thumbnail —
+ * tot een vlakke `{ url, alt }` gereduceerd via safeImageUrl(). De daadwerkelijke
+ * <head>/sitemap-koppeling doet de seo-astro-fase.
+ */
+function transformSeo(seo?: SanitySeo) {
+  if (!seo) return undefined;
+  return {
+    metaDescription: seo.metaDescription,
+    noindex: seo.noindex ?? false,
+    canonicalUrl: seo.canonicalUrl,
+    ogImage: seo.ogImage
+      ? {
+          url: safeImageUrl(seo.ogImage),
+          alt: seo.ogImage.alt || "",
+        }
+      : undefined,
+  };
 }
 
 /**
@@ -83,6 +106,7 @@ export function transformWorkItem(sanityDoc: SanityWorkItem) {
         url: safeImageUrl(sanityDoc.thumbnail),
         alt: sanityDoc.thumbnail?.alt || "",
       },
+      seo: transformSeo(sanityDoc.seo),
     },
   };
 }
@@ -100,6 +124,7 @@ export function transformService(sanityDoc: SanityService) {
     data: {
       service: sanityDoc.service,
       description: sanityDoc.description,
+      seo: transformSeo(sanityDoc.seo),
     },
   };
 }
@@ -124,6 +149,7 @@ export function transformPost(sanityDoc: SanityPost) {
         alt: sanityDoc.image?.alt || "",
       },
       tags: sanityDoc.tags,
+      seo: transformSeo(sanityDoc.seo),
     },
   };
 }
@@ -140,6 +166,7 @@ export function transformLegalPage(sanityDoc: SanityLegalPage) {
     data: {
       page: sanityDoc.page,
       pubDate: new Date(sanityDoc.pubDate),
+      seo: transformSeo(sanityDoc.seo),
     },
   };
 }

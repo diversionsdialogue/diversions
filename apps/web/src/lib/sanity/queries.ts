@@ -18,6 +18,23 @@ const bodyProjection = groq`
   }
 `;
 
+// Shared projection for the optional `seo` object. Dereferences the ogImage
+// asset the same way the document image/thumbnail fields do (asset-> + alt),
+// so transforms can build a URL via urlFor(). Optional everywhere: if the
+// document has no `seo`, this projects to null and nothing breaks.
+// Wired up in <head>/sitemap later by the seo-astro agent.
+const seoProjection = groq`
+  seo {
+    metaDescription,
+    noindex,
+    canonicalUrl,
+    ogImage {
+      asset->,
+      alt
+    }
+  }
+`;
+
 // Team Members
 export const getAllTeamMembersQuery = groq`
   *[_type == "teamMember"] | order(_createdAt desc) {
@@ -69,7 +86,8 @@ export const getAllWorkItemsQuery = groq`
       asset->,
       alt
     },
-    ${bodyProjection}
+    ${bodyProjection},
+    ${seoProjection}
   }
 `;
 
@@ -90,7 +108,8 @@ export const getWorkItemByIdQuery = groq`
       asset->,
       alt
     },
-    ${bodyProjection}
+    ${bodyProjection},
+    ${seoProjection}
   }
 `;
 
@@ -101,7 +120,8 @@ export const getAllServicesQuery = groq`
     service,
     "slug": slug.current,
     description,
-    ${bodyProjection}
+    ${bodyProjection},
+    ${seoProjection}
   }
 `;
 
@@ -111,7 +131,8 @@ export const getServiceByIdQuery = groq`
     service,
     "slug": slug.current,
     description,
-    ${bodyProjection}
+    ${bodyProjection},
+    ${seoProjection}
   }
 `;
 
@@ -129,7 +150,8 @@ export const getAllPostsQuery = groq`
       alt
     },
     tags,
-    ${bodyProjection}
+    ${bodyProjection},
+    ${seoProjection}
   }
 `;
 
@@ -146,7 +168,8 @@ export const getPostByIdQuery = groq`
       alt
     },
     tags,
-    ${bodyProjection}
+    ${bodyProjection},
+    ${seoProjection}
   }
 `;
 
@@ -163,7 +186,8 @@ export const getPostsByTagQuery = groq`
       alt
     },
     tags,
-    ${bodyProjection}
+    ${bodyProjection},
+    ${seoProjection}
   }
 `;
 
@@ -177,7 +201,8 @@ export const getAllLegalPagesQuery = groq`
     _id,
     page,
     pubDate,
-    body
+    body,
+    ${seoProjection}
   }
 `;
 
@@ -186,6 +211,7 @@ export const getLegalPageByIdQuery = groq`
     _id,
     page,
     pubDate,
-    body
+    body,
+    ${seoProjection}
   }
 `;

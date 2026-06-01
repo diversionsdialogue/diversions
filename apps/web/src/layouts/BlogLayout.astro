@@ -6,6 +6,7 @@ import ShareRail from "@/components/global/blog/ShareRail.astro";
 import AuthorCard from "@/components/global/blog/AuthorCard.astro";
 import Newsletter from "@/components/global/blog/Newsletter.astro";
 import RelatedPosts from "@/components/global/blog/RelatedPosts.astro";
+import { buildPageSeo, type DocumentSeo } from "@/lib/seo/pageSeo";
 
 interface Props {
   frontmatter: {
@@ -15,6 +16,7 @@ interface Props {
     pubDate: Date | string;
     image: { url: any; alt?: string };
     tags?: string[];
+    seo?: DocumentSeo;
   };
   id: string;
   /** Geschatte leestijd in minuten (zie [...slug].astro). */
@@ -101,20 +103,21 @@ const breadcrumbSchema = {
     },
   ],
 };
+
+// Document-seo (Sanity) gemerged met de blogfallbacks (titel/description/cover).
+const pageSeo = buildPageSeo(frontmatter.seo, {
+  title: frontmatter.title,
+  description: frontmatter.description,
+  image: ogImageUrl ? { url: ogImageUrl, alt: frontmatter.image?.alt } : undefined,
+  type: "article",
+  publishedTime: dateIso,
+});
 ---
 
 <BaseLayout
   hideNavigation={true}
   jsonLd={[blogPostingSchema, breadcrumbSchema]}
-  seo={{
-    title: frontmatter.title,
-    description: frontmatter.description,
-    image: ogImageUrl
-      ? { url: ogImageUrl, alt: frontmatter.image?.alt }
-      : undefined,
-    type: "article",
-    publishedTime: dateIso,
-  }}
+  seo={pageSeo}
 >
   <div class="blog-template">
     <BlogHeader />

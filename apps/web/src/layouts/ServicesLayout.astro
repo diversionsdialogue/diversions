@@ -8,11 +8,13 @@
 // worden hier NIET gerenderd (dat is de latere Portable-Text-route).
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ArticleTOC from "@/components/global/article/ArticleTOC.astro";
+import { buildPageSeo, type DocumentSeo } from "@/lib/seo/pageSeo";
 
 interface Props {
   frontmatter: {
     service: string;
     description: string;
+    seo?: DocumentSeo;
   };
   /** Slug van deze dienst, voor canonical/breadcrumb (zie [...slug].astro). */
   id?: string;
@@ -55,14 +57,18 @@ const breadcrumbSchema = id
       ],
     }
   : undefined;
+
+// Document-seo (Sanity) gemerged met de dienst-fallbacks. Geen image-veld in het
+// services-schema: og:image valt terug op seo.ogImage of de site-default (Seo.astro).
+const pageSeo = buildPageSeo(frontmatter.seo, {
+  title: frontmatter.service,
+  description: frontmatter.description,
+});
 ---
 
 <BaseLayout
   jsonLd={breadcrumbSchema}
-  seo={{
-    title: frontmatter.service,
-    description: frontmatter.description,
-  }}
+  seo={pageSeo}
 >
   <div class="article-template">
     <div class="article-shell">

@@ -3,8 +3,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#ffffff" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="robots" content="index, follow" />
-<meta name="googlebot" content="index, follow" />
-
-<meta name="robots" content="index, follow" />
-<meta name="googlebot" content="index, follow" />
+<!--
+  De robots-richtlijn wordt centraal door Seo.astro (AstroSeo) gezet op basis van
+  de per-pagina noindex-prop: index standaard, noindex op noindex-pagina's. Hier
+  staat bewust GEEN hardgecodeerde robots-meta meer, anders ontstaat er een
+  dubbele/conflicterende richtlijn op noindex-pagina's.
+-->

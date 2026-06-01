@@ -5,6 +5,7 @@ import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Components
 import CtaHire from "@/components/ctas/CtaHire.astro";
+import { buildPageSeo, type DocumentSeo } from "@/lib/seo/pageSeo";
 // Content
 interface Props {
   frontmatter: {
@@ -15,6 +16,7 @@ interface Props {
     link?: string;
     credits?: { name: string; role: string }[];
     thumbnail: { url: any; alt?: string };
+    seo?: DocumentSeo;
   };
   /** Slug van deze case, voor canonical/breadcrumb (zie [...slug].astro). */
   id?: string;
@@ -60,17 +62,18 @@ const breadcrumbSchema = id
       ],
     }
   : undefined;
+
+// Document-seo (Sanity) gemerged met de case-fallbacks (titel/omschrijving/thumbnail).
+const pageSeo = buildPageSeo(frontmatter.seo, {
+  title: seoTitle,
+  description: seoDescription,
+  image: ogImageUrl ? { url: ogImageUrl, alt: frontmatter.thumbnail?.alt } : undefined,
+});
 ---
 
 <BaseLayout
   jsonLd={breadcrumbSchema}
-  seo={{
-    title: seoTitle,
-    description: seoDescription,
-    image: ogImageUrl
-      ? { url: ogImageUrl, alt: frontmatter.thumbnail?.alt }
-      : undefined,
-  }}
+  seo={pageSeo}
 >
   <section class="bg-white overflow-hidden relative">
     <Wrapper variant="standard" class="py-12 lg:pt-24">

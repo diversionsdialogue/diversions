@@ -22,6 +22,18 @@ export interface SanityImageAsset {
   alt?: string;
 }
 
+// --- Shared reusable objects ------------------------------------------------
+// Optional `seo` object on the public-page document types (post / service /
+// workItem / legalPage). All fields optional/additive. Rendering (head meta,
+// canonical, sitemap exclusion) is handled later by the seo-astro agent; this
+// type only describes the DATA shape returned by the `seo` query projection.
+export interface SanitySeo {
+  metaDescription?: string;
+  noindex?: boolean;
+  canonicalUrl?: string;
+  ogImage?: SanityImageAsset;
+}
+
 // --- Portable Text + shared blocks (CLAUDE.md §4) ---------------------------
 // `body` on post / service / workItem is a Portable Text array: standard blocks
 // plus the shared custom block object-types. Each member carries a `_type`.
@@ -145,6 +157,7 @@ export interface SanityWorkItem extends SanityDocument {
   }>;
   thumbnail: SanityImageAsset;
   body?: SanityBody;
+  seo?: SanitySeo;
 }
 
 // Service document
@@ -154,6 +167,7 @@ export interface SanityService extends SanityDocument {
   slug: string;
   description: string;
   body: SanityBody;
+  seo?: SanitySeo;
 }
 
 // Post document
@@ -167,6 +181,7 @@ export interface SanityPost extends SanityDocument {
   image: SanityImageAsset;
   tags: string[];
   body: SanityBody;
+  seo?: SanitySeo;
 }
 
 // Legal Page document
@@ -175,6 +190,7 @@ export interface SanityLegalPage extends SanityDocument {
   page: string;
   pubDate: string;
   body: string;
+  seo?: SanitySeo;
 }
 
 // Union type of all document types

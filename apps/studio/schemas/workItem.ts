@@ -1,12 +1,14 @@
 import { defineType, defineField } from "sanity";
 import { CaseIcon } from "@sanity/icons";
 import { bodyField } from "./blocks/bodyField";
+import { seoField, seoFieldset } from "./objects/seoField";
 
 export const workItem = defineType({
   name: "workItem",
   title: "Work Item",
   type: "document",
   icon: CaseIcon,
+  fieldsets: [seoFieldset],
   fields: [
     defineField({
       name: "work",
@@ -96,6 +98,7 @@ export const workItem = defineType({
       validation: (rule) => rule.required(),
     }),
     bodyField(),
+    seoField(),
   ],
   preview: {
     select: {

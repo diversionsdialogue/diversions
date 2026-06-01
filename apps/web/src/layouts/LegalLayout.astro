@@ -4,18 +4,31 @@
 // blog-meubels, drop-cap uit). Houdt de markdown-legal-entries consistent met de
 // .astro-legal-pagina's.
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
+import { buildPageSeo, type DocumentSeo } from "@/lib/seo/pageSeo";
+
+interface Props {
+  frontmatter: {
+    page: string;
+    pubDate: Date | string;
+    seo?: DocumentSeo;
+  };
+}
 const { frontmatter } = Astro.props;
+
+// Document-seo (Sanity) gemerged met de legal-fallbacks. Geen image-veld in het
+// legal-schema: og:image valt terug op seo.ogImage of de site-default (Seo.astro).
+const pageSeo = buildPageSeo(frontmatter.seo, {
+  title: frontmatter.page,
+  description: `${frontmatter.page} van Diversions.`,
+  type: "article",
+});
 ---
 
 <ArticleLayout
   title={frontmatter.page}
   eyebrow="Juridisch"
   date={frontmatter.pubDate}
-  seo={{
-    title: frontmatter.page,
-    description: `${frontmatter.page} van Diversions.`,
-    type: "article",
-  }}
+  seo={pageSeo}
 >
   <slot />
 </ArticleLayout>

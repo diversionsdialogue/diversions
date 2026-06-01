@@ -16,6 +16,7 @@ interface Props {
     type?: "website" | "article";
     publishedTime?: string;
     noindex?: boolean;
+    canonical?: string;
   };
   /** Extra paginaspecifieke JSON-LD (bv. BreadcrumbList, BlogPosting). */
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
