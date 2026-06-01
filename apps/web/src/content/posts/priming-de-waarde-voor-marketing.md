@@ -4,8 +4,8 @@ pubDate: 2024-02-10
 description: "Wil je als marketeer het beslisproces van je klant begrijpen? Dankzij neurowetenschappelijk onderzoek weten we steeds meer over de werking van het menselijk brein. Deze inzichten…"
 author: "content"
 image:
-  url: "/src/images/blog/1.jpeg"
-  alt: "#_"
+  url: "/src/images/blog/priming-1.png"
+  alt: "Voorbeeld van priming"
 tags:
   - "onderzoek"
 ---

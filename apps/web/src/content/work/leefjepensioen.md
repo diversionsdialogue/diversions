@@ -4,8 +4,8 @@ company: "Leefjepensioen.nl"
 client: "Leefjepensioen.nl"
 credits: []
 thumbnail:
-  url: "/src/images/work/1.png"
-  alt: "Leefjepensioen.nl - project van Diversions"
+  url: "/src/images/work/leefjepensioen-ezine.png"
+  alt: "leefjepensioen-ezine"
 ---
 
 <!-- CONVERT-META

@@ -4,8 +4,8 @@ company: "Erfrechtshulp"
 client: "Erfrechtshulp"
 credits: []
 thumbnail:
-  url: "/src/images/work/1.png"
-  alt: "Erfrechtshulp - project van Diversions"
+  url: "/src/images/work/Erfrechtshulp-CTA-Persoonlijk.png"
+  alt: "Erfrechtshulp-CTA-Persoonlijk"
 ---
 
 <!-- CONVERT-META

@@ -4,8 +4,8 @@ pubDate: 2023-05-31
 description: "Ben je van plan een gebruikerstest uit te voeren? Met voorbeelden uit de praktijk bieden we je inspiratie. Wij beschrijven een drietal (zeer verschillende) cases. Ze laten zien…"
 author: "redactie"
 image:
-  url: "/src/images/blog/1.jpeg"
-  alt: "#_"
+  url: "/src/images/blog/kwantitatieve-gebruikerstest-1.png"
+  alt: "Kwantitatieve gebruikerstest"
 tags:
   - "onderzoek"
 ---

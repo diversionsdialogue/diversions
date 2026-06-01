@@ -4,8 +4,8 @@ pubDate: 2024-05-21
 description: "Online onderzoek is een manier om informatie te verzamelen via het internet. Dit kun je verschillend aanpakken, bijvoorbeeld via enquêtes, interviews, en het analyseren van…"
 author: "content"
 image:
-  url: "/src/images/blog/1.jpeg"
-  alt: "#_"
+  url: "/src/images/blog/Online-onderzoek-4.jpg"
+  alt: "online onderzoek"
 tags:
   - "onderzoek"
 ---

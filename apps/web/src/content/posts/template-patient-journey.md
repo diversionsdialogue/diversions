@@ -4,8 +4,8 @@ pubDate: 2021-12-19
 description: "Wil je zelf een Patient Journey in kaart brengen? Wij bieden je een gratis template waarmee je aan de slag kunt. Waardevol voor een eerste verkenning."
 author: "redactie"
 image:
-  url: "/src/images/blog/1.jpeg"
-  alt: "#_"
+  url: "/src/images/blog/Patient-jouney-pdf.png"
+  alt: "Uitgelichte afbeelding"
 tags:
   - "journey"
 ---

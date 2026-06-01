@@ -4,8 +4,8 @@ pubDate: 2025-07-09
 description: "Na maanden van voorbereiding is het zover: 'Anders dan jij denkt – Beter samenwerken met Generatie Z' ligt nu in de boekhandel! Het boek biedt een uitgebreide verkenning van de…"
 author: "redactie"
 image:
-  url: "/src/images/blog/1.jpeg"
-  alt: "#_"
+  url: "/src/images/blog/generation-journey-1.png"
+  alt: "Preview van het boek"
 tags:
   - "onderzoek"
 ---

@@ -4,8 +4,8 @@ pubDate: 2021-12-19
 description: "Hoge kwaliteit, efficiëntie, goede communicatie en graag ook nog met persoonlijke aandacht. De verwachtingen ten aanzien van onze gezondheidszorg zijn hoog."
 author: "redactie"
 image:
-  url: "/src/images/blog/1.jpeg"
-  alt: "#_"
+  url: "/src/images/blog/coping-.png"
+  alt: "Uitgelichte afbeelding"
 tags:
   - "journey"
 ---

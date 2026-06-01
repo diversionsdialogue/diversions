@@ -4,8 +4,8 @@ pubDate: 2024-02-10
 description: "Hoe kun je doelgroepen helpen om eenvoudig beslissingen te nemen? Neurowetenschappelijk onderzoek biedt inzichten waar je op kunt bouwen. Hoe? Dit artikel gaat in op één manier:…"
 author: "content"
 image:
-  url: "/src/images/blog/1.jpeg"
-  alt: "#_"
+  url: "/src/images/blog/keuze-beperken.png"
+  alt: "Beperkte keuze: neuromarketing"
 tags:
   - "onderzoek"
 ---

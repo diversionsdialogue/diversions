@@ -4,8 +4,8 @@ pubDate: 2017-03-23
 description: "Hoe wil jij je publiek overtuigen? Marketeers en communicatie experts zijn volop bezig met deze vraag."
 author: "redactie"
 image:
-  url: "/src/images/blog/1.jpeg"
-  alt: "#_"
+  url: "/src/images/blog/breingeheimen-overtuiging.png"
+  alt: "Uitgelichte afbeelding"
 tags:
   - "optimalisatie"
 ---

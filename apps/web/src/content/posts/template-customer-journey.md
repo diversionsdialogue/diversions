@@ -4,8 +4,8 @@ pubDate: 2021-12-19
 description: "Customer journeys zijn er in verschillende soorten en maten. Zoek naar templates in Google, en je zien een grote variatie aan uitwerkingen. Welke journey-vorm sluit aan bij jouw doelen?"
 author: "redactie"
 image:
-  url: "/src/images/blog/1.jpeg"
-  alt: "#_"
+  url: "/src/images/blog/Klantbeleving.jpg"
+  alt: "Uitgelichte afbeelding"
 tags:
   - "journey"
 ---

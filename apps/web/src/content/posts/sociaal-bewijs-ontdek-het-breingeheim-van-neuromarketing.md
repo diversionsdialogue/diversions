@@ -4,8 +4,8 @@ pubDate: 2024-02-10
 description: "Wil je de keuzes die jouw klanten maken begrijpen? Dankzij neurowetenschappelijk onderzoek weten we steeds beter hoe menselijk gedrag tot stand komt. Met deze inzichten kunnen we…"
 author: "content"
 image:
-  url: "/src/images/blog/1.jpeg"
-  alt: "#_"
+  url: "/src/images/blog/sociaal-bewijs.png"
+  alt: "Voorbeeld van sociaal bewijs"
 tags:
   - "onderzoek"
 ---

@@ -4,8 +4,8 @@ pubDate: 2023-05-29
 description: "Heb je een landingspage, aangepast webdesign of nieuwe website ontwikkeld? Dan ben je natuurlijk benieuwd wat je doelgroep hiervan vindt! Met een gebruikerstest verzamel je…"
 author: "redactie"
 image:
-  url: "/src/images/blog/1.jpeg"
-  alt: "#_"
+  url: "/src/images/blog/taken-diary-study-1.png"
+  alt: "gebruikerstest opzetten in 4 stappen"
 tags:
   - "onderzoek"
 ---

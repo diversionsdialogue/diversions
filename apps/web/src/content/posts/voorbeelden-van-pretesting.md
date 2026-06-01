@@ -4,8 +4,8 @@ pubDate: 2023-05-29
 description: "Hoeveel tijd besteedt jouw organisatie aan pretesting? Als je een campagne lanceert of een website ontwikkeld, dan heeft pretesting veel waarde. Je krijgt vroegtijdig feedback van…"
 author: "redactie"
 image:
-  url: "/src/images/blog/1.jpeg"
-  alt: "#_"
+  url: "/src/images/blog/pretesting-voorbeeld.png"
+  alt: "pretesting voorbeeld"
 tags:
   - "onderzoek"
 ---

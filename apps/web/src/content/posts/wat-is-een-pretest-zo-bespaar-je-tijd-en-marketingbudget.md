@@ -4,8 +4,8 @@ pubDate: 2023-05-21
 description: "Hoe bereid jij je voor op de start van een nieuwe campagne? Vaak is het een drukke tijd. Vol deadlines, ideeën, discussies en gepuzzel met planningen en media-inkoop. Als de…"
 author: "redactie"
 image:
-  url: "/src/images/blog/1.jpeg"
-  alt: "#_"
+  url: "/src/images/blog/pretest.png"
+  alt: "Wat is een pretest?"
 tags:
   - "onderzoek"
 ---

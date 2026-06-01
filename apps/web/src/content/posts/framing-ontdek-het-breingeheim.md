@@ -4,8 +4,8 @@ pubDate: 2024-01-29
 description: "Wil jij het gedrag van je klanten begrijpen? Dankzij neurowetenschappelijk onderzoek weten we steeds meer over de werking van het menselijk brein. Deze informatie helpt je om…"
 author: "content"
 image:
-  url: "/src/images/blog/1.jpeg"
-  alt: "#_"
+  url: "/src/images/blog/framing-1.png"
+  alt: "Framing voorbeeld: gezond of duurzaam"
 tags:
   - "onderzoek"
 ---

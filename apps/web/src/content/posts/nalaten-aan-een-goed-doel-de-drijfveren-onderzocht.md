@@ -4,8 +4,8 @@ pubDate: 2019-02-06
 description: "Het belang van nalatenschappen groeit voor goede doelen. Niet voor niets wordt het onderwerp vanuit de landelijke “toegift” campagne ook gezamenlijk geagendeerd. Toch blijft er…"
 author: "redactie"
 image:
-  url: "/src/images/blog/1.jpeg"
-  alt: "#_"
+  url: "/src/images/blog/nalatenschap-header.jpg"
+  alt: "nalatenschap onderzoek goede doelen"
 tags:
   - "fondsenwerving"
 ---
