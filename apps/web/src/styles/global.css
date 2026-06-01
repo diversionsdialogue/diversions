@@ -1276,6 +1276,50 @@
   max-width: 38ch;
 }
 
+/* Kaart-miniatuur (diensten-overzicht). Vierkante/landscape thumb met afgeronde
+   hoeken; valt terug op een neutrale placeholder als er geen thumbnail is. */
+.sa-card-thumb {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: var(--radius-lg, 14px);
+  background: var(--color-accent-100);
+}
+.sa-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--duration-base) var(--ease);
+}
+.sa-card:hover .sa-card-thumb img {
+  transform: scale(1.03);
+}
+/* Het accent-streepje (::before) zit normaal bovenaan de kaart; bij een kaart
+   met miniatuur zou het achter het beeld vallen. Verberg het daar -> de
+   miniatuur is het visuele anker. */
+.sa-card:has(.sa-card-thumb)::before {
+  display: none;
+}
+/* De miniatuur staat bovenaan; geef de titel iets lucht onder het beeld. */
+.sa-card .sa-card-thumb + h3 {
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+/* Lege-staat melding bij actieve filter zonder resultaten. */
+.sa-grid-empty {
+  padding: 0 32px;
+  margin: 40px 0 0;
+  font-family: var(--font-sans);
+  color: var(--ink-soft);
+}
+@media (min-width: 1024px) {
+  .sa-grid-empty {
+    padding: 0 72px;
+  }
+}
+
 .sa-cta {
   background: var(--color-accent-500);
   color: #fff;

@@ -69,6 +69,17 @@ const services = defineCollection({
   schema: z.object({
     service: z.string(),
     description: z.string(),
+    // Optioneel: miniatuur + filtercategorieën voor het diensten-overzicht.
+    // Additief — bestaande .md zonder deze velden blijven valideren. `url` is
+    // een plain string (kan een remote/Sanity CDN-URL zijn), net als
+    // seoSchema.ogImage.url; geen Astro image() omdat geen .md het nu zet.
+    thumbnail: z
+      .object({
+        url: z.string(),
+        alt: z.string().optional(),
+      })
+      .optional(),
+    categories: z.array(z.string()).optional(),
     seo: seoSchema,
   }),
 });

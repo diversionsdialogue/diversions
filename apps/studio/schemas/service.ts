@@ -32,12 +32,47 @@ export const service = defineType({
       validation: (rule) => rule.required(),
     }),
     bodyField({ required: true }),
+    // Optionele velden voor de diensten-overzichtspagina (kaart + tag-filter).
+    // Additief: bestaande services zonder deze velden blijven geldig.
+    defineField({
+      name: "thumbnail",
+      title: "Thumbnail",
+      type: "image",
+      description: "Miniatuur voor het diensten-overzicht.",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: "alt",
+          type: "string",
+          title: "Alternative text",
+        },
+      ],
+    }),
+    defineField({
+      name: "categories",
+      title: "Categories",
+      type: "array",
+      description: "Filtercategorieën voor het diensten-overzicht.",
+      of: [{ type: "string" }],
+      options: {
+        layout: "tags",
+        list: [
+          { value: "onderzoeken", title: "Onderzoeken" },
+          { value: "methodes", title: "Methodes" },
+          { value: "oplossingen", title: "Oplossingen" },
+          { value: "branches", title: "Branches" },
+        ],
+      },
+    }),
     seoField(),
   ],
   preview: {
     select: {
       title: "service",
       subtitle: "description",
+      media: "thumbnail",
     },
   },
 });

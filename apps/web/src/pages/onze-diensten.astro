@@ -1,67 +1,45 @@
 ---
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getAllServices } from "@/lib/data";
+// Neutrale placeholder-miniatuur (diensten hebben nog geen eigen thumbnail in
+// Sanity; gebruiker uploadt die later in de Studio). Geimporteerd als
+// Astro-asset zodat hij geoptimaliseerd + gebundeld wordt.
+import placeholderThumb from "@/images/assets/services.jpg";
 
 // CONVERT-META (route A, bouwen-in-astro)
 //   bron: /onze-diensten
 //   nieuwe_url: /onze-diensten
-//   structurele pagina (services-overzicht). Drie dienstblokken (business model
-//   ontwerp, propositie creatie, website optimalisatie) + afsluitende CTA
-//   ("Tijd voor groei?"). De CTA is herkend en omgezet naar de design-CTA-band.
-//   AFBEELDINGEN (3x, voor quality-agent): originele WP-bronnen hieronder als comment.
-//     Nu placeholder/weggelaten; herhosten in Fase 6. Alt ontbrak in WP.
-//   NB: dit overzicht overlapt deels met de theme-route /services (Sanity services).
-//     Bewust als losse historische pagina behouden vanwege bestaande URL + verkeer;
-//     intake/SEO beoordeelt of dit later naar /services redirect.
-//   THEME (Fase 1): layout omgebouwd naar de design services-archive-stijl
-//     (sa-hero / sa-header / sa-grid / sa-cta uit design/services.html). De
-//     tag-filter + paginering uit het design-prototype zijn WEGGELATEN — dit is
-//     een vaste, korte set van drie diensten, geen gepagineerd archief.
-//   THEME (Fase 1, beslissing 3): per dienstblok een "Lees meer ->"-link
-//     toegevoegd. Business model ontwerp heeft GEEN detailpagina -> /services (FLAG).
-const services = [
-  {
-    title: "Business model ontwerp",
-    // FLAG: geen detailpagina aanwezig -> verwijst naar het services-overzicht.
-    href: "/services",
-    body: [
-      "Een goed idee biedt geen garantie voor groei. Of je nu een nieuw bedrijf lanceert of je bestaande producten wilt verbeteren: succes valt of staat met een sterk onderliggend business model.",
-      "Het Business Model Canvas is een krachtig middel om te werken aan de basis van je organisatie. Aan de hand van 9 bouwstenen analyseren we hoe je het beste kunt opereren. Wat is een optimale mix van interne en externe kennis? Waar ligt de beste balans tussen kosten en inkomsten? En sluit dit aan bij de verwachtingen van je klanten?",
-      "Wij helpen je de weg naar groei te plannen met business model ontwerp.",
-    ],
-    // HANDMATIG/quality (Fase 6): afbeelding herhosten.
-    //   originele bron: https://www.diversions.nl/wp-content/uploads/2016/05/bmc_model.jpg
-    //   alt ontbrak in WP -> alt aanvullen.
-  },
-  {
-    title: "Propositie creatie",
-    href: "/services/propositie-creatie-van-concept-naar-succes",
-    body: [
-      "Een sterk business model geldt als fundament voor je organisatie. Maar de glans van succesverhalen is vaak te danken aan de kracht van proposities: het optimaal inspelen op de wensen van klanten.",
-      "Nu is het bedenken van een goede propositie niet eenvoudig. Klantonderzoek, praktijkervaringen en marktontwikkelingen vertellen zelden hetzelfde verhaal. Hoe breng je die drie dan toch met elkaar in een lijn?",
-      "Bij Diversions gebruiken we hiervoor de methode van propositie ontwerp. We brengen samen met jou de wensen en twijfels van klanten in beeld. Deze vertalen we naar verschillende proposities die getest kunnen worden. Via een proces van testen en optimaliseren werken we stapsgewijs naar proposities die echt een verschil maken in de markt.",
-    ],
-    // HANDMATIG/quality (Fase 6): afbeelding herhosten.
-    //   originele bron: https://www.diversions.nl/wp-content/uploads/2016/04/testkaart.jpg
-    //   alt ontbrak in WP -> alt aanvullen.
-  },
-  {
-    title: "Website optimalisatie",
-    href: "/services/conversie-optimalisatie",
-    body: [
-      "Meer rendement halen uit online activiteiten; dat wil iedereen. Toch komen veel organisaties er niet aan toe het optimaliseren van e-businessresultaten tot vast agendapunt te maken.",
-      "Diversions biedt een oplossing met een praktisch optimalisatieprogramma. We ondersteunen hierbij een testproces in 4 stappen: analyse (waar liggen de beste kansen?), hypothese (welk idee, welk resultaat?), executie (de uitvoering van de test) en evaluatie (wat hebben we geleerd?).",
-      "Omdat optimaliseren nooit stopt spreken we van Test in Progress (TIP). Alle TIP-activiteiten worden vastgelegd en gevolgd in een online portaal. Zo is er op ieder moment inzicht in de voortgang en de resultaten van het optimalisatieprogramma.",
-    ],
-  },
-];
+//   structurele pagina (diensten-overzicht). HEEFT VERKEER -> URL behouden.
+//   THEME (Fase 1, herbouw): de oude, handgemaakte 3-blokken-pagina is vervangen
+//     door een volledig, Sanity-gestuurd overzicht van ALLE diensten. Per dienst
+//     een kaart (miniatuur + titel); de hele kaart linkt naar /services/<slug>.
+//     Categorie-filter (chips) is client-side (progressive enhancement): zonder
+//     JS zijn alle kaarten zichtbaar.
+//   THEME: deelt nog steeds de design-stijl (sa-hero / sa-header / sa-grid /
+//     sa-cta uit design/services.html). sa-hero en sa-cta zijn ongewijzigd
+//     overgenomen; alleen het grid + de filter zijn nieuw.
+//   AFBEELDINGEN: kaart-miniaturen komen uit service.thumbnail (Sanity). Zolang
+//     die ontbreken tonen we een nette neutrale placeholder.
+
+const services = await getAllServices();
+
+// Categorie-filter (vaste waarden uit het service-schema). Label = weergave,
+// value = wat in service.data.categories staat.
+const categoryFilters = [
+  { value: "all", label: "Alles" },
+  { value: "onderzoeken", label: "Onderzoeken" },
+  { value: "methodes", label: "Methodes" },
+  { value: "oplossingen", label: "Oplossingen" },
+  { value: "branches", label: "Branches" },
+] as const;
 ---
 
 <BaseLayout
   seo={{
     title: "Onze diensten | Diversions",
     description:
-      "Business model ontwerp, propositie creatie en website optimalisatie: zo helpt Diversions je de weg naar groei te plannen.",
+      "Een volledig overzicht van wat Diversions doet — onderzoeken, methodes, oplossingen en branches. Bekijk alle diensten en plan de weg naar groei.",
   }}
 >
   <section class="sa-hero">
@@ -90,23 +68,52 @@ const services = [
         We helpen je de weg naar groei te plannen — met onderzoek en uitvoering.
       </h1>
     </div>
+
+    <div class="sa-header-right">
+      <div class="sa-tags" role="group" aria-label="Filter op categorie" id="sa-filter">
+        {
+          categoryFilters.map((c, i) => (
+            <button
+              type="button"
+              class:list={["sa-tag", { active: i === 0 }]}
+              data-filter={c.value}
+              aria-pressed={i === 0 ? "true" : "false"}
+            >
+              {c.label}
+            </button>
+          ))
+        }
+      </div>
+    </div>
   </header>
 
-  <div class="sa-grid">
+  <div class="sa-grid" id="sa-grid">
     {
-      services.map((s) => (
-        <article class="sa-card">
-          <h3>{s.title}</h3>
-          {s.body.map((p) => (
-            <p>{p}</p>
-          ))}
-          <a class="sa-card-link" href={s.href}>
-            Lees meer <span aria-hidden="true">→</span>
+      services.map((service) => {
+        const slug = service.slug ?? service.id;
+        const thumb = service.data.thumbnail?.url ?? placeholderThumb.src;
+        const thumbAlt =
+          service.data.thumbnail?.alt || `Miniatuur voor ${service.data.service}`;
+        const cats = (service.data.categories ?? []).join(" ");
+        return (
+          <a
+            class="sa-card"
+            href={`/services/${slug}`}
+            data-categories={cats}
+          >
+            <div class="sa-card-thumb">
+              <img src={thumb} alt={thumbAlt} loading="lazy" width="600" height="400" />
+            </div>
+            <h3>{service.data.service}</h3>
           </a>
-        </article>
-      ))
+        );
+      })
     }
   </div>
+
+  <p class="sa-grid-empty" id="sa-grid-empty" hidden>
+    Geen diensten in deze categorie.
+  </p>
 
   <section class="sa-cta" style="margin-top: 96px">
     <div class="sa-cta-text">
@@ -125,3 +132,37 @@ const services = [
     </a>
   </section>
 </BaseLayout>
+
+<script>
+  // Client-side categorie-filter (progressive enhancement).
+  // Zonder JS zijn alle kaarten gewoon zichtbaar.
+  const filterGroup = document.getElementById("sa-filter");
+  const cards = Array.from(
+    document.querySelectorAll<HTMLElement>("#sa-grid .sa-card")
+  );
+  const emptyMsg = document.getElementById("sa-grid-empty");
+
+  function applyFilter(value: string) {
+    let visible = 0;
+    for (const card of cards) {
+      const cats = (card.dataset.categories ?? "").split(/\s+/).filter(Boolean);
+      const show = value === "all" || cats.includes(value);
+      card.hidden = !show;
+      if (show) visible++;
+    }
+    if (emptyMsg) emptyMsg.hidden = visible !== 0;
+  }
+
+  filterGroup?.addEventListener("click", (e) => {
+    const btn = (e.target as HTMLElement).closest<HTMLButtonElement>(".sa-tag");
+    if (!btn) return;
+    const value = btn.dataset.filter ?? "all";
+
+    for (const chip of filterGroup.querySelectorAll<HTMLButtonElement>(".sa-tag")) {
+      const active = chip === btn;
+      chip.classList.toggle("active", active);
+      chip.setAttribute("aria-pressed", active ? "true" : "false");
+    }
+    applyFilter(value);
+  });
+</script>

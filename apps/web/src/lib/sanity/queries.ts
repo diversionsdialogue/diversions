@@ -120,6 +120,11 @@ export const getAllServicesQuery = groq`
     service,
     "slug": slug.current,
     description,
+    thumbnail {
+      asset->,
+      alt
+    },
+    categories,
     ${bodyProjection},
     ${seoProjection}
   }
@@ -131,6 +136,11 @@ export const getServiceByIdQuery = groq`
     service,
     "slug": slug.current,
     description,
+    thumbnail {
+      asset->,
+      alt
+    },
+    categories,
     ${bodyProjection},
     ${seoProjection}
   }

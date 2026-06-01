@@ -124,6 +124,13 @@ export function transformService(sanityDoc: SanityService) {
     data: {
       service: sanityDoc.service,
       description: sanityDoc.description,
+      thumbnail: sanityDoc.thumbnail
+        ? {
+            url: safeImageUrl(sanityDoc.thumbnail),
+            alt: sanityDoc.thumbnail.alt || "",
+          }
+        : undefined,
+      categories: sanityDoc.categories ?? [],
       seo: transformSeo(sanityDoc.seo),
     },
   };

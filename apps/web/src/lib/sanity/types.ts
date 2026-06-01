@@ -166,6 +166,8 @@ export interface SanityService extends SanityDocument {
   service: string;
   slug: string;
   description: string;
+  thumbnail?: SanityImageAsset;
+  categories?: string[];
   body: SanityBody;
   seo?: SanitySeo;
 }

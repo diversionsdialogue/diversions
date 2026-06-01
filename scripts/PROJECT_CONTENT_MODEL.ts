@@ -93,6 +93,15 @@ export const PROJECT_COLLECTIONS = {
       slug: { type: "slug", required: true }, // URL segment under /services/
       description: { type: "text", required: true },
       body: { type: "portableText", required: true }, // Portable Text array (rich text + shared blocks)
+      thumbnail: {
+        type: "object",
+        required: false, // Optioneel — miniatuur voor het diensten-overzicht
+        shape: {
+          url: { type: "image", required: false },
+          alt: { type: "string", required: false }
+        }
+      },
+      categories: { type: "array", itemType: "string", required: false }, // Optioneel — filtercategorieën
       seo: seoField // Optional shared SEO object (additive)
     },
     relationships: {}
@@ -164,7 +173,7 @@ export const COLLECTION_STATS = {
   collections: {
     team: { fieldCount: 7 }, // name, role, intro, education, experience, avatar, body
     work: { fieldCount: 10 }, // slug, link, company, year, client, work, credits, thumbnail, body, seo
-    services: { fieldCount: 5 }, // service, slug, description, body, seo
+    services: { fieldCount: 7 }, // service, slug, description, body, thumbnail, categories, seo
     posts: { fieldCount: 9 }, // title, slug, pubDate, description, author, image, tags, body, seo
     legal: { fieldCount: 4 } // page, pubDate, body, seo
   }
