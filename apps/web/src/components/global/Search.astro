@@ -3,27 +3,42 @@
 import Button from "@/components/fundations/elements/Button.astro";
 // Icons
 import SearchIcon from "@/components/fundations/icons/Search.astro";
-// Content
-import { getCollection } from "astro:content";
+// Content — via de USE_SANITY-bewuste datalaag, zodat de zoekindex dezelfde bron
+// (Sanity) gebruikt als de rest van de site. Eerder las dit rechtstreeks uit de
+// content-collections (getCollection), waardoor de index de .md-bestanden i.p.v.
+// Sanity reflecteerde en achterliep zodra content in de Studio wijzigde.
+import {
+  getAllPosts,
+  getAllWorkItems,
+  getAllServices,
+  getAllTeamMembers,
+  getAllLegalPages,
+} from "@/lib/data";
 
-const posts = await getCollection("posts");
-const work = await getCollection("work");
-const services = await getCollection("services");
-const team = await getCollection("team");
-const legal = await getCollection("legal");
+const [posts, work, services, team, legal] = await Promise.all([
+  getAllPosts(),
+  getAllWorkItems(),
+  getAllServices(),
+  getAllTeamMembers(),
+  getAllLegalPages(),
+]);
+
+// URL-slug exact zoals de detailroutes: schone slug (Sanity-transform) of, bij
+// de Content-Collections-fallback, de entry-id (die dáár de slug is).
+const slugOf = (entry) => entry.slug ?? entry.id;
 
 const searchItems = [
   ...posts.map((entry) => ({
-    slug: entry.id,
-    url: `/blog/${entry.id}`,
+    slug: slugOf(entry),
+    url: `/blog/${slugOf(entry)}`,
     title: entry.data.title,
     description: entry.data.description,
     pubDate: entry.data.pubDate,
     type: "Post",
   })),
   ...work.map((entry) => ({
-    slug: entry.id,
-    url: `/work/${entry.id}`,
+    slug: slugOf(entry),
+    url: `/work/${slugOf(entry)}`,
     title: entry.data.company
       ? `${entry.data.company} — ${entry.data.work}`
       : entry.data.work,
@@ -32,22 +47,22 @@ const searchItems = [
     type: "Work",
   })),
   ...services.map((entry) => ({
-    slug: entry.id,
-    url: `/services/${entry.id}`,
+    slug: slugOf(entry),
+    url: `/services/${slugOf(entry)}`,
     title: entry.data.service,
     description: entry.data.description,
     type: "Service",
   })),
   ...team.map((entry) => ({
-    slug: entry.id,
-    url: `/team/${entry.id}`,
+    slug: slugOf(entry),
+    url: `/team/${slugOf(entry)}`,
     title: entry.data.name,
     description: entry.data.role || entry.data.intro,
     type: "Team",
   })),
   ...legal.map((entry) => ({
-    slug: entry.id,
-    url: `/legal/${entry.id}`,
+    slug: slugOf(entry),
+    url: `/legal/${slugOf(entry)}`,
     image: null,
     title: entry.data.page,
     description: entry.data.page,
