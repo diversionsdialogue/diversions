@@ -53,15 +53,6 @@ const featuredWork = allWork.slice(0, 4).map((item) => ({
   href: `/work/${item.slug}`,
 }));
 
-const marqueeItems = [
-  "Onderzoek",
-  "Customer journey",
-  "Conversie-optimalisatie",
-  "SEO",
-  "Insights",
-  "Innovatie",
-  "Strategie",
-];
 ---
 
 <BaseLayout
@@ -79,13 +70,15 @@ const marqueeItems = [
       </h1>
       <div>
         <p class="hero-intro">
-          Diversions helpt organisaties <strong>klaar te staan voor de klant</strong>
-          van vandaag en morgen — van onderzoek en customer journeys tot conversie en
-          groei.
+          <strong>Beter kijken. Scherper luisteren.</strong> Zo vinden we voor jou
+          het antwoord op complexe vragen.
+        </p>
+        <p class="hero-intro" style="margin-top:12px">
+          Ontdek hoe Diversions je helpt bij onderzoek en innovatie.
         </p>
         <div class="hero-cta-row">
-          <a href="/contact" class="btn btn-primary btn-arrow">Start een project</a>
-          <a href="#work" class="btn btn-outline">Bekijk werk</a>
+          <a href="/project-starten" class="btn btn-primary btn-arrow">Online offerte</a>
+          <a href="/videocall-plannen" class="btn btn-outline">Afspraak maken</a>
         </div>
       </div>
     </div>
@@ -95,54 +88,25 @@ const marqueeItems = [
       <img src="/img/hero.png" alt="" />
     </div>
 
-    {/* hero-meta: design-content (geen collection-bron) — GEFLAGD als placeholder. */}
     <div class="hero-meta">
       <div class="hero-meta-item">
-        <div class="label">Studio</div>
-        <div class="value">Utrecht, NL</div>
+        <div class="label">Wie</div>
+        <div class="value">Diversions Dialogue BV</div>
       </div>
       <div class="hero-meta-item">
-        <div class="label">Focus</div>
-        <div class="value">Onderzoek · Journey · Groei</div>
+        <div class="label">Wat</div>
+        <div class="value">Onderzoek &amp; innovatie</div>
       </div>
       <div class="hero-meta-item">
-        <div class="label">Werkwijze</div>
-        <div class="value">Test in Progress</div>
+        <div class="label">Waar</div>
+        <div class="value">Apeldoorn</div>
       </div>
       <div class="hero-meta-item">
-        <div class="label">Beschikbaar</div>
-        <div class="value" style="color: var(--color-yellow-600)">
-          ● voor nieuwe projecten
-        </div>
+        <div class="label">Voor wie</div>
+        <div class="value">Van startup tot marktleider</div>
       </div>
     </div>
   </section>
-
-  {/* ---------------- MARQUEE ---------------- */}
-  <div class="marquee marquee-peach" aria-hidden="true">
-    <div class="marquee-track">
-      <span>
-        {
-          marqueeItems.map((it) => (
-            <>
-              <span style="display:inline-flex;align-items:center">{it}</span>
-              <span class="dot"></span>
-            </>
-          ))
-        }
-      </span>
-      <span>
-        {
-          marqueeItems.map((it) => (
-            <>
-              <span style="display:inline-flex;align-items:center">{it}</span>
-              <span class="dot"></span>
-            </>
-          ))
-        }
-      </span>
-    </div>
-  </div>
 
   {/* ---------------- SERVICES ---------------- */}
   <section class="section" id="services">
@@ -150,12 +114,12 @@ const marqueeItems = [
       <div>
         <span class="eyebrow">Wat we doen</span>
         <h2 class="section-title">
-          Eén team, van inzicht <em>tot resultaat</em>.
+          Doelgericht voor het beste <em>resultaat</em>.
         </h2>
       </div>
       <p class="section-lead">
-        We werken in compacte teams waarin onderzoek, strategie en uitvoering dicht op
-        elkaar zitten. Geen losse overdracht, wel snelle iteraties.
+        We werken in compacte teams waarin onderzoek, strategie en uitvoering nauw
+        verbonden zijn. Zo levert onderzoek directe meerwaarde.
       </p>
     </div>
 
@@ -180,11 +144,10 @@ const marqueeItems = [
     <div class="section-head">
       <div>
         <span class="eyebrow">Geselecteerd werk</span>
-        <h2 class="section-title">Recent gemaakt — met aandacht.</h2>
+        <h2 class="section-title">Werk waar we <em>trots</em> op zijn.</h2>
       </div>
       <p class="section-lead">
-        Een greep uit de cases waar we trots op zijn. Vraag gerust naar de rest — niet
-        alles staat online.
+        Een greep uit de cases waaraan we hebben gewerkt.
       </p>
     </div>
 
@@ -210,16 +173,24 @@ const marqueeItems = [
     </div>
   </section>
 
-  {/* ---------------- QUOTE (design-content, GEFLAGD als placeholder) ---------------- */}
+  {/* ---------------- QUOTE ---------------- */}
   <section class="section" id="about">
     <div class="quote-block">
       <span class="quote-mark" aria-hidden="true">"</span>
       <p class="quote-text">
-        We helpen organisaties om klaar te staan voor de klant van vandaag en morgen —
+        We helpen organisaties om klaar te staan voor de klant van vandaag en morgen:
         van het eerste inzicht tot een meetbaar resultaat.
       </p>
       <div class="quote-attr">
-        <span class="avatar" aria-hidden="true">DV</span>
+        <img
+          class="avatar"
+          src="/img/william-burghout.png"
+          alt="William Burghout, Diversions"
+          width="44"
+          height="44"
+          loading="lazy"
+          decoding="async"
+        />
         <div>
           <div class="quote-who">Team Diversions</div>
           <div class="quote-role">Insights &amp; oplossingen</div>

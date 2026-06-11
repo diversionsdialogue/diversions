@@ -1,6 +1,6 @@
 ---
 // Diversions site header (omgebouwd vanuit design/components.jsx <Header/>).
-// Logo + NL-nav + zoek-icoon + "Start een project"-CTA + mobiel hamburger-menu.
+// Logo + NL-nav + zoek-icoon + "Online offerte"-CTA + mobiel hamburger-menu.
 // Toetsenbord-/drawer-toegankelijkheid: hamburger is een echte <button> met
 // aria-expanded + aria-controls naar het mobiele menu.
 import Search from "@/components/global/Search.astro";
@@ -14,8 +14,8 @@ import Search from "@/components/global/Search.astro";
 // daarom hier WEGGELATEN — zie rapport (FLAG).
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Werk", href: "/work" },
   { label: "Services", href: "/onze-diensten" },
+  { label: "Werk", href: "/work" },
   { label: "Blog", href: "/blog" },
   { label: "Over ons", href: "/wij-zijn-diversions" },
   { label: "Contact", href: "/contact" },
@@ -28,7 +28,7 @@ const isActive = (href: string) =>
 
 <header class="site-header" data-site-header>
   <a href="/" class="brand" aria-label="Diversions home">
-    <img src="/diversions-logo.svg" alt="Diversions" width="130" height="30" />
+    <img src="/diversions-logo.svg" alt="Diversions" width="241" height="75" />
   </a>
 
   <nav class="nav-desktop" aria-label="Hoofdnavigatie">
@@ -46,8 +46,8 @@ const isActive = (href: string) =>
 
   <div class="header-actions">
     <Search />
-    <a href="/contact" class="btn btn-primary btn-arrow header-cta-desktop">
-      Start een project
+    <a href="/project-starten" class="btn btn-primary btn-arrow header-cta-desktop">
+      Online offerte
     </a>
     <button
       class="icon-btn menu-btn"
@@ -95,7 +95,7 @@ const isActive = (href: string) =>
       </a>
     ))
   }
-  <a href="/contact">Start een project →</a>
+  <a href="/project-starten">Online offerte →</a>
 </div>
 
 <script is:inline>
