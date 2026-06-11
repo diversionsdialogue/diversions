@@ -2474,6 +2474,14 @@
   margin: 12px 0 0;
   padding-left: 24px;
 }
+/* Tailwind v4 preflight reset 'list-style: none' herstellen voor de standaard
+   Portable-Text-lijsten (BulletList-blok gebruikt zelf .list-disc). */
+.article-template .article ul {
+  list-style: disc;
+}
+.article-template .article ol {
+  list-style: decimal;
+}
 .article-template .article li {
   margin: 8px 0;
   line-height: 1.6;
