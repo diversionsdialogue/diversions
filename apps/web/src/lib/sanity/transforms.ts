@@ -68,7 +68,7 @@ function transformSeo(seo?: SanitySeo) {
 export function transformTeamMember(sanityDoc: SanityTeamMember) {
   return {
     id: sanityDoc._id,
-    slug: deriveSlug(sanityDoc._id, "teamMember"),
+    slug: deriveSlug(sanityDoc._id, "teamMember", sanityDoc.slug),
     body: sanityDoc.body,
     collection: "team" as const,
     data: {
@@ -168,7 +168,8 @@ export function transformLegalPage(sanityDoc: SanityLegalPage) {
   return {
     id: sanityDoc._id,
     slug: deriveSlug(sanityDoc._id, "legalPage"),
-    body: sanityDoc.body,
+    // Portable Text array; rendered by the Portable Text renderer, not raw markdown.
+    body: sanityDoc.body || [],
     collection: "legal" as const,
     data: {
       page: sanityDoc.page,

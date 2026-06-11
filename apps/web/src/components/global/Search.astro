@@ -62,7 +62,8 @@ const searchItems = [
   })),
   ...legal.map((entry) => ({
     slug: slugOf(entry),
-    url: `/legal/${slugOf(entry)}`,
+    // Legal-pagina's staan op hun root-URL (pages/[...slug].astro), niet onder /legal/.
+    url: `/${slugOf(entry)}`,
     image: null,
     title: entry.data.page,
     description: entry.data.page,

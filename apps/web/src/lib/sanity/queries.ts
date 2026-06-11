@@ -40,6 +40,7 @@ export const getAllTeamMembersQuery = groq`
   *[_type == "teamMember"] | order(_createdAt desc) {
     _id,
     name,
+    "slug": slug.current,
     role,
     intro,
     education,
@@ -56,6 +57,7 @@ export const getTeamMemberByIdQuery = groq`
   *[_type == "teamMember" && _id == $id][0] {
     _id,
     name,
+    "slug": slug.current,
     role,
     intro,
     education,
@@ -211,7 +213,7 @@ export const getAllLegalPagesQuery = groq`
     _id,
     page,
     pubDate,
-    body,
+    ${bodyProjection},
     ${seoProjection}
   }
 `;
@@ -221,7 +223,7 @@ export const getLegalPageByIdQuery = groq`
     _id,
     page,
     pubDate,
-    body,
+    ${bodyProjection},
     ${seoProjection}
   }
 `;

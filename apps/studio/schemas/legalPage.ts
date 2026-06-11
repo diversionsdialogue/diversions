@@ -1,5 +1,6 @@
 import { defineType, defineField } from "sanity";
 import { DocumentTextIcon } from "@sanity/icons";
+import { bodyField } from "./blocks/bodyField";
 import { seoField, seoFieldset } from "./objects/seoField";
 
 export const legalPage = defineType({
@@ -23,13 +24,9 @@ export const legalPage = defineType({
       description: "Date when this legal document was last updated",
       validation: (rule) => rule.required(),
     }),
-    defineField({
-      name: "body",
-      title: "Body Content",
-      type: "text",
-      description: "Legal content in markdown format",
-      validation: (rule) => rule.required(),
-    }),
+    // Portable Text, net als post/service/workItem — de route rendert het via
+    // <PortableText>. (Was eerst plain text; dat brak de rendering.)
+    bodyField({ required: true }),
     seoField(),
   ],
   preview: {

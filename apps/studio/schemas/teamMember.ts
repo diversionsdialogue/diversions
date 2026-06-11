@@ -14,6 +14,14 @@ export const teamMember = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      description: "URL segment under /team/ (bv. de voornaam)",
+      options: { source: "name", maxLength: 96 },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: "role",
       title: "Role",
       type: "string",
