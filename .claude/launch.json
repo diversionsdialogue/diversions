@@ -6,6 +6,12 @@
       "runtimeExecutable": "pnpm",
       "runtimeArgs": ["dev:web"],
       "port": 4321
+    },
+    {
+      "name": "web-dist",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter", "@lexington/web", "preview"],
+      "port": 4321
     }
   ]
 }

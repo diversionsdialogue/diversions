@@ -1827,6 +1827,14 @@
   color: var(--ink);
   margin: 28px 0 0;
 }
+/* Tailwind v4 preflight reset 'list-style: none' herstellen, anders rendert de
+   gestylede li::marker hieronder nooit (zelfde fix als .article-template). */
+.post-body ul {
+  list-style: disc;
+}
+.post-body ol {
+  list-style: decimal;
+}
 .post-body ul,
 .post-body ol {
   margin: 8px 0 0;
