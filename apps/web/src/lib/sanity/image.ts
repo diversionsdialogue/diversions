@@ -1,9 +1,10 @@
-import imageUrlBuilder from "@sanity/image-url";
+// Named export: de default export is deprecated (waarschuwing in elke build).
+import { createImageUrlBuilder } from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { client } from "./client";
 
 // Initialize image URL builder
-const builder = imageUrlBuilder(client);
+const builder = createImageUrlBuilder(client);
 
 /**
  * Generate optimized image URL from Sanity image asset
