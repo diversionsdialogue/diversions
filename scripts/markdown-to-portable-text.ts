@@ -311,6 +311,25 @@ export function markdownToPortableText(markdown: string): ConvertResult {
       continue;
     }
 
+    // ---- HTML-comment (<!-- ... -->) --------------------------------------
+    // Enkel- of meerregelig. WP-export + CONVERT-META gebruiken standalone
+    // comment-regels; die zijn redactie-/conversienotities en horen NIET in de
+    // body. Zonder deze tak werden ze als gewone paragrafen gerenderd.
+    if (trimmed.startsWith("<!--")) {
+      // Eénregelig comment dat ook weer sluit op dezelfde regel.
+      if (trimmed.includes("-->")) {
+        i += 1;
+        continue;
+      }
+      // Meerregelig: consumeer tot en met de regel met `-->`.
+      i += 1;
+      while (i < lines.length && !lines[i].includes("-->")) {
+        i += 1;
+      }
+      i += 1; // consume the closing `-->` line
+      continue;
+    }
+
     // ---- :::faq fence -----------------------------------------------------
     if (trimmed === ":::faq") {
       const body: string[] = [];
