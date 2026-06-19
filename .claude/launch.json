@@ -5,7 +5,10 @@
       "name": "web",
       "runtimeExecutable": "pnpm",
       "runtimeArgs": ["dev:web"],
-      "port": 4321
+      "port": 4321,
+      "env": {
+        "NODE_OPTIONS": "--use-system-ca"
+      }
     },
     {
       "name": "web-dist",
