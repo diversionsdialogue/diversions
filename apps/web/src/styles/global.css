@@ -207,7 +207,7 @@
   --ring: var(--color-yellow-600);
 
   /* Type scale */
-  --fs-hero: clamp(40px, 7vw, 84px);
+  --fs-hero: clamp(34px, 7vw, 74px);
   --fs-h1: clamp(36px, 5vw, 56px);
   --fs-h2: clamp(26px, 3.4vw, 34px);
   --fs-h3: 21px;
@@ -524,6 +524,16 @@
   }
 }
 
+.hero-eyebrow {
+  font-family: var(--font-subtitle);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin: 0 0 12px;
+}
+
 .hero-title {
   font-family: var(--font-display);
   font-size: var(--fs-hero);
@@ -568,32 +578,74 @@
   display: block;
 }
 
-.hero-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px 40px;
-  padding: 24px 0 0;
+.prop-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 28px;
+  padding-top: 32px;
+  padding-bottom: 32px;
   border-top: 1px solid var(--border);
-  margin-top: 24px;
 }
-.hero-meta-item .label {
+@media (min-width: 640px) {
+  .prop-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+}
+@media (min-width: 980px) {
+  .prop-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
+.prop-card {
+  background: var(--color-accent-100);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: background var(--duration-base) var(--ease);
+}
+.prop-card:hover {
+  background: #fff;
+}
+.prop-eyebrow {
   font-family: var(--font-subtitle);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-mute);
-  margin-bottom: 4px;
+  color: var(--ink-soft);
 }
-.hero-meta-item .value {
+.prop-title {
   font-family: var(--font-subtitle);
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 700;
+  font-size: clamp(18px, 1.5vw, 20px);
+  line-height: 1.2;
   color: var(--ink);
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.prop-title .arrow {
+  color: var(--color-yellow-500);
+  flex-shrink: 0;
+}
+.prop-desc {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 4px 0 0;
 }
 .hero-cta-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 12px;
   margin-top: 24px;
 }
@@ -2821,16 +2873,13 @@
   color: #fff;
 }
 .article-template .faq-a {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 280ms var(--ease);
+  /* Open/dicht wordt door Faq.astro geregeld via het `hidden`-attribuut, niet
+     via een max-height-clamp. Die clamp (max-height:0) kapte het antwoord af tot
+     de eerste regel; daarom hier alleen nog typografie. */
   font-family: var(--font-sans);
   font-size: 16px;
   color: var(--ink-soft);
   line-height: 1.6;
-}
-.article-template .faq-item.open .faq-a {
-  max-height: 600px;
 }
 .article-template .faq-a-inner {
   padding: 0 8px 22px;
