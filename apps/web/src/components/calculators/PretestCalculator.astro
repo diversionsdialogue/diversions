@@ -1,0 +1,511 @@
+---
+/**
+ * PretestCalculator — interactieve richtprijs-calculator voor de pretest-dienst.
+ *
+ * Astro-"island" zonder framework: de HTML-schil wordt server-side gerenderd,
+ * de interactie (progressive disclosure + live prijs) draait in een vanilla
+ * <script> client-side. Geen externe dependencies, geen localStorage
+ * (acceptatiecriteria in calculator/Bouwspecificatie pretest-calculator.md).
+ *
+ * Bronwaarheid van logica/copy: calculator/Calculator-config-pretest.json.
+ *
+ * GUARDRAIL: leveranciersnamen (panelpartner, kwali-platform, surveytool) worden
+ * NOOIT getoond. De interne tarieven staan als neutraal benoemde constanten in
+ * het script en produceren alleen de eindprijs; er verschijnt geen inkoop-
+ * breakdown of leveranciersnaam in de UI.
+ *
+ * Herbruikbaar: plaats <PretestCalculator /> in de `above`-slot van
+ * ServicesLayout (zie pages/services/[...slug].astro, CALCULATOR_PAGES).
+ *
+ * [koppeling nog aanleveren] — de twee knoppen bouwen een payload-object en
+ * dispatchen een CustomEvent "pretest-calculator:submit"; de echte bestemming
+ * (formulier/CRM/e-mail) wordt later op die hook aangesloten.
+ */
+---
+
+<section class="ptc" aria-labelledby="ptc-title">
+  <div class="ptc-card">
+    <header class="ptc-head">
+      <p class="ptc-eyebrow">Pretest</p>
+      <h2 id="ptc-title">Snel een eerste prijsindicatie</h2>
+      <p class="ptc-intro">Bereken in een paar klikken een richtprijs voor je pretest.</p>
+    </header>
+
+    <div class="ptc-grid">
+      <form class="ptc-form" novalidate>
+        {/* Stap 1 — Voorkeur (altijd zichtbaar) */}
+        <fieldset class="ptc-fieldset">
+          <legend class="ptc-legend">Wat heeft je voorkeur?</legend>
+          <div class="ptc-choices">
+            <label class="ptc-choice">
+              <input type="radio" name="voorkeur" value="snel" checked />
+              <span class="ptc-choice-body">
+                <span class="ptc-choice-title">Snel inzicht</span>
+                <span class="ptc-chips">
+                  <span class="ptc-chip">Feedback op design &amp; inhoud</span>
+                  <span class="ptc-chip">Binnen een werkdag beschikbaar</span>
+                  <span class="ptc-chip">150 respondenten</span>
+                </span>
+              </span>
+            </label>
+            <label class="ptc-choice">
+              <input type="radio" name="voorkeur" value="verdiepend" />
+              <span class="ptc-choice-body">
+                <span class="ptc-choice-title">Verdiepend inzicht</span>
+                <span class="ptc-choice-sub">
+                  Cijfers én het waarom erachter. Je bepaalt de aanpak in overleg.
+                </span>
+              </span>
+            </label>
+          </div>
+        </fieldset>
+
+        {/* Stap 2a — Aantal uitingen (alleen bij Snel inzicht) */}
+        <div class="ptc-field" data-field="aantalUitingen">
+          <label class="ptc-label" for="ptc-uitingen">Aantal uitingen</label>
+          <select class="ptc-select" id="ptc-uitingen" name="aantalUitingen">
+            <option value="1">1 uiting</option>
+            <option value="2">2 uitingen</option>
+            <option value="3">3 uitingen</option>
+          </select>
+        </div>
+
+        {/* Stap 2b — Aanpak (alleen bij Verdiepend inzicht) */}
+        <fieldset class="ptc-fieldset" data-field="aanpak" hidden>
+          <legend class="ptc-legend">Hoe wil je verdiepen?</legend>
+          <div class="ptc-choices">
+            <label class="ptc-choice">
+              <input type="radio" name="aanpak" value="survey" />
+              <span class="ptc-choice-body">
+                <span class="ptc-choice-title">Survey</span>
+                <span class="ptc-choice-sub">
+                  Je meet bij 150 respondenten hoe je uiting overkomt: begrip,
+                  gevoel, onderscheid en activering. Harde cijfers die je
+                  vergelijkt tussen versies en in de tijd.
+                </span>
+              </span>
+            </label>
+            <label class="ptc-choice">
+              <input type="radio" name="aanpak" value="kwali" />
+              <span class="ptc-choice-body">
+                <span class="ptc-choice-title">Kwalitatief</span>
+                <span class="ptc-choice-sub">
+                  Vijf diepte-interviews leggen bloot waaróm iets wel of niet
+                  werkt. Een survey op dezelfde meetlat valideert de bevindingen
+                  kwantitatief.
+                </span>
+              </span>
+            </label>
+          </div>
+        </fieldset>
+
+        {/* Stap 3 — Smart Survey (alleen bij aanpak = Survey) */}
+        <div class="ptc-field" data-field="smartSurvey" hidden>
+          <label class="ptc-toggle">
+            <input type="checkbox" id="ptc-smart" name="smartSurvey" />
+            <span class="ptc-toggle-track" aria-hidden="true"></span>
+            <span class="ptc-toggle-text">Wil je het onderzoek verrijken met een Smart Survey?</span>
+          </label>
+          <p class="ptc-help">
+            Met behulp van AI maken we de vragenlijst interactief: respondenten
+            krijgen gerichte vervolgvragen op hun antwoorden. Dat leidt tot
+            scherpere inzichten, zonder extra doorlooptijd.
+          </p>
+        </div>
+      </form>
+
+      {/* Resultaatblok (altijd zichtbaar, update live) */}
+      <aside class="ptc-result" aria-live="polite">
+        <div class="ptc-result-label">Richtprijs</div>
+        <div class="ptc-price" data-price>&euro; 680</div>
+        <p class="ptc-excl">excl. btw</p>
+        <p class="ptc-breakdown" data-breakdown></p>
+        <p class="ptc-disclaimer">Een betrouwbare prijsindicatie, geen bindende offerte.</p>
+        <div class="ptc-buttons">
+          <button type="button" class="btn btn-outline" data-action="verzenden">
+            Prijsindicatie verzenden
+          </button>
+          <button type="button" class="btn btn-primary" data-action="bestellen">
+            Direct bestellen
+          </button>
+        </div>
+        <p class="ptc-contact">
+          Heb je specifieke onderzoekswensen, bijvoorbeeld bij de selectie van
+          doelgroepen? Neem dan contact op: <a href="tel:+31552032193">(055) 20 32 193</a>.
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ptc {
+    margin: 0 0 8px;
+  }
+  .ptc-card {
+    background: var(--color-accent-100);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg, 18px);
+    padding: 28px;
+  }
+  @media (min-width: 768px) {
+    .ptc-card { padding: 36px; }
+  }
+  .ptc-eyebrow {
+    font-family: var(--font-subtitle);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 0 0 6px;
+  }
+  .ptc-head h2 {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3vw, 32px);
+    line-height: 1.1;
+    color: var(--ink-strong);
+    margin: 0;
+  }
+  .ptc-intro {
+    font-family: var(--font-sans);
+    color: var(--ink-soft);
+    margin: 8px 0 0;
+  }
+
+  .ptc-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 24px;
+  }
+  @media (min-width: 900px) {
+    .ptc-grid { grid-template-columns: 1.4fr 1fr; gap: 36px; align-items: start; }
+  }
+
+  .ptc-form { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
+  .ptc-fieldset { border: 0; margin: 0; padding: 0; }
+  .ptc-legend,
+  .ptc-label {
+    font-family: var(--font-subtitle);
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink);
+    margin: 0 0 10px;
+    padding: 0;
+  }
+
+  .ptc-choices { display: grid; gap: 12px; }
+  @media (min-width: 520px) {
+    .ptc-choices { grid-template-columns: 1fr 1fr; }
+  }
+  .ptc-choice {
+    position: relative;
+    display: block;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 16px 16px 44px;
+    cursor: pointer;
+    transition:
+      border-color var(--duration-base) var(--ease),
+      box-shadow var(--duration-base) var(--ease);
+  }
+  .ptc-choice input {
+    position: absolute;
+    top: 18px;
+    left: 16px;
+    accent-color: var(--color-yellow-600);
+    width: 16px;
+    height: 16px;
+  }
+  .ptc-choice:hover { border-color: var(--border-strong); }
+  .ptc-choice:has(input:checked) {
+    border-color: var(--color-yellow-500);
+    box-shadow: 0 0 0 1px var(--color-yellow-500);
+  }
+  .ptc-choice:has(input:focus-visible) {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  .ptc-choice-title {
+    display: block;
+    font-family: var(--font-subtitle);
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .ptc-choice-sub {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .ptc-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .ptc-chip {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    line-height: 1.3;
+    color: var(--ink-soft);
+    background: var(--color-accent-100);
+    border-radius: 999px;
+    padding: 4px 10px;
+  }
+
+  .ptc-field { display: block; }
+  .ptc-select {
+    width: 100%;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    color: var(--ink);
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 14px;
+  }
+  .ptc-select:focus-visible { outline: 2px solid var(--ring); outline-offset: 1px; }
+
+  .ptc-toggle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-family: var(--font-subtitle);
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .ptc-toggle input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .ptc-toggle-track {
+    flex-shrink: 0;
+    width: 44px;
+    height: 26px;
+    border-radius: 999px;
+    background: var(--color-accent-300, #e6dcc4);
+    position: relative;
+    transition: background var(--duration-base) var(--ease);
+  }
+  .ptc-toggle-track::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    transition: transform var(--duration-base) var(--ease);
+  }
+  .ptc-toggle input:checked + .ptc-toggle-track { background: var(--color-yellow-500); }
+  .ptc-toggle input:checked + .ptc-toggle-track::after { transform: translateX(18px); }
+  .ptc-toggle input:focus-visible + .ptc-toggle-track {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  .ptc-help {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 10px 0 0;
+  }
+
+  .ptc-result {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    position: sticky;
+    top: 24px;
+  }
+  .ptc-result-label {
+    font-family: var(--font-subtitle);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .ptc-price {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 56px);
+    line-height: 1;
+    color: var(--color-yellow-600);
+    margin: 6px 0 2px;
+  }
+  .ptc-excl { font-family: var(--font-sans); font-size: 12px; color: var(--ink-mute); margin: 0; }
+  .ptc-breakdown {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 14px 0 0;
+  }
+  .ptc-disclaimer {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    color: var(--ink-mute);
+    margin: 10px 0 0;
+  }
+  .ptc-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 18px 0 0;
+  }
+  @media (min-width: 420px) {
+    .ptc-buttons { flex-direction: row; flex-wrap: wrap; }
+    .ptc-buttons .btn { flex: 1 1 auto; }
+  }
+  .ptc-contact {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 16px 0 0;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .ptc-contact a { color: var(--ink); font-weight: 600; }
+
+  [data-field][hidden] { display: none; }
+</style>
+
+<script>
+  // --- Rekenlogica (bron: Calculator-config-pretest.json) --------------------
+  // Neutraal benoemde tarieven; GEEN leveranciersnamen. n = 150 vast.
+  const N = 150;
+  const N_SESSIES = 5;
+  const RATE = {
+    platformBasis: 130, // express-platform, basis per project
+    perRespondentExpress: 2, // express, per respondent
+    perCompleteKwanti: 4.5, // reguliere kwantitatieve survey, per complete
+    surveyBasis: 250, // standaard surveytool
+    smartSurvey: 750, // AI-doorvraagvariant
+    begeleidingPerSessie: 80, // werving/coördinatie per interviewsessie
+    analysePerSessie: 200, // eigen begeleiding/analyse per sessie
+    margeDirect: 250,
+    margeCore: 750,
+    margePlus: 750,
+  };
+
+  const nf = new Intl.NumberFormat("nl-NL");
+  const euro = (n: number) => `€ ${nf.format(Math.round(n))}`;
+
+  type State = {
+    voorkeur: "snel" | "verdiepend";
+    aantalUitingen: number;
+    aanpak: "" | "survey" | "kwali";
+    smartSurvey: boolean;
+  };
+
+  function priceFor(s: State): { tier: string; prijs: number; methode: string; doorlooptijd: string } {
+    if (s.voorkeur === "snel") {
+      const prijs = RATE.platformBasis + RATE.perRespondentExpress * N * s.aantalUitingen + RATE.margeDirect;
+      return {
+        tier: "Direct",
+        prijs,
+        methode: "Aandachtsanalyse + korte survey (5 vragen), per uiting",
+        doorlooptijd: "binnen een werkdag",
+      };
+    }
+    if (s.aanpak === "survey") {
+      const prijs = (s.smartSurvey ? RATE.smartSurvey : RATE.surveyBasis) + RATE.perCompleteKwanti * N + RATE.margeCore;
+      return {
+        tier: "Core",
+        prijs,
+        methode: s.smartSurvey
+          ? "Uitgebreide survey, verrijkt met een Smart Survey (AI-doorvraag)"
+          : "Uitgebreide survey op 150 respondenten",
+        doorlooptijd: "in overleg",
+      };
+    }
+    if (s.aanpak === "kwali") {
+      const prijs =
+        RATE.surveyBasis +
+        RATE.perCompleteKwanti * N +
+        RATE.begeleidingPerSessie * N_SESSIES +
+        RATE.analysePerSessie * N_SESSIES +
+        RATE.margePlus;
+      return {
+        tier: "Plus",
+        prijs,
+        methode: "Kwalitatieve diepte-interviews (5 sessies) + survey ter validatie",
+        doorlooptijd: "in overleg",
+      };
+    }
+    return { tier: "", prijs: NaN, methode: "", doorlooptijd: "" };
+  }
+
+  // --- Hydratatie per calculator-instantie -----------------------------------
+  document.querySelectorAll<HTMLElement>(".ptc").forEach((root) => {
+    const form = root.querySelector("form")!;
+    const priceEl = root.querySelector<HTMLElement>("[data-price]")!;
+    const breakdownEl = root.querySelector<HTMLElement>("[data-breakdown]")!;
+    const fields = {
+      aantalUitingen: root.querySelector<HTMLElement>('[data-field="aantalUitingen"]')!,
+      aanpak: root.querySelector<HTMLElement>('[data-field="aanpak"]')!,
+      smartSurvey: root.querySelector<HTMLElement>('[data-field="smartSurvey"]')!,
+    };
+
+    const readState = (): State => {
+      const voorkeur = (form.querySelector<HTMLInputElement>('input[name="voorkeur"]:checked')?.value ??
+        "snel") as State["voorkeur"];
+      const aantalUitingen = Number(
+        form.querySelector<HTMLSelectElement>('[name="aantalUitingen"]')?.value ?? "1"
+      );
+      const aanpak = (form.querySelector<HTMLInputElement>('input[name="aanpak"]:checked')?.value ??
+        "") as State["aanpak"];
+      const smartSurvey = !!form.querySelector<HTMLInputElement>('[name="smartSurvey"]')?.checked;
+      return { voorkeur, aantalUitingen, aanpak, smartSurvey };
+    };
+
+    const setHidden = (el: HTMLElement, hidden: boolean) => {
+      el.hidden = hidden;
+    };
+
+    const render = () => {
+      const s = readState();
+
+      // Progressive disclosure.
+      setHidden(fields.aantalUitingen, s.voorkeur !== "snel");
+      setHidden(fields.aanpak, s.voorkeur !== "verdiepend");
+      setHidden(fields.smartSurvey, !(s.voorkeur === "verdiepend" && s.aanpak === "survey"));
+
+      const r = priceFor(s);
+      if (Number.isNaN(r.prijs)) {
+        // Verdiepend gekozen, nog geen aanpak.
+        priceEl.textContent = "—";
+        breakdownEl.textContent = "Kies hierboven hoe je wilt verdiepen.";
+      } else {
+        priceEl.textContent = euro(r.prijs);
+        breakdownEl.textContent = `Wat je krijgt: ${r.methode}. Oplevering: ${r.doorlooptijd}.`;
+      }
+    };
+
+    form.addEventListener("change", render);
+    form.addEventListener("input", render);
+    render();
+
+    // --- Knoppen: payload-hook [koppeling nog aanleveren] --------------------
+    root.querySelectorAll<HTMLButtonElement>("[data-action]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const s = readState();
+        const r = priceFor(s);
+        const payload = {
+          calculator: "pretest",
+          actie: btn.dataset.action, // "verzenden" | "bestellen"
+          keuzes: s,
+          tier: r.tier,
+          richtprijs: Number.isNaN(r.prijs) ? null : Math.round(r.prijs),
+        };
+        // TODO [koppeling nog aanleveren]: koppel aan formulier/CRM/e-mail.
+        root.dispatchEvent(
+          new CustomEvent("pretest-calculator:submit", { detail: payload, bubbles: true })
+        );
+        console.info("[pretest-calculator] submit", payload);
+      });
+    });
+  });
+</script>

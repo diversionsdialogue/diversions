@@ -2,8 +2,14 @@
 import readingTime from "reading-time";
 import ServicesLayout from "../../layouts/ServicesLayout.astro";
 import PortableText from "@/components/global/PortableText.astro";
+import PretestCalculator from "@/components/calculators/PretestCalculator.astro";
 import { getAllServices } from "@/lib/data";
 import { portableTextToPlainText } from "@/lib/sanity/portableText";
+
+// Dienstpagina's met een richtprijs-calculator boven de hero. Uitbreidbaar:
+// voeg een slug toe en de calculator verschijnt ook daar (herbruikbaar op
+// branchepagina's). Promoveer dit later eventueel naar een schema-veld.
+const CALCULATOR_PAGES = new Set(["pretest"]);
 
 export async function getStaticPaths() {
   const services = await getAllServices();
@@ -14,6 +20,7 @@ export async function getStaticPaths() {
   }));
 }
 const { page } = Astro.props;
+const showCalculator = CALCULATOR_PAGES.has(page.slug ?? page.id);
 
 // Leestijd uit de platte tekst van de Portable-Text-body (reading-time, ~200 wpm).
 const plain = portableTextToPlainText(page.body);
@@ -26,5 +33,6 @@ const minutes = plain
   id={page.slug ?? page.id}
   readingMinutes={minutes}
 >
+  {showCalculator && <PretestCalculator slot="above" />}
   <PortableText value={page.body} />
 </ServicesLayout>

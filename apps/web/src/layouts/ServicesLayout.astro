@@ -71,6 +71,10 @@ const pageSeo = buildPageSeo(frontmatter.seo, {
   seo={pageSeo}
 >
   <div class="article-template">
+    {/* Volle-breedte blok boven de hero (bv. de pretest-calculator). Leeg op
+        de meeste dienstpagina's; gevuld via slot="above" in [...slug].astro. */}
+    <slot name="above" />
+
     <div class="article-shell">
       <ArticleTOC title="Onze diensten" />
 
