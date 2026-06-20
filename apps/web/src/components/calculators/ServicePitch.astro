@@ -44,6 +44,12 @@ const {
     <div class="pitch-trust">
       <div class="trust-item">
         <span class="trust-logo">
+          <img src="/img/logo-bnr.png" alt="BNR Nieuwsradio" />
+        </span>
+        <span>Gezien op <strong>BNR</strong> en <strong>Managementboek</strong></span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-logo">
           <img src="/img/logo-data-insights.png" alt="Data & Insights Network" />
         </span>
         <span>Lid <strong>Data &amp; Insights netwerk</strong></span>
@@ -153,8 +159,11 @@ const {
     gap: 18px 32px;
     margin-top: 32px;
   }
-  @media (min-width: 700px) {
-    .pitch-trust { grid-template-columns: repeat(3, 1fr); }
+  @media (min-width: 560px) {
+    .pitch-trust { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1024px) {
+    .pitch-trust { grid-template-columns: repeat(4, 1fr); }
   }
   .trust-item {
     display: flex;
