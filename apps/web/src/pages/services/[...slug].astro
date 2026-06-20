@@ -3,6 +3,7 @@ import readingTime from "reading-time";
 import ServicesLayout from "../../layouts/ServicesLayout.astro";
 import PortableText from "@/components/global/PortableText.astro";
 import PretestCalculator from "@/components/calculators/PretestCalculator.astro";
+import ServicePitch from "@/components/calculators/ServicePitch.astro";
 import { getAllServices } from "@/lib/data";
 import { portableTextToPlainText } from "@/lib/sanity/portableText";
 
@@ -32,7 +33,18 @@ const minutes = plain
   frontmatter={page.data}
   id={page.slug ?? page.id}
   readingMinutes={minutes}
+  hidePageHero={showCalculator}
 >
-  {showCalculator && <PretestCalculator slot="above" />}
+  {
+    showCalculator && (
+      <ServicePitch
+        slot="above"
+        title={page.data.service}
+        lead={page.data.description}
+      >
+        <PretestCalculator />
+      </ServicePitch>
+    )
+  }
   <PortableText value={page.body} />
 </ServicesLayout>

@@ -1,0 +1,181 @@
+---
+/**
+ * ServicePitch — "elevated pitch"-kop voor een dienstpagina met richtprijs-
+ * calculator. Port van new design/Service Detail - Offerte Starter.html +
+ * quote-starter.css (.pitch / .pitch-head / .pitch-trust), op de centrale
+ * sitetokens (identiek aan colors_and_type.css).
+ *
+ * Sage band (#BABF9E = --color-accent-400) met links de kop (eyebrow + titel +
+ * lead) en rechts een foto, daaronder de calculator (default slot) en een
+ * trust-strip. Draagt de paginatitel als <h1>; daarom zet de dienstpagina de
+ * standaard artikel-hero uit (ServicesLayout `hidePageHero`).
+ */
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lead: string;
+  image?: string;
+  imageAlt?: string;
+}
+const {
+  eyebrow = "Diensten · Direct een prijsindicatie",
+  title,
+  lead,
+  image = "/img/about.jpeg",
+  imageAlt = "",
+} = Astro.props;
+---
+
+<section class="pitch">
+  <div class="pitch-inner">
+    <div class="pitch-head">
+      <div class="pitch-copy">
+        <span class="pitch-eyebrow">{eyebrow}</span>
+        <h1 class="pitch-title">{title}</h1>
+        <p class="pitch-lead">{lead}</p>
+      </div>
+      <div class="pitch-photo">
+        <img src={image} alt={imageAlt} />
+      </div>
+    </div>
+
+    <slot />
+
+    <div class="pitch-trust">
+      <div class="trust-item">
+        <span class="trust-logo" aria-hidden="true">D&amp;I</span>
+        <span>Lid <strong>Data &amp; Insights netwerk</strong></span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-logo" aria-hidden="true">EU</span>
+        <span><strong>AVG-proof</strong>, Europees gehost</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-logo" aria-hidden="true">✓</span>
+        <span>Echte respondenten, <strong>onderzoeker tekent af</strong></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Horizontale padding spiegelt .article-shell zodat de pitch edge-for-edge
+     uitlijnt met de TOC + het artikel eronder. */
+  .pitch {
+    background: var(--color-accent-400); /* sage #BABF9E */
+    border-bottom: 1px solid var(--border);
+    padding: 48px 32px 52px;
+  }
+  @media (min-width: 900px) {
+    .pitch { padding: 56px 56px 64px; }
+  }
+  @media (min-width: 1200px) {
+    .pitch { padding: 72px 72px 84px; }
+  }
+  .pitch-inner { max-width: 1200px; margin: 0 auto; }
+
+  .pitch-head {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    align-items: center;
+    margin-bottom: 36px;
+  }
+  @media (min-width: 860px) {
+    .pitch-head { grid-template-columns: 1.2fr 1fr; gap: 52px; }
+  }
+  .pitch-photo {
+    border-radius: var(--radius-xl);
+    overflow: clip;
+    border: 1px solid var(--border);
+    background: var(--color-accent-200);
+    aspect-ratio: 16 / 11;
+  }
+  @media (min-width: 860px) {
+    .pitch-photo { aspect-ratio: 4 / 3; }
+  }
+  .pitch-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+
+  .pitch-eyebrow {
+    font-family: var(--font-subtitle);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-strong);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 18px;
+  }
+  .pitch-eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: var(--ink-strong);
+    display: inline-block;
+  }
+  .pitch-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+    color: var(--ink-strong);
+    margin: 0 0 18px;
+    max-width: 20ch;
+    text-wrap: balance;
+  }
+  .pitch-lead {
+    font-family: var(--font-subtitle);
+    font-weight: 400;
+    font-size: clamp(17px, 1.6vw, 20px);
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0;
+    max-width: 52ch;
+    text-wrap: pretty;
+  }
+
+  /* Trust strip onder de calculator */
+  .pitch-trust {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px 32px;
+    margin-top: 32px;
+  }
+  @media (min-width: 700px) {
+    .pitch-trust { grid-template-columns: repeat(3, 1fr); }
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--font-subtitle);
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--ink-strong);
+    line-height: 1.35;
+  }
+  .trust-item strong { font-weight: 600; }
+  .trust-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+    background: #fff;
+    border: 1px solid var(--border);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-subtitle);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+</style>
