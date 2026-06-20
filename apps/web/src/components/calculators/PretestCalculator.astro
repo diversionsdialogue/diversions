@@ -1,424 +1,376 @@
 ---
 /**
- * PretestCalculator — interactieve richtprijs-calculator voor de pretest-dienst.
+ * PretestCalculator — gestapte offerte-starter voor de pretest-dienst.
  *
- * Astro-"island" zonder framework: server-gerenderde HTML-schil + vanilla
- * <script> voor de interactie. Geen externe dependencies, geen localStorage.
+ * Astro-"island" zonder framework: server-gerenderde HTML + vanilla <script>.
+ * Geen externe dependencies, geen localStorage.
  *
- * Styling + flow: het "offerte-starter"-ontwerp uit new design/quote-starter.
- * (css|jsx) — witte kaart met tabs, segmented controls, twee niveaus:
- *   Niveau 1 (naast elkaar): voorkeur + aantal uitingen → "Bereken indicatie".
- *   Niveau 2 (na berekenen): aanvullende vragen (indien van toepassing) + prijs.
+ * Ontwerp: new design/Offertespecs/"Offerte Mobiel.dc.html" (Variant A:
+ * genummerde stappen-rail + lichte prijsbalk). Witte kaart op de sage band
+ * (ServicePitch). Twee configuratiestappen + een prijs die op mobiel als
+ * sticky balk onderaan verschijnt en op desktop een sticky zijpaneel is.
  *
- * Rekenlogica/copy: calculator/Calculator-config-pretest.json.
+ *   Stap 1 — Voorkeur:   Snel inzicht (Direct) / Verdiepend inzicht
+ *   Stap 2 — Onderzoek:  [verdiepend] Survey (Core) / Kwalitatief (Plus)
+ *                        + Doelgroepen (1/2/3) + prijs
  *
- * GUARDRAIL: leveranciersnamen worden NOOIT getoond; interne tarieven staan als
- * neutraal benoemde constanten in het script en leveren alleen de eindprijs.
+ * Rekentechniek (behouden): doelgroepen = aantal groepen van 150 respondenten
+ * en schaalt de respondentkosten. Bij 1 doelgroep blijven de basisprijzen
+ * exact (€680 / €1.675 / €3.075). Tarieven uit Calculator-config-pretest.json;
+ * leveranciersnamen worden nooit getoond.
  *
- * [koppeling nog aanleveren] — knoppen dispatchen een CustomEvent
- * "pretest-calculator:submit" met een payload-object.
+ * [koppeling nog aanleveren] — knoppen dispatchen "pretest-calculator:submit".
  */
+// Inline afmetingen + kleur: set:html-content krijgt GEEN Astro-scoped styles,
+// dus de SVG moet zijn grootte zelf dragen.
+const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:2px;color:var(--primary)"><polyline points="20 6 9 17 4 12"/></svg>`;
 ---
 
-<section class="qcalc" aria-label="Richtprijs-calculator pretest">
-  <div class="quote-card">
-    <div class="quote-tabs" role="tablist" aria-label="Offerte starten">
-      <button type="button" role="tab" class="quote-tab active" data-tab="quick" aria-selected="true">
-        Snel een eerste indicatie
-      </button>
-      <button type="button" role="tab" class="quote-tab" data-tab="advies" aria-selected="false">
-        Liever direct advies
-      </button>
+<section class="qcalc" data-step="1" aria-label="Offerte-starter pretest">
+  <div class="qc-card">
+    {/* Topbar: merk + stappen-rail */}
+    <div class="qc-topbar">
+      <span class="qc-brand">Diversions</span>
+      <ol class="qc-rail">
+        <li class="qc-railstep" data-railstep="1">
+          <button type="button" class="qc-pill" data-goto="1"><span class="qc-pillnum">1</span></button>
+          <span class="qc-pilllabel">Voorkeur</span>
+        </li>
+        <li class="qc-railsep" aria-hidden="true"></li>
+        <li class="qc-railstep" data-railstep="2">
+          <span class="qc-pill"><span class="qc-pillnum">2</span></span>
+          <span class="qc-pilllabel">Onderzoek</span>
+        </li>
+        <li class="qc-railsep" aria-hidden="true"></li>
+        <li class="qc-railstep" data-railstep="3">
+          <span class="qc-pill"><span class="qc-pillnum">3</span></span>
+          <span class="qc-pilllabel">Bestellen</span>
+        </li>
+      </ol>
     </div>
 
-    {/* ---------------- Tab 1: calculator ---------------- */}
-    <div class="quote-panel" data-panel="quick">
-      <h2 class="quote-panel-title">Snel een eerste prijsindicatie</h2>
-      <p class="quote-sub">Bereken in een paar klikken een richtprijs voor je pretest.</p>
+    {/* ---------------- STAP 1 — Voorkeur ---------------- */}
+    <div class="qc-panel" data-panel="1">
+      <p class="qc-steplabel">Stap 1 van 3</p>
+      <h2 class="qc-title">Wat heeft je voorkeur?</h2>
+      <p class="qc-sub">Kies het type pretest. In de volgende stap stel je het onderzoek verder samen.</p>
 
-      {/* ----- Niveau 1: primaire keuzes, naast elkaar ----- */}
-      <div class="quote-fields">
-        <div class="q-field">
-          <label class="q-label">Wat heeft je voorkeur?</label>
-          <div class="seg" role="group" aria-label="Voorkeur" data-seg="voorkeur">
-            <button type="button" data-value="snel" class="on" aria-pressed="true">Snel inzicht</button>
-            <button type="button" data-value="verdiepend" aria-pressed="false">Verdiepend inzicht</button>
-          </div>
-        </div>
-        <div class="q-field">
-          <label class="q-label" for="q-uitingen">Aantal uitingen</label>
-          <select class="select" id="q-uitingen" data-input="aantalUitingen">
-            <option value="1">1 uiting</option>
-            <option value="2">2 uitingen</option>
-            <option value="3">3 uitingen</option>
-          </select>
-        </div>
+      <div class="qc-choices">
+        <label class="qc-choice">
+          <input type="radio" name="voorkeur" value="snel" checked />
+          <span class="qc-radio" aria-hidden="true"></span>
+          <span class="qc-choicebody">
+            <span class="qc-choicetitle">Snel inzicht</span>
+            <ul class="qc-bullets">
+              <li><Fragment set:html={TICK} />Binnen 1 werkdag</li>
+              <li><Fragment set:html={TICK} />Met eye-tracking simulatie</li>
+              <li><Fragment set:html={TICK} />150 respondenten</li>
+            </ul>
+          </span>
+        </label>
+        <label class="qc-choice">
+          <input type="radio" name="voorkeur" value="verdiepend" />
+          <span class="qc-radio" aria-hidden="true"></span>
+          <span class="qc-choicebody">
+            <span class="qc-choicetitle">Verdiepend inzicht</span>
+            <ul class="qc-bullets">
+              <li><Fragment set:html={TICK} />Brede beoordeling van concept</li>
+              <li><Fragment set:html={TICK} />150 respondenten per doelgroep</li>
+              <li><Fragment set:html={TICK} />Vragenlijst op maat</li>
+            </ul>
+          </span>
+        </label>
       </div>
 
-      <p class="q-help" data-help-snel>
-        <span class="chips">
-          <span class="chip">Feedback op design &amp; inhoud</span>
-          <span class="chip">Binnen een werkdag beschikbaar</span>
-          <span class="chip">150 respondenten</span>
-        </span>
-      </p>
-      <p class="q-help" data-help-verdiepend hidden>
-        Cijfers én het waarom erachter. Je bepaalt de aanpak in overleg.
-      </p>
+      <button type="button" class="btn btn-primary btn-arrow qc-cta" data-next>
+        Bereken indicatie
+      </button>
+      <p class="qc-fineprint">Geen account, geen verkoopgesprek — een eerste indicatie binnen twee minuten.</p>
+    </div>
 
-      <div class="quote-action" data-action-row>
-        <p class="quote-hint">
-          Een betrouwbare prijsindicatie op basis van vergelijkbare onderzoeken.
-          Geen bindende offerte.
-        </p>
-        <button type="button" class="btn btn-primary btn-arrow" data-calc>Bereken indicatie</button>
-      </div>
+    {/* ---------------- STAP 2 — Onderzoek ---------------- */}
+    <div class="qc-panel" data-panel="2" hidden>
+      <div class="qc-step2grid">
+        <div class="qc-form">
+          <p class="qc-steplabel">Stap 2 van 3</p>
+          <h2 class="qc-title qc-title--sm">Stel je onderzoek samen</h2>
 
-      {/* ----- Niveau 2: aanvullende vragen + prijs ----- */}
-      <div class="quote-level2" data-level2 hidden>
-        <div class="q-field" data-field="aanpak" hidden>
-          <label class="q-label">Hoe wil je verdiepen?</label>
-          <div class="seg" role="group" aria-label="Aanpak" data-seg="aanpak">
-            <button type="button" data-value="survey" aria-pressed="false">Survey</button>
-            <button type="button" data-value="kwali" aria-pressed="false">Kwalitatief</button>
+          <div class="qc-expert">
+            <span class="qc-avatar" aria-hidden="true">MV</span>
+            <div>
+              <p class="qc-expertname">Marieke van der Velde · <span>Onderzoeksexpert</span></p>
+              <p class="qc-experttext" data-expert-text>We stellen je pretest graag op volgens jouw wensen. Geef hier je voorkeuren aan.</p>
+            </div>
           </div>
-          <p class="q-help" data-help-survey hidden>
-            Je meet bij 150 respondenten hoe je uiting overkomt: begrip, gevoel,
-            onderscheid en activering. Harde cijfers die je vergelijkt tussen
-            versies en in de tijd.
+
+          <div data-field="aanpak" hidden>
+            <p class="qc-fieldlabel">Kies je oplossing</p>
+            <div class="qc-choices qc-choices--2">
+              <label class="qc-choice">
+                <input type="radio" name="aanpak" value="survey" />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Survey</span>
+                  <ul class="qc-bullets">
+                    <li><Fragment set:html={TICK} />Online survey</li>
+                    <li><Fragment set:html={TICK} />Mix gesloten en open vragen</li>
+                  </ul>
+                </span>
+              </label>
+              <label class="qc-choice">
+                <input type="radio" name="aanpak" value="kwali" />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Kwalitatief onderzoek</span>
+                  <ul class="qc-bullets">
+                    <li><Fragment set:html={TICK} />5 diepte-interviews</li>
+                    <li><Fragment set:html={TICK} />Validatie van inzichten met survey</li>
+                  </ul>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <p class="qc-fieldlabel">Doelgroepen</p>
+          <p class="qc-help">
+            Voor het onderzoek kunnen we verschillende doelgroepen uitnodigen
+            (elk 150 respondenten). Hoeveel verschillende doelgroepen wil je
+            opnemen in de pretest?
           </p>
-          <p class="q-help" data-help-kwali hidden>
-            Vijf diepte-interviews leggen bloot waaróm iets wel of niet werkt.
-            Een survey op dezelfde meetlat valideert de bevindingen kwantitatief.
-          </p>
+          <div class="qc-select-wrap">
+            <select class="qc-select" data-input="doelgroepen" aria-label="Aantal doelgroepen">
+              <option value="1">1 doelgroep</option>
+              <option value="2">2 doelgroepen</option>
+              <option value="3">3 doelgroepen</option>
+            </select>
+          </div>
+
+          <div class="qc-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <p>Wil je meer keuzemogelijkheden? <a href="tel:+31552032193">Neem contact met ons op.</a></p>
+          </div>
         </div>
 
-        <div class="q-field" data-field="smartSurvey" hidden>
-          <label class="q-label">Wil je het onderzoek verrijken met een Smart Survey?</label>
-          <div class="seg" role="group" aria-label="Smart Survey" data-seg="smartSurvey">
-            <button type="button" data-value="nee" class="on" aria-pressed="true">Nee</button>
-            <button type="button" data-value="ja" aria-pressed="false">Ja</button>
-          </div>
-          <p class="q-help">
-            Met behulp van AI maken we de vragenlijst interactief: respondenten
-            krijgen gerichte vervolgvragen op hun antwoorden. Dat leidt tot
-            scherpere inzichten, zonder extra doorlooptijd.
-          </p>
-        </div>
-
-        <div class="quote-result" aria-live="polite">
+        {/* Desktop: sticky zijpaneel */}
+        <aside class="qc-summary">
           <div>
-            <p class="r-label">Richtprijs <span class="r-excl">· excl. btw</span></p>
-            <p class="r-amount" data-price>&euro; 680</p>
-            <p class="r-note" data-breakdown></p>
-            <p class="r-disclaimer">Een betrouwbare prijsindicatie, geen bindende offerte.</p>
+            <p class="qc-sumlabel">Jouw indicatie</p>
+            <p class="qc-sumprice" data-price>&euro; 680</p>
+            <p class="qc-sumnote">excl. btw · richtprijs op basis van je keuzes</p>
           </div>
-          <div class="r-actions">
-            <button type="button" class="btn btn-primary btn-arrow" data-action="bestellen">Direct bestellen</button>
-            <button type="button" class="btn btn-outline" data-action="verzenden">Prijsindicatie verzenden</button>
-            <button type="button" class="quote-reset" data-reset>Opnieuw berekenen</button>
+          <div class="qc-sumdivider"></div>
+          <div class="qc-sumactions">
+            <button type="button" class="btn btn-primary btn-arrow" data-action="bestellen">
+              Direct bestellen
+            </button>
+            <button type="button" class="btn btn-outline" data-action="advies">Advies aanvragen</button>
           </div>
-        </div>
-
-        <p class="quote-contact">
-          Heb je specifieke onderzoekswensen, bijvoorbeeld bij de selectie van
-          doelgroepen? Neem dan contact op: <a href="tel:+31552032193">(055) 20 32 193</a>.
-        </p>
+          <p class="qc-sumfine">Geen account nodig. Na bestelling neemt een onderzoeker binnen één werkdag contact op.</p>
+        </aside>
       </div>
     </div>
+  </div>
 
-    {/* ---------------- Tab 2: direct advies ---------------- */}
-    <div class="quote-panel" data-panel="advies" hidden>
-      <div data-advies-form>
-        <h2 class="quote-panel-title">Liever even sparren?</h2>
-        <div class="advies-grid">
-          <div class="q-field">
-            <label class="q-label" for="a-naam">Je naam</label>
-            <input class="input" id="a-naam" data-advies="naam" placeholder="Voor- en achternaam" />
-          </div>
-          <div class="q-field">
-            <label class="q-label" for="a-mail">E-mail of telefoon</label>
-            <input class="input" id="a-mail" data-advies="contact" placeholder="naam@bedrijf.nl" />
-          </div>
-        </div>
-        <div class="advies-row">
-          <p>Een kennismaking van dertig minuten. We luisteren naar je vraag en denken vrijblijvend mee. Geen verkooppraatje.</p>
-          <button type="button" class="btn btn-primary btn-arrow" data-action="advies" disabled>Plan een gesprek</button>
-        </div>
-      </div>
-      <div data-advies-done hidden>
-        <h2 class="quote-panel-title">Bedankt, we nemen contact op.</h2>
-        <p class="quote-sub">
-          We bellen of mailen je binnen één werkdag om kort te sparren over je
-          vraag. Geen verkooppraatje, geen vervolgmail.
-        </p>
-      </div>
+  {/* Mobiel: sticky prijsbalk onderaan het scherm (alleen in stap 2) */}
+  <div class="qc-stickybar" data-stickybar>
+    <div class="qc-stickyprice">
+      <p class="qc-sumlabel">Jouw indicatie</p>
+      <p class="qc-stickyamount" data-price>&euro; 680</p>
+    </div>
+    <span class="qc-stickyexcl">excl. btw · richtprijs</span>
+    <div class="qc-stickyactions">
+      <button type="button" class="btn btn-primary btn-arrow" data-action="bestellen">
+        Direct bestellen
+      </button>
+      <button type="button" class="btn btn-outline" data-action="advies">Advies</button>
     </div>
   </div>
 </section>
 
 <style>
-  .qcalc { margin: 0 0 8px; }
+  .qcalc { margin: 0; }
 
-  .quote-card {
+  .qc-card {
     background: #fff;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
+    border: 1px solid color-mix(in oklch, var(--accent-deep) 30%, transparent);
+    border-radius: var(--radius-xl, 20px);
     overflow: clip;
+    box-shadow: var(--shadow-lg);
   }
 
-  /* Tabs */
-  .quote-tabs {
+  /* Topbar + rail */
+  .qc-topbar {
     display: flex;
-    gap: 4px;
-    padding: 6px 6px 0;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 16px 22px;
     border-bottom: 1px solid var(--border);
     background: var(--color-accent-50);
   }
-  .quote-tab {
-    appearance: none;
-    border: 0;
-    background: transparent;
-    font-family: var(--font-subtitle);
-    font-weight: 600;
-    font-size: 15px;
-    color: var(--ink-soft);
-    padding: 16px 20px 14px;
-    cursor: pointer;
-    position: relative;
-    border-radius: 8px 8px 0 0;
-    transition: color var(--duration-base) var(--ease), background var(--duration-base) var(--ease);
-    flex: 1;
-    text-align: center;
+  .qc-brand {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--primary);
+    letter-spacing: -0.02em;
   }
-  .quote-tab:hover { color: var(--ink); }
-  .quote-tab.active { color: var(--ink); background: #fff; }
-  .quote-tab.active::after {
-    content: "";
-    position: absolute;
-    left: 16px;
-    right: 16px;
-    bottom: -1px;
-    height: 2px;
-    background: var(--accent-deep);
-    border-radius: 2px;
+  .qc-rail { display: flex; align-items: center; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .qc-railstep { display: flex; align-items: center; gap: 8px; }
+  .qc-railsep { width: 24px; height: 1px; background: var(--border); }
+  .qc-pill {
+    width: 26px; height: 26px; border-radius: 50%; border: 0; padding: 0;
+    background: var(--color-base-200); color: var(--ink-mute);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--font-subtitle); font-weight: 700; font-size: 13px;
   }
+  button.qc-pill { cursor: pointer; }
+  .qc-pill .qc-tick { width: 14px; height: 14px; }
+  .qc-pilllabel { font-family: var(--font-subtitle); font-weight: 600; font-size: 13px; color: var(--ink-mute); white-space: nowrap; }
+  /* actieve / afgeronde stappen */
+  .qc-railstep[data-state="active"] .qc-pill { background: var(--primary); color: #fff; }
+  .qc-railstep[data-state="active"] .qc-pilllabel { color: var(--ink); font-weight: 700; }
+  .qc-railstep[data-state="done"] .qc-pill { background: var(--primary); color: #fff; }
+  .qc-railstep[data-state="done"] .qc-pilllabel { color: var(--ink-mute); }
   @media (max-width: 560px) {
-    .quote-tab { font-size: 13px; padding: 14px 10px 12px; }
+    .qc-pilllabel { display: none; }
+    .qc-railstep[data-state="active"] .qc-pilllabel { display: inline; }
+    .qc-railsep { width: 16px; }
   }
 
-  /* Panel — container voor responsive kolommen op basis van KAARTbreedte,
-     niet de viewport (de kaart zit binnen pitch-padding + surface-inset, dus
-     viewport-breakpoints knepen het prijsblok kapot op smalle kaarten). */
-  .quote-panel { padding: 28px; container: ptc / inline-size; }
-  @media (min-width: 768px) { .quote-panel { padding: 32px 36px; } }
-  .quote-panel-title {
-    font-family: var(--font-display);
-    font-size: 22px;
-    line-height: 1.15;
-    color: var(--ink);
-    margin: 0;
-  }
-  .quote-sub {
-    font-family: var(--font-sans);
-    color: var(--ink-soft);
-    margin: 8px 0 0;
-  }
+  .qc-panel { padding: 28px 22px 32px; }
+  @media (min-width: 768px) { .qc-panel { padding: 36px 36px 44px; } }
+  .qc-panel[hidden] { display: none; }
 
-  /* Velden naast elkaar (niveau 1) */
-  .quote-fields {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 22px;
-    align-items: start;
-    margin-top: 24px;
-  }
-  @container ptc (min-width: 440px) {
-    .quote-fields { grid-template-columns: 1fr 1fr; gap: 28px; }
-  }
-  .q-field { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
-  .q-field[hidden] { display: none; }
-  .q-label {
-    font-family: var(--font-subtitle);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-  }
-  .q-help {
-    font-family: var(--font-sans);
-    font-size: 13px;
-    line-height: 1.5;
-    color: var(--ink-soft);
-    margin: 12px 0 0;
-  }
-  .q-help[hidden] { display: none; }
-  .q-help .chips { display: flex; flex-wrap: wrap; gap: 6px; }
-  .q-help .chip {
-    background: var(--color-accent-100);
-    border-radius: 999px;
-    padding: 4px 10px;
-    font-size: 12px;
-    color: var(--ink-soft);
-  }
+  .qc-steplabel { font-family: var(--font-subtitle); font-weight: 600; font-size: 14px; color: var(--ink-soft); margin: 0 0 8px; }
+  .qc-title { font-family: var(--font-display); font-size: clamp(24px, 3vw, 30px); line-height: 1.08; color: var(--ink); margin: 0 0 8px; }
+  .qc-title--sm { margin-bottom: 24px; }
+  .qc-sub { font-family: var(--font-sans); font-size: 15px; line-height: 1.45; color: var(--ink-soft); margin: 0 0 22px; max-width: 40ch; }
 
-  /* Segmented control */
-  .seg {
-    display: flex;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    overflow: clip;
-    background: #fff;
+  /* Keuzekaarten */
+  .qc-choices { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .qc-choice {
+    position: relative; display: flex; gap: 14px; padding: 18px;
+    background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg);
+    cursor: pointer; transition: border-color var(--duration-base) var(--ease), background var(--duration-base) var(--ease);
   }
-  .seg button {
-    appearance: none;
-    flex: 1;
-    border: 0;
-    border-left: 1px solid var(--border);
-    background: #fff;
-    font-family: var(--font-subtitle);
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 1.2;
-    color: var(--ink);
-    padding: 12px 10px;
-    min-height: 48px;
-    cursor: pointer;
-    transition: background var(--duration-base) var(--ease), color var(--duration-base) var(--ease);
+  .qc-choice input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .qc-radio {
+    flex: none; width: 22px; height: 22px; border-radius: 50%;
+    border: 2px solid var(--border-strong); background: #fff; margin-top: 1px;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: border-color var(--duration-base) var(--ease);
   }
-  .seg button:first-child { border-left: 0; }
-  .seg button:hover:not(.on) { background: var(--color-accent-50); }
-  .seg button.on { background: var(--color-accent-400); color: var(--ink); }
-  .seg button:focus-visible { outline: 2px solid var(--ring); outline-offset: -2px; }
+  .qc-radio::after { content: ""; width: 11px; height: 11px; border-radius: 50%; background: var(--primary); transform: scale(0); transition: transform var(--duration-base) var(--ease); }
+  .qc-choice:has(input:checked) { background: var(--primary-tint); border-color: var(--primary); border-width: 2px; padding: 17px; }
+  .qc-choice:has(input:checked) .qc-radio { border-color: var(--primary); }
+  .qc-choice:has(input:checked) .qc-radio::after { transform: scale(1); }
+  .qc-choice:has(input:focus-visible) { outline: 2px solid var(--ring); outline-offset: 2px; }
+  .qc-choicebody { flex: 1; min-width: 0; }
+  .qc-choicetitle { display: block; font-family: var(--font-subtitle); font-weight: 600; font-size: 17px; color: var(--ink); }
+  .qc-bullets { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+  .qc-bullets li { display: flex; gap: 10px; align-items: flex-start; font-family: var(--font-sans); font-size: 14px; line-height: 1.4; color: var(--ink-soft); }
+  .qc-tick { flex: none; width: 15px; height: 15px; margin-top: 2px; color: var(--primary); }
 
-  .select,
-  .input {
-    width: 100%;
-    font-family: var(--font-sans);
-    font-size: 15px;
-    color: var(--ink);
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 12px 14px;
-    min-height: 48px;
-  }
-  .select:focus-visible,
-  .input:focus-visible { outline: 2px solid var(--ring); outline-offset: 1px; }
+  .qc-cta { width: 100%; margin-top: 22px; }
+  .qc-arrow { width: 18px; height: 18px; }
+  .qc-fineprint { font-family: var(--font-sans); font-size: 13px; color: var(--ink-mute); text-align: center; margin: 14px 0 0; line-height: 1.4; }
 
-  /* Actie-rij (niveau 1) */
-  .quote-action {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 28px;
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
-  }
-  .quote-action[hidden] { display: none; }
-  .quote-hint {
-    font-family: var(--font-sans);
-    font-size: 13px;
-    color: var(--ink-mute);
-    margin: 0;
-    max-width: 42ch;
-  }
+  /* Stap 2 layout */
+  .qc-step2grid { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: start; }
+  @media (min-width: 900px) { .qc-step2grid { grid-template-columns: 1.6fr 0.9fr; gap: 40px; } }
 
-  /* Niveau 2 */
-  .quote-level2[hidden] { display: none; }
-  .quote-level2 { margin-top: 28px; display: flex; flex-direction: column; gap: 22px; }
+  .qc-expert {
+    display: flex; gap: 16px; padding: 18px;
+    background: var(--color-pink-100); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); margin-bottom: 28px;
+  }
+  .qc-avatar {
+    flex: none; width: 52px; height: 52px; border-radius: 50%;
+    background: var(--color-accent-200); color: var(--ink-strong);
+    font-family: var(--font-subtitle); font-weight: 700; font-size: 18px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .qc-expertname { font-family: var(--font-subtitle); font-weight: 600; font-size: 15px; color: var(--ink); margin: 0; }
+  .qc-expertname span { color: var(--ink-mute); font-weight: 500; }
+  .qc-experttext { font-family: var(--font-sans); font-size: 14px; line-height: 1.5; color: var(--ink-soft); margin: 6px 0 0; }
 
-  .quote-result {
-    padding: 24px 26px;
-    border-radius: var(--radius-md);
-    background: var(--color-pink-200);
-    border: 1px solid color-mix(in oklch, var(--color-pink-400) 50%, transparent);
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    align-items: center;
-    animation: ptcFade 320ms var(--ease) both;
-  }
-  @container ptc (min-width: 520px) {
-    .quote-result { grid-template-columns: 1fr auto; gap: 32px; }
-    .r-actions { min-width: 220px; }
-  }
-  @keyframes ptcFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-  .r-label {
-    font-family: var(--font-subtitle);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--color-yellow-700);
-    margin: 0 0 6px;
-  }
-  .r-excl { color: var(--ink-mute); }
-  .r-amount {
-    font-family: var(--font-display);
-    font-size: clamp(30px, 4vw, 40px);
-    line-height: 1.05;
-    color: var(--ink);
-    margin: 0 0 8px;
-  }
-  .r-note { font-family: var(--font-sans); font-size: 13px; line-height: 1.5; color: var(--ink-soft); margin: 0; max-width: 46ch; }
-  .r-note:empty { display: none; }
-  .r-disclaimer { font-family: var(--font-sans); font-size: 12px; color: var(--ink-mute); margin: 10px 0 0; }
-  .r-actions { display: flex; flex-direction: column; gap: 10px; align-items: stretch; }
-  .quote-reset {
-    appearance: none;
-    background: transparent;
-    border: 0;
-    font-family: var(--font-subtitle);
-    font-weight: 600;
-    font-size: 13px;
-    color: var(--ink-soft);
-    cursor: pointer;
-    padding: 4px;
-  }
-  .quote-reset:hover { color: var(--color-yellow-600); }
+  .qc-fieldlabel { font-family: var(--font-subtitle); font-weight: 600; font-size: 16px; color: var(--ink); margin: 0 0 12px; }
+  [data-field="aanpak"] { margin-bottom: 28px; }
+  [data-field="aanpak"][hidden] { display: none; }
+  .qc-choices--2 { gap: 16px; }
+  @media (min-width: 560px) { .qc-choices--2 { grid-template-columns: 1fr 1fr; } }
 
-  .quote-contact {
-    font-family: var(--font-sans);
-    font-size: 13px;
-    line-height: 1.5;
-    color: var(--ink-soft);
-    margin: 0;
+  .qc-help { font-family: var(--font-sans); font-size: 14px; line-height: 1.45; color: var(--ink-soft); margin: 0 0 12px; max-width: 52ch; }
+  .qc-select-wrap { position: relative; margin-bottom: 18px; }
+  .qc-select {
+    width: 100%; height: 50px; padding: 0 44px 0 16px;
+    border: 1px solid var(--border-strong); border-radius: var(--radius-md); background: #fff;
+    font-family: var(--font-subtitle); font-weight: 600; font-size: 15px; color: var(--ink);
+    appearance: none; -webkit-appearance: none; cursor: pointer;
   }
-  .quote-contact a { color: var(--ink); font-weight: 600; }
+  .qc-select:focus-visible { outline: 2px solid var(--ring); outline-offset: 1px; }
+  .qc-select-wrap::after {
+    content: ""; position: absolute; right: 18px; top: 50%; width: 10px; height: 10px;
+    border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft);
+    transform: translateY(-70%) rotate(45deg); pointer-events: none;
+  }
+  .qc-info {
+    display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px;
+    background: var(--color-accent-50); border: 1px solid var(--border); border-radius: var(--radius-md);
+  }
+  .qc-info svg { flex: none; width: 18px; height: 18px; margin-top: 1px; color: var(--accent-deep); }
+  .qc-info p { font-family: var(--font-sans); font-size: 13px; line-height: 1.45; color: var(--ink-soft); margin: 0; }
+  .qc-info a { font-weight: 600; }
 
-  /* Direct-advies tab */
-  .advies-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 22px; }
-  @container ptc (min-width: 440px) { .advies-grid { grid-template-columns: 1fr 1fr; } }
-  .advies-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    margin-top: 22px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
+  /* Desktop zijpaneel */
+  .qc-summary {
+    display: none;
+    position: sticky; top: 24px;
+    background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm); padding: 24px; flex-direction: column; gap: 18px;
   }
-  .advies-row p { margin: 0; font-family: var(--font-sans); font-size: 13px; color: var(--ink-mute); max-width: 40ch; }
-  .btn[disabled] { opacity: 0.5; cursor: not-allowed; }
-  [data-panel][hidden] { display: none; }
+  @media (min-width: 900px) { .qc-summary { display: flex; } }
+  .qc-sumlabel { font-family: var(--font-subtitle); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute); margin: 0 0 4px; }
+  .qc-sumprice { font-family: var(--font-display); font-size: 40px; line-height: 1; color: var(--ink); margin: 0 0 6px; }
+  .qc-sumnote { font-family: var(--font-sans); font-size: 13px; color: var(--ink-mute); margin: 0; }
+  .qc-sumdivider { height: 1px; background: var(--border); }
+  .qc-sumactions { display: flex; flex-direction: column; gap: 10px; }
+  .qc-sumfine { font-family: var(--font-sans); font-size: 12px; color: var(--ink-mute); line-height: 1.45; text-align: center; margin: 0; }
+
+  /* Mobiele sticky prijsbalk */
+  .qc-stickybar { display: none; }
+  @media (max-width: 899px) {
+    .qcalc[data-step="2"] .qc-stickybar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 6px 12px;
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+      background: #fff; border-top: 1px solid var(--border);
+      box-shadow: 0 -8px 22px -10px rgba(60, 50, 40, 0.16);
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    }
+    .qc-stickyactions { grid-column: 1 / -1; display: flex; gap: 10px; }
+    .qc-stickyactions .btn { flex: 1; }
+    .qc-stickyactions .btn:first-child { flex: 1.7; }
+  }
+  .qc-stickyprice { display: flex; align-items: baseline; gap: 8px; }
+  .qc-stickyamount { font-family: var(--font-display); font-size: 26px; line-height: 1; color: var(--ink); margin: 0; }
+  .qc-stickyexcl { font-family: var(--font-sans); font-size: 12px; color: var(--ink-mute); text-align: right; }
 </style>
 
 <script>
-  // --- Rekenlogica (bron: Calculator-config-pretest.json) --------------------
-  const N = 150;
+  // --- Rekentechniek (behouden) — tarieven uit Calculator-config-pretest.json.
+  // Doelgroepen (g) = aantal groepen van 150 respondenten; schaalt de
+  // respondentkosten. Bij g=1 zijn de basisprijzen €680 / €1.675 / €3.075.
+  const RES_PER_GROEP = 150;
   const N_SESSIES = 5;
   const RATE = {
     platformBasis: 130,
     perRespondentExpress: 2,
     perCompleteKwanti: 4.5,
     surveyBasis: 250,
-    smartSurvey: 750,
     begeleidingPerSessie: 80,
     analysePerSessie: 200,
     margeDirect: 250,
@@ -431,211 +383,136 @@
 
   type State = {
     voorkeur: "snel" | "verdiepend";
-    aantalUitingen: number;
     aanpak: "" | "survey" | "kwali";
-    smartSurvey: boolean;
+    doelgroepen: number;
   };
 
-  function priceFor(s: State): { tier: string; prijs: number; methode: string; doorlooptijd: string } {
+  function priceFor(s: State): number {
+    const n = RES_PER_GROEP * s.doelgroepen;
     if (s.voorkeur === "snel") {
-      return {
-        tier: "Direct",
-        prijs: RATE.platformBasis + RATE.perRespondentExpress * N * s.aantalUitingen + RATE.margeDirect,
-        methode: "Aandachtsanalyse + korte survey (5 vragen), per uiting",
-        doorlooptijd: "binnen een werkdag",
-      };
+      return RATE.platformBasis + RATE.perRespondentExpress * n + RATE.margeDirect;
     }
     if (s.aanpak === "survey") {
-      return {
-        tier: "Core",
-        prijs: (s.smartSurvey ? RATE.smartSurvey : RATE.surveyBasis) + RATE.perCompleteKwanti * N + RATE.margeCore,
-        methode: s.smartSurvey
-          ? "Uitgebreide survey, verrijkt met een Smart Survey (AI-doorvraag)"
-          : "Uitgebreide survey op 150 respondenten",
-        doorlooptijd: "in overleg",
-      };
+      return RATE.surveyBasis + RATE.perCompleteKwanti * n + RATE.margeCore;
     }
     if (s.aanpak === "kwali") {
-      return {
-        tier: "Plus",
-        prijs:
-          RATE.surveyBasis +
-          RATE.perCompleteKwanti * N +
-          RATE.begeleidingPerSessie * N_SESSIES +
-          RATE.analysePerSessie * N_SESSIES +
-          RATE.margePlus,
-        methode: "Kwalitatieve diepte-interviews (5 sessies) + survey ter validatie",
-        doorlooptijd: "in overleg",
-      };
+      return (
+        RATE.surveyBasis +
+        RATE.perCompleteKwanti * n +
+        RATE.begeleidingPerSessie * N_SESSIES +
+        RATE.analysePerSessie * N_SESSIES +
+        RATE.margePlus
+      );
     }
-    return { tier: "", prijs: NaN, methode: "", doorlooptijd: "" };
+    return NaN;
   }
 
   document.querySelectorAll<HTMLElement>(".qcalc").forEach((root) => {
-    // ---- Tabs --------------------------------------------------------------
-    const tabs = root.querySelectorAll<HTMLButtonElement>(".quote-tab");
+    const state: State = { voorkeur: "snel", aanpak: "", doelgroepen: 1 };
+    let step = 1;
+
     const panels = root.querySelectorAll<HTMLElement>("[data-panel]");
-    tabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        tabs.forEach((t) => {
-          const on = t === tab;
-          t.classList.toggle("active", on);
-          t.setAttribute("aria-selected", on ? "true" : "false");
-        });
-        panels.forEach((p) => (p.hidden = p.dataset.panel !== tab.dataset.tab));
-      });
-    });
+    const railsteps = root.querySelectorAll<HTMLElement>("[data-railstep]");
+    const prices = root.querySelectorAll<HTMLElement>("[data-price]");
+    const aanpakField = root.querySelector<HTMLElement>('[data-field="aanpak"]')!;
+    const expertText = root.querySelector<HTMLElement>("[data-expert-text]")!;
 
-    // ---- State -------------------------------------------------------------
-    const state: State = { voorkeur: "snel", aantalUitingen: 1, aanpak: "", smartSurvey: false };
-    let computed = false;
-
-    const el = {
-      actionRow: root.querySelector<HTMLElement>("[data-action-row]")!,
-      level2: root.querySelector<HTMLElement>("[data-level2]")!,
-      aanpakField: root.querySelector<HTMLElement>('[data-field="aanpak"]')!,
-      smartField: root.querySelector<HTMLElement>('[data-field="smartSurvey"]')!,
-      price: root.querySelector<HTMLElement>("[data-price]")!,
-      breakdown: root.querySelector<HTMLElement>("[data-breakdown]")!,
-      helpSnel: root.querySelector<HTMLElement>("[data-help-snel]")!,
-      helpVerdiepend: root.querySelector<HTMLElement>("[data-help-verdiepend]")!,
-      helpSurvey: root.querySelector<HTMLElement>("[data-help-survey]")!,
-      helpKwali: root.querySelector<HTMLElement>("[data-help-kwali]")!,
-    };
-
-    const segSet = (name: string, value: string) => {
-      root.querySelectorAll<HTMLButtonElement>(`[data-seg="${name}"] button`).forEach((b) => {
-        const on = b.dataset.value === value;
-        b.classList.toggle("on", on);
-        b.setAttribute("aria-pressed", on ? "true" : "false");
+    const renderRail = () => {
+      railsteps.forEach((rs) => {
+        const n = Number(rs.dataset.railstep);
+        const pill = rs.querySelector<HTMLElement>(".qc-pill")!;
+        const num = pill.querySelector<HTMLElement>(".qc-pillnum")!;
+        let state2: "done" | "active" | "todo";
+        if (n < step) state2 = "done";
+        else if (n === step) state2 = "active";
+        else state2 = "todo";
+        rs.dataset.state = state2;
+        num.innerHTML =
+          state2 === "done"
+            ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
+            : String(n);
       });
     };
 
-    const renderLevel1 = () => {
-      el.helpSnel.hidden = state.voorkeur !== "snel";
-      el.helpVerdiepend.hidden = state.voorkeur !== "verdiepend";
+    const renderPrice = () => {
+      const p = priceFor(state);
+      const txt = Number.isNaN(p) ? "—" : euro(p);
+      prices.forEach((el) => (el.textContent = txt));
     };
 
-    const renderLevel2 = () => {
-      el.actionRow.hidden = computed;
-      el.level2.hidden = !computed;
-      if (!computed) return;
-
-      el.aanpakField.hidden = state.voorkeur !== "verdiepend";
-      el.smartField.hidden = !(state.voorkeur === "verdiepend" && state.aanpak === "survey");
-      el.helpSurvey.hidden = state.aanpak !== "survey";
-      el.helpKwali.hidden = state.aanpak !== "kwali";
-
-      const r = priceFor(state);
-      if (Number.isNaN(r.prijs)) {
-        el.price.textContent = "—";
-        el.breakdown.textContent = "Kies hierboven hoe je wilt verdiepen.";
-      } else {
-        el.price.textContent = euro(r.prijs);
-        el.breakdown.textContent = `Wat je krijgt: ${r.methode}. Oplevering: ${r.doorlooptijd}.`;
-      }
+    const renderStep2 = () => {
+      const verdiepend = state.voorkeur === "verdiepend";
+      aanpakField.hidden = !verdiepend;
+      expertText.textContent = verdiepend
+        ? "We stellen de verdiepende pretest graag op volgens jouw wensen. Geef hier je voorkeuren aan."
+        : "We voeren je snelle pretest uit op 150 respondenten per doelgroep. Kies hieronder het aantal doelgroepen.";
     };
 
-    // ---- Niveau 1: keuze wijzigen → terug naar "Bereken" -------------------
-    root.querySelector<HTMLElement>('[data-seg="voorkeur"]')!
-      .querySelectorAll<HTMLButtonElement>("button").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          state.voorkeur = btn.dataset.value as State["voorkeur"];
-          segSet("voorkeur", state.voorkeur);
-          // nieuwe primaire keuze → aanvullende keuzes resetten, opnieuw berekenen
+    const goTo = (n: number) => {
+      step = n;
+      root.dataset.step = String(n);
+      panels.forEach((p) => (p.hidden = p.dataset.panel !== String(n)));
+      if (n === 2) renderStep2();
+      renderRail();
+      renderPrice();
+      root.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    // Stap 1: voorkeur
+    root.querySelectorAll<HTMLInputElement>('input[name="voorkeur"]').forEach((inp) => {
+      inp.addEventListener("change", () => {
+        state.voorkeur = inp.value as State["voorkeur"];
+        // verdiepend opent met Survey voorgeselecteerd (zoals het ontwerp)
+        if (state.voorkeur === "verdiepend") {
+          state.aanpak = "survey";
+          const sv = root.querySelector<HTMLInputElement>('input[name="aanpak"][value="survey"]');
+          if (sv) sv.checked = true;
+        } else {
           state.aanpak = "";
-          segSet("aanpak", "");
-          computed = false;
-          renderLevel1();
-          renderLevel2();
-        });
+        }
       });
-
-    const uitingenSel = root.querySelector<HTMLSelectElement>('[data-input="aantalUitingen"]')!;
-    uitingenSel.addEventListener("change", () => {
-      state.aantalUitingen = Number(uitingenSel.value);
-      computed = false;
-      renderLevel2();
     });
 
-    // ---- "Bereken indicatie" → niveau 2 ------------------------------------
-    root.querySelector<HTMLButtonElement>("[data-calc]")!.addEventListener("click", () => {
-      computed = true;
-      renderLevel2();
-      el.level2.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    // "Bereken indicatie" → stap 2
+    root.querySelector<HTMLButtonElement>("[data-next]")!.addEventListener("click", () => goTo(2));
+
+    // Rail terug naar stap 1
+    root.querySelectorAll<HTMLButtonElement>("[data-goto]").forEach((b) => {
+      b.addEventListener("click", () => goTo(Number(b.dataset.goto)));
     });
 
-    // ---- Niveau 2: aanvullende vragen (live) -------------------------------
-    root.querySelector<HTMLElement>('[data-seg="aanpak"]')!
-      .querySelectorAll<HTMLButtonElement>("button").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          state.aanpak = btn.dataset.value as State["aanpak"];
-          segSet("aanpak", state.aanpak);
-          if (state.aanpak !== "survey") {
-            state.smartSurvey = false;
-            segSet("smartSurvey", "nee");
-          }
-          renderLevel2();
-        });
+    // Stap 2: aanpak
+    root.querySelectorAll<HTMLInputElement>('input[name="aanpak"]').forEach((inp) => {
+      inp.addEventListener("change", () => {
+        state.aanpak = inp.value as State["aanpak"];
+        renderPrice();
       });
-    root.querySelector<HTMLElement>('[data-seg="smartSurvey"]')!
-      .querySelectorAll<HTMLButtonElement>("button").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          state.smartSurvey = btn.dataset.value === "ja";
-          segSet("smartSurvey", btn.dataset.value!);
-          renderLevel2();
-        });
-      });
-
-    // ---- "Opnieuw berekenen" ----------------------------------------------
-    root.querySelector<HTMLButtonElement>("[data-reset]")!.addEventListener("click", () => {
-      computed = false;
-      renderLevel2();
-      el.actionRow.scrollIntoView({ behavior: "smooth", block: "nearest" });
     });
 
-    // ---- Resultaatknoppen: payload-hook [koppeling nog aanleveren] --------
-    root.querySelectorAll<HTMLButtonElement>('[data-action="bestellen"],[data-action="verzenden"]').forEach((btn) => {
+    // Stap 2: doelgroepen
+    const dg = root.querySelector<HTMLSelectElement>('[data-input="doelgroepen"]')!;
+    dg.addEventListener("change", () => {
+      state.doelgroepen = Number(dg.value);
+      renderPrice();
+    });
+
+    // Bestellen / Advies → payload-hook [koppeling nog aanleveren]
+    root.querySelectorAll<HTMLButtonElement>('[data-action="bestellen"],[data-action="advies"]').forEach((btn) => {
       btn.addEventListener("click", () => {
-        const r = priceFor(state);
+        const p = priceFor(state);
         const payload = {
           calculator: "pretest",
           actie: btn.dataset.action,
           keuzes: { ...state },
-          tier: r.tier,
-          richtprijs: Number.isNaN(r.prijs) ? null : Math.round(r.prijs),
+          tier: state.voorkeur === "snel" ? "Direct" : state.aanpak === "kwali" ? "Plus" : "Core",
+          richtprijs: Number.isNaN(p) ? null : Math.round(p),
         };
         root.dispatchEvent(new CustomEvent("pretest-calculator:submit", { detail: payload, bubbles: true }));
         console.info("[pretest-calculator] submit", payload);
       });
     });
 
-    // ---- Direct-advies tab -------------------------------------------------
-    const adviesNaam = root.querySelector<HTMLInputElement>('[data-advies="naam"]')!;
-    const adviesContact = root.querySelector<HTMLInputElement>('[data-advies="contact"]')!;
-    const adviesBtn = root.querySelector<HTMLButtonElement>('[data-action="advies"]')!;
-    const adviesForm = root.querySelector<HTMLElement>("[data-advies-form]")!;
-    const adviesDone = root.querySelector<HTMLElement>("[data-advies-done]")!;
-    const syncAdvies = () => {
-      adviesBtn.disabled = !(adviesNaam.value.trim() && adviesContact.value.trim());
-    };
-    adviesNaam.addEventListener("input", syncAdvies);
-    adviesContact.addEventListener("input", syncAdvies);
-    adviesBtn.addEventListener("click", () => {
-      const payload = {
-        calculator: "pretest",
-        actie: "advies",
-        naam: adviesNaam.value.trim(),
-        contact: adviesContact.value.trim(),
-      };
-      root.dispatchEvent(new CustomEvent("pretest-calculator:submit", { detail: payload, bubbles: true }));
-      console.info("[pretest-calculator] advies", payload);
-      adviesForm.hidden = true;
-      adviesDone.hidden = false;
-    });
-
-    // init
-    renderLevel1();
-    renderLevel2();
+    renderRail();
+    renderPrice();
   });
 </script>
