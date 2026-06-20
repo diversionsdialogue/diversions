@@ -14,11 +14,15 @@ interface Props {
   eyebrow?: string;
   title: string;
   lead: string;
+  image?: string;
+  imageAlt?: string;
 }
 const {
   eyebrow = "Diensten · Direct een prijsopgave",
   title,
   lead,
+  image = "/img/onderzoeksbureau Diversions4.png",
+  imageAlt = "",
 } = Astro.props;
 ---
 
@@ -29,6 +33,9 @@ const {
         <span class="pitch-eyebrow">{eyebrow}</span>
         <h1 class="pitch-title">{title}</h1>
         <p class="pitch-lead">{lead}</p>
+      </div>
+      <div class="pitch-photo">
+        <img src={image} alt={imageAlt} />
       </div>
     </div>
 
@@ -74,9 +81,34 @@ const {
   .pitch-inner { max-width: 1200px; margin: 0 auto; }
 
   .pitch-head {
-    max-width: 60ch;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    align-items: center;
     margin-bottom: 40px;
   }
+  @media (min-width: 860px) {
+    .pitch-head { grid-template-columns: 1.2fr 1fr; gap: 52px; }
+  }
+  .pitch-photo {
+    border-radius: var(--radius-xl);
+    overflow: clip;
+    border: 1px solid var(--border);
+    background: var(--color-accent-200);
+    aspect-ratio: 16 / 11;
+  }
+  @media (min-width: 860px) {
+    .pitch-photo { aspect-ratio: 4 / 3; }
+  }
+  .pitch-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .pitch-copy { max-width: 60ch; }
 
   .pitch-eyebrow {
     font-family: var(--font-subtitle);

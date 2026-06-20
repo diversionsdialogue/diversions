@@ -135,18 +135,37 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
             </div>
           </div>
 
-          <p class="qc-fieldlabel">Doelgroepen</p>
-          <p class="qc-help">
-            Voor het onderzoek kunnen we verschillende doelgroepen uitnodigen
-            (elk 150 respondenten). Hoeveel verschillende doelgroepen wil je
-            opnemen in de pretest?
-          </p>
-          <div class="qc-select-wrap">
-            <select class="qc-select" data-input="doelgroepen" aria-label="Aantal doelgroepen">
-              <option value="1">1 doelgroep</option>
-              <option value="2">2 doelgroepen</option>
-              <option value="3">3 doelgroepen</option>
-            </select>
+          {/* Snel: aantal concepten (1-3) */}
+          <div data-field="concepten" hidden>
+            <p class="qc-fieldlabel">Hoeveel concepten wil je testen?</p>
+            <p class="qc-help">
+              Test één concept of vergelijk meerdere varianten naast elkaar.
+              Elk concept toetsen we op 150 respondenten.
+            </p>
+            <div class="qc-select-wrap">
+              <select class="qc-select" data-input="concepten" aria-label="Aantal concepten">
+                <option value="1">1 concept</option>
+                <option value="2">2 concepten</option>
+                <option value="3">3 concepten</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Verdiepend: aantal doelgroepen (1-3) */}
+          <div data-field="doelgroepen" hidden>
+            <p class="qc-fieldlabel">Doelgroepen</p>
+            <p class="qc-help">
+              Voor het onderzoek kunnen we verschillende doelgroepen uitnodigen
+              (elk 150 respondenten). Hoeveel verschillende doelgroepen wil je
+              opnemen in de pretest?
+            </p>
+            <div class="qc-select-wrap">
+              <select class="qc-select" data-input="doelgroepen" aria-label="Aantal doelgroepen">
+                <option value="1">1 doelgroep</option>
+                <option value="2">2 doelgroepen</option>
+                <option value="3">3 doelgroepen</option>
+              </select>
+            </div>
           </div>
 
           <div class="qc-info">
@@ -322,7 +341,7 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
 
   .qc-fieldlabel { font-family: var(--font-subtitle); font-weight: 600; font-size: 16px; color: var(--ink); margin: 0 0 12px; }
   [data-field="aanpak"] { margin-bottom: 28px; }
-  [data-field="aanpak"][hidden] { display: none; }
+  [data-field][hidden] { display: none; }
   .qc-choices--2 { gap: 16px; }
   @media (min-width: 560px) { .qc-choices--2 { grid-template-columns: 1fr 1fr; } }
 
@@ -409,14 +428,18 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
   type State = {
     voorkeur: "snel" | "verdiepend";
     aanpak: "" | "survey" | "kwali";
+    concepten: number;
     doelgroepen: number;
   };
 
   function priceFor(s: State): number {
-    const n = RES_PER_GROEP * s.doelgroepen;
     if (s.voorkeur === "snel") {
+      // Snel: elk concept op 150 respondenten.
+      const n = RES_PER_GROEP * s.concepten;
       return RATE.platformBasis + RATE.perRespondentExpress * n + RATE.margeDirect;
     }
+    // Verdiepend: elke doelgroep is 150 respondenten.
+    const n = RES_PER_GROEP * s.doelgroepen;
     if (s.aanpak === "survey") {
       return RATE.surveyBasis + RATE.perCompleteKwanti * n + RATE.margeCore;
     }
@@ -433,13 +456,15 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
   }
 
   document.querySelectorAll<HTMLElement>(".qcalc").forEach((root) => {
-    const state: State = { voorkeur: "snel", aanpak: "", doelgroepen: 1 };
+    const state: State = { voorkeur: "snel", aanpak: "", concepten: 1, doelgroepen: 1 };
     let step = 1;
 
     const panels = root.querySelectorAll<HTMLElement>("[data-panel]");
     const railsteps = root.querySelectorAll<HTMLElement>("[data-railstep]");
     const prices = root.querySelectorAll<HTMLElement>("[data-price]");
     const aanpakField = root.querySelector<HTMLElement>('[data-field="aanpak"]')!;
+    const conceptenField = root.querySelector<HTMLElement>('[data-field="concepten"]')!;
+    const doelgroepenField = root.querySelector<HTMLElement>('[data-field="doelgroepen"]')!;
     const expertText = root.querySelector<HTMLElement>("[data-expert-text]")!;
 
     const renderRail = () => {
@@ -468,6 +493,8 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
     const renderStep2 = () => {
       const verdiepend = state.voorkeur === "verdiepend";
       aanpakField.hidden = !verdiepend;
+      conceptenField.hidden = verdiepend; // alleen bij Snel
+      doelgroepenField.hidden = !verdiepend; // alleen bij Verdiepend
       expertText.textContent = verdiepend
         ? "We stellen de verdiepende pretest graag op volgens jouw wensen. Geef hier je voorkeuren aan."
         : "We voeren je snelle pretest uit op 150 respondenten per doelgroep. Kies hieronder het aantal doelgroepen.";
@@ -514,7 +541,12 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
       });
     });
 
-    // Stap 2: doelgroepen
+    // Stap 2: concepten (Snel) + doelgroepen (Verdiepend)
+    const cp = root.querySelector<HTMLSelectElement>('[data-input="concepten"]')!;
+    cp.addEventListener("change", () => {
+      state.concepten = Number(cp.value);
+      renderPrice();
+    });
     const dg = root.querySelector<HTMLSelectElement>('[data-input="doelgroepen"]')!;
     dg.addEventListener("change", () => {
       state.doelgroepen = Number(dg.value);
