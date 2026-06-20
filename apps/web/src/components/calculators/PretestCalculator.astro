@@ -208,8 +208,10 @@
     .quote-tab { font-size: 13px; padding: 14px 10px 12px; }
   }
 
-  /* Panel */
-  .quote-panel { padding: 28px; }
+  /* Panel — container voor responsive kolommen op basis van KAARTbreedte,
+     niet de viewport (de kaart zit binnen pitch-padding + surface-inset, dus
+     viewport-breakpoints knepen het prijsblok kapot op smalle kaarten). */
+  .quote-panel { padding: 28px; container: ptc / inline-size; }
   @media (min-width: 768px) { .quote-panel { padding: 32px 36px; } }
   .quote-panel-title {
     font-family: var(--font-display);
@@ -232,7 +234,7 @@
     align-items: start;
     margin-top: 24px;
   }
-  @media (min-width: 640px) {
+  @container ptc (min-width: 440px) {
     .quote-fields { grid-template-columns: 1fr 1fr; gap: 28px; }
   }
   .q-field { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
@@ -341,8 +343,9 @@
     align-items: center;
     animation: ptcFade 320ms var(--ease) both;
   }
-  @media (min-width: 640px) {
+  @container ptc (min-width: 520px) {
     .quote-result { grid-template-columns: 1fr auto; gap: 32px; }
+    .r-actions { min-width: 220px; }
   }
   @keyframes ptcFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
   .r-label {
@@ -366,7 +369,6 @@
   .r-note:empty { display: none; }
   .r-disclaimer { font-family: var(--font-sans); font-size: 12px; color: var(--ink-mute); margin: 10px 0 0; }
   .r-actions { display: flex; flex-direction: column; gap: 10px; align-items: stretch; }
-  @media (min-width: 640px) { .r-actions { min-width: 220px; } }
   .quote-reset {
     appearance: none;
     background: transparent;
@@ -391,7 +393,7 @@
 
   /* Direct-advies tab */
   .advies-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 22px; }
-  @media (min-width: 640px) { .advies-grid { grid-template-columns: 1fr 1fr; } }
+  @container ptc (min-width: 440px) { .advies-grid { grid-template-columns: 1fr 1fr; } }
   .advies-row {
     display: flex;
     flex-wrap: wrap;
