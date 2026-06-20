@@ -53,10 +53,6 @@ const {
         </span>
         <span><strong>AVG-proof</strong>, Europees gehost</span>
       </div>
-      <div class="trust-item">
-        <span class="trust-logo trust-logo--mark" aria-hidden="true">✓</span>
-        <span>Echte respondenten, <strong>onderzoeker tekent af</strong></span>
-      </div>
     </div>
   </div>
 </section>
@@ -129,11 +125,8 @@ const {
     gap: 18px 32px;
     margin-top: 32px;
   }
-  @media (min-width: 560px) {
-    .pitch-trust { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (min-width: 1024px) {
-    .pitch-trust { grid-template-columns: repeat(4, 1fr); }
+  @media (min-width: 640px) {
+    .pitch-trust { grid-template-columns: repeat(3, 1fr); }
   }
   .trust-item {
     display: flex;
@@ -166,11 +159,5 @@ const {
     height: auto;
     object-fit: contain;
     display: block;
-  }
-  .trust-logo--mark {
-    font-family: var(--font-subtitle);
-    font-weight: 700;
-    font-size: 18px;
-    color: var(--ink-soft);
   }
 </style>

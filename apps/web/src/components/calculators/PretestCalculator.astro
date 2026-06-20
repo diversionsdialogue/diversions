@@ -92,6 +92,10 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
     <div class="qc-panel" data-panel="2" hidden>
       <div class="qc-step2grid">
         <div class="qc-form">
+          <button type="button" class="qc-back" data-goto="1">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Vorige stap
+          </button>
           <p class="qc-steplabel">Stap 2 van 3</p>
           <h2 class="qc-title qc-title--sm">Stel je onderzoek samen</h2>
 
@@ -241,6 +245,27 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
   .qc-panel { padding: 28px 22px 32px; }
   @media (min-width: 768px) { .qc-panel { padding: 36px 36px 44px; } }
   .qc-panel[hidden] { display: none; }
+
+  .qc-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    appearance: none;
+    background: transparent;
+    border: 0;
+    padding: 4px 0;
+    margin: 0 0 14px;
+    cursor: pointer;
+    font-family: var(--font-subtitle);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ink-soft);
+    transition: color var(--duration-base) var(--ease);
+  }
+  .qc-back:hover { color: var(--primary); }
+  .qc-back svg { transition: transform var(--duration-base) var(--ease); }
+  .qc-back:hover svg { transform: translateX(-3px); }
+  .qc-back:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; border-radius: 6px; }
 
   .qc-steplabel { font-family: var(--font-subtitle); font-weight: 600; font-size: 14px; color: var(--ink-soft); margin: 0 0 8px; }
   .qc-title { font-family: var(--font-display); font-size: clamp(24px, 3vw, 30px); line-height: 1.08; color: var(--ink); margin: 0 0 8px; }
