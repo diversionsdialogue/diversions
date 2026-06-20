@@ -2,23 +2,21 @@
 /**
  * PretestCalculator — interactieve richtprijs-calculator voor de pretest-dienst.
  *
- * Astro-"island" zonder framework: de HTML-schil wordt server-side gerenderd,
- * de interactie (tabs + progressive disclosure + live prijs) draait in een
- * vanilla <script> client-side. Geen externe dependencies, geen localStorage.
+ * Astro-"island" zonder framework: server-gerenderde HTML-schil + vanilla
+ * <script> voor de interactie. Geen externe dependencies, geen localStorage.
  *
- * Styling: het "offerte-starter"-ontwerp uit new design/quote-starter.(css|jsx)
- * — witte kaart met tabs, segmented controls en een roze resultaatblok — op de
- * centrale sitetokens uit global.css.
+ * Styling + flow: het "offerte-starter"-ontwerp uit new design/quote-starter.
+ * (css|jsx) — witte kaart met tabs, segmented controls, twee niveaus:
+ *   Niveau 1 (naast elkaar): voorkeur + aantal uitingen → "Bereken indicatie".
+ *   Niveau 2 (na berekenen): aanvullende vragen (indien van toepassing) + prijs.
  *
  * Rekenlogica/copy: calculator/Calculator-config-pretest.json.
  *
- * GUARDRAIL: leveranciersnamen (panelpartner, kwali-platform, surveytool) worden
- * NOOIT getoond. Interne tarieven staan als neutraal benoemde constanten in het
- * script en produceren alleen de eindprijs.
+ * GUARDRAIL: leveranciersnamen worden NOOIT getoond; interne tarieven staan als
+ * neutraal benoemde constanten in het script en leveren alleen de eindprijs.
  *
- * [koppeling nog aanleveren] — de knoppen bouwen een payload-object en dispatchen
- * een CustomEvent "pretest-calculator:submit"; de echte bestemming
- * (formulier/CRM/e-mail) wordt later op die hook aangesloten.
+ * [koppeling nog aanleveren] — knoppen dispatchen een CustomEvent
+ * "pretest-calculator:submit" met een payload-object.
  */
 ---
 
@@ -38,28 +36,16 @@
       <h2 class="quote-panel-title">Snel een eerste prijsindicatie</h2>
       <p class="quote-sub">Bereken in een paar klikken een richtprijs voor je pretest.</p>
 
-      <div class="quote-form">
-        {/* Stap 1 — Voorkeur */}
+      {/* ----- Niveau 1: primaire keuzes, naast elkaar ----- */}
+      <div class="quote-fields">
         <div class="q-field">
           <label class="q-label">Wat heeft je voorkeur?</label>
           <div class="seg" role="group" aria-label="Voorkeur" data-seg="voorkeur">
             <button type="button" data-value="snel" class="on" aria-pressed="true">Snel inzicht</button>
             <button type="button" data-value="verdiepend" aria-pressed="false">Verdiepend inzicht</button>
           </div>
-          <div class="q-help" data-help-snel>
-            <span class="chips">
-              <span class="chip">Feedback op design &amp; inhoud</span>
-              <span class="chip">Binnen een werkdag beschikbaar</span>
-              <span class="chip">150 respondenten</span>
-            </span>
-          </div>
-          <p class="q-help" data-help-verdiepend hidden>
-            Cijfers én het waarom erachter. Je bepaalt de aanpak in overleg.
-          </p>
         </div>
-
-        {/* Stap 2a — Aantal uitingen (alleen bij Snel) */}
-        <div class="q-field" data-field="aantalUitingen">
+        <div class="q-field">
           <label class="q-label" for="q-uitingen">Aantal uitingen</label>
           <select class="select" id="q-uitingen" data-input="aantalUitingen">
             <option value="1">1 uiting</option>
@@ -67,8 +53,29 @@
             <option value="3">3 uitingen</option>
           </select>
         </div>
+      </div>
 
-        {/* Stap 2b — Aanpak (alleen bij Verdiepend) */}
+      <p class="q-help" data-help-snel>
+        <span class="chips">
+          <span class="chip">Feedback op design &amp; inhoud</span>
+          <span class="chip">Binnen een werkdag beschikbaar</span>
+          <span class="chip">150 respondenten</span>
+        </span>
+      </p>
+      <p class="q-help" data-help-verdiepend hidden>
+        Cijfers én het waarom erachter. Je bepaalt de aanpak in overleg.
+      </p>
+
+      <div class="quote-action" data-action-row>
+        <p class="quote-hint">
+          Een betrouwbare prijsindicatie op basis van vergelijkbare onderzoeken.
+          Geen bindende offerte.
+        </p>
+        <button type="button" class="btn btn-primary btn-arrow" data-calc>Bereken indicatie</button>
+      </div>
+
+      {/* ----- Niveau 2: aanvullende vragen + prijs ----- */}
+      <div class="quote-level2" data-level2 hidden>
         <div class="q-field" data-field="aanpak" hidden>
           <label class="q-label">Hoe wil je verdiepen?</label>
           <div class="seg" role="group" aria-label="Aanpak" data-seg="aanpak">
@@ -86,7 +93,6 @@
           </p>
         </div>
 
-        {/* Stap 3 — Smart Survey (alleen bij aanpak = Survey) */}
         <div class="q-field" data-field="smartSurvey" hidden>
           <label class="q-label">Wil je het onderzoek verrijken met een Smart Survey?</label>
           <div class="seg" role="group" aria-label="Smart Survey" data-seg="smartSurvey">
@@ -99,26 +105,26 @@
             scherpere inzichten, zonder extra doorlooptijd.
           </p>
         </div>
-      </div>
 
-      {/* Resultaat (altijd zichtbaar, update live) */}
-      <div class="quote-result" aria-live="polite">
-        <div>
-          <p class="r-label">Richtprijs <span class="r-excl">· excl. btw</span></p>
-          <p class="r-amount" data-price>&euro; 680</p>
-          <p class="r-note" data-breakdown></p>
-          <p class="r-disclaimer">Een betrouwbare prijsindicatie, geen bindende offerte.</p>
+        <div class="quote-result" aria-live="polite">
+          <div>
+            <p class="r-label">Richtprijs <span class="r-excl">· excl. btw</span></p>
+            <p class="r-amount" data-price>&euro; 680</p>
+            <p class="r-note" data-breakdown></p>
+            <p class="r-disclaimer">Een betrouwbare prijsindicatie, geen bindende offerte.</p>
+          </div>
+          <div class="r-actions">
+            <button type="button" class="btn btn-primary btn-arrow" data-action="bestellen">Direct bestellen</button>
+            <button type="button" class="btn btn-outline" data-action="verzenden">Prijsindicatie verzenden</button>
+            <button type="button" class="quote-reset" data-reset>Opnieuw berekenen</button>
+          </div>
         </div>
-        <div class="r-actions">
-          <button type="button" class="btn btn-primary btn-arrow" data-action="bestellen">Direct bestellen</button>
-          <button type="button" class="btn btn-outline" data-action="verzenden">Prijsindicatie verzenden</button>
-        </div>
-      </div>
 
-      <p class="quote-contact">
-        Heb je specifieke onderzoekswensen, bijvoorbeeld bij de selectie van
-        doelgroepen? Neem dan contact op: <a href="tel:+31552032193">(055) 20 32 193</a>.
-      </p>
+        <p class="quote-contact">
+          Heb je specifieke onderzoekswensen, bijvoorbeeld bij de selectie van
+          doelgroepen? Neem dan contact op: <a href="tel:+31552032193">(055) 20 32 193</a>.
+        </p>
+      </div>
     </div>
 
     {/* ---------------- Tab 2: direct advies ---------------- */}
@@ -218,7 +224,17 @@
     margin: 8px 0 0;
   }
 
-  .quote-form { display: flex; flex-direction: column; gap: 22px; margin-top: 24px; }
+  /* Velden naast elkaar (niveau 1) */
+  .quote-fields {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    align-items: start;
+    margin-top: 24px;
+  }
+  @media (min-width: 640px) {
+    .quote-fields { grid-template-columns: 1fr 1fr; gap: 28px; }
+  }
   .q-field { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
   .q-field[hidden] { display: none; }
   .q-label {
@@ -234,9 +250,9 @@
     font-size: 13px;
     line-height: 1.5;
     color: var(--ink-soft);
-    margin: 0;
+    margin: 12px 0 0;
   }
-  .q-help:empty { display: none; }
+  .q-help[hidden] { display: none; }
   .q-help .chips { display: flex; flex-wrap: wrap; gap: 6px; }
   .q-help .chip {
     background: var(--color-accent-100);
@@ -275,7 +291,6 @@
   .seg button.on { background: var(--color-accent-400); color: var(--ink); }
   .seg button:focus-visible { outline: 2px solid var(--ring); outline-offset: -2px; }
 
-  /* Select + input */
   .select,
   .input {
     width: 100%;
@@ -291,9 +306,31 @@
   .select:focus-visible,
   .input:focus-visible { outline: 2px solid var(--ring); outline-offset: 1px; }
 
-  /* Result */
+  /* Actie-rij (niveau 1) */
+  .quote-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+  .quote-action[hidden] { display: none; }
+  .quote-hint {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: var(--ink-mute);
+    margin: 0;
+    max-width: 42ch;
+  }
+
+  /* Niveau 2 */
+  .quote-level2[hidden] { display: none; }
+  .quote-level2 { margin-top: 28px; display: flex; flex-direction: column; gap: 22px; }
+
   .quote-result {
-    margin-top: 24px;
     padding: 24px 26px;
     border-radius: var(--radius-md);
     background: var(--color-pink-200);
@@ -302,10 +339,12 @@
     grid-template-columns: 1fr;
     gap: 20px;
     align-items: center;
+    animation: ptcFade 320ms var(--ease) both;
   }
   @media (min-width: 640px) {
     .quote-result { grid-template-columns: 1fr auto; gap: 32px; }
   }
+  @keyframes ptcFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
   .r-label {
     font-family: var(--font-subtitle);
     font-size: 11px;
@@ -323,30 +362,30 @@
     color: var(--ink);
     margin: 0 0 8px;
   }
-  .r-note {
-    font-family: var(--font-sans);
-    font-size: 13px;
-    line-height: 1.5;
-    color: var(--ink-soft);
-    margin: 0;
-    max-width: 46ch;
-  }
+  .r-note { font-family: var(--font-sans); font-size: 13px; line-height: 1.5; color: var(--ink-soft); margin: 0; max-width: 46ch; }
   .r-note:empty { display: none; }
-  .r-disclaimer {
-    font-family: var(--font-sans);
-    font-size: 12px;
-    color: var(--ink-mute);
-    margin: 10px 0 0;
-  }
+  .r-disclaimer { font-family: var(--font-sans); font-size: 12px; color: var(--ink-mute); margin: 10px 0 0; }
   .r-actions { display: flex; flex-direction: column; gap: 10px; align-items: stretch; }
   @media (min-width: 640px) { .r-actions { min-width: 220px; } }
+  .quote-reset {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    font-family: var(--font-subtitle);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--ink-soft);
+    cursor: pointer;
+    padding: 4px;
+  }
+  .quote-reset:hover { color: var(--color-yellow-600); }
 
   .quote-contact {
     font-family: var(--font-sans);
     font-size: 13px;
     line-height: 1.5;
     color: var(--ink-soft);
-    margin: 18px 0 0;
+    margin: 0;
   }
   .quote-contact a { color: var(--ink); font-weight: 600; }
 
@@ -363,20 +402,13 @@
     padding-top: 20px;
     border-top: 1px solid var(--border);
   }
-  .advies-row p {
-    margin: 0;
-    font-family: var(--font-sans);
-    font-size: 13px;
-    color: var(--ink-mute);
-    max-width: 40ch;
-  }
+  .advies-row p { margin: 0; font-family: var(--font-sans); font-size: 13px; color: var(--ink-mute); max-width: 40ch; }
   .btn[disabled] { opacity: 0.5; cursor: not-allowed; }
   [data-panel][hidden] { display: none; }
 </style>
 
 <script>
   // --- Rekenlogica (bron: Calculator-config-pretest.json) --------------------
-  // Neutraal benoemde tarieven; GEEN leveranciersnamen. n = 150 vast.
   const N = 150;
   const N_SESSIES = 5;
   const RATE = {
@@ -443,86 +475,122 @@
     const panels = root.querySelectorAll<HTMLElement>("[data-panel]");
     tabs.forEach((tab) => {
       tab.addEventListener("click", () => {
-        const name = tab.dataset.tab;
         tabs.forEach((t) => {
           const on = t === tab;
           t.classList.toggle("active", on);
           t.setAttribute("aria-selected", on ? "true" : "false");
         });
-        panels.forEach((p) => {
-          p.hidden = p.dataset.panel !== name;
-        });
+        panels.forEach((p) => (p.hidden = p.dataset.panel !== tab.dataset.tab));
       });
     });
 
-    // ---- State + segmented controls ---------------------------------------
+    // ---- State -------------------------------------------------------------
     const state: State = { voorkeur: "snel", aantalUitingen: 1, aanpak: "", smartSurvey: false };
+    let computed = false;
+
+    const el = {
+      actionRow: root.querySelector<HTMLElement>("[data-action-row]")!,
+      level2: root.querySelector<HTMLElement>("[data-level2]")!,
+      aanpakField: root.querySelector<HTMLElement>('[data-field="aanpak"]')!,
+      smartField: root.querySelector<HTMLElement>('[data-field="smartSurvey"]')!,
+      price: root.querySelector<HTMLElement>("[data-price]")!,
+      breakdown: root.querySelector<HTMLElement>("[data-breakdown]")!,
+      helpSnel: root.querySelector<HTMLElement>("[data-help-snel]")!,
+      helpVerdiepend: root.querySelector<HTMLElement>("[data-help-verdiepend]")!,
+      helpSurvey: root.querySelector<HTMLElement>("[data-help-survey]")!,
+      helpKwali: root.querySelector<HTMLElement>("[data-help-kwali]")!,
+    };
 
     const segSet = (name: string, value: string) => {
-      const seg = root.querySelector<HTMLElement>(`[data-seg="${name}"]`);
-      if (!seg) return;
-      seg.querySelectorAll<HTMLButtonElement>("button").forEach((b) => {
+      root.querySelectorAll<HTMLButtonElement>(`[data-seg="${name}"] button`).forEach((b) => {
         const on = b.dataset.value === value;
         b.classList.toggle("on", on);
         b.setAttribute("aria-pressed", on ? "true" : "false");
       });
     };
 
-    const fields = {
-      aantalUitingen: root.querySelector<HTMLElement>('[data-field="aantalUitingen"]')!,
-      aanpak: root.querySelector<HTMLElement>('[data-field="aanpak"]')!,
-      smartSurvey: root.querySelector<HTMLElement>('[data-field="smartSurvey"]')!,
-    };
-    const priceEl = root.querySelector<HTMLElement>("[data-price]")!;
-    const breakdownEl = root.querySelector<HTMLElement>("[data-breakdown]")!;
-    const help = {
-      snel: root.querySelector<HTMLElement>("[data-help-snel]")!,
-      verdiepend: root.querySelector<HTMLElement>("[data-help-verdiepend]")!,
-      survey: root.querySelector<HTMLElement>("[data-help-survey]")!,
-      kwali: root.querySelector<HTMLElement>("[data-help-kwali]")!,
+    const renderLevel1 = () => {
+      el.helpSnel.hidden = state.voorkeur !== "snel";
+      el.helpVerdiepend.hidden = state.voorkeur !== "verdiepend";
     };
 
-    const render = () => {
-      fields.aantalUitingen.hidden = state.voorkeur !== "snel";
-      fields.aanpak.hidden = state.voorkeur !== "verdiepend";
-      fields.smartSurvey.hidden = !(state.voorkeur === "verdiepend" && state.aanpak === "survey");
+    const renderLevel2 = () => {
+      el.actionRow.hidden = computed;
+      el.level2.hidden = !computed;
+      if (!computed) return;
 
-      help.snel.hidden = state.voorkeur !== "snel";
-      help.verdiepend.hidden = state.voorkeur !== "verdiepend";
-      help.survey.hidden = state.aanpak !== "survey";
-      help.kwali.hidden = state.aanpak !== "kwali";
+      el.aanpakField.hidden = state.voorkeur !== "verdiepend";
+      el.smartField.hidden = !(state.voorkeur === "verdiepend" && state.aanpak === "survey");
+      el.helpSurvey.hidden = state.aanpak !== "survey";
+      el.helpKwali.hidden = state.aanpak !== "kwali";
 
       const r = priceFor(state);
       if (Number.isNaN(r.prijs)) {
-        priceEl.textContent = "—";
-        breakdownEl.textContent = "Kies hierboven hoe je wilt verdiepen.";
+        el.price.textContent = "—";
+        el.breakdown.textContent = "Kies hierboven hoe je wilt verdiepen.";
       } else {
-        priceEl.textContent = euro(r.prijs);
-        breakdownEl.textContent = `Wat je krijgt: ${r.methode}. Oplevering: ${r.doorlooptijd}.`;
+        el.price.textContent = euro(r.prijs);
+        el.breakdown.textContent = `Wat je krijgt: ${r.methode}. Oplevering: ${r.doorlooptijd}.`;
       }
     };
 
-    root.querySelectorAll<HTMLElement>("[data-seg]").forEach((seg) => {
-      const name = seg.dataset.seg!;
-      seg.querySelectorAll<HTMLButtonElement>("button").forEach((btn) => {
+    // ---- Niveau 1: keuze wijzigen → terug naar "Bereken" -------------------
+    root.querySelector<HTMLElement>('[data-seg="voorkeur"]')!
+      .querySelectorAll<HTMLButtonElement>("button").forEach((btn) => {
         btn.addEventListener("click", () => {
-          const v = btn.dataset.value!;
-          segSet(name, v);
-          if (name === "voorkeur") state.voorkeur = v as State["voorkeur"];
-          else if (name === "aanpak") state.aanpak = v as State["aanpak"];
-          else if (name === "smartSurvey") state.smartSurvey = v === "ja";
-          render();
+          state.voorkeur = btn.dataset.value as State["voorkeur"];
+          segSet("voorkeur", state.voorkeur);
+          // nieuwe primaire keuze → aanvullende keuzes resetten, opnieuw berekenen
+          state.aanpak = "";
+          segSet("aanpak", "");
+          computed = false;
+          renderLevel1();
+          renderLevel2();
         });
       });
-    });
 
     const uitingenSel = root.querySelector<HTMLSelectElement>('[data-input="aantalUitingen"]')!;
     uitingenSel.addEventListener("change", () => {
       state.aantalUitingen = Number(uitingenSel.value);
-      render();
+      computed = false;
+      renderLevel2();
     });
 
-    render();
+    // ---- "Bereken indicatie" → niveau 2 ------------------------------------
+    root.querySelector<HTMLButtonElement>("[data-calc]")!.addEventListener("click", () => {
+      computed = true;
+      renderLevel2();
+      el.level2.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+
+    // ---- Niveau 2: aanvullende vragen (live) -------------------------------
+    root.querySelector<HTMLElement>('[data-seg="aanpak"]')!
+      .querySelectorAll<HTMLButtonElement>("button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          state.aanpak = btn.dataset.value as State["aanpak"];
+          segSet("aanpak", state.aanpak);
+          if (state.aanpak !== "survey") {
+            state.smartSurvey = false;
+            segSet("smartSurvey", "nee");
+          }
+          renderLevel2();
+        });
+      });
+    root.querySelector<HTMLElement>('[data-seg="smartSurvey"]')!
+      .querySelectorAll<HTMLButtonElement>("button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          state.smartSurvey = btn.dataset.value === "ja";
+          segSet("smartSurvey", btn.dataset.value!);
+          renderLevel2();
+        });
+      });
+
+    // ---- "Opnieuw berekenen" ----------------------------------------------
+    root.querySelector<HTMLButtonElement>("[data-reset]")!.addEventListener("click", () => {
+      computed = false;
+      renderLevel2();
+      el.actionRow.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
 
     // ---- Resultaatknoppen: payload-hook [koppeling nog aanleveren] --------
     root.querySelectorAll<HTMLButtonElement>('[data-action="bestellen"],[data-action="verzenden"]').forEach((btn) => {
@@ -546,7 +614,6 @@
     const adviesBtn = root.querySelector<HTMLButtonElement>('[data-action="advies"]')!;
     const adviesForm = root.querySelector<HTMLElement>("[data-advies-form]")!;
     const adviesDone = root.querySelector<HTMLElement>("[data-advies-done]")!;
-
     const syncAdvies = () => {
       adviesBtn.disabled = !(adviesNaam.value.trim() && adviesContact.value.trim());
     };
@@ -564,5 +631,9 @@
       adviesForm.hidden = true;
       adviesDone.hidden = false;
     });
+
+    // init
+    renderLevel1();
+    renderLevel2();
   });
 </script>
