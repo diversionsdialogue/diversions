@@ -47,6 +47,10 @@ Referentie-implementatie:
 - **State in een gewoon JS-object** in de `.qcalc`-scope; render-functies werken
   het DOM bij. Eén `forEach(".qcalc")` zodat de module meerdere keren op een
   pagina kan staan.
+- **Gedeelde styling:** importeer [`styles/calculators.css`](apps/web/src/styles/calculators.css)
+  (`import "@/styles/calculators.css";`) i.p.v. de stijl per component te
+  dupliceren. Alle `.qcalc`/`.qc-*`-klassen staan daar; de component bevat alleen
+  markup + script.
 - **Sitetokens uit `global.css`** (kleuren, radius, schaduw, fonts) — identiek aan
   `colors_and_type.css`. Nooit hardcoden. Let op: `--color-pink-200` ís de
   butter-tint, `--primary` is terracotta, `--color-accent-400` is sage.
