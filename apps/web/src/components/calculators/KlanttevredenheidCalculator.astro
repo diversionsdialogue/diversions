@@ -1,0 +1,342 @@
+---
+import "@/styles/calculators.css";
+/**
+ * KlanttevredenheidCalculator — gestapte offerte-starter voor
+ * klanttevredenheidsonderzoek. Module-gebaseerde prijs (zie REKENMODULES.md).
+ *
+ *   Stap 1 — Opzet:   Respondenten (zelf aanleveren / werven) + Frequentie (eenmalig / doorlopend)
+ *   Stap 2 — Pakket:  modules (multi-select) + add-ons (smart survey, persoonlijk interview)
+ *
+ * Prijs (alle bedragen all-in):
+ *   modules: Klanttevredenheid 1500 (verplicht) + Toekomstwensen/Effectief
+ *            communiceren/Concurrentiekracht elk 750
+ *   smart survey  = 250 × aantal gekozen modules
+ *   persoonlijk interview = 1400 (7 interviews)
+ *   doorlopend    = + 3500 (meethuis + dashboard)
+ *   Respondenten "werven" → geen prijs ("- -") + verwijzing naar Doelgroeponderzoek.
+ *   Baseline (zelf, eenmalig, alleen Klanttevredenheid) = € 1.500.
+ *
+ * [koppeling nog aanleveren] — knoppen dispatchen "klanttevredenheid-calculator:submit".
+ * [bestemming nog aanleveren] — Doelgroeponderzoek-knop wijst voorlopig naar /onze-diensten.
+ */
+const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:2px;color:var(--primary)"><polyline points="20 6 9 17 4 12"/></svg>`;
+---
+
+<section class="qcalc" data-step="1" aria-label="Offerte-starter klanttevredenheidsonderzoek">
+  <div class="qc-card">
+    <div class="qc-topbar">
+      <span class="qc-brand">Bereken je prijsindicatie</span>
+      <ol class="qc-rail">
+        <li class="qc-railstep" data-railstep="1">
+          <button type="button" class="qc-pill" data-goto="1"><span class="qc-pillnum">1</span></button>
+          <span class="qc-pilllabel">Opzet</span>
+        </li>
+        <li class="qc-railsep" aria-hidden="true"></li>
+        <li class="qc-railstep" data-railstep="2">
+          <span class="qc-pill"><span class="qc-pillnum">2</span></span>
+          <span class="qc-pilllabel">Pakket</span>
+        </li>
+        <li class="qc-railsep" aria-hidden="true"></li>
+        <li class="qc-railstep" data-railstep="3">
+          <span class="qc-pill"><span class="qc-pillnum">3</span></span>
+          <span class="qc-pilllabel">Bestellen</span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="qc-body">
+      <div class="qc-main">
+        {/* ---------------- STAP 1 — Opzet ---------------- */}
+        <div class="qc-panel" data-panel="1">
+          <p class="qc-steplabel">Stap 1 van 3</p>
+          <h2 class="qc-title">Hoe zet je het onderzoek op?</h2>
+
+          <div class="qc-group">
+            <p class="qc-fieldlabel">Respondenten</p>
+            <div class="qc-seg" role="group" aria-label="Respondenten" data-seg="respondenten">
+              <button type="button" data-value="zelf" class="on" aria-pressed="true">Zelf aanleveren</button>
+              <button type="button" data-value="werven" aria-pressed="false">Respondenten werven</button>
+            </div>
+          </div>
+
+          <div class="qc-group">
+            <p class="qc-fieldlabel">Frequentie</p>
+            <div class="qc-seg" role="group" aria-label="Frequentie" data-seg="frequentie">
+              <button type="button" data-value="eenmalig" class="on" aria-pressed="true">Eenmalig</button>
+              <button type="button" data-value="doorlopend" aria-pressed="false">Doorlopend</button>
+            </div>
+            <p class="qc-help">Doorlopend: + € 3.500 voor het opzetten van een meethuis en dashboard.</p>
+          </div>
+
+          <button type="button" class="btn btn-primary btn-arrow qc-cta" data-next>
+            Bereken indicatie
+          </button>
+          <p class="qc-fineprint">Geen account, geen verkoopgesprek — een eerste indicatie binnen twee minuten.</p>
+        </div>
+
+        {/* ---------------- STAP 2 — Pakket ---------------- */}
+        <div class="qc-panel" data-panel="2" hidden>
+          <button type="button" class="qc-back" data-goto="1">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Vorige stap
+          </button>
+          <p class="qc-steplabel">Stap 2 van 3</p>
+          <h2 class="qc-title qc-title--sm">Kies het onderzoekspakket</h2>
+
+          <div class="qc-group">
+            <p class="qc-fieldlabel">Modules</p>
+            <div class="qc-choices qc-choices--2">
+              <label class="qc-choice">
+                <input type="checkbox" name="module" value="klant" checked disabled />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Klanttevredenheid</span>
+                  <span class="qc-choicesub">€ 1.500 · altijd inbegrepen</span>
+                </span>
+              </label>
+              <label class="qc-choice">
+                <input type="checkbox" name="module" value="toekomst" />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Toekomstwensen</span>
+                  <span class="qc-choicesub">+ € 750</span>
+                </span>
+              </label>
+              <label class="qc-choice">
+                <input type="checkbox" name="module" value="effectief" />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Effectief communiceren</span>
+                  <span class="qc-choicesub">+ € 750</span>
+                </span>
+              </label>
+              <label class="qc-choice">
+                <input type="checkbox" name="module" value="concurrentie" />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Concurrentiekracht</span>
+                  <span class="qc-choicesub">+ € 750</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="qc-group">
+            <p class="qc-fieldlabel">Verdieping (optioneel)</p>
+            <p class="qc-help">
+              Surveys geven een goed beeld van de mening en aandachtspunten van
+              klanten. Wil je meer inzicht in de achterliggende motieven en
+              drijfveren? Kies dan een van deze opties.
+            </p>
+            <div class="qc-choices qc-choices--2">
+              <label class="qc-choice">
+                <input type="checkbox" name="addon" value="smart" />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Smart survey</span>
+                  <span class="qc-choicesub">Met AI gericht doorvragen om klantgedrag beter te begrijpen. + € 250 per gekozen module.</span>
+                </span>
+              </label>
+              <label class="qc-choice">
+                <input type="checkbox" name="addon" value="interview" />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Persoonlijke interviews</span>
+                  <span class="qc-choicesub">7 diepte-interviews voor de achtergrond van klantwaardering en -voorkeuren. + € 1.400.</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="qc-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <p>Specifieke onderzoekswensen? <a href="tel:+31552032193">Neem contact met ons op.</a></p>
+          </div>
+        </div>
+      </div>
+
+      {/* Prijspaneel (desktop) */}
+      <aside class="qc-summary">
+        <div>
+          <p class="qc-sumlabel">Jouw indicatie</p>
+          <p class="qc-sumprice" data-price>&euro; 1.500</p>
+          <p class="qc-sumnote">excl. btw · richtprijs op basis van je keuzes</p>
+        </div>
+        <div class="qc-sumdivider"></div>
+        <div data-normal>
+          <div class="qc-sumactions">
+            <button type="button" class="btn btn-primary btn-arrow" data-action="bestellen">Direct bestellen</button>
+            <button type="button" class="btn btn-outline" data-action="advies">Advies aanvragen</button>
+          </div>
+          <p class="qc-sumfine">Geen account nodig. Na bestelling neemt een onderzoeker binnen één werkdag contact op.</p>
+        </div>
+        <div data-werven hidden>
+          <p class="qc-sumnote" style="margin-bottom:14px">Bij werving van respondenten verwijzen we je graag naar ons Doelgroeponderzoek.</p>
+          <a href="/onze-diensten" class="btn btn-primary btn-arrow" style="width:100%">Doelgroeponderzoek</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  {/* Mobiel: sticky prijsbalk */}
+  <div class="qc-stickybar" data-stickybar>
+    <div class="qc-stickyprice">
+      <p class="qc-sumlabel">Jouw indicatie</p>
+      <p class="qc-stickyamount" data-price>&euro; 1.500</p>
+    </div>
+    <span class="qc-stickyexcl" data-normal>excl. btw · richtprijs</span>
+    <span class="qc-stickyexcl" data-werven hidden>werving → Doelgroeponderzoek</span>
+    <div class="qc-stickyactions" data-normal>
+      <button type="button" class="btn btn-primary btn-arrow" data-action="bestellen">Direct bestellen</button>
+      <button type="button" class="btn btn-outline" data-action="advies">Advies</button>
+    </div>
+    <div class="qc-stickyactions" data-werven hidden>
+      <a href="/onze-diensten" class="btn btn-primary btn-arrow" style="flex:1">Doelgroeponderzoek</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // --- Rekentechniek (Calculator-config-klanttevredenheid). Alle bedragen all-in.
+  const MODULE: Record<string, number> = {
+    klant: 1500, // verplicht
+    toekomst: 750,
+    effectief: 750,
+    concurrentie: 750,
+  };
+  const SMART_PER_MODULE = 250;
+  const INTERVIEW = 1400;
+  const DOORLOPEND = 3500;
+
+  const nf = new Intl.NumberFormat("nl-NL");
+  const euro = (n: number) => `€ ${nf.format(Math.round(n))}`;
+
+  type State = {
+    respondenten: "zelf" | "werven";
+    frequentie: "eenmalig" | "doorlopend";
+    modules: Set<string>; // bevat altijd "klant"
+    smart: boolean;
+    interview: boolean;
+  };
+
+  function priceFor(s: State): number {
+    let total = 0;
+    s.modules.forEach((m) => (total += MODULE[m] ?? 0));
+    if (s.smart) total += SMART_PER_MODULE * s.modules.size;
+    if (s.interview) total += INTERVIEW;
+    if (s.frequentie === "doorlopend") total += DOORLOPEND;
+    return total;
+  }
+
+  document.querySelectorAll<HTMLElement>(".qcalc").forEach((root) => {
+    // Alleen deze calculator afhandelen.
+    if (!root.querySelector('[data-seg="respondenten"]')) return;
+
+    const state: State = {
+      respondenten: "zelf",
+      frequentie: "eenmalig",
+      modules: new Set(["klant"]),
+      smart: false,
+      interview: false,
+    };
+    let step = 1;
+
+    const panels = root.querySelectorAll<HTMLElement>("[data-panel]");
+    const railsteps = root.querySelectorAll<HTMLElement>("[data-railstep]");
+    const prices = root.querySelectorAll<HTMLElement>("[data-price]");
+    const normalBlocks = root.querySelectorAll<HTMLElement>("[data-normal]");
+    const wervenBlocks = root.querySelectorAll<HTMLElement>("[data-werven]");
+
+    const renderRail = () => {
+      railsteps.forEach((rs) => {
+        const n = Number(rs.dataset.railstep);
+        const num = rs.querySelector<HTMLElement>(".qc-pillnum")!;
+        const s2 = n < step ? "done" : n === step ? "active" : "todo";
+        rs.dataset.state = s2;
+        num.innerHTML =
+          s2 === "done"
+            ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
+            : String(n);
+      });
+    };
+
+    const render = () => {
+      const werven = state.respondenten === "werven";
+      prices.forEach((el) => (el.textContent = werven ? "- -" : euro(priceFor(state))));
+      normalBlocks.forEach((el) => (el.hidden = werven));
+      wervenBlocks.forEach((el) => (el.hidden = !werven));
+    };
+
+    const goTo = (n: number) => {
+      step = n;
+      root.dataset.step = String(n);
+      panels.forEach((p) => (p.hidden = p.dataset.panel !== String(n)));
+      renderRail();
+      root.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    // Segmented controls (respondenten / frequentie)
+    root.querySelectorAll<HTMLElement>("[data-seg]").forEach((seg) => {
+      const name = seg.dataset.seg!;
+      seg.querySelectorAll<HTMLButtonElement>("button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const v = btn.dataset.value!;
+          seg.querySelectorAll<HTMLButtonElement>("button").forEach((b) => {
+            const on = b === btn;
+            b.classList.toggle("on", on);
+            b.setAttribute("aria-pressed", on ? "true" : "false");
+          });
+          if (name === "respondenten") state.respondenten = v as State["respondenten"];
+          else if (name === "frequentie") state.frequentie = v as State["frequentie"];
+          render();
+        });
+      });
+    });
+
+    // Modules (multi-select)
+    root.querySelectorAll<HTMLInputElement>('input[name="module"]').forEach((inp) => {
+      inp.addEventListener("change", () => {
+        if (inp.checked) state.modules.add(inp.value);
+        else state.modules.delete(inp.value);
+        render();
+      });
+    });
+
+    // Add-ons (smart / interview)
+    root.querySelectorAll<HTMLInputElement>('input[name="addon"]').forEach((inp) => {
+      inp.addEventListener("change", () => {
+        if (inp.value === "smart") state.smart = inp.checked;
+        else if (inp.value === "interview") state.interview = inp.checked;
+        render();
+      });
+    });
+
+    root.querySelector<HTMLButtonElement>("[data-next]")!.addEventListener("click", () => goTo(2));
+    root.querySelectorAll<HTMLButtonElement>("[data-goto]").forEach((b) => {
+      b.addEventListener("click", () => goTo(Number(b.dataset.goto)));
+    });
+
+    // Bestellen / Advies → payload-hook [koppeling nog aanleveren]
+    root.querySelectorAll<HTMLButtonElement>('[data-action="bestellen"],[data-action="advies"]').forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const payload = {
+          calculator: "klanttevredenheid",
+          actie: btn.dataset.action,
+          keuzes: {
+            respondenten: state.respondenten,
+            frequentie: state.frequentie,
+            modules: [...state.modules],
+            smart: state.smart,
+            interview: state.interview,
+          },
+          richtprijs: Math.round(priceFor(state)),
+        };
+        root.dispatchEvent(new CustomEvent("klanttevredenheid-calculator:submit", { detail: payload, bubbles: true }));
+        console.info("[klanttevredenheid-calculator] submit", payload);
+      });
+    });
+
+    renderRail();
+    render();
+  });
+</script>

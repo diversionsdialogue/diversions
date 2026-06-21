@@ -4,6 +4,8 @@ import ServicesLayout from "../../layouts/ServicesLayout.astro";
 import PortableText from "@/components/global/PortableText.astro";
 import PretestCalculator from "@/components/calculators/PretestCalculator.astro";
 import EffectmetingCalculator from "@/components/calculators/EffectmetingCalculator.astro";
+import CustomerJourneyCalculator from "@/components/calculators/CustomerJourneyCalculator.astro";
+import KlanttevredenheidCalculator from "@/components/calculators/KlanttevredenheidCalculator.astro";
 import ServicePitch from "@/components/calculators/ServicePitch.astro";
 import { getAllServices } from "@/lib/data";
 import { portableTextToPlainText } from "@/lib/sanity/portableText";
@@ -11,9 +13,11 @@ import { portableTextToPlainText } from "@/lib/sanity/portableText";
 // Dienstpagina's met een richtprijs-calculator boven de hero. Slug → welke
 // calculator. Uitbreidbaar: voeg een slug + calculator toe. Promoveer dit later
 // eventueel naar een Sanity-schemaveld.
-const CALCULATORS: Record<string, "pretest" | "effectmeting"> = {
+const CALCULATORS: Record<string, "pretest" | "effectmeting" | "customer-journey" | "klanttevredenheid"> = {
   pretest: "pretest",
   "campagne-effectonderzoek": "effectmeting",
+  "customer-journey": "customer-journey",
+  klanttevredenheidsonderzoek: "klanttevredenheid",
 };
 
 export async function getStaticPaths() {
@@ -48,6 +52,8 @@ const minutes = plain
       >
         {calculator === "pretest" && <PretestCalculator />}
         {calculator === "effectmeting" && <EffectmetingCalculator />}
+        {calculator === "customer-journey" && <CustomerJourneyCalculator />}
+        {calculator === "klanttevredenheid" && <KlanttevredenheidCalculator />}
       </ServicePitch>
     )
   }
