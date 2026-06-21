@@ -16,29 +16,27 @@ import { getAllServices, getAllWorkItems } from "@/lib/data";
 const services = [
   {
     n: "01",
-    title: "Onderzoek & insights",
-    desc: "Kwalitatief en kwantitatief klantonderzoek dat de wensen achter het gedrag blootlegt — de basis voor elke verbetering.",
-    href: "/services/onderzoek",
+    title: "Klanttevredenheidsonderzoek",
+    desc: "Meten wat klanten waarderen en missen: structureel zicht op tevredenheid, loyaliteit en verbeterkansen.",
+    href: "/services/nps-enquete",
   },
   {
     n: "02",
-    title: "Customer journey",
-    desc: "Denken en innoveren vanuit het perspectief van de klant. Een krachtig startpunt om je dienstverlening te optimaliseren.",
+    title: "Customer journey onderzoek",
+    desc: "De complete klantreis in kaart: niet beperkt tot analyse van contactmomenten, maar gericht op de totale klantbeleving.",
     href: "/services/customer-journey",
   },
   {
     n: "03",
-    title: "Conversie-optimalisatie",
-    desc: "Doorlopend testen en verbeteren. Meer rendement uit je online activiteiten, stap voor stap en meetbaar.",
-    href: "/services/conversie-optimalisatie",
+    title: "Campagne-effectonderzoek",
+    desc: "Inzicht in bereik, herinnering en overtuigingskracht. Gericht op campagneoptimalisatie, nu en in de toekomst.",
+    href: "/services/campagne-effectonderzoek",
   },
   {
     n: "04",
-    title: "SEO & online marketing",
-    desc: "Beter gevonden worden door de juiste mensen. Van zoekwoordstrategie tot organisch en betaald zoekverkeer.",
-    // /services/seo-marketing is verwijderd (niet-geindexeerd-opschoning 2026-05-31).
-    // Tijdelijk naar het diensten-overzicht; eigenaar kan dit later herrichten.
-    href: "/onze-diensten",
+    title: "Pretest",
+    desc: "Test je boodschap of concept vóór lancering: voorkom tunnelvisie, en stuur op de input van echte klanten.",
+    href: "/services/pretest",
   },
 ];
 
@@ -150,6 +148,10 @@ const featuredWork = allWork.slice(0, 4).map((item) => ({
           </a>
         ))
       }
+    </div>
+
+    <div class="services-all">
+      <a href="/onze-diensten" class="btn btn-outline btn-arrow">Bekijk alle diensten</a>
     </div>
   </section>
 

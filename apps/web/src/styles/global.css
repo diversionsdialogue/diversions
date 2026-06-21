@@ -787,6 +787,9 @@
 }
 
 /* ---------------- SERVICES LIST (home) ---------------- */
+.services-all {
+  margin-top: 28px;
+}
 .services-list {
   display: grid;
   grid-template-columns: 1fr;
