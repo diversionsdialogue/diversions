@@ -6,6 +6,7 @@
 // daarom GEFLAGD als design-placeholder voor de content-eigenaar.
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Picture from "@/components/global/Picture.astro";
+import TrustStrip from "@/components/global/TrustStrip.astro";
 import { getAllServices, getAllWorkItems } from "@/lib/data";
 
 // --- Services (home): vier hoofddiensten uit het design, gekoppeld aan echte
@@ -114,6 +115,10 @@ const featuredWork = allWork.slice(0, 4).map((item) => ({
         <h3 class="prop-title"><span class="arrow">→</span>naar actie</h3>
         <p class="prop-desc">We bieden concrete handvatten voor vervolgacties.</p>
       </div>
+    </div>
+
+    <div class="hero-trust">
+      <TrustStrip />
     </div>
   </section>
 

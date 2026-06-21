@@ -11,6 +11,7 @@
  * standaard artikel-hero uit (ServicesLayout `hidePageHero`).
  */
 import Picture from "@/components/global/Picture.astro";
+import TrustStrip from "@/components/global/TrustStrip.astro";
 interface Props {
   eyebrow?: string;
   title: string;
@@ -42,25 +43,8 @@ const {
 
     <slot />
 
-    <div class="pitch-trust">
-      <div class="trust-item">
-        <span class="trust-logo">
-          <Picture src="/img/logo-bnr.png" alt="BNR Nieuwsradio" />
-        </span>
-        <span>Gezien op <strong>BNR</strong> en <strong>Managementboek</strong></span>
-      </div>
-      <div class="trust-item">
-        <span class="trust-logo">
-          <Picture src="/img/logo-data-insights.png" alt="Data & Insights Network" />
-        </span>
-        <span>Lid <strong>Data &amp; Insights netwerk</strong></span>
-      </div>
-      <div class="trust-item">
-        <span class="trust-logo">
-          <Picture src="/img/logo-avg.png" alt="AVG — Europese privacywetgeving" />
-        </span>
-        <span><strong>AVG-proof</strong>, Europees gehost</span>
-      </div>
+    <div class="pitch-trust-wrap">
+      <TrustStrip />
     </div>
   </div>
 </section>
@@ -152,47 +136,6 @@ const {
     text-wrap: pretty;
   }
 
-  /* Trust strip onder de calculator */
-  .pitch-trust {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px 32px;
-    margin-top: 32px;
-  }
-  @media (min-width: 640px) {
-    .pitch-trust { grid-template-columns: repeat(3, 1fr); }
-  }
-  .trust-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    font-family: var(--font-subtitle);
-    font-weight: 500;
-    font-size: 14px;
-    color: var(--ink-strong);
-    line-height: 1.35;
-  }
-  .trust-item strong { font-weight: 600; }
-  .trust-logo {
-    width: 48px;
-    height: 48px;
-    border-radius: var(--radius-md);
-    flex-shrink: 0;
-    background: #fff;
-    border: 1px solid var(--border);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    overflow: clip;
-    padding: 7px;
-  }
-  .trust-logo :global(picture) { display: inline-flex; }
-  .trust-logo :global(img) {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    display: block;
-  }
+  /* Trust strip onder de calculator (styling in TrustStrip.astro). */
+  .pitch-trust-wrap { margin-top: 32px; }
 </style>
