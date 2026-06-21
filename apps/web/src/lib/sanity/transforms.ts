@@ -34,7 +34,10 @@ function deriveSlug(id: string, prefix: string, explicit?: string): string {
 function safeImageUrl(source: any): string {
   if (!source || !source.asset) return "";
   try {
-    return urlFor(source).url();
+    // auto("format") laat de Sanity-CDN per bezoeker AVIF/WebP serveren; max-
+    // breedte + quality als plafond. Geldt automatisch voor elke (toekomstige)
+    // upload — geen werk per beeld.
+    return urlFor(source).auto("format").quality(75).width(1600).fit("max").url();
   } catch {
     return "";
   }

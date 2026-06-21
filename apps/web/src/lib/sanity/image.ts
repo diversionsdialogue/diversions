@@ -27,7 +27,7 @@ export function getImageUrl(
   width: number,
   height?: number
 ): string {
-  const url = urlFor(source).width(width);
+  const url = urlFor(source).auto("format").quality(75).width(width);
   if (height) {
     return url.height(height).url();
   }
@@ -41,7 +41,7 @@ export function getImageUrl(
  */
 export function getImageMeta(image: any): { url: string; alt: string } {
   return {
-    url: urlFor(image).url(),
+    url: urlFor(image).auto("format").quality(75).width(1600).fit("max").url(),
     alt: image.alt || "",
   };
 }
