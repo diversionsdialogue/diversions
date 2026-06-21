@@ -5,6 +5,7 @@
 // getAllWorkItems). Hero-meta + quote zijn design-content (geen collection-bron) en
 // daarom GEFLAGD als design-placeholder voor de content-eigenaar.
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import Picture from "@/components/global/Picture.astro";
 import { getAllServices, getAllWorkItems } from "@/lib/data";
 
 // --- Services (home): vier hoofddiensten uit het design, gekoppeld aan echte
@@ -89,7 +90,7 @@ const featuredWork = allWork.slice(0, 4).map((item) => ({
     </div>
 
     <div class="hero-image">
-      <img src="/img/onderzoeksbureau Diversions4.png" alt="Onderzoeksbureau Diversions" />
+      <Picture src="/img/onderzoeksbureau-diversions-4.jpg" alt="Onderzoeksbureau Diversions" loading="eager" />
     </div>
 
     <div class="prop-grid">
@@ -190,14 +191,12 @@ const featuredWork = allWork.slice(0, 4).map((item) => ({
         van het eerste inzicht tot een meetbaar resultaat.
       </p>
       <div class="quote-attr">
-        <img
+        <Picture
           class="avatar"
           src="/img/william-burghout.png"
           alt="William Burghout, Diversions"
-          width="44"
-          height="44"
-          loading="lazy"
-          decoding="async"
+          width={44}
+          height={44}
         />
         <div>
           <div class="quote-who">Team Diversions</div>

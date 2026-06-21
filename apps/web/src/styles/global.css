@@ -570,6 +570,11 @@
   overflow: hidden;
   background: var(--color-accent-200);
 }
+.hero-image picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 .hero-image img {
   width: 100%;
   height: 100%;
@@ -1193,6 +1198,11 @@
     aspect-ratio: auto;
     min-height: 320px;
   }
+}
+.sa-hero-image picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .sa-hero-image img {
   width: 100%;

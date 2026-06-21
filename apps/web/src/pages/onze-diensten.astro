@@ -1,6 +1,7 @@
 ---
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import Picture from "@/components/global/Picture.astro";
 import { getAllServices } from "@/lib/data";
 // Neutrale placeholder-miniatuur (diensten hebben nog geen eigen thumbnail in
 // Sanity; gebruiker uploadt die later in de Studio). Geimporteerd als
@@ -57,7 +58,7 @@ const categoryFilters = [
     </a>
     <div class="sa-hero-image">
       {/* HANDMATIG/quality (Fase 6): hero-beeld is een design-placeholder. */}
-      <img src="/img/about.jpeg" alt="" />
+      <Picture src="/img/about.jpg" alt="" loading="eager" />
     </div>
   </section>
 
