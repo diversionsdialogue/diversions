@@ -49,6 +49,8 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
       </ol>
     </div>
 
+    <div class="qc-body">
+      <div class="qc-main">
     {/* ---------------- STAP 1 — Voorkeur ---------------- */}
     <div class="qc-panel" data-panel="1">
       <p class="qc-steplabel">Stap 1 van 3</p>
@@ -90,8 +92,6 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
 
     {/* ---------------- STAP 2 — Onderzoek ---------------- */}
     <div class="qc-panel" data-panel="2" hidden>
-      <div class="qc-step2grid">
-        <div class="qc-form">
           <button type="button" class="qc-back" data-goto="1">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
             Vorige stap
@@ -172,25 +172,25 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
             <p>Wil je meer keuzemogelijkheden? <a href="tel:+31552032193">Neem contact met ons op.</a></p>
           </div>
-        </div>
-
-        {/* Desktop: sticky zijpaneel */}
-        <aside class="qc-summary">
-          <div>
-            <p class="qc-sumlabel">Jouw indicatie</p>
-            <p class="qc-sumprice" data-price>&euro; 680</p>
-            <p class="qc-sumnote">excl. btw · richtprijs op basis van je keuzes</p>
-          </div>
-          <div class="qc-sumdivider"></div>
-          <div class="qc-sumactions">
-            <button type="button" class="btn btn-primary btn-arrow" data-action="bestellen">
-              Direct bestellen
-            </button>
-            <button type="button" class="btn btn-outline" data-action="advies">Advies aanvragen</button>
-          </div>
-          <p class="qc-sumfine">Geen account nodig. Na bestelling neemt een onderzoeker binnen één werkdag contact op.</p>
-        </aside>
+    </div>
       </div>
+
+      {/* Zijpaneel met prijsindicatie — zichtbaar in beide stappen (desktop) */}
+      <aside class="qc-summary">
+        <div>
+          <p class="qc-sumlabel">Jouw indicatie</p>
+          <p class="qc-sumprice" data-price>&euro; 680</p>
+          <p class="qc-sumnote">excl. btw · richtprijs op basis van je keuzes</p>
+        </div>
+        <div class="qc-sumdivider"></div>
+        <div class="qc-sumactions">
+          <button type="button" class="btn btn-primary btn-arrow" data-action="bestellen">
+            Direct bestellen
+          </button>
+          <button type="button" class="btn btn-outline" data-action="advies">Advies aanvragen</button>
+        </div>
+        <p class="qc-sumfine">Geen account nodig. Na bestelling neemt een onderzoeker binnen één werkdag contact op.</p>
+      </aside>
     </div>
   </div>
 
@@ -261,8 +261,19 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
     .qc-railsep { width: 16px; }
   }
 
-  .qc-panel { padding: 28px 22px 32px; }
-  @media (min-width: 768px) { .qc-panel { padding: 36px 36px 44px; } }
+  /* qc-body: hoofdkolom + prijspaneel naast elkaar (desktop), in beide stappen. */
+  .qc-body { padding: 28px 22px 32px; }
+  @media (min-width: 768px) { .qc-body { padding: 36px 36px 44px; } }
+  @media (min-width: 900px) {
+    .qc-body {
+      display: grid;
+      grid-template-columns: 1.6fr 0.9fr;
+      gap: 40px;
+      align-items: start;
+    }
+  }
+  .qc-main { min-width: 0; }
+  .qc-panel { padding: 0; }
   .qc-panel[hidden] { display: none; }
 
   .qc-back {
@@ -321,8 +332,6 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
   .qc-fineprint { font-family: var(--font-sans); font-size: 13px; color: var(--ink-mute); text-align: center; margin: 14px 0 0; line-height: 1.4; }
 
   /* Stap 2 layout */
-  .qc-step2grid { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: start; }
-  @media (min-width: 900px) { .qc-step2grid { grid-template-columns: 1.6fr 0.9fr; gap: 40px; } }
 
   .qc-expert {
     display: flex; gap: 16px; padding: 18px;
@@ -522,6 +531,8 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
         } else {
           state.aanpak = "";
         }
+        // prijs in het zijpaneel meteen bijwerken (ook in stap 1)
+        renderPrice();
       });
     });
 
