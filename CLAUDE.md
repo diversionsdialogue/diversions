@@ -206,5 +206,7 @@ _Referentie-bestanden: [`AGENTS.md`](AGENTS.md), [`README.md`](README.md),
 [`STARTING-UP.md`](STARTING-UP.md),
 [`DATALAAG-SANITY-ASTRO.md`](DATALAAG-SANITY-ASTRO.md) (hoe content van Sanity naar
 de Astro-site stroomt + valkuilen),
+[`REKENMODULES.md`](REKENMODULES.md) (standaarden voor prijscalculators:
+uitgangspunten, techniek, prijsmodel, flow en stappenplan),
 [`.claude/agents/workflow-wordpress-naar-astro.md`](.claude/agents/workflow-wordpress-naar-astro.md),
 [`.claude/agents/theme-profiel-lexington-sanity.md`](.claude/agents/theme-profiel-lexington-sanity.md)._
