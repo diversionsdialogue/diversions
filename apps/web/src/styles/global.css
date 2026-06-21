@@ -828,6 +828,11 @@
   line-height: 1.1;
   color: var(--ink-strong);
   margin: 0;
+  /* Lange samenstellingen (bv. "Klanttevredenheidsonderzoek") netjes binnen het
+     contentvlak houden: hyphens (lang=nl) voor nette breuk + anywhere als
+     vangnet dat ook de min-content-breedte verkleint (zodat niets overflowt). */
+  hyphens: auto;
+  overflow-wrap: anywhere;
 }
 .service-desc {
   font-family: var(--font-sans);
