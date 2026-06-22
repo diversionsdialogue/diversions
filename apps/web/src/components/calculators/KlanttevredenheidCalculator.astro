@@ -246,6 +246,7 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
     const prices = root.querySelectorAll<HTMLElement>("[data-price]");
     const normalBlocks = root.querySelectorAll<HTMLElement>("[data-normal]");
     const wervenBlocks = root.querySelectorAll<HTMLElement>("[data-werven]");
+    const nextBtn = root.querySelector<HTMLButtonElement>("[data-next]")!;
 
     const renderRail = () => {
       railsteps.forEach((rs) => {
@@ -265,6 +266,9 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
       prices.forEach((el) => (el.textContent = werven ? "- -" : euro(priceFor(state))));
       normalBlocks.forEach((el) => (el.hidden = werven));
       wervenBlocks.forEach((el) => (el.hidden = !werven));
+      // Werving → geen prijs (verwijzing naar Doelgroeponderzoek): stap 2 niet bereikbaar.
+      nextBtn.disabled = werven;
+      nextBtn.setAttribute("aria-disabled", werven ? "true" : "false");
     };
 
     const goTo = (n: number) => {
@@ -311,7 +315,7 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
       });
     });
 
-    root.querySelector<HTMLButtonElement>("[data-next]")!.addEventListener("click", () => goTo(2));
+    nextBtn.addEventListener("click", () => goTo(2));
     root.querySelectorAll<HTMLButtonElement>("[data-goto]").forEach((b) => {
       b.addEventListener("click", () => goTo(Number(b.dataset.goto)));
     });

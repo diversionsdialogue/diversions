@@ -89,6 +89,9 @@ button.qc-pill { cursor: pointer; }
 .qc-choice:has(input:checked) .qc-radio { border-color: var(--primary); }
 .qc-choice:has(input:checked) .qc-radio::after { transform: scale(1); }
 .qc-choice:has(input:focus-visible) { outline: 2px solid var(--ring); outline-offset: 2px; }
+/* Checkbox-keuzes (multi-select): vierkant selectievak i.p.v. rondje */
+.qc-choice:has(input[type="checkbox"]) .qc-radio { border-radius: 6px; }
+.qc-choice:has(input[type="checkbox"]) .qc-radio::after { border-radius: 2px; }
 .qc-choicebody { flex: 1; min-width: 0; }
 .qc-choicetitle { display: block; font-family: var(--font-subtitle); font-weight: 600; font-size: 17px; color: var(--ink); }
 .qc-bullets { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
@@ -110,6 +113,8 @@ button.qc-pill { cursor: pointer; }
 .qc-seg button:focus-visible { outline: 2px solid var(--ring); outline-offset: -2px; }
 
 .qc-cta { width: 100%; margin-top: 22px; }
+/* Inactieve knop binnen een calculator (bv. werving → geen prijs) */
+.qcalc .btn:disabled { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
 .qc-fineprint { font-family: var(--font-sans); font-size: 13px; color: var(--ink-mute); text-align: center; margin: 14px 0 0; line-height: 1.4; }
 
 /* Stap-2 velden */
