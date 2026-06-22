@@ -1,0 +1,245 @@
+{
+  "calculator": "pretest",
+  "versie": "2026-06-20f",
+  "titel": "Snel een eerste prijsindicatie",
+  "tabs": [
+    "Snel een eerste prijsindicatie",
+    "Liever direct advies"
+  ],
+  "disclaimer": "Een betrouwbare prijsindicatie op basis van vergelijkbare onderzoeken. Geen bindende offerte.",
+  "aannames": {
+    "nVast": true,
+    "n": 150,
+    "wervingAltijdViaPanel": true,
+    "valuta": "EUR",
+    "exclBtw": true
+  },
+  "klanttekst": {
+    "introOnderTitel": "Bereken in een paar klikken een richtprijs voor je pretest.",
+    "voorkeur": {
+      "vraag": "Wat heeft je voorkeur?",
+      "snel": {
+        "titel": "Snel inzicht",
+        "features": [
+          "Feedback op design & inhoud",
+          "Binnen een werkdag beschikbaar",
+          "150 respondenten"
+        ]
+      },
+      "verdiepend": {
+        "titel": "Verdiepend inzicht",
+        "sub": "Cijfers én het waarom erachter. Je bepaalt de aanpak in overleg."
+      }
+    },
+    "aanpak": {
+      "vraag": "Hoe wil je verdiepen?",
+      "survey": {
+        "titel": "Survey",
+        "uitleg": "Je meet bij 150 respondenten hoe je uiting overkomt: begrip, gevoel, onderscheid en activering. Harde cijfers die je vergelijkt tussen versies en in de tijd."
+      },
+      "kwali": {
+        "titel": "Kwalitatief",
+        "uitleg": "Vijf diepte-interviews leggen bloot waaróm iets wel of niet werkt. Een survey op dezelfde meetlat valideert de bevindingen kwantitatief."
+      }
+    },
+    "smartSurvey": {
+      "vraag": "Wil je het onderzoek verrijken met een Smart Survey?",
+      "uitleg": "Met behulp van AI maken we de vragenlijst interactief: respondenten krijgen gerichte vervolgvragen op hun antwoorden. Dat leidt tot scherpere inzichten, zonder extra doorlooptijd."
+    },
+    "resultaat": {
+      "prijslabel": "Richtprijs",
+      "disclaimer": "Een betrouwbare prijsindicatie, geen bindende offerte.",
+      "knoppen": [
+        {
+          "id": "verzenden",
+          "label": "Prijsindicatie verzenden",
+          "stijl": "secundair"
+        },
+        {
+          "id": "bestellen",
+          "label": "Direct bestellen",
+          "stijl": "primair"
+        }
+      ],
+      "contactblok": "Heb je specifieke onderzoekswensen, bijvoorbeeld bij de selectie van doelgroepen? Neem dan contact op: (055) 20 32 193."
+    }
+  },
+  "inputs": [
+    {
+      "id": "voorkeur",
+      "label": "Wat heeft je voorkeur?",
+      "type": "segmented",
+      "eersteKeuze": true,
+      "opties": [
+        {
+          "value": "snel",
+          "label": "Snel inzicht",
+          "features": [
+            "Feedback op design & inhoud",
+            "Binnen een werkdag beschikbaar",
+            "150 respondenten"
+          ],
+          "tier": "Direct"
+        },
+        {
+          "value": "verdiepend",
+          "label": "Verdiepend inzicht",
+          "sub": "Cijfers én het waarom erachter. Je bepaalt de aanpak in overleg."
+        }
+      ]
+    },
+    {
+      "id": "aantalUitingen",
+      "label": "Aantal uitingen",
+      "type": "select",
+      "toonAls": "voorkeur == 'snel'",
+      "opties": [
+        {
+          "value": 1,
+          "label": "1 uiting"
+        },
+        {
+          "value": 2,
+          "label": "2 uitingen"
+        },
+        {
+          "value": 3,
+          "label": "3 uitingen"
+        }
+      ]
+    },
+    {
+      "id": "aanpak",
+      "label": "Hoe wil je verdiepen?",
+      "type": "segmented",
+      "toonAls": "voorkeur == 'verdiepend'",
+      "opties": [
+        {
+          "value": "survey",
+          "label": "Survey",
+          "uitleg": "Je meet bij 150 respondenten hoe je uiting overkomt: begrip, gevoel, onderscheid en activering. Harde cijfers die je vergelijkt tussen versies en in de tijd.",
+          "tier": "Core"
+        },
+        {
+          "value": "kwali",
+          "label": "Kwalitatief",
+          "uitleg": "Vijf diepte-interviews leggen bloot waaróm iets wel of niet werkt. Een survey op dezelfde meetlat valideert de bevindingen kwantitatief.",
+          "tier": "Plus"
+        }
+      ]
+    },
+    {
+      "id": "smartSurvey",
+      "label": "Wil je het onderzoek verrijken met een Smart Survey?",
+      "type": "toggle",
+      "toonAls": "aanpak == 'survey'",
+      "toelichting": "Met behulp van AI maken we de vragenlijst interactief: respondenten krijgen gerichte vervolgvragen op hun antwoorden. Dat leidt tot scherpere inzichten, zonder extra doorlooptijd."
+    }
+  ],
+  "routing": [
+    {
+      "als": "voorkeur == 'snel'",
+      "tier": "Direct"
+    },
+    {
+      "als": "voorkeur == 'verdiepend' && aanpak == 'survey'",
+      "tier": "Core"
+    },
+    {
+      "als": "voorkeur == 'verdiepend' && aanpak == 'kwali'",
+      "tier": "Plus"
+    }
+  ],
+  "tiers": {
+    "Direct": {
+      "methodeKlant": "Aandachtsanalyse + korte survey (5 vragen), per uiting",
+      "n": 150,
+      "perUiting": true,
+      "doorlooptijd": "binnen een werkdag",
+      "marge": 250
+    },
+    "Core": {
+      "methodeKlant": "Uitgebreide survey, optioneel verrijkt met een Smart Survey (AI-doorvraag)",
+      "n": 150,
+      "perUiting": false,
+      "doorlooptijd": "in overleg",
+      "marge": 750
+    },
+    "Plus": {
+      "methodeKlant": "Kwalitatieve diepte-interviews (5 sessies) + survey ter validatie",
+      "n": 150,
+      "nSessies": 5,
+      "perUiting": false,
+      "doorlooptijd": "in overleg",
+      "marge": 750
+    }
+  },
+  "tarievenIntern": {
+    "_let_op": "INTERN — leveranciersnamen nooit klantgericht tonen.",
+    "norstatExpressPlatform": 130,
+    "norstatExpressPerRespondent": 2,
+    "testingTimePerRespondent": 80,
+    "eigenInterviewPerSessie": 200,
+    "surveySparrowStandaard": 250,
+    "smartSurvey": 750,
+    "reguliereKwantiPerComplete": 4.5,
+    "attentionInsightPerProject": 0,
+    "opmerking": "Werving altijd via ons panel. Attention Insight altijd inbegrepen. Plus = kwali-interviews (hero) + survey volgens Core-specs ter validatie; per sessie naast werving (80) ook eigen begeleiding/analyse (200)."
+  },
+  "marge": {
+    "Direct": 250,
+    "Core": 750,
+    "Plus": 750
+  },
+  "prijsformule": {
+    "Direct": "norstatExpressPlatform + (norstatExpressPerRespondent * n * aantalUitingen) + marge",
+    "Core": "(smartSurvey ? smartSurvey : surveySparrowStandaard) + (reguliereKwantiPerComplete * n) + marge",
+    "Plus": "surveySparrowStandaard + (reguliereKwantiPerComplete * n) + (testingTimePerRespondent * nSessies) + (eigenInterviewPerSessie * nSessies) + marge"
+  },
+  "voorbeelden": [
+    {
+      "tier": "Direct",
+      "uitingen": 1,
+      "berekening": "130 + (2 x 150) + 250 marge",
+      "richtprijs": 680
+    },
+    {
+      "tier": "Direct",
+      "uitingen": 2,
+      "berekening": "130 + (2 x 150 x 2) + 250 marge",
+      "richtprijs": 980
+    },
+    {
+      "tier": "Direct",
+      "uitingen": 3,
+      "berekening": "130 + (2 x 150 x 3) + 250 marge",
+      "richtprijs": 1280
+    },
+    {
+      "tier": "Core",
+      "smartSurvey": false,
+      "berekening": "250 + (4,50 x 150 = 675) + 750 marge",
+      "richtprijs": 1675
+    },
+    {
+      "tier": "Core",
+      "smartSurvey": true,
+      "berekening": "750 + (4,50 x 150 = 675) + 750 marge",
+      "richtprijs": 2175
+    },
+    {
+      "tier": "Plus",
+      "berekening": "250 + (4,50 x 150 = 675) + (80 x 5 = 400) + (200 x 5 = 1000) + 750 marge",
+      "richtprijs": 3075
+    }
+  ],
+  "contactblok": "Heb je specifieke onderzoekswensen, bijvoorbeeld bij de selectie van doelgroepen? Neem dan contact op: (055) 20 32 193.",
+  "guardrails": [
+    "Leveranciersnamen (panelpartner, kwali-platform, surveytool) nooit klantgericht tonen.",
+    "Respondenten worden altijd via ons panel geworven; geen klantkeuze.",
+    "Verdiepend inzicht loopt in overleg; toon het contactblok onder de prijs.",
+    "Plus valideert het kwali-interview met een survey volgens Core-specs (n=150).",
+    "Eenmalig/Doorlopend niet tonen bij pretest."
+  ],
+  "openPunten": []
+}

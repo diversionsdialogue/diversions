@@ -5,7 +5,22 @@
       "name": "web",
       "runtimeExecutable": "pnpm",
       "runtimeArgs": ["dev:web"],
-      "port": 4321
+      "port": 4321,
+      "env": {
+        "NODE_OPTIONS": "--use-system-ca"
+      }
+    },
+    {
+      "name": "web-dist",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter", "@lexington/web", "preview", "--port", "4322"],
+      "port": 4322
+    },
+    {
+      "name": "studio",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["dev:studio"],
+      "port": 3333
     }
   ]
 }

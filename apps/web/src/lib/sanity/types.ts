@@ -134,6 +134,7 @@ export type SanityBody = SanityBodyBlock[];
 export interface SanityTeamMember extends SanityDocument {
   _type: "teamMember";
   name: string;
+  slug?: string;
   role: string;
   intro: string;
   education: string[];
@@ -191,7 +192,7 @@ export interface SanityLegalPage extends SanityDocument {
   _type: "legalPage";
   page: string;
   pubDate: string;
-  body: string;
+  body: SanityBody;
   seo?: SanitySeo;
 }
 

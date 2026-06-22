@@ -1,0 +1,45 @@
+{
+  "calculator": "klanttevredenheid",
+  "titel": "Bereken je prijsindicatie — klanttevredenheidsonderzoek",
+  "valuta": "EUR",
+  "exclBtw": true,
+  "model": "modulair (alle bedragen all-in; geen per-respondent of steekproef-berekening)",
+  "inputs": {
+    "respondenten": {
+      "zelf": "Zelf aanleveren (default)",
+      "werven": "Respondenten werven → geen prijs, verwijzing naar Doelgroeponderzoek"
+    },
+    "frequentie": { "eenmalig": "Eenmalig (default)", "doorlopend": "Doorlopend (+ meethuis & dashboard)" },
+    "modules": {
+      "_multiselect": true,
+      "klant": { "label": "Klanttevredenheid", "prijs": 1500, "verplicht": true },
+      "toekomst": { "label": "Toekomstwensen", "prijs": 750 },
+      "effectief": { "label": "Effectief communiceren", "prijs": 750 },
+      "concurrentie": { "label": "Concurrentiekracht", "prijs": 750 }
+    },
+    "addons": {
+      "smart": { "label": "Smart survey", "prijs": "250 × aantal gekozen modules" },
+      "interview": { "label": "Persoonlijke interviews (7)", "prijs": 1400 }
+    }
+  },
+  "tarieven": {
+    "smartPerModule": 250,
+    "interview": 1400,
+    "doorlopend": 3500
+  },
+  "prijsformule": "Σ gekozen modules + (smart ? 250 × #modules : 0) + (interview ? 1400 : 0) + (doorlopend ? 3500 : 0)",
+  "wervenGedrag": "Respondenten == 'werven' → prijs '- -' + melding 'Bij werving van respondenten verwijzen we je graag naar ons Doelgroeponderzoek.' + knop Doelgroeponderzoek (bestemming nog aanleveren; nu /onze-diensten).",
+  "acceptatie": [
+    { "modules": ["klant"], "smart": false, "interview": false, "doorlopend": false, "richtprijs": 1500 },
+    { "modules": ["klant", "toekomst", "effectief", "concurrentie"], "smart": false, "interview": false, "doorlopend": false, "richtprijs": 3750 },
+    { "modules": ["klant", "toekomst", "effectief", "concurrentie"], "smart": true, "interview": false, "doorlopend": false, "richtprijs": 4750 },
+    { "modules": ["klant", "toekomst", "effectief", "concurrentie"], "smart": true, "interview": true, "doorlopend": false, "richtprijs": 6150 },
+    { "modules": ["klant", "toekomst", "effectief", "concurrentie"], "smart": true, "interview": true, "doorlopend": true, "richtprijs": 9650 },
+    { "modules": ["klant"], "smart": true, "interview": false, "doorlopend": false, "richtprijs": 1750 }
+  ],
+  "guardrails": [
+    "Leveranciersnamen nooit klantgericht tonen.",
+    "Klanttevredenheid-module is verplicht (vast aangevinkt, uitgeschakeld).",
+    "Bij respondenten werven geen prijs tonen; doorverwijzen naar Doelgroeponderzoek."
+  ]
+}

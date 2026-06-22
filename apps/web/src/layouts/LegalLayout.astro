@@ -24,11 +24,9 @@ const pageSeo = buildPageSeo(frontmatter.seo, {
 });
 ---
 
-<ArticleLayout
-  title={frontmatter.page}
-  eyebrow="Juridisch"
-  date={frontmatter.pubDate}
-  seo={pageSeo}
->
+{/* Geen datum tonen: pubDate is een intern "laatst bijgewerkt"-veld en voor een
+    deel van de pagina's is de oorspronkelijke WP-datum onbekend. De vroegere
+    losse .astro-legal-pagina's toonden ook geen datum (presentatie-pariteit). */}
+<ArticleLayout title={frontmatter.page} eyebrow="Juridisch" seo={pageSeo}>
   <slot />
 </ArticleLayout>

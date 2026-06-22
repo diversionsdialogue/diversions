@@ -2,8 +2,23 @@
 import readingTime from "reading-time";
 import ServicesLayout from "../../layouts/ServicesLayout.astro";
 import PortableText from "@/components/global/PortableText.astro";
+import PretestCalculator from "@/components/calculators/PretestCalculator.astro";
+import EffectmetingCalculator from "@/components/calculators/EffectmetingCalculator.astro";
+import CustomerJourneyCalculator from "@/components/calculators/CustomerJourneyCalculator.astro";
+import KlanttevredenheidCalculator from "@/components/calculators/KlanttevredenheidCalculator.astro";
+import ServicePitch from "@/components/calculators/ServicePitch.astro";
 import { getAllServices } from "@/lib/data";
 import { portableTextToPlainText } from "@/lib/sanity/portableText";
+
+// Dienstpagina's met een richtprijs-calculator boven de hero. Slug → welke
+// calculator. Uitbreidbaar: voeg een slug + calculator toe. Promoveer dit later
+// eventueel naar een Sanity-schemaveld.
+const CALCULATORS: Record<string, "pretest" | "effectmeting" | "customer-journey" | "klanttevredenheid"> = {
+  pretest: "pretest",
+  "campagne-effectonderzoek": "effectmeting",
+  "customer-journey": "customer-journey",
+  klanttevredenheidsonderzoek: "klanttevredenheid",
+};
 
 export async function getStaticPaths() {
   const services = await getAllServices();
@@ -14,6 +29,7 @@ export async function getStaticPaths() {
   }));
 }
 const { page } = Astro.props;
+const calculator = CALCULATORS[page.slug ?? page.id];
 
 // Leestijd uit de platte tekst van de Portable-Text-body (reading-time, ~200 wpm).
 const plain = portableTextToPlainText(page.body);
@@ -25,6 +41,21 @@ const minutes = plain
   frontmatter={page.data}
   id={page.slug ?? page.id}
   readingMinutes={minutes}
+  hidePageHero={!!calculator}
 >
+  {
+    calculator && (
+      <ServicePitch
+        slot="above"
+        title={page.data.service}
+        lead={page.data.description}
+      >
+        {calculator === "pretest" && <PretestCalculator />}
+        {calculator === "effectmeting" && <EffectmetingCalculator />}
+        {calculator === "customer-journey" && <CustomerJourneyCalculator />}
+        {calculator === "klanttevredenheid" && <KlanttevredenheidCalculator />}
+      </ServicePitch>
+    )
+  }
   <PortableText value={page.body} />
 </ServicesLayout>

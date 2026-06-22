@@ -1,0 +1,210 @@
+{
+  "calculator": "customer-journey",
+  "versie": "2026-06-21a",
+  "titel": "Bereken je prijsindicatie customer journey",
+  "disclaimer": "Een betrouwbare prijsindicatie op basis van vergelijkbare onderzoeken. Geen bindende offerte.",
+  "aannames": {
+    "valuta": "EUR",
+    "exclBtw": true,
+    "margeInbegrepen": true,
+    "margeOpmerking": "Marge zit verwerkt in de basisprijs en de stuktarieven; geen aparte margepost.",
+    "zelfAanleverenDoelgroepen": 1,
+    "zelfAanleverenOpmerking": "Bij 'Zelf aanleveren' is het doelgroepen-veld verborgen en rekent de calculator met 1 doelgroep.",
+    "wervingDoelgroep": "B2C-consumentendoelgroep",
+    "wervingDisclaimer": "Tarief op basis van consumentendoelgroepen (B2C). B2B-doelgroepen op aanvraag."
+  },
+  "klanttekst": {
+    "_opmerking": "Versie 1, ter review. Stijl: warm, direct, batengericht — zoals de pretest-calculator.",
+    "merk": "Bereken je prijsindicatie",
+    "introOnderTitel": "Bereken in een paar klikken een richtprijs voor je customer-journey-onderzoek.",
+    "expert": {
+      "naam": "William Burghout",
+      "rol": "Onderzoeksexpert",
+      "tekst": "We stellen je journey-onderzoek graag op volgens jouw wensen. Geef hier je voorkeuren aan."
+    },
+    "respondenten": {
+      "vraag": "Wie leveren de respondenten?",
+      "zelf": { "titel": "Zelf aanleveren", "uitleg": "Je nodigt je eigen klanten uit die de reis recent doorliepen." },
+      "werven": { "titel": "Respondenten werven", "uitleg": "Wij werven de deelnemers via ons panel." },
+      "mix": { "titel": "Mix", "uitleg": "Deels eigen klanten, deels geworven. Hiervoor stellen we een offerte op maat op." }
+    },
+    "frequentie": {
+      "vraag": "Hoe vaak meet je?",
+      "eenmalig": { "titel": "Eenmalig", "uitleg": "Eén meting van de journey op dit moment." },
+      "doorlopend": { "titel": "Doorlopend", "uitleg": "Een meethuis met dashboard dat de reis blijft volgen." }
+    },
+    "pakket": {
+      "vraag": "Kies het onderzoekspakket",
+      "survey": {
+        "titel": "Survey",
+        "features": ["De reis in kaart, snel", "Emotiecurve en pijnpunten", "Journey map met quick-wins"]
+      },
+      "kwali": {
+        "titel": "Kwalitatief",
+        "features": ["Diepte-interviews", "Het waarom achter het gedrag", "De geleefde reis in beeld"]
+      },
+      "combi": {
+        "titel": "Combi",
+        "features": ["Survey én interviews", "Cijfers met de verklaring erachter", "Het complete beeld van de reis"]
+      }
+    },
+    "smartSurvey": {
+      "vraag": "Wil je gebruikmaken van een Smart Survey?",
+      "uitleg": "Met AI maken we de vragenlijst interactief: respondenten krijgen gerichte vervolgvragen op hun antwoorden. Scherpere inzichten, zonder extra doorlooptijd.",
+      "traditioneel": "Traditionele survey",
+      "smart": "Smart Survey"
+    },
+    "doelgroepen": {
+      "vraag": "Hoeveel doelgroepen?",
+      "help": "Elke doelgroep onderzoeken we apart, zodat je de journey per groep kunt vergelijken."
+    },
+    "resultaat": {
+      "prijslabel": "Jouw indicatie",
+      "disclaimer": "excl. btw · richtprijs op basis van vergelijkbare onderzoeken",
+      "mixTekst": "We stellen graag een offerte op maat voor je op.",
+      "b2bDisclaimer": "Tarief op basis van consumentendoelgroepen. B2B-doelgroepen op aanvraag.",
+      "knoppen": [
+        { "id": "bestellen", "label": "Direct bestellen", "stijl": "primair" },
+        { "id": "advies", "label": "Advies aanvragen", "stijl": "secundair" }
+      ],
+      "fineprint": "Geen account nodig. Na bestelling neemt een onderzoeker binnen één werkdag contact op.",
+      "contactblok": "Specifieke onderzoekswensen, bijvoorbeeld bij de selectie van doelgroepen? Neem contact op: (055) 20 32 193."
+    }
+  },
+  "inputs": [
+    {
+      "id": "respondenten",
+      "stap": 1,
+      "label": "Wie leveren de respondenten?",
+      "type": "segmented",
+      "eersteKeuze": true,
+      "default": "zelf",
+      "opties": [
+        { "value": "zelf", "label": "Zelf aanleveren" },
+        { "value": "werven", "label": "Respondenten werven" },
+        { "value": "mix", "label": "Mix" }
+      ],
+      "toelichting": "Bij 'Zelf aanleveren' gebruik je je eigen klantbase. Bij 'Mix' stellen we een offerte op maat op."
+    },
+    {
+      "id": "frequentie",
+      "stap": 1,
+      "label": "Hoe vaak meet je?",
+      "type": "segmented",
+      "default": "eenmalig",
+      "opties": [
+        { "value": "eenmalig", "label": "Eenmalig" },
+        { "value": "doorlopend", "label": "Doorlopend" }
+      ],
+      "toelichting": "Doorlopend bouwt een meethuis met dashboard voor herhaalde metingen."
+    },
+    {
+      "id": "pakket",
+      "stap": 2,
+      "label": "Kies het onderzoekspakket",
+      "type": "card",
+      "default": "survey",
+      "opties": [
+        { "value": "survey", "label": "Survey", "tier": "LIGHT/CORE", "uitleg": "Kwantitatieve journey-survey: de reis in kaart met emotiecurve en gemarkeerde pijnpunten." },
+        { "value": "kwali", "label": "Kwalitatief", "tier": "PLUS", "uitleg": "Diepte-interviews: de geleefde reis en het waarom achter het gedrag." },
+        { "value": "combi", "label": "Combi", "tier": "CORE+PLUS", "uitleg": "Survey én diepte-interviews: cijfers met de verklaring erachter." }
+      ]
+    },
+    {
+      "id": "smartSurvey",
+      "stap": 2,
+      "label": "Wil je gebruikmaken van een Smart Survey?",
+      "type": "segmented",
+      "toonAls": "pakket == 'survey' || pakket == 'combi'",
+      "default": "traditioneel",
+      "opties": [
+        { "value": "traditioneel", "label": "Traditionele survey" },
+        { "value": "smart", "label": "Smart Survey" }
+      ],
+      "toelichting": "Met AI maken we de vragenlijst interactief: respondenten krijgen gerichte vervolgvragen op hun antwoorden."
+    },
+    {
+      "id": "doelgroepen",
+      "stap": 2,
+      "label": "Hoeveel doelgroepen?",
+      "type": "select",
+      "toonAls": "respondenten != 'zelf'",
+      "default": 1,
+      "opties": [
+        { "value": 1, "label": "1 doelgroep" },
+        { "value": 2, "label": "2 doelgroepen" },
+        { "value": 3, "label": "3 doelgroepen" }
+      ]
+    }
+  ],
+  "tierMapping": {
+    "_intern": true,
+    "_opmerking": "INTERN — brug tussen calculatorkeuze en de productspec LIGHT/CORE/PLUS. Nooit klantgericht tonen.",
+    "survey + traditioneel": "LIGHT",
+    "survey + smart": "CORE",
+    "kwali": "PLUS",
+    "combi": "CORE+PLUS"
+  },
+  "steekproef": {
+    "_opmerking": "Automatisch ingevuld op basis van pakket en aantal doelgroepen.",
+    "kwanti": { "1": 400, "2": 550, "3": 700 },
+    "kwali": { "1": 7, "2": 12, "3": 16 },
+    "regel": "Kwanti: 400 basis + 150 per extra doelgroep. Kwali: verzadiging, 7/12/16 interviews. Combi telt beide op."
+  },
+  "tarievenIntern": {
+    "_let_op": "INTERN — leveranciersnamen (surveytool, panelpartner, kwali-platform) nooit klantgericht tonen.",
+    "basis": 3000,
+    "doorlopendOpslag": 6000,
+    "wervingKwantiPerRespondent": 4.5,
+    "wervingKwaliPerInterview": 100,
+    "interviewPerStuk": 200,
+    "surveyToolTraditioneelPerDoelgroep": 250,
+    "surveyToolSmartPerDoelgroep": 500,
+    "handlingEigenRespondenten": 250,
+    "opmerking": "Basis (3000) dekt opstart, projectmanagement, dashboardinrichting en eindrapportage, inclusief marge. Doorlopend (+6000) = meethuis met dashboard; alle overige posten blijven gelijk. Werving kwanti is B2C-tarief incl. incentive. Werving kwali (100) = rekrutering + incentive (40-50) van de respondent. Interview (200) = afnemen + uitwerken/transcriberen/analyseren. Handling (250) = vaste fee bij aanleveren eigen database; vervangt de wervingskosten."
+  },
+  "prijslogica": {
+    "geldigeDoelgroepen": "respondenten == 'zelf' ? 1 : doelgroepen",
+    "posten": [
+      { "post": "basis", "wanneer": "altijd", "bedrag": "basis" },
+      { "post": "doorlopendOpslag", "wanneer": "frequentie == 'doorlopend'", "bedrag": "doorlopendOpslag" },
+      { "post": "surveyTool", "wanneer": "pakket == 'survey' || pakket == 'combi'", "bedrag": "(smartSurvey == 'smart' ? surveyToolSmartPerDoelgroep : surveyToolTraditioneelPerDoelgroep) * geldigeDoelgroepen" },
+      { "post": "wervingKwanti", "wanneer": "(pakket == 'survey' || pakket == 'combi') && respondenten == 'werven'", "bedrag": "wervingKwantiPerRespondent * steekproef.kwanti[geldigeDoelgroepen]" },
+      { "post": "wervingKwali", "wanneer": "(pakket == 'kwali' || pakket == 'combi') && respondenten == 'werven'", "bedrag": "wervingKwaliPerInterview * steekproef.kwali[geldigeDoelgroepen]" },
+      { "post": "interviews", "wanneer": "pakket == 'kwali' || pakket == 'combi'", "bedrag": "interviewPerStuk * steekproef.kwali[geldigeDoelgroepen]" },
+      { "post": "handling", "wanneer": "respondenten == 'zelf'", "bedrag": "handlingEigenRespondenten" }
+    ],
+    "mix": "respondenten == 'mix' => geen prijs tonen; toon '– –' + 'We stellen graag een offerte op maat voor je op.'"
+  },
+  "voorbeelden": [
+    { "respondenten": "zelf", "frequentie": "eenmalig", "pakket": "survey", "smart": false, "doelgroepen": 1, "berekening": "3000 + 250 tool + 250 handling", "richtprijs": 3500, "default": true },
+    { "respondenten": "zelf", "frequentie": "eenmalig", "pakket": "survey", "smart": true, "doelgroepen": 1, "berekening": "3000 + 500 tool + 250 handling", "richtprijs": 3750 },
+    { "respondenten": "zelf", "frequentie": "eenmalig", "pakket": "kwali", "doelgroepen": 1, "berekening": "3000 + 250 handling + (200 x 7)", "richtprijs": 4650 },
+    { "respondenten": "zelf", "frequentie": "eenmalig", "pakket": "combi", "smart": true, "doelgroepen": 1, "berekening": "3000 + 500 tool + 250 handling + (200 x 7)", "richtprijs": 5150 },
+    { "respondenten": "werven", "frequentie": "eenmalig", "pakket": "survey", "smart": false, "doelgroepen": 1, "berekening": "3000 + 250 tool + (4,50 x 400)", "richtprijs": 5050 },
+    { "respondenten": "werven", "frequentie": "eenmalig", "pakket": "survey", "smart": false, "doelgroepen": 2, "berekening": "3000 + 500 tool + (4,50 x 550)", "richtprijs": 5975 },
+    { "respondenten": "werven", "frequentie": "eenmalig", "pakket": "survey", "smart": false, "doelgroepen": 3, "berekening": "3000 + 750 tool + (4,50 x 700)", "richtprijs": 6900 },
+    { "respondenten": "werven", "frequentie": "eenmalig", "pakket": "survey", "smart": true, "doelgroepen": 1, "berekening": "3000 + 500 tool + (4,50 x 400)", "richtprijs": 5300 },
+    { "respondenten": "werven", "frequentie": "eenmalig", "pakket": "survey", "smart": true, "doelgroepen": 2, "berekening": "3000 + 1000 tool + (4,50 x 550)", "richtprijs": 6475 },
+    { "respondenten": "werven", "frequentie": "eenmalig", "pakket": "survey", "smart": true, "doelgroepen": 3, "berekening": "3000 + 1500 tool + (4,50 x 700)", "richtprijs": 7650 },
+    { "respondenten": "werven", "frequentie": "eenmalig", "pakket": "kwali", "doelgroepen": 1, "berekening": "3000 + (100 x 7) + (200 x 7)", "richtprijs": 5100 },
+    { "respondenten": "werven", "frequentie": "eenmalig", "pakket": "kwali", "doelgroepen": 2, "berekening": "3000 + (100 x 12) + (200 x 12)", "richtprijs": 6600 },
+    { "respondenten": "werven", "frequentie": "eenmalig", "pakket": "kwali", "doelgroepen": 3, "berekening": "3000 + (100 x 16) + (200 x 16)", "richtprijs": 7800 },
+    { "respondenten": "werven", "frequentie": "eenmalig", "pakket": "combi", "smart": true, "doelgroepen": 2, "berekening": "3000 + 1000 tool + (4,50 x 550) + (100 x 12) + (200 x 12)", "richtprijs": 10075 },
+    { "respondenten": "werven", "frequentie": "doorlopend", "pakket": "combi", "smart": true, "doelgroepen": 2, "berekening": "10075 + 6000 doorlopend", "richtprijs": 16075 },
+    { "respondenten": "mix", "berekening": "geen prijs", "richtprijs": null }
+  ],
+  "guardrails": [
+    "Leveranciersnamen (surveytool, panelpartner, kwali-platform) nooit klantgericht tonen.",
+    "Mix toont nooit een prijs; altijd '– –' + offerte-op-maat-tekst.",
+    "Bij 'Zelf aanleveren' is het doelgroepen-veld verborgen en rekent de calculator met 1 doelgroep.",
+    "Handling-fee (250) vervangt de wervingskosten; ze worden nooit samen geteld.",
+    "Werving-tarief is B2C; toon de B2B-disclaimer onder de prijs.",
+    "Prijs is een richtprijs excl. btw, geen bindende offerte."
+  ],
+  "openPunten": [
+    "Klantcopy is versie 1 (klanttekst-blok), ter review.",
+    "Bevestig of bij 'Zelf aanleveren' + kwali de interviews altijd door ons worden afgenomen (200 p/interview blijft).",
+    "Koppeling bestellen/advies (payload-hook → n8n) is een aparte stap."
+  ]
+}

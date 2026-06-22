@@ -1,179 +1,93 @@
 ---
-service: "Onderzoeksbureau Zorg: onderzoek met meerwaarde"
-description: "Diversions geeft onder andere inzicht in:"
+service: "Onderzoeksbureau voor de zorg"
+description: "Diversions is het onderzoeksbureau voor de zorg dat de patient journey in kaart brengt: van intake tot nazorg. Zo weet je hoe patiënten en naasten je zorg ervaren, waar het schuurt en welke kansen er zijn om je werkwijze te verbeteren."
+categories:
+  - branches
 ---
 
-<!-- CONVERT-META
-  oude_url: /onderzoeksbureau-zorg
-  nieuwe_url: /services/onderzoeksbureau-zorg
-  sanity_type: service
-  placeholder-afbeelding gebruikt (quality-fase: echte WP-afbeelding plaatsen)
-  - description automatisch afgeleid (geen excerpt)
--->
+## Wat is onderzoek in de zorg?
 
-# Onderzoeksbureau Zorg: marktonderzoek met meerwaarde
+Hoe ervaart een patiënt jouw zorg, en wat heeft een naaste nodig? Zorgonderzoek brengt de beleving in kaart over de hele patient journey. Geen losse tevredenheidscijfers, maar inzicht in wat de ervaring bepaalt: van de overgang van intake naar behandeling tot de digitale ondersteuning eromheen.
 
-## Op welke vragen zoek jij het antwoord?
+## Eenmalig of doorlopend?
 
-Diversions geeft onder andere inzicht in:
+- **Eenmalig:** een deep dive op één vraag, zoals de ervaren overgang van intake naar behandeling, of de begrijpelijkheid van voorlichting rond een nieuwe behandelmethode.
+- **Doorlopend:** structureel meten op vaste momenten in de patient journey, zodat je het effect van verbeteringen snel terugziet.
 
-patient journeys  
-medewerkers tevredenheid  
-effectiviteit van communicatie
-[Project starten](/project-starten/)
+## Wanneer kies je voor onderzoek?
 
-## Gedrag begrijpen door marktonderzoek
+Onderzoek heeft waarde bij verschillende vraagstukken, bijvoorbeeld bij het vinden van antwoorden op vragen als:
 
-Er zit vaak ook groot verschil tussen wat mensen *zeggen*, *denken* en *doen*. Zeker in de zorg. Denk aan het opvolgen van adviezen en het begrijpen van communicatie.
+- Hoe ervaren patiënten of cliënten de overgang van de intake naar de behandeling?
+- Aan welke digitale ondersteuning (e-health, portalen) hebben cliënten en hun naasten behoefte?
+- Hoe begrijpelijk en effectief is de voorlichting rond een nieuwe behandelmethode of een preventieprogramma?
 
-Mensen gedragen zich dus vaak anders dan ze zeggen te zullen doen. Hoe ga je hiermee om in onderzoek?
+Heb je een ander vraagstuk? Neem contact op voor vrijblijvend advies.
 
-Bij Diversions focussen we niet op wat mensen antwoorden in enquetes. We gaan op zoek naar achterliggende denkpatronen en gewoonten.
+## Wat levert onderzoek op?
 
-Deze diepere kijk op zorgbehoeften vormt het startpunt voor de ontwikkeling van vriendelijke [patient journeys](/patient-journey/) en effectieve communicatie.
+Wij bouwen onderzoek op in drie bouwstenen: Inzicht, Vertaling en Vervolg.
 
-Onderzoek met meerwaarde. Dat is onderzoek volgens Diversions.
+1. **Inzicht.** Hoe patiënten en naasten de zorg ervaren, en op welke momenten in de patient journey de waardering verschilt.
+2. **Vertaling.** Waaróm een ervaring goed of slecht is: wat zijn de oorzaken? En welke invloeden hebben de meeste impact?
+3. **Vervolg.** Directe aanbevelingen om de stap van onderzoek naar actie te zetten. Concreet en geprioriteerd naar belang.
 
-## Drie pijlers van gedrag
+## Hoe pakt Diversions het onderzoek aan?
 
-In onze onderzoeken maken we vaak gebruik van het [Behavior Model](https://www.bjfogg.com/) van BJ Fogg. Dit model is ontwikkeld om te begrijpen hoe gedrag tot stand komt.
+We kijken door de ogen van de patiënt, over de hele reis: van eerste contact tot nazorg. Per fase meten we de beleving, de moeite en de momenten die er echt toe doen. Daar koppelen we de verklaring aan: waaróm loopt het hier vast? Onze bewezen technieken om diepe drijfveren van patiënten in beeld te brengen (onder andere met de inzet van metaforen) helpen gerichte interventies voor te stellen.
 
-Na uitgebreide gedragdsstudies concludeerde Standford-hoogleraar BJ Fogg dat drie elementen nodig zijn om specifiek gedrag te laten plaatsvinden. Het gaat om trigger x motivatie x gelegenheid.
+## Wanneer past zorgonderzoek minder goed?
 
-**Op een rij**
+Heb je alleen een verplichte tevredenheidsmeting nodig, zonder de verklaring of een vervolg? Dan kan een kale meting goedkoper zijn. Onze meerwaarde zit in de duiding en het vervolg.
 
-- [Gedrag](#gedrag)
-- [Voorbeeldcase](#case)
-- [Trigger](#trigger)
-- [Motivatie](#motivatie)
-- [Gelegenheid](#gelegenheid)
+## AI in onderzoek
 
-### Gedrag volgens het Fogg Behavior Model
+AI is een versneller in onderzoek, in de zorg bewust terughoudend ingezet. We combineren bijvoorbeeld surveydata met een analyse van wat er bij de zorgservice speelt, om blinde vlekken te voorkomen. Betrouwbaarheid en privacy staan voorop: onze ervaren onderzoekers checken iedere stap en conclusie in het onderzoek. Ook goed om te weten: onze onderzoeksomgeving is volledig in Europa gehost. Veiligheid en privacy staan hoog op de agenda.
 
-Het is belangrijk te weten dat de genoemde elementen met elkaar samenhangen. Stel: een specifiek gezondheidsadvies is lastig om op te volgen (*gelegenheid*). Wanneer de patiënt gemotiveerd genoeg is, dan ontstaat er geen probleem. Het wordt echter lastig als *triggers* niet sterk genoeg zijn en *motivatie* onder druk komt te staan.
+## Wat kost zorgonderzoek?
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2023/03/fogg.png (title: fogg) -- quality-fase: downloaden+optimaliseren -->
-![Fogg Behavior Model](/src/images/assets/blog.jpeg)
+Over de prijs van marktonderzoek wordt vaak schimmig gedaan: "neem contact op", en dan zie je wel. Wij werken anders. Per onderzoek kun je direct online een prijsopgave opstellen met een calculator. Zo heb je een eerste inschatting van kosten. Wil je een stap verder? Dan nemen we samen je wensen door en stellen de definitieve offerte op. Geen verrassingen achteraf.
 
-In onze onderzoeken kijken we daarom naar de samenhang. We brengen in beeld wat triggert en motiveert in de zorg. Daarnaast kijken we of mensen in de gelegenheid zijn om het specifiek gedrag te vertonen.
+De prijs hangt af van:
 
-Deze gerichte aanpak levert concrete insights op. Ze vormen de basis voor oa proces optimalisatie en verbetering van communicatie. We tonen hieronder een voorbeeld.
+- de **methode** (van een snelle pretest van een voorlichtingsuiting tot een volledige patient-journey-studie);
+- het karakter van het onderzoek: **eenmalig of doorlopend**;
+- de **doelgroep** (patiënten, cliënten, naasten of zorgprofessionals);
+- de **diepgang** en de **steekproef**.
 
-### Voorbeeldcase
+## Een voorbeeld uit de praktijk
 
-Een arts schrijft medicatie voor aan een cliënt. Gewenst gedrag is dat de cliënt deze medicatie volgens de voorschriften inneemt. Helaas gebeurt dat [niet altijd](https://www.trouw.nl/binnenland/veel-mensen-slikken-pillen-te-lang-door-tijd-voor-een-medicijn-apk~be55b0fec/).
+Een ontwikkelaar bouwde een app om de mentale gezondheid van gebruikers te verbeteren. De app bepaalde eerst het stressniveau, met een innovatieve techniek. Het design was clean, ontdaan van overbodige extra's. Voordat de app live ging, testten we hem.
 
-We geven een aantal voorbeelden van aandachtspunten in het onderzoek, gebaseerd op het Fogg Behavior Model.
+Juist dat strakke design bleek een probleem. Het was niet intuïtief, en gebruikers begrepen de nieuwe techniek niet meteen. Daardoor bleef te vaak onduidelijk of de app wel goed werkte. Een paar bugs ondergroeven het vertrouwen verder: na een eerste trial haakten veel gebruikers af.
 
-### Trigger: wat zet aan tot gedrag?
+Toegepast op de drie stappen:
 
-Triggers zijn belangrijk bij het aanmoedigen medicatie in te nemen. Hierbij kunnen verschillende partijen een rol spelen.
+- **Inzicht.** Gebruikers deden weinig met uitkomsten uit de app en haakten snel af.
+- **Vertaling.** Het ontwerp van de app stond goed gebruik in de weg. Maar het ervaren van bugs was de sterkste aanleiding om de app niet meer te gebruiken.
+- **Vervolg.** Eerste prioriteit: het oplossen van alle kinderziekten. Daarna de gerichte aanbevelingen om de user interface van de app te verbeteren en een zorgverlener te vragen de app warm te introduceren.
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2023/03/trigger.png (title: trigger) -- quality-fase: downloaden+optimaliseren -->
-![Trigger: onderzoek](/src/images/assets/blog.jpeg)
+## Wat is je volgende stap?
 
-Arts of apotheker kan een herinnering programmeren. Medicijndoosjes zijn een oplossing voor mensen die veel medicatie combineren. Alerts in zorg-apps kunnen goed werken.
+Bij ons eindigt ieder onderzoek met een Vervolg: directe aanbevelingen om van onderzoek naar actie te gaan, concreet en geprioriteerd naar belang.
 
-Punt bij al deze voorbeelden is dat het afhangt van de context hoe effectief de triggers zijn. Richt je de boodschap bijvoorbeeld op cliënt, mantelzorger of zorgverlener? Leest in cliënt vaker emails of apps? Etc.
+- **Morgen:** de quick-wins uit de onderzoeksdata.
+- **Volgende maand:** drempels structureel wegnemen in processen.
+- **Verdieping:** benoemen van strategische vraagstukken die een vervolgtraject verdienen.
 
-Onderzoek geeft antwoorden op maat.
+We bieden geen rapportage als eindpunt, maar een routekaart om je zorg te verbeteren.
 
-### Motivatie: wensen en drijfveren
+## Veelgestelde vragen
 
-Motivatie is heel persoonlijk. Toch is het op basis van wensen en diepe drijfveren goed te voorspellen.
+:::faq
+VRAAG: Wat kost zorgonderzoek?
+ANTWOORD: Dat hangt af van de methode, de doelgroep en of je eenmalig of doorlopend meet. Per onderzoek stel je online een prijsopgave op; daarna nemen we samen je wensen door en stellen de definitieve offerte op.
+:::
+:::faq
+VRAAG: Hoe gaan jullie om met gevoelige zorgdata?
+ANTWOORD: Data staat volledig in de EU (AVG by design). We werken met echte respondenten en houden AI bewust licht in de zorg.
+:::
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2023/03/motivatie.png (title: motivatie) -- quality-fase: downloaden+optimaliseren -->
-![Motivatie: onderzoek](/src/images/assets/blog.jpeg)
+## Over de onderzoeker
 
-Stel dat iemand gemotiveerd is om te herstellen van een ziekte. Deze basismotivatie kan door verschillende factoren worden beïnvloed. Denk aan het effect dat een medicijn heeft: heeft het een direct positief effect of niet? Denk ook aan de ernst van de kwaal: is het draaglijk of levensbedreigend? Is de cliënt overtuigt van het nut van de medicatie? Etc.
-
-Door te onderzoeken wat speelt bij een cliënt kan motivatie worden versterkt en is het mogelijk ontmoedigende factoren te vermijden.
-
-### Gelegenheid: juiste randvoorwaarden
-
-Gelegenheid wordt (helaas) te vaak als factor over het hoofd gezien. Terwijl in zorgvraagstukken juist deze factor zeer bepalend is.
-
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2023/03/gelegenheid.png (title: gelegenheid) -- quality-fase: downloaden+optimaliseren -->
-![Gelegenheid: onderzoek](/src/images/assets/blog.jpeg)
-
-Hoe belastend is het inwisselen van een herhaalrecept? Heeft de client cognitieve problemen waardoor het niet mogelijk is een medicatie-routine te volgen? Zijn de instructies voor gebruik duidelijk genoeg of zorgen ze voor verwarring?
-
-Onderzoek laat zien waar knelpunten kunnen ontstaan.
-
-**Dit eenvoudige voorbeeld laat zien hoe we gericht insights verzamelen om gedrag positief te kunnen beïnvloeden. Wat is jouw vraagstuk?**
-
-## Onze werkwijze
-
-Wil je een onderzoek in de zorg starten? Onderzoeksbureau Diversions helpt je in vier stappen.
-
-- ### 1. Analyse
-
-  Wat willen we leren? Welke kaders gelden bij het onderzoek?
-- ### 2. Onderzoeksontwerp
-
-  Bepalen methode, onderzoeksvragen en doelgroepselectie.
-- ### 3. Onderzoek
-
-  Het daadwerkelijke veldwerk. De uitvoering van het onderzoek.
-- ### 4. Rapportage en vertaling
-
-  Pasklare presentatie van resultaten en aanbevelingen.
-
-Wij werken onder andere voor klanten in de overheid, [fondsenwerving](/onderzoeksbureau-fondsenwerving/), advocatuur, sociaal domein, energie, verzekeringen en [reclame/communicatie](/onderzoeksbureau-reclame/).
-
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2021/12/onderzoek.png (title: onderzoek) -- quality-fase: downloaden+optimaliseren -->
-![Insights - onderzoeksbureau](/src/images/assets/blog.jpeg)
-
-## Onderzoeksbureau Zorg: onderzoek op maat
-
-Welke onderzoeksvorm past nu het beste bij jouw vraagstuk? Van belang is te kijken naar het verschil tussen de *situatie nu* en de *gewenste situatie*. Wat zijn de oorzaken? Welke oplossingen zijn er mogelijk?
-
-Wij selecteren met jou de onderzoeksoplossing die antwoord geeft op deze vragen.
-
-Diversions start iedere opdracht met een uitgebreide verkenning. We kijken naar de doelstellingen van het project, martksituatie, relevente doelgroepen, actuele data etc.
-
-Is de analyse klaar? Dan formuleren we een centrale probleemstelling en hypotheses. Deze vormen de basis voor een onderzoeksoplossing op maat.
-
-### [Onze diensten](/onderzoeksbureau/)
-
-[Kwalitatief onderzoek](/insights/)
-[Gebruikerstesten](/gebruikerstesten/)
-[Diary study](/diary-study/)  
-[Eye tracking simulatie](/eyetracking-simulatie/)
-[Pretest](/pretest/)
-[Online onderzoek](/online-onderzoek/)
-[Customer Journey](/customer-journey/)
-[Patient Journey](/patient-journey/)  
-[Generation Journey](https://www.generationjourney.nl)
-[Groepsdiscussies](/groepsdiscussie/)
-
-## Meest gestelde vragen
-
-Wat doet een onderzoeksbureau in de zorg?
-
-Een onderzoeksbureau verzamelt en analyseert informatie. In de zorg voeren we zowel onderzoek uit gericht op cliënten en mantelzorgers als op zorgpersoneel en -management.
-
-Wat is het verschil tussen kwantitatief en kwalitatief onderzoek?
-
-Kwalitatief heeft een exploratief karakter. Het gaat om het begrijpen van een vraagstuk en alle nuances daarbij. Kwantitatief onderzoek draait om het ontdekken van trends en kunnen geven van verantwoording. Dankzij nieuwe onderzoeksmethoden (zoals voice en video surveys) is het verschil tussen kwalitatief en kwantitatief onderzoek kleiner dan vroeger.
-
-Wat kost een marktonderzoek in de zorg?
-
-De kosten van martkonderzoek verschillen sterk. Het is onder andere afhankelijk van de methode (surveys zijn bijvoorbeeld goedkoper dan interviews), respondenten (eenvoudig/lastig te werven) en rapportage (overzicht of aanbevelingen).
-
-Onderzoeksvragen kunnen op verschillende manieren worden beantwoord. Vraag om de meest geschikte keuze te maken een offerte aan.
-
-### Hoe kunnen wij je helpen?
-
-- Aanhef\*
-  - de heer
-  - mevrouw
-- Naam\*
-- Organisatie\*
-- E-mailadres\*
-- Telefoon
-- Waarmee kunnen we je helpen?\*
-
- 
-
-Δ
+Diversions is lid van het Data & Insights Network. Data wordt in de EU gehost (AVG by design).

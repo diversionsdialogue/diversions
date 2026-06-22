@@ -5,6 +5,8 @@
 // getAllWorkItems). Hero-meta + quote zijn design-content (geen collection-bron) en
 // daarom GEFLAGD als design-placeholder voor de content-eigenaar.
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import Picture from "@/components/global/Picture.astro";
+import TrustStrip from "@/components/global/TrustStrip.astro";
 import { getAllServices, getAllWorkItems } from "@/lib/data";
 
 // --- Services (home): vier hoofddiensten uit het design, gekoppeld aan echte
@@ -14,29 +16,28 @@ import { getAllServices, getAllWorkItems } from "@/lib/data";
 const services = [
   {
     n: "01",
-    title: "Onderzoek & insights",
-    desc: "Kwalitatief en kwantitatief klantonderzoek dat de wensen achter het gedrag blootlegt — de basis voor elke verbetering.",
-    href: "/services/onderzoek",
+    // ­ = zachte afbreekstreep: breekt gecontroleerd na "Klanttevreden".
+    title: "Klanttevreden­heid",
+    desc: "Meten wat klanten waarderen en missen: structureel zicht op tevredenheid, loyaliteit en verbeterkansen.",
+    href: "/services/klanttevredenheidsonderzoek",
   },
   {
     n: "02",
     title: "Customer journey",
-    desc: "Denken en innoveren vanuit het perspectief van de klant. Een krachtig startpunt om je dienstverlening te optimaliseren.",
+    desc: "De complete klantreis in kaart: niet beperkt tot analyse van contactmomenten, maar gericht op de totale klantbeleving.",
     href: "/services/customer-journey",
   },
   {
     n: "03",
-    title: "Conversie-optimalisatie",
-    desc: "Doorlopend testen en verbeteren. Meer rendement uit je online activiteiten, stap voor stap en meetbaar.",
-    href: "/services/conversie-optimalisatie",
+    title: "Campagne-effect",
+    desc: "Inzicht in bereik, herinnering en overtuigingskracht. Gericht op campagneoptimalisatie, nu en in de toekomst.",
+    href: "/services/campagne-effectonderzoek",
   },
   {
     n: "04",
-    title: "SEO & online marketing",
-    desc: "Beter gevonden worden door de juiste mensen. Van zoekwoordstrategie tot organisch en betaald zoekverkeer.",
-    // /services/seo-marketing is verwijderd (niet-geindexeerd-opschoning 2026-05-31).
-    // Tijdelijk naar het diensten-overzicht; eigenaar kan dit later herrichten.
-    href: "/onze-diensten",
+    title: "Pretest",
+    desc: "Test je boodschap of concept vóór lancering: voorkom tunnelvisie, en stuur op de input van echte klanten.",
+    href: "/services/pretest",
   },
 ];
 
@@ -53,15 +54,6 @@ const featuredWork = allWork.slice(0, 4).map((item) => ({
   href: `/work/${item.slug}`,
 }));
 
-const marqueeItems = [
-  "Onderzoek",
-  "Customer journey",
-  "Conversie-optimalisatie",
-  "SEO",
-  "Insights",
-  "Innovatie",
-  "Strategie",
-];
 ---
 
 <BaseLayout
@@ -74,75 +66,60 @@ const marqueeItems = [
   {/* ---------------- HERO ---------------- */}
   <section class="hero" id="top">
     <div class="hero-grid">
-      <h1 class="hero-title">
-        Van inzichten<br />naar <em>oplossingen</em>.
-      </h1>
+      <div>
+        <p class="hero-eyebrow">Onderzoeksbureau Diversions</p>
+        <h1 class="hero-title">
+          Scherper onderzoek<br /><em>Betere beslissingen</em>
+        </h1>
+      </div>
       <div>
         <p class="hero-intro">
-          Diversions helpt organisaties <strong>klaar te staan voor de klant</strong>
-          van vandaag en morgen — van onderzoek en customer journeys tot conversie en
-          groei.
+          Veel onderzoek legt uit wat er speelt. Maar te weinig wat er moet
+          gebeuren.
+        </p>
+        <p class="hero-intro" style="margin-top:12px">
+          Diversions werkt actiegericht. Elke rapportage eindigt met concrete
+          handvatten: wat je nu kunt veranderen, wat aandacht vraagt en welke
+          beslissing niet langer kan wachten.
         </p>
         <div class="hero-cta-row">
-          <a href="/contact" class="btn btn-primary btn-arrow">Start een project</a>
-          <a href="#work" class="btn btn-outline">Bekijk werk</a>
+          <strong>Onderzoek dat je verder brengt</strong>
+          <a href="/videocall-plannen" class="btn btn-primary btn-arrow">Afspraak maken</a>
         </div>
       </div>
     </div>
 
     <div class="hero-image">
-      {/* HANDMATIG/quality (Fase 6): hero-beeld is een design-placeholder. */}
-      <img src="/img/hero.png" alt="" />
+      <Picture src="/img/onderzoeksbureau-diversions-4.jpg" alt="Onderzoeksbureau Diversions" loading="eager" />
     </div>
 
-    {/* hero-meta: design-content (geen collection-bron) — GEFLAGD als placeholder. */}
-    <div class="hero-meta">
-      <div class="hero-meta-item">
-        <div class="label">Studio</div>
-        <div class="value">Utrecht, NL</div>
+    <div class="prop-grid">
+      <div class="prop-card">
+        <span class="prop-eyebrow">Van cijfers</span>
+        <h3 class="prop-title"><span class="arrow">→</span>naar mensen</h3>
+        <p class="prop-desc">We vertellen het menselijke verhaal achter de data.</p>
       </div>
-      <div class="hero-meta-item">
-        <div class="label">Focus</div>
-        <div class="value">Onderzoek · Journey · Groei</div>
+      <div class="prop-card">
+        <span class="prop-eyebrow">Van momentopname</span>
+        <h3 class="prop-title"><span class="arrow">→</span>naar trend</h3>
+        <p class="prop-desc">Met doorlopende metingen helpen we je ontwikkelingen te herkennen.</p>
       </div>
-      <div class="hero-meta-item">
-        <div class="label">Werkwijze</div>
-        <div class="value">Test in Progress</div>
+      <div class="prop-card">
+        <span class="prop-eyebrow">Van inzicht</span>
+        <h3 class="prop-title"><span class="arrow">→</span>naar prioriteit</h3>
+        <p class="prop-desc">Inzichten delen met scherpte: wat vraagt nú je aandacht?</p>
       </div>
-      <div class="hero-meta-item">
-        <div class="label">Beschikbaar</div>
-        <div class="value" style="color: var(--color-yellow-600)">
-          ● voor nieuwe projecten
-        </div>
+      <div class="prop-card">
+        <span class="prop-eyebrow">Van onderzoek</span>
+        <h3 class="prop-title"><span class="arrow">→</span>naar actie</h3>
+        <p class="prop-desc">We bieden concrete handvatten voor vervolgacties.</p>
       </div>
+    </div>
+
+    <div class="hero-trust">
+      <TrustStrip />
     </div>
   </section>
-
-  {/* ---------------- MARQUEE ---------------- */}
-  <div class="marquee marquee-peach" aria-hidden="true">
-    <div class="marquee-track">
-      <span>
-        {
-          marqueeItems.map((it) => (
-            <>
-              <span style="display:inline-flex;align-items:center">{it}</span>
-              <span class="dot"></span>
-            </>
-          ))
-        }
-      </span>
-      <span>
-        {
-          marqueeItems.map((it) => (
-            <>
-              <span style="display:inline-flex;align-items:center">{it}</span>
-              <span class="dot"></span>
-            </>
-          ))
-        }
-      </span>
-    </div>
-  </div>
 
   {/* ---------------- SERVICES ---------------- */}
   <section class="section" id="services">
@@ -150,12 +127,12 @@ const marqueeItems = [
       <div>
         <span class="eyebrow">Wat we doen</span>
         <h2 class="section-title">
-          Eén team, van inzicht <em>tot resultaat</em>.
+          Doelgericht voor het beste <em>resultaat</em>.
         </h2>
       </div>
       <p class="section-lead">
-        We werken in compacte teams waarin onderzoek, strategie en uitvoering dicht op
-        elkaar zitten. Geen losse overdracht, wel snelle iteraties.
+        We werken in compacte teams waarin onderzoek, strategie en uitvoering nauw
+        verbonden zijn. Zo levert onderzoek directe meerwaarde.
       </p>
     </div>
 
@@ -173,6 +150,10 @@ const marqueeItems = [
         ))
       }
     </div>
+
+    <div class="services-all">
+      <a href="/onze-diensten" class="btn btn-outline btn-arrow">Bekijk alle diensten</a>
+    </div>
   </section>
 
   {/* ---------------- WORK ---------------- */}
@@ -180,11 +161,10 @@ const marqueeItems = [
     <div class="section-head">
       <div>
         <span class="eyebrow">Geselecteerd werk</span>
-        <h2 class="section-title">Recent gemaakt — met aandacht.</h2>
+        <h2 class="section-title">Werk waar we <em>trots</em> op zijn.</h2>
       </div>
       <p class="section-lead">
-        Een greep uit de cases waar we trots op zijn. Vraag gerust naar de rest — niet
-        alles staat online.
+        Een greep uit de cases waaraan we hebben gewerkt.
       </p>
     </div>
 
@@ -210,16 +190,22 @@ const marqueeItems = [
     </div>
   </section>
 
-  {/* ---------------- QUOTE (design-content, GEFLAGD als placeholder) ---------------- */}
+  {/* ---------------- QUOTE ---------------- */}
   <section class="section" id="about">
     <div class="quote-block">
       <span class="quote-mark" aria-hidden="true">"</span>
       <p class="quote-text">
-        We helpen organisaties om klaar te staan voor de klant van vandaag en morgen —
+        We helpen organisaties om klaar te staan voor de klant van vandaag en morgen:
         van het eerste inzicht tot een meetbaar resultaat.
       </p>
       <div class="quote-attr">
-        <span class="avatar" aria-hidden="true">DV</span>
+        <Picture
+          class="avatar"
+          src="/img/william-burghout.png"
+          alt="William Burghout, Diversions"
+          width={44}
+          height={44}
+        />
         <div>
           <div class="quote-who">Team Diversions</div>
           <div class="quote-role">Insights &amp; oplossingen</div>
@@ -233,19 +219,17 @@ const marqueeItems = [
     <div>
       <span class="eyebrow">Klaar om te beginnen</span>
       <h2 class="contact-cta-title">
-        Laten we iets <em>moois</em> bouwen.
+        Wat is jouw <em>vraag</em>?
       </h2>
     </div>
     <div>
       <p class="contact-cta-text">
-        Vertel ons over je project — een kort bericht is genoeg om te starten. We
-        reageren binnen één werkdag.
+        Vertel ons over jouw vraagstuk of project. Verken de mogelijkheden online of
+        plan een adviesgesprek.
       </p>
       <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
-        <a href="/contact" class="btn btn-primary btn-arrow">Stuur een bericht</a>
-        <a href="mailto:hallo@diversions.nl" class="btn btn-ghost-light">
-          hallo@diversions.nl
-        </a>
+        <a href="/project-starten" class="btn btn-primary btn-arrow">Online offerte</a>
+        <a href="/videocall-plannen" class="btn btn-ghost-light">Afspraak maken</a>
       </div>
     </div>
   </section>

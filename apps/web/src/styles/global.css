@@ -207,7 +207,7 @@
   --ring: var(--color-yellow-600);
 
   /* Type scale */
-  --fs-hero: clamp(40px, 7vw, 84px);
+  --fs-hero: clamp(34px, 7vw, 74px);
   --fs-h1: clamp(36px, 5vw, 56px);
   --fs-h2: clamp(26px, 3.4vw, 34px);
   --fs-h3: 21px;
@@ -338,7 +338,7 @@
   color: var(--ink);
 }
 .brand img {
-  height: 30px;
+  height: 75px;
   display: block;
 }
 
@@ -524,6 +524,16 @@
   }
 }
 
+.hero-eyebrow {
+  font-family: var(--font-subtitle);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin: 0 0 12px;
+}
+
 .hero-title {
   font-family: var(--font-display);
   font-size: var(--fs-hero);
@@ -560,6 +570,11 @@
   overflow: hidden;
   background: var(--color-accent-200);
 }
+.hero-image picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 .hero-image img {
   width: 100%;
   height: 100%;
@@ -568,32 +583,80 @@
   display: block;
 }
 
-.hero-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px 40px;
-  padding: 24px 0 0;
+.prop-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 28px;
+  padding-top: 32px;
+  padding-bottom: 32px;
   border-top: 1px solid var(--border);
-  margin-top: 24px;
 }
-.hero-meta-item .label {
+/* Trust-strip onder de propositieblokken (component: TrustStrip.astro). */
+.hero-trust {
+  padding-top: 28px;
+  padding-bottom: 8px;
+  border-top: 1px solid var(--border);
+}
+@media (min-width: 640px) {
+  .prop-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+}
+@media (min-width: 980px) {
+  .prop-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
+.prop-card {
+  background: var(--color-accent-100);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: background var(--duration-base) var(--ease);
+}
+.prop-card:hover {
+  background: #fff;
+}
+.prop-eyebrow {
   font-family: var(--font-subtitle);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-mute);
-  margin-bottom: 4px;
+  color: var(--ink-soft);
 }
-.hero-meta-item .value {
+.prop-title {
   font-family: var(--font-subtitle);
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 700;
+  font-size: clamp(18px, 1.5vw, 20px);
+  line-height: 1.2;
   color: var(--ink);
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.prop-title .arrow {
+  color: var(--color-yellow-500);
+  flex-shrink: 0;
+}
+.prop-desc {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 4px 0 0;
 }
 .hero-cta-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 12px;
   margin-top: 24px;
 }
@@ -724,6 +787,9 @@
 }
 
 /* ---------------- SERVICES LIST (home) ---------------- */
+.services-all {
+  margin-top: 28px;
+}
 .services-list {
   display: grid;
   grid-template-columns: 1fr;
@@ -762,6 +828,11 @@
   line-height: 1.1;
   color: var(--ink-strong);
   margin: 0;
+  /* Lange samenstellingen (bv. "Klanttevredenheidsonderzoek") netjes binnen het
+     contentvlak houden: hyphens (lang=nl) voor nette breuk + anywhere als
+     vangnet dat ook de min-content-breedte verkleint (zodat niets overflowt). */
+  hyphens: auto;
+  overflow-wrap: anywhere;
 }
 .service-desc {
   font-family: var(--font-sans);
@@ -1141,6 +1212,11 @@
     aspect-ratio: auto;
     min-height: 320px;
   }
+}
+.sa-hero-image picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .sa-hero-image img {
   width: 100%;
@@ -1827,6 +1903,14 @@
   color: var(--ink);
   margin: 28px 0 0;
 }
+/* Tailwind v4 preflight reset 'list-style: none' herstellen, anders rendert de
+   gestylede li::marker hieronder nooit (zelfde fix als .article-template). */
+.post-body ul {
+  list-style: disc;
+}
+.post-body ol {
+  list-style: decimal;
+}
 .post-body ul,
 .post-body ol {
   margin: 8px 0 0;
@@ -2474,6 +2558,14 @@
   margin: 12px 0 0;
   padding-left: 24px;
 }
+/* Tailwind v4 preflight reset 'list-style: none' herstellen voor de standaard
+   Portable-Text-lijsten (BulletList-blok gebruikt zelf .list-disc). */
+.article-template .article ul {
+  list-style: disc;
+}
+.article-template .article ol {
+  list-style: decimal;
+}
 .article-template .article li {
   margin: 8px 0;
   line-height: 1.6;
@@ -2805,16 +2897,13 @@
   color: #fff;
 }
 .article-template .faq-a {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 280ms var(--ease);
+  /* Open/dicht wordt door Faq.astro geregeld via het `hidden`-attribuut, niet
+     via een max-height-clamp. Die clamp (max-height:0) kapte het antwoord af tot
+     de eerste regel; daarom hier alleen nog typografie. */
   font-family: var(--font-sans);
   font-size: 16px;
   color: var(--ink-soft);
   line-height: 1.6;
-}
-.article-template .faq-item.open .faq-a {
-  max-height: 600px;
 }
 .article-template .faq-a-inner {
   padding: 0 8px 22px;

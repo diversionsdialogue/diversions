@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /system/
+
+Sitemap: https://diversions.nl/sitemap-index.xml

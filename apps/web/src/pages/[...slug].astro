@@ -1,4 +1,13 @@
 ---
+/**
+ * Juridische pagina's uit de legal-collectie (Sanity `legalPage`), geserveerd op
+ * hun ROOT-URL (bv. /privacy-statement, /cookie-statement) zodat de paden
+ * identiek blijven aan de oude WP-URL's (inventaris/SEO). De slug komt uit het
+ * document-_id (`legalPage-<slug>`, zie transforms.deriveSlug).
+ *
+ * Deze catch-all genereert alléén de paden uit getStaticPaths; statische
+ * .astro-pagina's winnen altijd van deze route, dus er is geen conflict.
+ */
 import LegalLayout from "@/layouts/LegalLayout.astro";
 import PortableText from "@/components/global/PortableText.astro";
 import { getAllLegalPages } from "@/lib/data";

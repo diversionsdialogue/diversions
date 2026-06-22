@@ -39,6 +39,7 @@ export const PROJECT_COLLECTIONS = {
     sanityType: "teamMember",
     fields: {
       name: { type: "string", required: true },
+      slug: { type: "slug", required: false }, // URL segment under /team/ (voornaam); fallback: _id-afleiding
       role: { type: "string", required: true },
       intro: { type: "text", required: true },
       education: { type: "array", itemType: "string", required: true },
@@ -133,7 +134,7 @@ export const PROJECT_COLLECTIONS = {
     fields: {
       page: { type: "string", required: true },
       pubDate: { type: "date", required: true },
-      body: { type: "markdown", required: true }, // Markdown content
+      body: { type: "portableText", required: true }, // Portable Text array (rich text + shared blocks)
       seo: seoField // Optional shared SEO object (additive)
     },
     relationships: {}
@@ -171,7 +172,7 @@ export function validateCollection(collectionName: string): collectionName is Co
 export const COLLECTION_STATS = {
   totalCollections: 5,
   collections: {
-    team: { fieldCount: 7 }, // name, role, intro, education, experience, avatar, body
+    team: { fieldCount: 8 }, // name, slug, role, intro, education, experience, avatar, body
     work: { fieldCount: 10 }, // slug, link, company, year, client, work, credits, thumbnail, body, seo
     services: { fieldCount: 7 }, // service, slug, description, body, thumbnail, categories, seo
     posts: { fieldCount: 9 }, // title, slug, pubDate, description, author, image, tags, body, seo

@@ -1,0 +1,336 @@
+---
+import "@/styles/calculators.css";
+/**
+ * EffectmetingCalculator — gestapte offerte-starter voor campagne-effectonderzoek.
+ *
+ * Astro-"island" zonder framework (zie REKENMODULES.md). Witte kaart op de sage
+ * band (ServicePitch), prijspaneel op desktop + sticky balk op mobiel.
+ *
+ *   Stap 1 — Meting:    Alleen nameting (post) / Nul- en nameting (pre + post)  [kaarten]
+ *   Stap 2 — Onderzoek: Vragenlijst (basis/smart) + Doelgroepen (1-3) + Combinatie interne data
+ *
+ * Rekentechniek (Calculator-config-effectmeting):
+ *   N         post  = 400 + 150×(dg-1)         (dg = doelgroepen)
+ *             prepost = 600 + 200×(dg-1)
+ *   metingen  post = 1, prepost = 2
+ *   marge     post = 2.500, prepost = 3.500
+ *   tool/meting basis = 250, smart = 500 (smart vervangt SurveySparrow)
+ *   prijs = marge + tool×metingen + 4,50 × N + (combinatie ? 1.000 : 0)
+ *   Baseline (post, 1 dg, basis, geen combinatie) = € 4.550.
+ *
+ * Leveranciersnamen worden nooit getoond. [koppeling nog aanleveren] — knoppen
+ * dispatchen "effectmeting-calculator:submit".
+ */
+const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:2px;color:var(--primary)"><polyline points="20 6 9 17 4 12"/></svg>`;
+---
+
+<section class="qcalc" data-step="1" aria-label="Offerte-starter campagne-effectonderzoek">
+  <div class="qc-card">
+    <div class="qc-topbar">
+      <span class="qc-brand">Bereken je prijsindicatie</span>
+      <ol class="qc-rail">
+        <li class="qc-railstep" data-railstep="1">
+          <button type="button" class="qc-pill" data-goto="1"><span class="qc-pillnum">1</span></button>
+          <span class="qc-pilllabel">Meting</span>
+        </li>
+        <li class="qc-railsep" aria-hidden="true"></li>
+        <li class="qc-railstep" data-railstep="2">
+          <span class="qc-pill"><span class="qc-pillnum">2</span></span>
+          <span class="qc-pilllabel">Onderzoek</span>
+        </li>
+        <li class="qc-railsep" aria-hidden="true"></li>
+        <li class="qc-railstep" data-railstep="3">
+          <span class="qc-pill"><span class="qc-pillnum">3</span></span>
+          <span class="qc-pilllabel">Bestellen</span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="qc-body">
+      <div class="qc-main">
+        {/* ---------------- STAP 1 — Meting ---------------- */}
+        <div class="qc-panel" data-panel="1">
+          <p class="qc-steplabel">Stap 1 van 3</p>
+          <h2 class="qc-title">Welke metingen wil je doen?</h2>
+          <p class="qc-sub">Kies het onderzoeksdesign. In de volgende stap stel je het onderzoek verder samen.</p>
+
+          <div class="qc-choices">
+            <label class="qc-choice">
+              <input type="radio" name="design" value="post" checked />
+              <span class="qc-radio" aria-hidden="true"></span>
+              <span class="qc-choicebody">
+                <span class="qc-choicetitle">Alleen nameting</span>
+                <ul class="qc-bullets">
+                  <li><Fragment set:html={TICK} />Eén meting ná de campagne</li>
+                  <li><Fragment set:html={TICK} />Kostenefficiënt en snel resultaat</li>
+                  <li><Fragment set:html={TICK} />Status ná de campagne in beeld</li>
+                </ul>
+              </span>
+            </label>
+            <label class="qc-choice">
+              <input type="radio" name="design" value="prepost" />
+              <span class="qc-radio" aria-hidden="true"></span>
+              <span class="qc-choicebody">
+                <span class="qc-choicetitle">Nul- en nameting</span>
+                <ul class="qc-bullets">
+                  <li><Fragment set:html={TICK} />Meting vóór én ná de campagne</li>
+                  <li><Fragment set:html={TICK} />Toont de exacte 'lift' van je campagne</li>
+                  <li><Fragment set:html={TICK} />De gouden standaard</li>
+                </ul>
+              </span>
+            </label>
+          </div>
+
+          <button type="button" class="btn btn-primary btn-arrow qc-cta" data-next>
+            Bereken indicatie
+          </button>
+          <p class="qc-fineprint">Geen account, geen verkoopgesprek — een eerste indicatie binnen twee minuten.</p>
+        </div>
+
+        {/* ---------------- STAP 2 — Onderzoek ---------------- */}
+        <div class="qc-panel" data-panel="2" hidden>
+          <button type="button" class="qc-back" data-goto="1">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Vorige stap
+          </button>
+          <p class="qc-steplabel">Stap 2 van 3</p>
+          <h2 class="qc-title qc-title--sm">Stel je onderzoek samen</h2>
+
+          <div class="qc-expert">
+            <span class="qc-avatar" aria-hidden="true">WB</span>
+            <div>
+              <p class="qc-expertname">William Burghout · <span>Onderzoeksexpert</span></p>
+              <p class="qc-experttext">We stemmen het effectonderzoek af op je campagne. Geef hier je voorkeuren aan.</p>
+            </div>
+          </div>
+
+          <div class="qc-group">
+            <p class="qc-fieldlabel">Type vragenlijst</p>
+            <div class="qc-choices qc-choices--2">
+              <label class="qc-choice">
+                <input type="radio" name="vragenlijst" value="basis" checked />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Basis survey</span>
+                  <ul class="qc-bullets">
+                    <li><Fragment set:html={TICK} />Gestructureerde, gesloten vragen</li>
+                    <li><Fragment set:html={TICK} />Harde KPI's: bereik, herkenning, herinnering</li>
+                  </ul>
+                </span>
+              </label>
+              <label class="qc-choice">
+                <input type="radio" name="vragenlijst" value="smart" />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Smart survey</span>
+                  <ul class="qc-bullets">
+                    <li><Fragment set:html={TICK} />Kwantitatief + open associatievragen</li>
+                    <li><Fragment set:html={TICK} />AI-analyse voor diepere inzichten</li>
+                  </ul>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="qc-group">
+            <p class="qc-fieldlabel">Doelgroepen</p>
+            <p class="qc-help">
+              Hoeveel doelgroepen wil je apart kunnen analyseren? Per extra
+              doelgroep voegen we respondenten toe voor statistisch betrouwbare
+              uitspraken.
+            </p>
+            <div class="qc-select-wrap">
+              <select class="qc-select" data-input="doelgroepen" aria-label="Aantal doelgroepen">
+                <option value="1">1 doelgroep</option>
+                <option value="2">2 doelgroepen</option>
+                <option value="3">3 doelgroepen</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="qc-group">
+            <p class="qc-fieldlabel">Combineren met interne data?</p>
+            <div class="qc-choices qc-choices--2">
+              <label class="qc-choice">
+                <input type="radio" name="combinatie" value="geen" checked />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Alleen marktonderzoek</span>
+                  <ul class="qc-bullets">
+                    <li><Fragment set:html={TICK} />Survey-onderzoek bij je doelgroep(en)</li>
+                  </ul>
+                </span>
+              </label>
+              <label class="qc-choice">
+                <input type="radio" name="combinatie" value="combi" />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Combinatie met interne data</span>
+                  <ul class="qc-bullets">
+                    <li><Fragment set:html={TICK} />We koppelen je eigen data (bereik, web, sales)</li>
+                    <li><Fragment set:html={TICK} />+ € 1.000</li>
+                  </ul>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="qc-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <p>Specifieke onderzoekswensen? <a href="tel:+31552032193">Neem contact met ons op.</a></p>
+          </div>
+        </div>
+      </div>
+
+      {/* Zijpaneel met prijsindicatie — zichtbaar in beide stappen (desktop) */}
+      <aside class="qc-summary">
+        <div>
+          <p class="qc-sumlabel">Jouw indicatie</p>
+          <p class="qc-sumprice" data-price>&euro; 4.550</p>
+          <p class="qc-sumnote">excl. btw · richtprijs op basis van je keuzes</p>
+        </div>
+        <div class="qc-sumdivider"></div>
+        <div class="qc-sumactions">
+          <button type="button" class="btn btn-primary btn-arrow" data-action="bestellen">Direct bestellen</button>
+          <button type="button" class="btn btn-outline" data-action="advies">Advies aanvragen</button>
+        </div>
+        <p class="qc-sumfine">Geen account nodig. Na bestelling neemt een onderzoeker binnen één werkdag contact op.</p>
+      </aside>
+    </div>
+  </div>
+
+  {/* Mobiel: sticky prijsbalk onderaan het scherm */}
+  <div class="qc-stickybar" data-stickybar>
+    <div class="qc-stickyprice">
+      <p class="qc-sumlabel">Jouw indicatie</p>
+      <p class="qc-stickyamount" data-price>&euro; 4.550</p>
+    </div>
+    <span class="qc-stickyexcl">excl. btw · richtprijs</span>
+    <div class="qc-stickyactions">
+      <button type="button" class="btn btn-primary btn-arrow" data-action="bestellen">Direct bestellen</button>
+      <button type="button" class="btn btn-outline" data-action="advies">Advies</button>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  // --- Rekentechniek (Calculator-config-effectmeting). Geen leveranciersnamen.
+  const PER_RESPONDENT = 4.5;
+  const RATE = {
+    margePost: 2500,
+    margePrePost: 3500,
+    toolBasis: 250, // per meting (SurveySparrow)
+    toolSmart: 500, // per meting (smart survey, vervangt SurveySparrow)
+    combinatie: 1000,
+  };
+
+  // Benodigde respondenten (N): basis post = 400 (+150/extra dg);
+  // pre+post = 600 (+200/extra dg, nl. +50 pre en +150 post).
+  function respondenten(design: string, dg: number): number {
+    return design === "prepost" ? 600 + 200 * (dg - 1) : 400 + 150 * (dg - 1);
+  }
+
+  const nf = new Intl.NumberFormat("nl-NL");
+  const euro = (n: number) => `€ ${nf.format(Math.round(n))}`;
+
+  type State = {
+    design: "post" | "prepost";
+    vragenlijst: "basis" | "smart";
+    doelgroepen: number;
+    combinatie: boolean;
+  };
+
+  function priceFor(s: State): number {
+    const metingen = s.design === "prepost" ? 2 : 1;
+    const marge = s.design === "prepost" ? RATE.margePrePost : RATE.margePost;
+    const toolPerMeting = s.vragenlijst === "smart" ? RATE.toolSmart : RATE.toolBasis;
+    const n = respondenten(s.design, s.doelgroepen);
+    return marge + toolPerMeting * metingen + PER_RESPONDENT * n + (s.combinatie ? RATE.combinatie : 0);
+  }
+
+  document.querySelectorAll<HTMLElement>(".qcalc").forEach((root) => {
+    // Alleen de effectmeting-calculator afhandelen (niet andere .qcalc-modules).
+    if (!root.querySelector('input[name="design"]')) return;
+
+    const state: State = { design: "post", vragenlijst: "basis", doelgroepen: 1, combinatie: false };
+    let step = 1;
+
+    const panels = root.querySelectorAll<HTMLElement>("[data-panel]");
+    const railsteps = root.querySelectorAll<HTMLElement>("[data-railstep]");
+    const prices = root.querySelectorAll<HTMLElement>("[data-price]");
+
+    const renderRail = () => {
+      railsteps.forEach((rs) => {
+        const n = Number(rs.dataset.railstep);
+        const num = rs.querySelector<HTMLElement>(".qc-pillnum")!;
+        const s2 = n < step ? "done" : n === step ? "active" : "todo";
+        rs.dataset.state = s2;
+        num.innerHTML =
+          s2 === "done"
+            ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
+            : String(n);
+      });
+    };
+
+    const renderPrice = () => {
+      const txt = euro(priceFor(state));
+      prices.forEach((el) => (el.textContent = txt));
+    };
+
+    const goTo = (n: number) => {
+      step = n;
+      root.dataset.step = String(n);
+      panels.forEach((p) => (p.hidden = p.dataset.panel !== String(n)));
+      renderRail();
+      root.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    root.querySelectorAll<HTMLInputElement>('input[name="design"]').forEach((inp) => {
+      inp.addEventListener("change", () => {
+        state.design = inp.value as State["design"];
+        renderPrice();
+      });
+    });
+    root.querySelectorAll<HTMLInputElement>('input[name="vragenlijst"]').forEach((inp) => {
+      inp.addEventListener("change", () => {
+        state.vragenlijst = inp.value as State["vragenlijst"];
+        renderPrice();
+      });
+    });
+    root.querySelectorAll<HTMLInputElement>('input[name="combinatie"]').forEach((inp) => {
+      inp.addEventListener("change", () => {
+        state.combinatie = inp.value === "combi";
+        renderPrice();
+      });
+    });
+    const dg = root.querySelector<HTMLSelectElement>('[data-input="doelgroepen"]')!;
+    dg.addEventListener("change", () => {
+      state.doelgroepen = Number(dg.value);
+      renderPrice();
+    });
+
+    root.querySelector<HTMLButtonElement>("[data-next]")!.addEventListener("click", () => goTo(2));
+    root.querySelectorAll<HTMLButtonElement>("[data-goto]").forEach((b) => {
+      b.addEventListener("click", () => goTo(Number(b.dataset.goto)));
+    });
+
+    // Bestellen / Advies → payload-hook [koppeling nog aanleveren]
+    root.querySelectorAll<HTMLButtonElement>('[data-action="bestellen"],[data-action="advies"]').forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const payload = {
+          calculator: "effectmeting",
+          actie: btn.dataset.action,
+          keuzes: { ...state },
+          respondenten: respondenten(state.design, state.doelgroepen),
+          richtprijs: Math.round(priceFor(state)),
+        };
+        root.dispatchEvent(new CustomEvent("effectmeting-calculator:submit", { detail: payload, bubbles: true }));
+        console.info("[effectmeting-calculator] submit", payload);
+      });
+    });
+
+    renderRail();
+    renderPrice();
+  });
+</script>

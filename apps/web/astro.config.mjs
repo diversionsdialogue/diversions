@@ -30,7 +30,7 @@ const NOINDEX_ROUTE_PREFIX = {
   post: "/blog/",
   service: "/services/",
   workItem: "/work/",
-  legalPage: "/legal/",
+  legalPage: "/", // legal-pagina's staan op hun root-URL (pages/[...slug].astro)
 };
 
 async function collectNoindexPaths() {

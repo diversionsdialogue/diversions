@@ -41,3 +41,6 @@ export-teksten/
 
 # Claude Code lokale overrides (sessie/persoonlijk)
 .claude/settings.local.json
+
+# Ontwerpreferenties (HTML/CSS/JSX-prototypes; niet de site zelf)
+new design/

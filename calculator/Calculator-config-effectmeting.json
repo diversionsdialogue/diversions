@@ -1,0 +1,43 @@
+{
+  "calculator": "effectmeting",
+  "titel": "Bereken je prijsindicatie — campagne-effectonderzoek",
+  "valuta": "EUR",
+  "exclBtw": true,
+  "disclaimer": "Een betrouwbare prijsindicatie, geen bindende offerte.",
+  "inputs": {
+    "design": { "post": "Alleen nameting", "prepost": "Nul- en nameting" },
+    "vragenlijst": { "basis": "Basis survey", "smart": "Smart survey (AI-analyse)" },
+    "doelgroepen": [1, 2, 3],
+    "combinatie": { "geen": "Alleen marktonderzoek", "combi": "Combinatie met interne data" }
+  },
+  "respondenten": {
+    "_logica": "Basis post = 400 (+150 per extra doelgroep). Pre+post = 600 (+200 per extra dg: +50 pre, +150 post).",
+    "post": [400, 550, 700],
+    "prepost": [600, 800, 1000]
+  },
+  "tarieven": {
+    "perRespondent": 4.5,
+    "toolPerMeting": { "basis": 250, "smart": 500 },
+    "metingen": { "post": 1, "prepost": 2 },
+    "marge": { "post": 2500, "prepost": 3500 },
+    "combinatie": 1000,
+    "_opmerking": "Smart survey (€500/meting) vervangt SurveySparrow (€250/meting); geen aparte SurveySparrow-kosten erbij. Leveranciersnamen nooit klantgericht tonen."
+  },
+  "prijsformule": "marge[design] + toolPerMeting[vragenlijst] × metingen[design] + 4,50 × N(design,doelgroepen) + (combinatie ? 1000 : 0)",
+  "acceptatie": [
+    { "design": "post", "doelgroepen": 1, "vragenlijst": "basis", "combinatie": false, "richtprijs": 4550 },
+    { "design": "post", "doelgroepen": 2, "vragenlijst": "basis", "combinatie": false, "richtprijs": 5225 },
+    { "design": "post", "doelgroepen": 3, "vragenlijst": "basis", "combinatie": false, "richtprijs": 5900 },
+    { "design": "prepost", "doelgroepen": 1, "vragenlijst": "basis", "combinatie": false, "richtprijs": 6700 },
+    { "design": "prepost", "doelgroepen": 2, "vragenlijst": "basis", "combinatie": false, "richtprijs": 7600 },
+    { "design": "prepost", "doelgroepen": 3, "vragenlijst": "basis", "combinatie": false, "richtprijs": 8500 },
+    { "design": "post", "doelgroepen": 1, "vragenlijst": "smart", "combinatie": false, "richtprijs": 4800 },
+    { "design": "prepost", "doelgroepen": 2, "vragenlijst": "smart", "combinatie": false, "richtprijs": 8100 },
+    { "design": "prepost", "doelgroepen": 2, "vragenlijst": "smart", "combinatie": true, "richtprijs": 9100 }
+  ],
+  "guardrails": [
+    "Leveranciersnamen (panelpartner, surveytool) nooit klantgericht tonen.",
+    "Respondenten worden altijd via ons panel geworven; geen klantkeuze.",
+    "Selectiecriteria (leeftijd/regio/gender, € 90-opties) niet in de calculator."
+  ]
+}

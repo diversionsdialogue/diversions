@@ -1,0 +1,463 @@
+---
+import "@/styles/calculators.css";
+/**
+ * CustomerJourneyCalculator — gestapte offerte-starter voor het customer-journey-
+ * onderzoek. Zelfde patroon als PretestCalculator: server-gerenderde HTML-schil +
+ * één vanilla <script>, geen dependencies, geen localStorage.
+ *
+ * Bronwaarheid logica/tarieven/copy:
+ *   calculator/Calculator-config-customer-journey.json
+ *   calculator/Bouwspecificatie customer-journey-calculator (Claude Code).md
+ *
+ *   Stap 1 — Opzet:    Respondenten (zelf / werven / mix) + Frequentie (eenmalig / doorlopend)
+ *   Stap 2 — Pakket:   Survey / Kwalitatief / Combi
+ *                      + [survey/combi] Smart Survey? + [niet-zelf] Doelgroepen (1/2/3)
+ *
+ * Rekentechniek: steekproef wordt automatisch afgeleid uit pakket + doelgroepen.
+ * Bij "Zelf aanleveren" rekent de calculator met 1 doelgroep (veld verborgen).
+ * "Mix" toont nooit een prijs (offerte op maat). Tarieven neutraal benoemd;
+ * leveranciersnamen worden nooit getoond. Marge zit in de basis + stuktarieven.
+ *
+ * [koppeling nog aanleveren] — knoppen dispatchen "customer-journey-calculator:submit".
+ */
+const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:2px;color:var(--primary)"><polyline points="20 6 9 17 4 12"/></svg>`;
+---
+
+<section class="qcalc" data-step="1" aria-label="Offerte-starter customer journey">
+  <div class="qc-card">
+    {/* Topbar: merk + stappen-rail */}
+    <div class="qc-topbar">
+      <span class="qc-brand">Bereken je prijsindicatie</span>
+      <ol class="qc-rail">
+        <li class="qc-railstep" data-railstep="1">
+          <button type="button" class="qc-pill" data-goto="1"><span class="qc-pillnum">1</span></button>
+          <span class="qc-pilllabel">Opzet</span>
+        </li>
+        <li class="qc-railsep" aria-hidden="true"></li>
+        <li class="qc-railstep" data-railstep="2">
+          <span class="qc-pill"><span class="qc-pillnum">2</span></span>
+          <span class="qc-pilllabel">Pakket</span>
+        </li>
+        <li class="qc-railsep" aria-hidden="true"></li>
+        <li class="qc-railstep" data-railstep="3">
+          <span class="qc-pill"><span class="qc-pillnum">3</span></span>
+          <span class="qc-pilllabel">Bestellen</span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="qc-body">
+      <div class="qc-main">
+        {/* ---------------- STAP 1 — Opzet ---------------- */}
+        <div class="qc-panel" data-panel="1">
+          <p class="qc-steplabel">Stap 1 van 3</p>
+          <h2 class="qc-title">Hoe zet je het onderzoek op?</h2>
+          <p class="qc-sub">Bepaal wie de respondenten levert en hoe vaak je meet. In de volgende stap kies je het pakket.</p>
+
+          <div class="qc-group">
+            <p class="qc-fieldlabel">Wie leveren de respondenten?</p>
+            <div class="qc-choices">
+              <label class="qc-choice">
+                <input type="radio" name="respondenten" value="zelf" checked />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Zelf aanleveren</span>
+                  <span class="qc-choicesub">Je nodigt je eigen klanten uit die de reis recent doorliepen.</span>
+                </span>
+              </label>
+              <label class="qc-choice">
+                <input type="radio" name="respondenten" value="werven" />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Respondenten werven</span>
+                  <span class="qc-choicesub">Wij werven de deelnemers via ons panel.</span>
+                </span>
+              </label>
+              <label class="qc-choice">
+                <input type="radio" name="respondenten" value="mix" />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Mix</span>
+                  <span class="qc-choicesub">Deels eigen klanten, deels geworven. Hiervoor stellen we een offerte op maat op.</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="qc-group">
+            <p class="qc-fieldlabel">Hoe vaak meet je?</p>
+            <div class="qc-choices qc-choices--2">
+              <label class="qc-choice">
+                <input type="radio" name="frequentie" value="eenmalig" checked />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Eenmalig</span>
+                  <span class="qc-choicesub">Eén meting van de journey op dit moment.</span>
+                </span>
+              </label>
+              <label class="qc-choice">
+                <input type="radio" name="frequentie" value="doorlopend" />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Doorlopend</span>
+                  <span class="qc-choicesub">Een meethuis met dashboard dat de reis blijft volgen.</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-primary btn-arrow qc-cta" data-next>
+            Stel je pakket samen
+          </button>
+          <p class="qc-fineprint">Geen account, geen verkoopgesprek — een eerste indicatie binnen twee minuten.</p>
+        </div>
+
+        {/* ---------------- STAP 2 — Pakket ---------------- */}
+        <div class="qc-panel" data-panel="2" hidden>
+          <button type="button" class="qc-back" data-goto="1">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Vorige stap
+          </button>
+          <p class="qc-steplabel">Stap 2 van 3</p>
+          <h2 class="qc-title qc-title--sm">Stel je pakket samen</h2>
+
+          <div class="qc-expert">
+            <span class="qc-avatar" aria-hidden="true">WB</span>
+            <div>
+              <p class="qc-expertname">William Burghout · <span>Onderzoeksexpert</span></p>
+              <p class="qc-experttext" data-expert-text>We stellen je journey-onderzoek graag op volgens jouw wensen. Geef hier je voorkeuren aan.</p>
+            </div>
+          </div>
+
+          <div data-field="pakket">
+            <p class="qc-fieldlabel">Kies het onderzoekspakket</p>
+            <div class="qc-choices">
+              <label class="qc-choice">
+                <input type="radio" name="pakket" value="survey" checked />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Survey</span>
+                  <ul class="qc-bullets">
+                    <li><Fragment set:html={TICK} />De reis in kaart, snel</li>
+                    <li><Fragment set:html={TICK} />Emotiecurve en pijnpunten</li>
+                    <li><Fragment set:html={TICK} />Journey map met quick-wins</li>
+                  </ul>
+                </span>
+              </label>
+              <label class="qc-choice">
+                <input type="radio" name="pakket" value="kwali" />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Kwalitatief</span>
+                  <ul class="qc-bullets">
+                    <li><Fragment set:html={TICK} />Diepte-interviews</li>
+                    <li><Fragment set:html={TICK} />Het waarom achter het gedrag</li>
+                    <li><Fragment set:html={TICK} />De geleefde reis in beeld</li>
+                  </ul>
+                </span>
+              </label>
+              <label class="qc-choice">
+                <input type="radio" name="pakket" value="combi" />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Combi</span>
+                  <ul class="qc-bullets">
+                    <li><Fragment set:html={TICK} />Survey én interviews</li>
+                    <li><Fragment set:html={TICK} />Cijfers met de verklaring erachter</li>
+                    <li><Fragment set:html={TICK} />Het complete beeld van de reis</li>
+                  </ul>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          {/* Smart Survey — alleen bij Survey of Combi */}
+          <div data-field="smart" hidden>
+            <p class="qc-fieldlabel">Wil je gebruikmaken van een Smart Survey?</p>
+            <p class="qc-help">
+              Met AI maken we de vragenlijst interactief: respondenten krijgen gerichte
+              vervolgvragen op hun antwoorden. Scherpere inzichten, zonder extra doorlooptijd.
+            </p>
+            <div class="qc-choices qc-choices--2">
+              <label class="qc-choice">
+                <input type="radio" name="smart" value="traditioneel" checked />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Traditionele survey</span>
+                </span>
+              </label>
+              <label class="qc-choice">
+                <input type="radio" name="smart" value="smart" />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Smart Survey</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          {/* Doelgroepen — alleen als respondenten niet "zelf" is */}
+          <div data-field="doelgroepen" hidden>
+            <p class="qc-fieldlabel">Hoeveel doelgroepen?</p>
+            <p class="qc-help">
+              Elke doelgroep onderzoeken we apart, zodat je de journey per groep
+              kunt vergelijken.
+            </p>
+            <div class="qc-select-wrap">
+              <select class="qc-select" data-input="doelgroepen" aria-label="Aantal doelgroepen">
+                <option value="1">1 doelgroep</option>
+                <option value="2">2 doelgroepen</option>
+                <option value="3">3 doelgroepen</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="qc-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <p>Specifieke onderzoekswensen, bijvoorbeeld bij de selectie van doelgroepen? <a href="tel:+31552032193">Neem contact met ons op.</a></p>
+          </div>
+        </div>
+      </div>
+
+      {/* Zijpaneel met prijsindicatie — zichtbaar in beide stappen (desktop) */}
+      <aside class="qc-summary">
+        <div>
+          <p class="qc-sumlabel">Jouw indicatie</p>
+          <p class="qc-sumprice" data-price>&euro; 3.500</p>
+          <p class="qc-sumnote" data-note>excl. btw · richtprijs op basis van vergelijkbare onderzoeken</p>
+          <p class="qc-sumnote" data-b2b hidden>Tarief op basis van consumentendoelgroepen. B2B-doelgroepen op aanvraag.</p>
+        </div>
+        <div class="qc-sumdivider"></div>
+        <div class="qc-sumactions">
+          <button type="button" class="btn btn-primary btn-arrow" data-action="bestellen">
+            Direct bestellen
+          </button>
+          <button type="button" class="btn btn-outline" data-action="advies">Advies aanvragen</button>
+        </div>
+        <p class="qc-sumfine">Geen account nodig. Na bestelling neemt een onderzoeker binnen één werkdag contact op.</p>
+      </aside>
+    </div>
+  </div>
+
+  {/* Mobiel: sticky prijsbalk onderaan het scherm */}
+  <div class="qc-stickybar" data-stickybar>
+    <div class="qc-stickyprice">
+      <p class="qc-sumlabel">Jouw indicatie</p>
+      <p class="qc-stickyamount" data-price>&euro; 3.500</p>
+    </div>
+    <span class="qc-stickyexcl">excl. btw · richtprijs</span>
+    <div class="qc-stickyactions">
+      <button type="button" class="btn btn-primary btn-arrow" data-action="bestellen">
+        Direct bestellen
+      </button>
+      <button type="button" class="btn btn-outline" data-action="advies">Advies</button>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  // --- Rekentechniek — tarieven uit Calculator-config-customer-journey.json.
+  // Steekproef volgt automatisch uit pakket + doelgroepen. Bij "zelf aanleveren"
+  // rekent de calculator met 1 doelgroep. Marge zit in de basis + stuktarieven.
+  const RATE = {
+    basis: 3000,
+    doorlopendOpslag: 6000,
+    wervingKwantiPerRespondent: 4.5,
+    wervingKwaliPerInterview: 100,
+    interviewPerStuk: 200,
+    surveyToolTraditioneel: 250,
+    surveyToolSmart: 500,
+    handlingEigen: 250,
+  };
+  // Steekproef per aantal doelgroepen (g = 1..3).
+  const KWANTI: Record<number, number> = { 1: 400, 2: 550, 3: 700 };
+  const KWALI: Record<number, number> = { 1: 7, 2: 12, 3: 16 };
+
+  const nf = new Intl.NumberFormat("nl-NL");
+  const euro = (n: number) => `€ ${nf.format(Math.round(n))}`;
+
+  type State = {
+    respondenten: "zelf" | "werven" | "mix";
+    frequentie: "eenmalig" | "doorlopend";
+    pakket: "survey" | "kwali" | "combi";
+    smart: "traditioneel" | "smart";
+    doelgroepen: number;
+  };
+
+  // Mix => geen prijs (offerte op maat) => null.
+  function priceFor(s: State): number | null {
+    if (s.respondenten === "mix") return null;
+    const g = s.respondenten === "zelf" ? 1 : s.doelgroepen;
+    const kwantiN = KWANTI[g];
+    const kwaliN = KWALI[g];
+    const heeftSurvey = s.pakket === "survey" || s.pakket === "combi";
+    const heeftKwali = s.pakket === "kwali" || s.pakket === "combi";
+
+    let total = RATE.basis;
+    if (s.frequentie === "doorlopend") total += RATE.doorlopendOpslag;
+    if (heeftSurvey) {
+      const tool = s.smart === "smart" ? RATE.surveyToolSmart : RATE.surveyToolTraditioneel;
+      total += tool * g;
+      if (s.respondenten === "werven") total += RATE.wervingKwantiPerRespondent * kwantiN;
+    }
+    if (heeftKwali) {
+      // Werving alleen bij werven; interviews voeren wij altijd zelf uit.
+      if (s.respondenten === "werven") total += RATE.wervingKwaliPerInterview * kwaliN;
+      total += RATE.interviewPerStuk * kwaliN;
+    }
+    if (s.respondenten === "zelf") total += RATE.handlingEigen; // vervangt werving
+    return total;
+  }
+
+  // Interne tier (nooit klantgericht tonen) — voor de payload.
+  function tierFor(s: State): string {
+    if (s.pakket === "kwali") return "PLUS";
+    if (s.pakket === "combi") return "CORE+PLUS";
+    return s.smart === "smart" ? "CORE" : "LIGHT";
+  }
+
+  document.querySelectorAll<HTMLElement>(".qcalc").forEach((root) => {
+    const state: State = {
+      respondenten: "zelf",
+      frequentie: "eenmalig",
+      pakket: "survey",
+      smart: "traditioneel",
+      doelgroepen: 1,
+    };
+    let step = 1;
+
+    const panels = root.querySelectorAll<HTMLElement>("[data-panel]");
+    const railsteps = root.querySelectorAll<HTMLElement>("[data-railstep]");
+    const prices = root.querySelectorAll<HTMLElement>("[data-price]");
+    const note = root.querySelector<HTMLElement>("[data-note]")!;
+    const b2b = root.querySelector<HTMLElement>("[data-b2b]")!;
+    const smartField = root.querySelector<HTMLElement>('[data-field="smart"]')!;
+    const doelgroepenField = root.querySelector<HTMLElement>('[data-field="doelgroepen"]')!;
+    const expertText = root.querySelector<HTMLElement>("[data-expert-text]")!;
+
+    const NOTE_DEFAULT = "excl. btw · richtprijs op basis van vergelijkbare onderzoeken";
+    const NOTE_MIX = "We stellen graag een offerte op maat voor je op.";
+
+    const renderRail = () => {
+      railsteps.forEach((rs) => {
+        const n = Number(rs.dataset.railstep);
+        const pill = rs.querySelector<HTMLElement>(".qc-pill")!;
+        const num = pill.querySelector<HTMLElement>(".qc-pillnum")!;
+        let st: "done" | "active" | "todo";
+        if (n < step) st = "done";
+        else if (n === step) st = "active";
+        else st = "todo";
+        rs.dataset.state = st;
+        num.innerHTML =
+          st === "done"
+            ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
+            : String(n);
+      });
+    };
+
+    const orderBtns = root.querySelectorAll<HTMLButtonElement>('[data-action="bestellen"]');
+
+    const renderPrice = () => {
+      const p = priceFor(state);
+      const isMix = p === null;
+      prices.forEach((el) => (el.textContent = isMix ? "– –" : euro(p as number)));
+      note.textContent = isMix ? NOTE_MIX : NOTE_DEFAULT;
+      // B2B-disclaimer alleen tonen wanneer wij werven (B2C-tarief van toepassing).
+      b2b.hidden = state.respondenten !== "werven";
+      // Zonder prijs is "Direct bestellen" zinloos → offerte aanvragen.
+      orderBtns.forEach((btn) => {
+        btn.textContent = isMix ? "Offerte aanvragen" : "Direct bestellen";
+        btn.dataset.mode = isMix ? "offerte" : "bestellen";
+      });
+    };
+
+    const renderStep2 = () => {
+      const heeftSurvey = state.pakket === "survey" || state.pakket === "combi";
+      smartField.hidden = !heeftSurvey;
+      doelgroepenField.hidden = state.respondenten === "zelf";
+      expertText.textContent =
+        state.pakket === "kwali"
+          ? "We voeren de diepte-interviews zelf af en duiden het waarom achter het gedrag. Geef hier je voorkeuren aan."
+          : "We stellen je journey-onderzoek graag op volgens jouw wensen. Geef hier je voorkeuren aan.";
+    };
+
+    const goTo = (n: number) => {
+      step = n;
+      root.dataset.step = String(n);
+      panels.forEach((p) => (p.hidden = p.dataset.panel !== String(n)));
+      if (n === 2) renderStep2();
+      renderRail();
+      renderPrice();
+      root.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    // Stap 1: respondenten
+    root.querySelectorAll<HTMLInputElement>('input[name="respondenten"]').forEach((inp) => {
+      inp.addEventListener("change", () => {
+        state.respondenten = inp.value as State["respondenten"];
+        if (step === 2) renderStep2();
+        renderPrice();
+      });
+    });
+
+    // Stap 1: frequentie
+    root.querySelectorAll<HTMLInputElement>('input[name="frequentie"]').forEach((inp) => {
+      inp.addEventListener("change", () => {
+        state.frequentie = inp.value as State["frequentie"];
+        renderPrice();
+      });
+    });
+
+    // "Stel je pakket samen" → stap 2
+    root.querySelector<HTMLButtonElement>("[data-next]")!.addEventListener("click", () => goTo(2));
+
+    // Rail terug
+    root.querySelectorAll<HTMLButtonElement>("[data-goto]").forEach((b) => {
+      b.addEventListener("click", () => goTo(Number(b.dataset.goto)));
+    });
+
+    // Stap 2: pakket
+    root.querySelectorAll<HTMLInputElement>('input[name="pakket"]').forEach((inp) => {
+      inp.addEventListener("change", () => {
+        state.pakket = inp.value as State["pakket"];
+        renderStep2();
+        renderPrice();
+      });
+    });
+
+    // Stap 2: smart survey
+    root.querySelectorAll<HTMLInputElement>('input[name="smart"]').forEach((inp) => {
+      inp.addEventListener("change", () => {
+        state.smart = inp.value as State["smart"];
+        renderPrice();
+      });
+    });
+
+    // Stap 2: doelgroepen
+    const dg = root.querySelector<HTMLSelectElement>('[data-input="doelgroepen"]')!;
+    dg.addEventListener("change", () => {
+      state.doelgroepen = Number(dg.value);
+      renderPrice();
+    });
+
+    // Bestellen / Advies → payload-hook [koppeling nog aanleveren]
+    root.querySelectorAll<HTMLButtonElement>('[data-action="bestellen"],[data-action="advies"]').forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const p = priceFor(state);
+        const payload = {
+          calculator: "customer-journey",
+          actie: btn.dataset.action,
+          keuzes: { ...state },
+          tier: tierFor(state),
+          richtprijs: p,
+        };
+        root.dispatchEvent(new CustomEvent("customer-journey-calculator:submit", { detail: payload, bubbles: true }));
+        console.info("[customer-journey-calculator] submit", payload);
+      });
+    });
+
+    renderRail();
+    renderPrice();
+  });
+</script>

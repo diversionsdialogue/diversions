@@ -34,7 +34,10 @@ function deriveSlug(id: string, prefix: string, explicit?: string): string {
 function safeImageUrl(source: any): string {
   if (!source || !source.asset) return "";
   try {
-    return urlFor(source).url();
+    // auto("format") laat de Sanity-CDN per bezoeker AVIF/WebP serveren; max-
+    // breedte + quality als plafond. Geldt automatisch voor elke (toekomstige)
+    // upload — geen werk per beeld.
+    return urlFor(source).auto("format").quality(75).width(1600).fit("max").url();
   } catch {
     return "";
   }
@@ -68,7 +71,7 @@ function transformSeo(seo?: SanitySeo) {
 export function transformTeamMember(sanityDoc: SanityTeamMember) {
   return {
     id: sanityDoc._id,
-    slug: deriveSlug(sanityDoc._id, "teamMember"),
+    slug: deriveSlug(sanityDoc._id, "teamMember", sanityDoc.slug),
     body: sanityDoc.body,
     collection: "team" as const,
     data: {
@@ -168,7 +171,8 @@ export function transformLegalPage(sanityDoc: SanityLegalPage) {
   return {
     id: sanityDoc._id,
     slug: deriveSlug(sanityDoc._id, "legalPage"),
-    body: sanityDoc.body,
+    // Portable Text array; rendered by the Portable Text renderer, not raw markdown.
+    body: sanityDoc.body || [],
     collection: "legal" as const,
     data: {
       page: sanityDoc.page,
