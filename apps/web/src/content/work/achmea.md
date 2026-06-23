@@ -1,20 +1,18 @@
 ---
-work: "Achmea"
-company: "Achmea Pensioenservices"
-client: "Achmea"
-year: "2023"
+work: Achmea
+company: Achmea Pensioenservices
+client: Achmea
+year: '2023'
 credits: []
 thumbnail:
-  url: "/src/images/work/2.png"
-  alt: "Achmea - case van Diversions"
+  url: /src/images/work/2.png
+  alt: Achmea - case van Diversions
+statement: Achmea — de warme kant van pensioen op de kaart
 ---
-
 <!-- CONVERT-META
   bron: hergebruikt uit oude case Leefjepensioen.nl (Achmea Pensioenservices)
   status: tekst overgenomen uit bestaande content, beeld is placeholder
 -->
-
-## Achmea — de warme kant van pensioen op de kaart
 
 Gaat het over pensioen in de media, dan voeren woorden als betaalbaarheid en dekkingsgraden de boventoon. De vraag van Achmea Pensioenservices: hoe geef je de warme kant van pensioen meer aandacht? Pensioen is immers veel meer dan een maandelijkse bijdrage op je rekening.
 

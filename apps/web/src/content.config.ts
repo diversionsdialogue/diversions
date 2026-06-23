@@ -48,6 +48,8 @@ const work = defineCollection({
       year: z.string().optional(),
       client: z.string().optional(),
       work: z.string(),
+      bijschrift: z.string().optional(),
+      statement: z.string().optional(),
       credits: z
         .array(
           z.object({

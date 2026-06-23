@@ -18,6 +18,19 @@ export const workItem = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "bijschrift",
+      title: "Bijschrift",
+      type: "string",
+      description: "Korte bijschrift onder de titel (optioneel).",
+    }),
+    defineField({
+      name: "statement",
+      title: "Statement",
+      type: "text",
+      rows: 3,
+      description: "Statement-kop, getoond vóór de afbeelding (optioneel).",
+    }),
+    defineField({
       name: "slug",
       title: "Slug",
       type: "slug",

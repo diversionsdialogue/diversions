@@ -104,6 +104,8 @@ export function transformWorkItem(sanityDoc: SanityWorkItem) {
       year: sanityDoc.year,
       client: sanityDoc.client,
       work: sanityDoc.work,
+      bijschrift: sanityDoc.bijschrift,
+      statement: sanityDoc.statement,
       credits: sanityDoc.credits,
       thumbnail: {
         url: safeImageUrl(sanityDoc.thumbnail),

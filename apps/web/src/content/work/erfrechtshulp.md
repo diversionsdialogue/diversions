@@ -1,19 +1,17 @@
 ---
-work: "Erfrechtshulp"
-company: "Erfrechtshulp.nl"
-client: "Erfrechtshulp"
-year: "2014"
+work: Erfrechtshulp
+company: Erfrechtshulp.nl
+client: Erfrechtshulp
+year: '2014'
 credits: []
 thumbnail:
-  url: "/src/images/work/6.png"
-  alt: "Erfrechtshulp - case van Diversions"
+  url: /src/images/work/6.png
+  alt: Erfrechtshulp - case van Diversions
+statement: Erfrechtshulp — van startup tot marktleider
 ---
-
 <!-- CONVERT-META
   bron: bestaande case "Case - Erfrechtshulp", herschreven naar het nieuwe case-format.
 -->
-
-## Erfrechtshulp — van startup tot marktleider
 
 Hoe bewijs je als advocaat online je expertise, tussen concurrenten als notarissen en rechtsbijstandverzekeraars? Erfrecht is een lastig onderwerp waar je niet dagelijks mee te maken hebt, maar bij een conflict zijn de gevolgen groot. Erfrechtshulp.nl wilde op dat terrein een eigen plek veroveren.
 

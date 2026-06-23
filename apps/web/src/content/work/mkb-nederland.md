@@ -1,14 +1,14 @@
 ---
-work: "MKB Nederland"
-company: "MKB-Nederland"
-client: "MKB-Nederland"
-year: "2023"
+work: MKB Nederland
+company: MKB-Nederland
+client: MKB-Nederland
+year: '2023'
 credits: []
 thumbnail:
-  url: "/src/images/work/1.png"
-  alt: "MKB Nederland - case van Diversions"
+  url: /src/images/work/1.png
+  alt: MKB Nederland - case van Diversions
+statement: 'MKB Nederland — [ondertitel nog invullen]'
 ---
-
 <!-- CONVERT-META
   status: CONCEPT — alleen klantrelatie bekend (logo), nog geen case-verhaal.
   TODO: vervang onderstaande placeholdertekst door de echte uitdaging, aanpak en

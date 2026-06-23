@@ -1,20 +1,18 @@
 ---
-work: "Doe-het-zelf"
-company: "Doe-het-zelf"
-client: "Doe-het-zelf"
-year: "2024"
+work: Doe-het-zelf
+company: Doe-het-zelf
+client: Doe-het-zelf
+year: '2024'
 credits: []
 thumbnail:
-  url: "/src/images/work/4.png"
-  alt: "Doe-het-zelf onderzoek - case van Diversions"
+  url: /src/images/work/4.png
+  alt: Doe-het-zelf onderzoek - case van Diversions
+statement: Doe-het-zelf — de klusser in beeld
 ---
-
 <!-- CONVERT-META
   bron: hergebruikt uit "Onderzoek Doe-Het-Zelf" (respondenten-participatie, kit/klusproject)
   status: tekst afgeleid van bestaande content, beeld is placeholder
 -->
-
-## Doe-het-zelf — de klusser in beeld
 
 Hoe ervaart een doe-het-zelver een klusproject echt? Niet achteraf navertellen in een enquête, maar live meekijken op het moment zelf. Dat was de opzet van dit dagboekonderzoek rond een kit- en klusproject.
 

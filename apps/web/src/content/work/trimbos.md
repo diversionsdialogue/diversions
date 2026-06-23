@@ -1,14 +1,14 @@
 ---
-work: "Trimbos"
-company: "Trimbos-instituut"
-client: "Trimbos"
-year: "2023"
+work: Trimbos
+company: Trimbos-instituut
+client: Trimbos
+year: '2023'
 credits: []
 thumbnail:
-  url: "/src/images/work/3.png"
-  alt: "Trimbos - case van Diversions"
+  url: /src/images/work/3.png
+  alt: Trimbos - case van Diversions
+statement: 'Trimbos — [ondertitel nog invullen]'
 ---
-
 <!-- CONVERT-META
   status: CONCEPT — alleen klantrelatie bekend (logo), nog geen case-verhaal.
   TODO: vervang onderstaande placeholdertekst door de echte uitdaging, aanpak en

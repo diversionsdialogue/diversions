@@ -1,19 +1,17 @@
 ---
-work: "Caser"
-company: "Caser"
-client: "Caser"
-year: "2023"
+work: Caser
+company: Caser
+client: Caser
+year: '2023'
 credits: []
 thumbnail:
-  url: "/src/images/work/5.png"
-  alt: "Caser - case van Diversions"
+  url: /src/images/work/5.png
+  alt: Caser - case van Diversions
+statement: Caser — een diary study voor de mantelzorg-app
 ---
-
 <!-- CONVERT-META
   bron: bestaande case "Case - Caser", herschreven naar het nieuwe case-format.
 -->
-
-## Caser — een diary study voor de mantelzorg-app
 
 Europa vergrijst, en in een land als Spanje wonen ouderen en mantelzorgers vaak ver uit elkaar. Zorgverzekeraar Caser ontwikkelde daarom CaserFamily, een app waarmee mantelzorgers taken plannen, agenda's bijhouden en alarmsignalen herkennen. Gebruikers reageerden enthousiast, maar haakten na verloop van tijd weer af. Hoe keer je dat?
 
