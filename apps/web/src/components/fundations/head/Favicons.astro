@@ -1,9 +1,12 @@
-<!-- Favicons — gegenereerd uit content/favicon-diversions.png met sharp,
-     bestanden staan in apps/web/public/ (geserveerd op site-root). -->
+<!-- Favicons — bestanden in apps/web/public/ (geserveerd op site-root).
+     favicon.svg = uit het woordmerk geïsoleerd merkteken; PNG's via sharp uit
+     content/favicon-diversions.png. -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" href="/favicon.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
 
-<!-- Apple Touch Icon -->
+<!-- Apple Touch Icon + PWA-manifest -->
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
