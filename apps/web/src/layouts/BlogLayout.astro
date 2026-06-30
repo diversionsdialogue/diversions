@@ -1,7 +1,6 @@
 ---
 // Layout + chrome
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import BlogHeader from "@/components/global/blog/BlogHeader.astro";
 import ShareRail from "@/components/global/blog/ShareRail.astro";
 import AuthorCard from "@/components/global/blog/AuthorCard.astro";
 import Newsletter from "@/components/global/blog/Newsletter.astro";
@@ -115,13 +114,10 @@ const pageSeo = buildPageSeo(frontmatter.seo, {
 ---
 
 <BaseLayout
-  hideNavigation={true}
   jsonLd={[blogPostingSchema, breadcrumbSchema]}
   seo={pageSeo}
 >
   <div class="blog-template">
-    <BlogHeader />
-
     <article id="post" class="post-shell">
       <header class="post-header">
         <span class="post-tag">{tagLabel}</span>

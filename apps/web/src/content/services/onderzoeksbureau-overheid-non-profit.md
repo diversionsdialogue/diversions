@@ -26,11 +26,11 @@ Zoek je alleen een snelle, losse meting zonder verdieping? Dan is een eenvoudige
 
 ## Wat levert onderzoek je op?
 
-Wij bouwen onderzoek op in drie bouwstenen: Inzicht, Vertaling en Vervolg.
+Wij bouwen onderzoek op in drie bouwstenen: Inzicht, Vertaling en Toepassing.
 
 1. **Inzicht.** Hoe burgers je beleid, communicatie of dienst ervaren, en waar ze afhaken.
 2. **Vertaling.** Waaróm een boodschap wel of niet aankomt, en hoe dat verschilt per doelgroep.
-3. **Vervolg.** Directe aanbevelingen om de stap van onderzoek naar actie te zetten. Concreet en geprioriteerd naar belang.
+3. **Toepassing.** Directe aanbevelingen om de stap van onderzoek naar actie te zetten. Concreet en geprioriteerd naar belang.
 
 ## Hoe pakt Diversions het onderzoek aan?
 
@@ -63,11 +63,11 @@ Toegepast op de drie stappen:
 
 - **Inzicht.** Inwoners zoeken actief, maar lopen vast in een woud van loketten; het vinden van goede informatie was lastig.
 - **Vertaling.** Motivatie slaat snel om in passiviteit als het gevoel van regie op de woonreis ontbreekt.
-- **Vervolg.** Wij stelden drie vormen voor waarbij communicatie meer op maat werd ervaren door inwoners. Dezelfde boodschap, anders verpakt, leidde tot meer contact met woonconsulenten.
+- **Toepassing.** Wij stelden drie vormen voor waarbij communicatie meer op maat werd ervaren door inwoners. Dezelfde boodschap, anders verpakt, leidde tot meer contact met woonconsulenten.
 
 ## Wat is je volgende stap?
 
-Elk onderzoek eindigt met Vervolg: directe aanbevelingen om van onderzoek naar actie te gaan, concreet en geprioriteerd naar belang.
+Elk onderzoek eindigt met Toepassing: directe aanbevelingen om van onderzoek naar actie te gaan, concreet en geprioriteerd naar belang.
 
 - **Morgen:** de quick-wins uit de onderzoeksdata.
 - **Volgende maand:** drempels structureel wegnemen in processen.

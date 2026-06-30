@@ -27,11 +27,11 @@ Heb je een ander vraagstuk? Neem contact op voor vrijblijvend advies.
 
 ## Wat levert het op?
 
-Wij bouwen onderzoek op in drie bouwstenen: Inzicht, Vertaling en Vervolg.
+Wij bouwen onderzoek op in drie bouwstenen: Inzicht, Vertaling en Toepassing.
 
 1. **Inzicht.** Wat beweegt je achterban, en waar in de donor journey haken mensen af?
 2. **Vertaling.** Waaróm geven mensen wel of niet? Welke drempel weegt het zwaarst?
-3. **Vervolg.** Directe aanbevelingen om de stap van onderzoek naar actie te zetten. Concreet en geprioriteerd naar belang.
+3. **Toepassing.** Directe aanbevelingen om de stap van onderzoek naar actie te zetten. Concreet en geprioriteerd naar belang.
 
 ## Hoe pakt Diversions onderzoek aan?
 
@@ -66,11 +66,11 @@ Toegepast op de drie stappen:
 
 - **Inzicht.** Ex-gevers waren nog enthousiast en kenden het merkverhaal; de drempels om te steunen waren het probleem.
 - **Vertaling.** Niet het verhaal of de motivatie hield mensen tegen, maar het gemak van geven.
-- **Vervolg.** Een nieuwe marketingstrategie: het sterke merkverhaal behouden, de drempels om te steunen wegnemen.
+- **Toepassing.** Een nieuwe marketingstrategie: het sterke merkverhaal behouden, de drempels om te steunen wegnemen.
 
 ## Wat is je volgende stap?
 
-Elk onderzoek eindigt met Vervolg: directe aanbevelingen om van onderzoek naar actie te gaan, concreet en geprioriteerd naar belang.
+Elk onderzoek eindigt met Toepassing: directe aanbevelingen om van onderzoek naar actie te gaan, concreet en geprioriteerd naar belang.
 
 - **Morgen:** de quick-wins uit de onderzoeksdata.
 - **Volgende maand:** drempels structureel wegnemen in fondsenwerving.

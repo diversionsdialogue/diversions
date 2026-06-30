@@ -111,13 +111,11 @@ const pageSeo = buildPageSeo(frontmatter.seo, {
         }
       </div>
       <img
-        width={1200}
-        height={630}
         src={frontmatter.thumbnail.url}
         alt={frontmatter.thumbnail.alt}
         loading="lazy"
         decoding="async"
-        class="w-full max-h-120 rounded-2xl relative object-cover object-top mt-12"
+        class="w-full h-auto rounded-2xl relative mt-12"
       />
       <Wrapper variant="prose" class="mt-12">
         <slot />

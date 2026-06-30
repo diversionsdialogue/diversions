@@ -18,11 +18,14 @@
 
 /* Topbar + stappen-rail */
 .qc-topbar {
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 16px; flex-wrap: wrap; padding: 16px 22px;
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: 10px; padding: 16px 22px;
   border-bottom: 1px solid var(--border); background: var(--color-accent-50);
 }
-.qc-brand { font-family: var(--font-display); font-size: 20px; color: var(--primary); letter-spacing: -0.02em; }
+.qc-brand {
+  font-family: var(--font-subtitle); font-weight: 600; font-size: 11px;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute);
+}
 .qc-rail { display: flex; align-items: center; gap: 8px; margin: 0; padding: 0; list-style: none; }
 .qc-railstep { display: flex; align-items: center; gap: 8px; }
 .qc-railsep { width: 24px; height: 1px; background: var(--border); }
@@ -111,6 +114,22 @@ button.qc-pill { cursor: pointer; }
 .qc-seg button:hover:not(.on) { background: var(--color-accent-50); }
 .qc-seg button.on { background: var(--primary-tint); color: var(--primary); box-shadow: inset 0 0 0 1.5px var(--primary); }
 .qc-seg button:focus-visible { outline: 2px solid var(--ring); outline-offset: -2px; }
+
+/* Frequentie-kaartjes (single-select, kaartvorm met bullets) */
+.qc-freqcards { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 560px) { .qc-freqcards { grid-template-columns: 1fr 1fr; } }
+.qc-freqcard {
+  text-align: left; appearance: none; cursor: pointer;
+  background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg);
+  padding: 18px; display: flex; flex-direction: column; gap: 12px;
+  transition: border-color var(--duration-base) var(--ease), background var(--duration-base) var(--ease);
+}
+.qc-freqcard:hover:not(.on) { background: var(--color-accent-50); }
+.qc-freqcard.on { background: var(--primary-tint); border-color: var(--primary); border-width: 2px; padding: 17px; }
+.qc-freqcard:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+.qc-freqcard-title { font-family: var(--font-subtitle); font-weight: 600; font-size: 17px; color: var(--ink); }
+.qc-freqcard-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+.qc-freqcard-list li { display: flex; gap: 10px; align-items: flex-start; font-family: var(--font-sans); font-size: 14px; line-height: 1.4; color: var(--ink-soft); }
 
 .qc-cta { width: 100%; margin-top: 22px; }
 /* Inactieve knop binnen een calculator (bv. werving → geen prijs) */

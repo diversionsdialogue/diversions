@@ -54,24 +54,36 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
           <div class="qc-group">
             <p class="qc-fieldlabel">Respondenten</p>
             <div class="qc-seg" role="group" aria-label="Respondenten" data-seg="respondenten">
-              <button type="button" data-value="zelf" class="on" aria-pressed="true">Zelf aanleveren</button>
+              <button type="button" data-value="zelf" class="on" aria-pressed="true">Eigen bestand</button>
               <button type="button" data-value="werven" aria-pressed="false">Respondenten werven</button>
             </div>
           </div>
 
           <div class="qc-group">
             <p class="qc-fieldlabel">Frequentie</p>
-            <div class="qc-seg" role="group" aria-label="Frequentie" data-seg="frequentie">
-              <button type="button" data-value="eenmalig" class="on" aria-pressed="true">Eenmalig</button>
-              <button type="button" data-value="doorlopend" aria-pressed="false">Doorlopend</button>
+            <div class="qc-freqcards" role="group" aria-label="Frequentie" data-seg="frequentie">
+              <button type="button" data-value="eenmalig" class="qc-freqcard on" aria-pressed="true">
+                <span class="qc-freqcard-title">Eenmalig</span>
+                <ul class="qc-freqcard-list">
+                  <li><Fragment set:html={TICK} />Gevalideerde vragenlijst</li>
+                  <li><Fragment set:html={TICK} />Response optimalisatie</li>
+                  <li><Fragment set:html={TICK} />Overzichtelijke rapportage</li>
+                </ul>
+              </button>
+              <button type="button" data-value="doorlopend" class="qc-freqcard" aria-pressed="false">
+                <span class="qc-freqcard-title">Doorlopend</span>
+                <ul class="qc-freqcard-list">
+                  <li><Fragment set:html={TICK} />Inrichting meethuis</li>
+                  <li><Fragment set:html={TICK} />Ontwikkeling dashboard</li>
+                  <li><Fragment set:html={TICK} />Koppeling met interne data</li>
+                </ul>
+              </button>
             </div>
-            <p class="qc-help">Doorlopend: + € 3.500 voor het opzetten van een meethuis en dashboard.</p>
           </div>
 
           <button type="button" class="btn btn-primary btn-arrow qc-cta" data-next>
-            Bereken indicatie
+            Pakket samenstellen
           </button>
-          <p class="qc-fineprint">Geen account, geen verkoopgesprek — een eerste indicatie binnen twee minuten.</p>
         </div>
 
         {/* ---------------- STAP 2 — Pakket ---------------- */}
@@ -91,7 +103,7 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
                 <span class="qc-radio" aria-hidden="true"></span>
                 <span class="qc-choicebody">
                   <span class="qc-choicetitle">Klanttevredenheid</span>
-                  <span class="qc-choicesub">€ 1.500 · altijd inbegrepen</span>
+                  <span class="qc-choicesub">Inzicht in klanttevredenheid, actiepunten om loyaliteit te verhogen.</span>
                 </span>
               </label>
               <label class="qc-choice">
@@ -99,7 +111,7 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
                 <span class="qc-radio" aria-hidden="true"></span>
                 <span class="qc-choicebody">
                   <span class="qc-choicetitle">Toekomstwensen</span>
-                  <span class="qc-choicesub">+ € 750</span>
+                  <span class="qc-choicesub">Inzicht in toekomstige klantbehoeften.</span>
                 </span>
               </label>
               <label class="qc-choice">
@@ -107,7 +119,7 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
                 <span class="qc-radio" aria-hidden="true"></span>
                 <span class="qc-choicebody">
                   <span class="qc-choicetitle">Effectief communiceren</span>
-                  <span class="qc-choicesub">+ € 750</span>
+                  <span class="qc-choicesub">Beoordeling huidige communicatie, benchmark met marktstandaarden.</span>
                 </span>
               </label>
               <label class="qc-choice">
@@ -115,7 +127,7 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
                 <span class="qc-radio" aria-hidden="true"></span>
                 <span class="qc-choicebody">
                   <span class="qc-choicetitle">Concurrentiekracht</span>
-                  <span class="qc-choicesub">+ € 750</span>
+                  <span class="qc-choicesub">Zicht op je marktpositie en kracht van propositie t.o.v. concurrenten.</span>
                 </span>
               </label>
             </div>
@@ -134,7 +146,7 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
                 <span class="qc-radio" aria-hidden="true"></span>
                 <span class="qc-choicebody">
                   <span class="qc-choicetitle">Smart survey</span>
-                  <span class="qc-choicesub">Met AI gericht doorvragen om klantgedrag beter te begrijpen. + € 250 per gekozen module.</span>
+                  <span class="qc-choicesub">Met AI gericht doorvragen om klantgedrag beter te begrijpen.</span>
                 </span>
               </label>
               <label class="qc-choice">
@@ -142,7 +154,7 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
                 <span class="qc-radio" aria-hidden="true"></span>
                 <span class="qc-choicebody">
                   <span class="qc-choicetitle">Persoonlijke interviews</span>
-                  <span class="qc-choicesub">7 diepte-interviews voor de achtergrond van klantwaardering en -voorkeuren. + € 1.400.</span>
+                  <span class="qc-choicesub">7 diepte-interviews voor de achtergrond van klantwaardering en -voorkeuren.</span>
                 </span>
               </label>
             </div>
@@ -168,7 +180,7 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
             <button type="button" class="btn btn-primary btn-arrow" data-action="bestellen">Direct bestellen</button>
             <button type="button" class="btn btn-outline" data-action="advies">Advies aanvragen</button>
           </div>
-          <p class="qc-sumfine">Geen account nodig. Na bestelling neemt een onderzoeker binnen één werkdag contact op.</p>
+          <p class="qc-sumfine">Na bestelling neemt een onderzoeker binnen één werkdag contact op.</p>
         </div>
         <div data-werven hidden>
           <p class="qc-sumnote" style="margin-bottom:14px">Bij werving van respondenten verwijzen we je graag naar ons Doelgroeponderzoek.</p>
@@ -247,6 +259,16 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
     const normalBlocks = root.querySelectorAll<HTMLElement>("[data-normal]");
     const wervenBlocks = root.querySelectorAll<HTMLElement>("[data-werven]");
     const nextBtn = root.querySelector<HTMLButtonElement>("[data-next]")!;
+    const orderBtns = root.querySelectorAll<HTMLButtonElement>('[data-action="bestellen"]');
+
+    // "Direct bestellen" is pas actief vanaf stap 2 (in stap 1 inactief tonen).
+    const syncOrder = () => {
+      const off = step === 1;
+      orderBtns.forEach((b) => {
+        b.disabled = off;
+        b.setAttribute("aria-disabled", off ? "true" : "false");
+      });
+    };
 
     const renderRail = () => {
       railsteps.forEach((rs) => {
@@ -276,6 +298,7 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
       root.dataset.step = String(n);
       panels.forEach((p) => (p.hidden = p.dataset.panel !== String(n)));
       renderRail();
+      syncOrder();
       root.scrollIntoView({ behavior: "smooth", block: "start" });
     };
 
@@ -342,5 +365,6 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
 
     renderRail();
     render();
+    syncOrder();
   });
 </script>

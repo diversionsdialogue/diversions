@@ -27,11 +27,11 @@ Heb je een ander vraagstuk? Neem contact op voor vrijblijvend advies.
 
 ## Wat levert het op?
 
-Wij bouwen onderzoek op in drie bouwstenen: Inzicht, Vertaling en Vervolg.
+Wij bouwen onderzoek op in drie bouwstenen: Inzicht, Vertaling en Toepassing.
 
 1. **Inzicht.** Wat leeft er in je achterban, en hoe varieert de waardering op verschillende momenten in de journey.
 2. **Vertaling.** Waaróm leden blijven of weglopen. Welke knelpunten het meeste effect hebben.
-3. **Vervolg.** Directe aanbevelingen om de stap van onderzoek naar actie te zetten. Concreet en geprioriteerd naar belang.
+3. **Toepassing.** Directe aanbevelingen om de stap van onderzoek naar actie te zetten. Concreet en geprioriteerd naar belang.
 
 ## Hoe pakt Diversions het aan?
 
@@ -66,11 +66,11 @@ Toegepast op de drie stappen:
 
 - **Inzicht.** Grote verschillen in de waardering van events tussen leden: sommigen zeer enthousiast, anderen juist benedengemiddeld.
 - **Vertaling.** De binding die mensen voelden met mede-leden bleek de beste voorspeller van gedrag. Bij doorvragen bleek het gevoel te leven dat er binnen de vereniging verschillende groepen waren ontstaan.
-- **Vervolg.** Buiten de traditionele events om investeren in lokale contacten. Zo werden nieuwe verbindingen gelegd, zonder de hechte groep te hoeven breken. Het verhoogde niet alleen het aantal deelnemers van evenementen, maar ook de algemene tevredenheid over de vereniging.
+- **Toepassing.** Buiten de traditionele events om investeren in lokale contacten. Zo werden nieuwe verbindingen gelegd, zonder de hechte groep te hoeven breken. Het verhoogde niet alleen het aantal deelnemers van evenementen, maar ook de algemene tevredenheid over de vereniging.
 
 ## Wat is je volgende stap?
 
-Elk onderzoek eindigt met Vervolg: directe aanbevelingen om van onderzoek naar actie te gaan, concreet en geprioriteerd naar belang.
+Elk onderzoek eindigt met Toepassing: directe aanbevelingen om van onderzoek naar actie te gaan, concreet en geprioriteerd naar belang.
 
 - **Morgen:** de quick-wins uit de onderzoeksdata.
 - **Volgende maand:** drempels structureel wegnemen binnen de vereniging.

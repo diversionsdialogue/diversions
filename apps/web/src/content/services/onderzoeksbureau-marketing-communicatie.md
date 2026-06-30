@@ -21,11 +21,11 @@ Heb je een specifieke vraag? We helpen je graag de beste onderzoeksvorm te kieze
 
 ## Wat levert het op?
 
-Wij bouwen communicatieonderzoek op in drie stappen: Inzicht, Vertaling en Vervolg.
+Wij bouwen communicatieonderzoek op in drie stappen: Inzicht, Vertaling en Toepassing.
 
 1. **Inzicht.** Hoe komt je uiting of campagne over: valt het op, komt de boodschap aan, zet het aan tot actie?
 2. **Vertaling.** Waaróm werkt iets wel of niet? Welke patronen zijn zichtbaar bij de doelgroep?
-3. **Vervolg.** Directe aanbevelingen om de stap van onderzoek naar actie te zetten. Concreet en geprioriteerd naar belang.
+3. **Toepassing.** Directe aanbevelingen om de stap van onderzoek naar actie te zetten. Concreet en geprioriteerd naar belang.
 
 ## Hoe pakt Diversions communicatieonderzoek aan?
 
@@ -66,11 +66,11 @@ Toegepast op de drie stappen:
 
 - **Inzicht.** De boodschap kwam over als reminder en zette niet aan tot actie; sitebezoekers zochten concrete informatie die de communicatie niet beloofde.
 - **Vertaling.** De campagne sloot niet aan op de wensen van mensen die wel actie ondernamen: de boodschap was te breed.
-- **Vervolg.** De belofte aangescherpt (van "vind meer informatie" naar een concreet aanbod: "Vraag het boekje met de tips aan"). Het aantal bezoeken en aanvragen ging significant omhoog, en de boodschap werd vaker onthouden.
+- **Toepassing.** De belofte aangescherpt (van "vind meer informatie" naar een concreet aanbod: "Vraag het boekje met de tips aan"). Het aantal bezoeken en aanvragen ging significant omhoog, en de boodschap werd vaker onthouden.
 
 ## Wat is je volgende stap?
 
-Elk onderzoek eindigt met Vervolg: directe aanbevelingen om van onderzoek naar actie te gaan, concreet en geprioriteerd naar belang.
+Elk onderzoek eindigt met Toepassing: directe aanbevelingen om van onderzoek naar actie te gaan, concreet en geprioriteerd naar belang.
 
 - **Morgen:** de directe aanpassingen aan uiting of belofte.
 - **Volgende maand:** een variant herzien en hertesten.

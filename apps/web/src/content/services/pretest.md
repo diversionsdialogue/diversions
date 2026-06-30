@@ -34,11 +34,11 @@ Een losse social post die je toch al in-market A/B-test? Doe dat vooral zelf. Bi
 
 ## Wat levert een pretest op?
 
-Inzicht in drie stappen: Inzicht, Vertaling en Vervolg.
+Inzicht in drie stappen: Inzicht, Vertaling en Toepassing.
 
 1. **Inzicht.** Scores per funnel-fase: valt het op, komt de boodschap over, zet het aan tot actie?
 2. **Vertaling.** Waaróm scoort iets zwak? Wat zit de uiting in de weg?
-3. **Vervolg.** Directe aanbevelingen om de stap van onderzoek naar actie te zetten. Concreet en geprioriteerd naar belang.
+3. **Toepassing.** Directe aanbevelingen om de stap van onderzoek naar actie te zetten. Concreet en geprioriteerd naar belang.
 
 ## Wat kost een pretest?
 
@@ -80,11 +80,11 @@ Toegepast op de drie stappen:
 
 - **Inzicht.** Het design was niet intuïtief en de nieuwe techniek schiep onduidelijkheid; bugs ondermijnden het vertrouwen.
 - **Vertaling.** De focus lag op de techniek, niet op het perspectief van de gebruiker.
-- **Vervolg.** Gerichte aanbevelingen op de triggers, de motivatie en het vereenvoudigen van het gebruik. De blik verschoof naar de gebruiker.
+- **Toepassing.** Gerichte aanbevelingen op de triggers, de motivatie en het vereenvoudigen van het gebruik. De blik verschoof naar de gebruiker.
 
 ## Wat is je volgende stap?
 
-Elke pretest eindigt met Vervolg: directe aanbevelingen om van onderzoek naar actie te gaan, concreet en geprioriteerd naar belang.
+Elke pretest eindigt met Toepassing: directe aanbevelingen om van onderzoek naar actie te gaan, concreet en geprioriteerd naar belang.
 
 - **Morgen:** de directe aanpassingen (copy, contrast, een knop die opvalt).
 - **Volgende maand:** een grotere herziening, en een variant hertesten.

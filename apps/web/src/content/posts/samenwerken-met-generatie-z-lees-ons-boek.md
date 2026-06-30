@@ -14,11 +14,11 @@ tags:
   oude_url: /samenwerken-met-generatie-z-lees-ons-boek
   nieuwe_url: /blog/samenwerken-met-generatie-z-lees-ons-boek
   sanity_type: post
-  placeholder-afbeelding gebruikt (quality-fase: echte WP-afbeelding plaatsen)
-  - description automatisch afgeleid (geen excerpt)
+  herzien: body opnieuw opgezet met blokken (quote, nummers, cta) via CONTENT-SCHRIJFWIJZER
+  kapotte gelinkte afbeelding /src/images/assets/blog.jpeg verwijderd -> opgevangen in CTA
 -->
 
-**Na maanden van voorbereiding is het zover: *'Anders dan jij denkt – Beter samenwerken met Generatie Z'* ligt nu in de boekhandel! Het boek biedt een uitgebreide verkenning van de wereld van Generatie Z, met inzichten die zowel praktisch als inspirerend zijn. Een boek voor docenten, managers en werkgevers die beter willen samenwerken met de jongste generatie.**
+Na maanden van voorbereiding is het zover: *Anders dan jij denkt – Beter samenwerken met Generatie Z* ligt nu in de boekhandel. Het boek biedt een uitgebreide verkenning van de wereld van Generatie Z, met inzichten die zowel praktisch als inspirerend zijn. Een boek voor docenten, managers en werkgevers die beter willen samenwerken met de jongste generatie.
 
 ## Waarom dit boek?
 
@@ -30,26 +30,32 @@ Zo kwam het idee: laten we zelf een breed onderzoek opzetten en onze inzichten b
 
 We hebben in drie rondes meer dan 100 interviews afgenomen. We gingen in gesprek met Generatie Z: zowel met scholieren, studenten als young professionals. Daarnaast vroegen we professionals - docenten, managers en ondernemers die veel met Z'ers samenwerken - om hun ideeën en ervaringen.
 
-> Waarom denkt en handelt Generatie Z anders dan oudere generaties?
+:::quote
+QUOTE: Waarom denkt en handelt Generatie Z anders dan oudere generaties?
+:::
 
 Zo combineerden we het zelfbeeld van Gen Z met de helikopterview van oudere generaties. Het levert een uniek boek op dat niet alleen inzichten deelt, maar ook concrete tools biedt om samenwerking tussen generaties te verbeteren.
 
-**Wat dit boek anders maakt:**
-
-- **Gebaseerd op grootschalig onderzoek in Nederland** - niet beperkt tot de zorgeloze, bevoorrechte jongeren, maar met inzichten uit alle regio's, branches en opleidingsniveaus
-- **Na-corona perspectief** - Covid heeft een grote invloed gehad op Gen Z, maar veel generatie-onderzoek is van voor 2022
-- **Concrete, praktische tools** om samenwerking daadwerkelijk te verbeteren
-- **Gebaseerd op vele voorbeelden uit de praktijk** uit Nederlandse organisaties
+:::nummers
+TITEL: Wat dit boek anders maakt
+- LABEL: Gebaseerd op grootschalig onderzoek in Nederland | TEKST: Niet beperkt tot de zorgeloze, bevoorrechte jongeren, maar met inzichten uit alle regio's, branches en opleidingsniveaus.
+- LABEL: Na-corona perspectief | TEKST: Covid heeft een grote invloed gehad op Gen Z, maar veel generatie-onderzoek is van voor 2022.
+- LABEL: Concrete, praktische tools | TEKST: Om samenwerking tussen generaties daadwerkelijk te verbeteren.
+- LABEL: Gebaseerd op de praktijk | TEKST: Met vele voorbeelden uit Nederlandse organisaties.
+:::
 
 ## Van oordeel naar verwondering
 
 We hopen dat lezers minder snel oordelen over Gen Z, en zich meer verwonderen: waarom denkt en handelt Generatie Z anders dan wij?
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2025/07/generation-journey-1.png -- quality-fase: downloaden+optimaliseren -->
-[![Preview van het boek](/src/images/assets/blog.jpeg)](https://andersdanjijdenkt.nl/)
+Als we presentaties geven, beginnen we standaard met de vraag: "Waar denk je aan bij Gen Z?" Dan zie je dat driekwart van de opmerkingen die worden gemaakt negatief of op z'n best neutraal is. Aan het eind van een sessie (waarbij we laten zien hoe Gen Z denkt en handelt) zie je dat beeld echt kantelen. Dan denken mensen: "Hé, er zijn stappen die we zelf kunnen zetten om de samenwerking te verbeteren."
 
-Als we presentaties geven, beginnen we standaard met de vraag: "Waar denk je aan bij Gen Z?" Dan zie je dat driekwart van de opmerkingen die worden gemaakt negatief of op z'n best neutraal is. Aan het eind van een sessie (waarbij we laten zien hoe Gen Z denkt en handelt) zie je dat beeld echt kantelt. Dan denken mensen: "Hé, er zijn stappen die we zelf kunnen zetten om de samenwerking te verbeteren."
+Precies dat is wat we willen bereiken. We willen van oordeel naar verwondering. Met *Anders dan jij denkt* laten we zien dat achter gedrag dat je misschien eerst niet begrijpt, vaak logische drijfveren en motieven schuilen. En belangrijker nog: dat je er iets mee kunt doen.
 
-Precies dat is wat we willen bereiken. We willen van oordeel naar verwondering. Met "Anders dan jij denkt" laten we zien dat achter gedrag dat je misschien eerst niet begrijpt, vaak logische drijfveren en motieven schuilen. En belangrijker nog: dat je er iets mee kunt doen.
-
-*Bestellen kan via de boekhandel of online. Meer informatie en concrete tips vind je op [Andersdanjijdenkt.nl](https://andersdanjijdenkt.nl/).*
+:::cta
+KOP: Benieuwd naar het boek?
+TEKST: Bestellen kan via de boekhandel of online. Meer informatie en concrete tips vind je op de boeksite.
+KNOP: Bekijk Anders dan jij denkt
+URL: https://andersdanjijdenkt.nl/
+VARIANT: sage
+:::

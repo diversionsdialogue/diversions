@@ -26,11 +26,11 @@ Heb je een ander vraagstuk? Neem contact op voor vrijblijvend advies.
 
 ## Wat levert onderzoek op?
 
-Wij bouwen onderzoek op in drie bouwstenen: Inzicht, Vertaling en Vervolg.
+Wij bouwen onderzoek op in drie bouwstenen: Inzicht, Vertaling en Toepassing.
 
 1. **Inzicht.** Hoe patiënten en naasten de zorg ervaren, en op welke momenten in de patient journey de waardering verschilt.
 2. **Vertaling.** Waaróm een ervaring goed of slecht is: wat zijn de oorzaken? En welke invloeden hebben de meeste impact?
-3. **Vervolg.** Directe aanbevelingen om de stap van onderzoek naar actie te zetten. Concreet en geprioriteerd naar belang.
+3. **Toepassing.** Directe aanbevelingen om de stap van onderzoek naar actie te zetten. Concreet en geprioriteerd naar belang.
 
 ## Hoe pakt Diversions het onderzoek aan?
 
@@ -65,11 +65,11 @@ Toegepast op de drie stappen:
 
 - **Inzicht.** Gebruikers deden weinig met uitkomsten uit de app en haakten snel af.
 - **Vertaling.** Het ontwerp van de app stond goed gebruik in de weg. Maar het ervaren van bugs was de sterkste aanleiding om de app niet meer te gebruiken.
-- **Vervolg.** Eerste prioriteit: het oplossen van alle kinderziekten. Daarna de gerichte aanbevelingen om de user interface van de app te verbeteren en een zorgverlener te vragen de app warm te introduceren.
+- **Toepassing.** Eerste prioriteit: het oplossen van alle kinderziekten. Daarna de gerichte aanbevelingen om de user interface van de app te verbeteren en een zorgverlener te vragen de app warm te introduceren.
 
 ## Wat is je volgende stap?
 
-Bij ons eindigt ieder onderzoek met een Vervolg: directe aanbevelingen om van onderzoek naar actie te gaan, concreet en geprioriteerd naar belang.
+Bij ons eindigt ieder onderzoek met een Toepassing: directe aanbevelingen om van onderzoek naar actie te gaan, concreet en geprioriteerd naar belang.
 
 - **Morgen:** de quick-wins uit de onderzoeksdata.
 - **Volgende maand:** drempels structureel wegnemen in processen.

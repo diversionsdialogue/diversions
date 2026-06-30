@@ -215,6 +215,47 @@ function noticeBlock(label: string, text: string): PtNode {
   return { _type: "noticeBlock", _key: key("not"), label, text };
 }
 
+function quotePt(fields: { quote: string; author?: string; role?: string }): PtNode {
+  return {
+    _type: "quoteBlock",
+    _key: key("quote"),
+    quote: fields.quote,
+    ...(fields.author ? { author: fields.author } : {}),
+    ...(fields.role ? { role: fields.role } : {}),
+  };
+}
+
+function bulletListPt(fields: {
+  title?: string;
+  columns?: number;
+  items: string[];
+}): PtNode {
+  return {
+    _type: "bulletList",
+    _key: key("bl"),
+    ...(fields.title ? { title: fields.title } : {}),
+    items: fields.items,
+    columns: fields.columns === 2 ? 2 : 1,
+  };
+}
+
+function numberedListPt(fields: {
+  title?: string;
+  items: { number?: string; label: string; text?: string }[];
+}): PtNode {
+  return {
+    _type: "numberedList",
+    _key: key("nl"),
+    ...(fields.title ? { title: fields.title } : {}),
+    items: fields.items.map((it) => ({
+      _key: key("nli"),
+      ...(it.number ? { number: it.number } : {}),
+      label: it.label,
+      ...(it.text ? { text: it.text } : {}),
+    })),
+  };
+}
+
 function inlineImage(src: string, alt: string): PtNode {
   // Carry the original WP src so the asset-upload step can resolve & rewrite it.
   return {
@@ -270,6 +311,95 @@ function parseCtaFence(lines: string[]): {
     buttonHref: get(/^(URL|HREF|BUTTONHREF):/i) ?? "",
     variant: get(/^(VARIANT):/i),
   };
+}
+
+/** Parse a `:::quote ... :::` fence body into quote fields. */
+function parseQuoteFence(lines: string[]): {
+  quote: string;
+  author?: string;
+  role?: string;
+} {
+  const get = (re: RegExp): string | undefined => {
+    const hit = lines.find((l) => re.test(l));
+    return hit ? hit.replace(re, "").trim() : undefined;
+  };
+  return {
+    quote: get(/^(QUOTE|CITAAT):/i) ?? "",
+    author: get(/^(AUTEUR|AUTHOR):/i),
+    role: get(/^(ROL|ROLE|FUNCTIE):/i),
+  };
+}
+
+/** Parse a `:::let-op ... :::` fence body into notice fields. */
+function parseNoticeFence(lines: string[]): { label: string; text: string } {
+  const get = (re: RegExp): string | undefined => {
+    const hit = lines.find((l) => re.test(l));
+    return hit ? hit.replace(re, "").trim() : undefined;
+  };
+  return {
+    label: get(/^(LABEL|KOP):/i) ?? "",
+    text: get(/^(TEKST|TEXT):/i) ?? "",
+  };
+}
+
+/**
+ * Parse a `:::bullets ... :::` fence: optional TITEL: / KOLOMMEN: header lines,
+ * then `- item` lines. Returns title, columns (1|2) and the string items.
+ */
+function parseBulletsFence(lines: string[]): {
+  title?: string;
+  columns?: number;
+  items: string[];
+} {
+  let title: string | undefined;
+  let columns: number | undefined;
+  const items: string[] = [];
+  for (const raw of lines) {
+    const line = raw.trim();
+    if (/^TITEL:/i.test(line)) {
+      title = line.replace(/^TITEL:/i, "").trim();
+    } else if (/^(KOLOMMEN|COLUMNS):/i.test(line)) {
+      columns = parseInt(line.replace(/^(KOLOMMEN|COLUMNS):/i, "").trim(), 10);
+    } else if (/^[-*+]\s+/.test(line)) {
+      items.push(line.replace(/^[-*+]\s+/, "").trim());
+    }
+  }
+  return { title, columns, items };
+}
+
+/**
+ * Parse a `:::nummers ... :::` fence: optional TITEL: header, then one `- ` line
+ * per item with pipe-separated keys: `- LABEL: x | TEKST: y | NUMMER: z`.
+ * Only LABEL is required; NUMMER turns the item into a stat, otherwise it is a step.
+ */
+function parseNumbersFence(lines: string[]): {
+  title?: string;
+  items: { number?: string; label: string; text?: string }[];
+} {
+  let title: string | undefined;
+  const items: { number?: string; label: string; text?: string }[] = [];
+  for (const raw of lines) {
+    const line = raw.trim();
+    if (/^TITEL:/i.test(line)) {
+      title = line.replace(/^TITEL:/i, "").trim();
+      continue;
+    }
+    if (!/^[-*+]\s+/.test(line)) continue;
+    const body = line.replace(/^[-*+]\s+/, "");
+    const parts = body.split("|").map((p) => p.trim());
+    const field = (re: RegExp): string | undefined => {
+      const hit = parts.find((p) => re.test(p));
+      return hit ? hit.replace(re, "").trim() : undefined;
+    };
+    const label = field(/^(LABEL):/i);
+    if (!label) continue;
+    items.push({
+      label,
+      number: field(/^(NUMMER|NUMBER):/i),
+      text: field(/^(TEKST|TEXT):/i),
+    });
+  }
+  return { title, items };
 }
 
 /* ------------------------------------------------------------------ */
@@ -361,6 +491,84 @@ export function markdownToPortableText(markdown: string): ConvertResult {
         blocks.push(makeBlock("normal", body.join(" ")));
       } else {
         blocks.push(ctaBlock(fields));
+      }
+      continue;
+    }
+
+    // ---- :::quote fence ---------------------------------------------------
+    if (trimmed === ":::quote") {
+      flushFaq();
+      const body: string[] = [];
+      i += 1;
+      while (i < lines.length && lines[i].trim() !== ":::") {
+        body.push(lines[i]);
+        i += 1;
+      }
+      i += 1;
+      const fields = parseQuoteFence(body);
+      if (!fields.quote) {
+        log.push(`QUOTE: marker mist QUOTE-veld — als tekst gelaten, handmatig nalopen.`);
+        blocks.push(makeBlock("normal", body.join(" ")));
+      } else {
+        blocks.push(quotePt(fields));
+      }
+      continue;
+    }
+
+    // ---- :::let-op fence (noticeBlock) ------------------------------------
+    if (trimmed === ":::let-op") {
+      flushFaq();
+      const body: string[] = [];
+      i += 1;
+      while (i < lines.length && lines[i].trim() !== ":::") {
+        body.push(lines[i]);
+        i += 1;
+      }
+      i += 1;
+      const fields = parseNoticeFence(body);
+      if (!fields.label || !fields.text) {
+        log.push(`LET-OP: marker mist LABEL of TEKST — als tekst gelaten, handmatig nalopen.`);
+        blocks.push(makeBlock("normal", body.join(" ")));
+      } else {
+        blocks.push(noticeBlock(fields.label, fields.text));
+      }
+      continue;
+    }
+
+    // ---- :::bullets fence (bulletList) ------------------------------------
+    if (trimmed === ":::bullets") {
+      flushFaq();
+      const body: string[] = [];
+      i += 1;
+      while (i < lines.length && lines[i].trim() !== ":::") {
+        body.push(lines[i]);
+        i += 1;
+      }
+      i += 1;
+      const fields = parseBulletsFence(body);
+      if (fields.items.length === 0) {
+        log.push(`BULLETS: marker zonder items — overgeslagen, handmatig nalopen.`);
+      } else {
+        blocks.push(bulletListPt(fields));
+      }
+      continue;
+    }
+
+    // ---- :::nummers fence (numberedList) ----------------------------------
+    if (trimmed === ":::nummers") {
+      flushFaq();
+      const body: string[] = [];
+      i += 1;
+      while (i < lines.length && lines[i].trim() !== ":::") {
+        body.push(lines[i]);
+        i += 1;
+      }
+      i += 1;
+      const fields = parseNumbersFence(body);
+      if (fields.items.length === 0) {
+        log.push(`NUMMERS: marker zonder geldige items (LABEL verplicht) — overgeslagen, handmatig nalopen.`);
+      } else {
+        blocks.push(numberedListPt(fields));
       }
       continue;
     }

@@ -216,5 +216,7 @@ _Referentie-bestanden: [`AGENTS.md`](AGENTS.md), [`README.md`](README.md),
 de Astro-site stroomt + valkuilen),
 [`REKENMODULES.md`](REKENMODULES.md) (standaarden voor prijscalculators:
 uitgangspunten, techniek, prijsmodel, flow en stappenplan),
+[`CONTENT-SCHRIJFWIJZER.md`](CONTENT-SCHRIJFWIJZER.md) (contract: ruwe content →
+markdown met de 7 blokken → Sanity; fence-syntax per blok),
 [`.claude/agents/workflow-wordpress-naar-astro.md`](.claude/agents/workflow-wordpress-naar-astro.md),
 [`.claude/agents/theme-profiel-lexington-sanity.md`](.claude/agents/theme-profiel-lexington-sanity.md)._

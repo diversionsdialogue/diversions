@@ -27,11 +27,11 @@ Wil je pure feedback op communicatiemateriaal? Dan is een pretest (voor livegang
 
 ## Wat levert het onderzoek op?
 
-Wij bouwen het onderzoek op in drie stappen: Inzicht, Vertaling en Vervolg.
+Wij bouwen het onderzoek op in drie stappen: Inzicht, Vertaling en Toepassing.
 
 1. **Inzicht.** De campagne-effecten op kennis, houding en gedrag bij je doelgroep.
 2. **Vertaling.** De verklaring voor de campagne-effecten: was de boodschap helder, aansprekend, met het juiste bereik?
-3. **Vervolg.** Directe aanbevelingen om de stap van onderzoek naar actie te zetten. Concreet en geprioriteerd naar belang, voor je mediabuying en je creatieve content.
+3. **Toepassing.** Directe aanbevelingen om de stap van onderzoek naar actie te zetten. Concreet en geprioriteerd naar belang, voor je mediabuying en je creatieve content.
 
 ## Wat kost campagne-effectonderzoek?
 
@@ -60,11 +60,11 @@ We onderzochten een publiekscampagne gericht op het herkennen van vroege signale
 
 - **Inzicht.** Succes: een duidelijke piek in informatieaanvragen bij de landelijke hulplijnen, en huisartsen die aangaven dat patiënten gerichtere vragen stelden. Keerzijde: de brede uitrol zorgde voor onnodige ongerustheid en irritatie bij gezonde ouderen, die de campagne als stigmatiserend ervoeren.
 - **Vertaling.** Woorden als vergetelheid, dementie en aftakeling riepen angst en ontwijking op. De schrijfstijl is daarop aangepast, door vanuit voorbeelden te communiceren.
-- **Vervolg.** Dit zware onderwerp vraagt om gelaagde communicatie, waarbij verschillende publieksgroepen de juiste boodschap op het juiste moment krijgen. Morgen: de social-copy van informerend naar praktijkvoorbeelden. Volgende maand: een duale aanpak met meer balans tussen de algemene publiekscampagne en gerichte, just-in-time triggers via welzijnswerk en medisch professionals.
+- **Toepassing.** Dit zware onderwerp vraagt om gelaagde communicatie, waarbij verschillende publieksgroepen de juiste boodschap op het juiste moment krijgen. Morgen: de social-copy van informerend naar praktijkvoorbeelden. Volgende maand: een duale aanpak met meer balans tussen de algemene publiekscampagne en gerichte, just-in-time triggers via welzijnswerk en medisch professionals.
 
 ## Wat is je volgende stap?
 
-In elk onderzoek delen we handvatten voor een direct Vervolg: aanbevelingen om van onderzoek naar actie te gaan, concreet en geprioriteerd naar belang.
+In elk onderzoek delen we handvatten voor een directe Toepassing: aanbevelingen om van onderzoek naar actie te gaan, concreet en geprioriteerd naar belang.
 
 - **Morgen:** de directe aanpassing in je mediabuying (bijvoorbeeld frequency capping op het slijtage-punt).
 - **Volgende maand:** de creatieve content bijsturen voor de volgende campagnes.
