@@ -172,6 +172,14 @@ markup: `design/services-detail.html` + `design/article.css` (+ `components.jsx`
 
 Meer in `AGENTS.md` (Commands) en `README.md`.
 
+> **Lokale dev + TLS-onderschepping (AVG/proxy).** De site haalt content live uit
+> Sanity (`USE_SANITY=true`). Op een machine met HTTPS-scannende antivirus of proxy
+> (bv. AVG) faalt die fetch met `UNABLE_TO_VERIFY_LEAF_SIGNATURE` en geeft `pnpm
+> dev:web` blanco/foutpagina's. Start Node dan met de systeem-certstore:
+> `$env:NODE_OPTIONS="--use-system-ca"; pnpm dev:web` (PowerShell) of
+> `NODE_OPTIONS=--use-system-ca pnpm dev:web` (bash). De Ploi-build heeft dit niet
+> nodig (server zonder onderschepping).
+
 ---
 
 ## 7. Werkregels (gelden altijd, voor alle agents)
