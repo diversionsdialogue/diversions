@@ -65,6 +65,8 @@ export const PROJECT_COLLECTIONS = {
       year: { type: "string", required: false },
       client: { type: "string", required: false },
       work: { type: "string", required: true },
+      bijschrift: { type: "string", required: false },
+      statement: { type: "string", required: false },
       credits: {
         type: "array",
         itemType: "object",

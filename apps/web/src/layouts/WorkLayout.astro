@@ -14,6 +14,8 @@ interface Props {
     client?: string;
     year?: string;
     link?: string;
+    bijschrift?: string;
+    statement?: string;
     credits?: { name: string; role: string }[];
     thumbnail: { url: any; alt?: string };
     seo?: DocumentSeo;
@@ -77,71 +79,36 @@ const pageSeo = buildPageSeo(frontmatter.seo, {
 >
   <section class="bg-white overflow-hidden relative">
     <Wrapper variant="standard" class="py-12 lg:pt-24">
-      <div class="gap-4 lflex flex-col">
-        <div class="grid items-end gap-4 lg:grid-cols-3 max-w-5xl mx-auto">
-          <div class="lg:col-span-2">
+      <div class="flex flex-col max-w-5xl mx-auto">
+        <Text
+          tag="h1"
+          variant="displayLG"
+          class="tracking-tighter text-accent-800 text-balance"
+        >
+          {frontmatter.company || frontmatter.work}
+        </Text>
+        {
+          frontmatter.bijschrift && (
             <Text
-              tag="h1"
-              variant="displayLG"
-              class="tracking-tighter text-accent-800 text-balance"
+              tag="p"
+              variant="textBase"
+              class="font-medium text-accent-500 mt-4"
             >
-              {frontmatter.company || frontmatter.work}
+              {frontmatter.bijschrift}
             </Text>
-          </div>
-          <Text tag="p" variant="textBase" class="font-medium text-accent-500">
-            {seoDescription}
-          </Text>
-        </div>
-        <dl class="flex flex-col gap-2 mt-24">
-          {
-            frontmatter.client && (
-              <div class="flex items-center justify-between w-full">
-                <dt class="text-accent-900 font-semibold">Klant</dt>
-                <dd class="text-accent-600 font-normal">
-                  {frontmatter.client}
-                </dd>
-              </div>
-            )
-          }
-          {
-            frontmatter.year && (
-              <div class="flex items-center justify-between w-full">
-                <dt class="text-accent-900 font-semibold">Jaar</dt>
-                <dd class="text-accent-600 font-normal">
-                  <time datetime={frontmatter.year}>{frontmatter.year}</time>
-                </dd>
-              </div>
-            )
-          }
-          <div class="flex items-center justify-between w-full">
-            <dt class="text-accent-900 font-semibold">Werk</dt>
-            <dd class="text-accent-600 font-normal">
-              {frontmatter.work}
-            </dd>
-          </div>
-          <div>
-            {
-              credits.map((credit) => (
-                <div class="flex items-center justify-between w-full">
-                  <dt class="text-accent-900 font-semibold">{credit.name}</dt>
-                  <dd class="text-accent-600 font-normal">{credit.role}</dd>
-                </div>
-              ))
-            }
-          </div>
-          {
-            frontmatter.link && (
-              <div class="flex items-center justify-between w-full">
-                <dt class="text-accent-900 font-semibold">Website</dt>
-                <dd class="text-accent-600 font-normal">
-                  <a href={frontmatter.link} rel="noopener noreferrer">
-                    Bezoek
-                  </a>
-                </dd>
-              </div>
-            )
-          }
-        </dl>
+          )
+        }
+        {
+          frontmatter.statement && (
+            <Text
+              tag="p"
+              variant="textXL"
+              class="text-accent-800 text-balance mt-12"
+            >
+              {frontmatter.statement}
+            </Text>
+          )
+        }
       </div>
       <img
         width={1200}
@@ -150,21 +117,8 @@ const pageSeo = buildPageSeo(frontmatter.seo, {
         alt={frontmatter.thumbnail.alt}
         loading="lazy"
         decoding="async"
-        class="w-full max-h-120 rounded-t-2xl relative object-cover object-top mt-12"
+        class="w-full max-h-120 rounded-2xl relative object-cover object-top mt-12"
       />
-      <div
-        class="bg-accent-200 text-accent-600 relative rounded-b-2xl z-10 py-2 px-4 bottom-0 w-full overflow-x-hidden"
-      >
-        <div
-          class="items-center relative animate-marquee flex gap-4 whitespace-nowrap w-max"
-        >
-          {
-            Array.from({ length: 20 }).map(() => (
-              <span>{frontmatter.company || frontmatter.work}.</span>
-            ))
-          }
-        </div>
-      </div>
       <Wrapper variant="prose" class="mt-12">
         <slot />
       </Wrapper>

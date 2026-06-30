@@ -1119,6 +1119,18 @@
   display: flex;
   gap: 8px;
 }
+/* Iconen in de footer wat groter en gegarandeerd gecentreerd in het vakje.
+   Een footer-link-regel zet .icon-btn op display:block; hier terug naar flex. */
+.footer-socials .icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-socials .icon-btn svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
 .footer-base {
   display: flex;
   flex-wrap: wrap;

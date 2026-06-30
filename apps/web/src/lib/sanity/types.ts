@@ -152,6 +152,8 @@ export interface SanityWorkItem extends SanityDocument {
   year?: string;
   client?: string;
   work: string;
+  bijschrift?: string;
+  statement?: string;
   credits?: Array<{
     name: string;
     role: string;

@@ -80,6 +80,8 @@ export const getAllWorkItemsQuery = groq`
     year,
     client,
     work,
+    bijschrift,
+    statement,
     credits[] {
       name,
       role
@@ -102,6 +104,8 @@ export const getWorkItemByIdQuery = groq`
     year,
     client,
     work,
+    bijschrift,
+    statement,
     credits[] {
       name,
       role
