@@ -13,11 +13,14 @@ import { portableTextToPlainText } from "@/lib/sanity/portableText";
 // Dienstpagina's met een richtprijs-calculator boven de hero. Slug → welke
 // calculator. Uitbreidbaar: voeg een slug + calculator toe. Promoveer dit later
 // eventueel naar een Sanity-schemaveld.
-const CALCULATORS: Record<string, "pretest" | "effectmeting" | "customer-journey" | "klanttevredenheid"> = {
+const CALCULATORS: Record<string, "pretest" | "effectmeting" | "customer-journey" | "klanttevredenheid" | "placeholder"> = {
   pretest: "pretest",
   "campagne-effectonderzoek": "effectmeting",
   "customer-journey": "customer-journey",
   klanttevredenheidsonderzoek: "klanttevredenheid",
+  // Placeholder: pagina krijgt de pitch-hero + een tijdelijk calculator-blok,
+  // tot de kwantitatief-calculator gebouwd is.
+  "kwantitatief-onderzoek": "placeholder",
 };
 
 export async function getStaticPaths() {
@@ -54,6 +57,25 @@ const minutes = plain
         {calculator === "effectmeting" && <EffectmetingCalculator />}
         {calculator === "customer-journey" && <CustomerJourneyCalculator />}
         {calculator === "klanttevredenheid" && <KlanttevredenheidCalculator />}
+        {
+          calculator === "placeholder" && (
+            <div
+              style="border:1px dashed color-mix(in oklch, var(--accent-deep) 45%, transparent);border-radius:var(--radius-xl,20px);background:#fff;padding:32px;text-align:center;"
+            >
+              <p style="font-family:var(--font-subtitle);font-weight:600;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-mute);margin:0 0 8px;">
+                Prijscalculator
+              </p>
+              <p style="font-family:var(--font-display);font-size:clamp(20px,2.4vw,26px);line-height:1.15;color:var(--ink);margin:0 0 8px;">
+                Bereken je prijsindicatie, binnenkort
+              </p>
+              <p style="font-family:var(--font-sans);font-size:15px;line-height:1.5;color:var(--ink-soft);margin:0 auto;max-width:46ch;">
+                De prijscalculator voor kwantitatief onderzoek staat hier binnenkort.
+                Wil je nu al een indicatie? <a href="/contact">Neem contact op</a>, we
+                rekenen het vrijblijvend voor je uit.
+              </p>
+            </div>
+          )
+        }
       </ServicePitch>
     )
   }
