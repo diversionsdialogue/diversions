@@ -11,6 +11,7 @@
  */
 import { toHTML, type PortableTextComponents } from "@portabletext/to-html";
 import { urlFor } from "@/lib/sanity/image";
+import { slugify } from "@/lib/slugify";
 import Cta from "@/components/blocks/Cta.astro";
 import Faq from "@/components/blocks/Faq.astro";
 import Video from "@/components/blocks/Video.astro";
@@ -37,7 +38,16 @@ const CUSTOM = new Set([
 ]);
 
 // HTML-serializers voor de standaardreeks (inline-afbeeldingen + link-marks).
+// Platte tekst van een standaardblok (voor kop-id's / anchors).
+const blockText = (b: any): string =>
+  (b?.children || []).map((c: any) => c?.text || "").join("");
+
 const htmlComponents: PortableTextComponents = {
+  // Koppen krijgen een slug-id zodat anchors (bv. "lees alles over …") werken.
+  block: {
+    h2: ({ children, value }) => `<h2 id="${slugify(blockText(value))}">${children}</h2>`,
+    h3: ({ children, value }) => `<h3 id="${slugify(blockText(value))}">${children}</h3>`,
+  },
   types: {
     image: ({ value }) => {
       const url = value?.asset ? urlFor(value).url() : value?.url || "";

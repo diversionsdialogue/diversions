@@ -23,10 +23,12 @@ Online onderzoek is een manier om informatie te verzamelen via het internet. Dit
 
 Steeds meer organisaties maken gebruik van online onderzoek om inzichten te krijgen en beslissingen te ondersteunen. Waarom zou je online onderzoek (laten) doen? Hier zijn enkele voordelen:
 
-- Toegankelijkheid. Je bereikt een breed publiek, ongeacht hun locatie.
-- Kostenbesparend. Je hebt minder uitgaven aan materiaal en reiskosten.
-- Snelheid. Snelle verzameling en analyse van gegevens.
-- Flexibiliteit. Je zet makkelijk verschillende methoden in.
+:::nummers
+- LABEL: Toegankelijkheid | TEKST: Je bereikt een breed publiek, ongeacht hun locatie.
+- LABEL: Kostenbesparend | TEKST: Je hebt minder uitgaven aan materiaal en reiskosten.
+- LABEL: Snelheid | TEKST: Snelle verzameling en analyse van gegevens.
+- LABEL: Flexibiliteit | TEKST: Je zet makkelijk verschillende methoden in.
+:::
 
 ## Kenmerken van online onderzoek
 
@@ -38,11 +40,13 @@ Daarnaast biedt online onderzoek de mogelijkheid om data in real-time te verzame
 
 Online onderzoek kan worden gebruikt om verschillende soorten vragen te beantwoorden. Hier zijn enkele voorbeelden:
 
-- **Beschrijvend**: hoe vaak bezoeken klanten onze website?
-- **Verklarend**: welke factoren beïnvloeden klanttevredenheid het meest?
-- **Aspiratie**: wat zijn de verwachtingen van klanten voor onze nieuwe productlijn?
-- **Exploratief**: hoe ervaren gebruikers onze online klantenservice?
-- **Toetsend**: werkt onze nieuwe marketingcampagne effectief om de verkoop te verhogen?
+:::nummers
+- LABEL: Beschrijvend | TEKST: hoe vaak bezoeken klanten onze website?
+- LABEL: Verklarend | TEKST: welke factoren beïnvloeden klanttevredenheid het meest?
+- LABEL: Aspiratie | TEKST: wat zijn de verwachtingen van klanten voor onze nieuwe productlijn?
+- LABEL: Exploratief | TEKST: hoe ervaren gebruikers onze online klantenservice?
+- LABEL: Toetsend | TEKST: werkt onze nieuwe marketingcampagne effectief om de verkoop te verhogen?
+:::
 
 ## Meerwaarde van online onderzoek voor jouw organisatie
 
@@ -63,20 +67,18 @@ Zorginstelling Londa Care heeft succesvol gebruik gemaakt van online onderzoek. 
 
 ## Meestgestelde vragen over online onderzoek
 
-<!-- BLOK:faqBlock open=0 -->
-
 ## Veelgestelde vragen
 
-### Wat zijn enkele voordelen van online onderzoek?
+:::faq
+VRAAG: Wat zijn enkele voordelen van online onderzoek?
+ANTWOORD: Online onderzoek is snel, kostenefficiënt en kan een breed publiek bereiken.
+:::
+:::faq
+VRAAG: Hoe betrouwbaar is online onderzoek?
+ANTWOORD: De betrouwbaarheid hangt af van de kwaliteit van de vragen en de steekproef. Goed ontworpen onderzoek kan zeer betrouwbaar zijn. Een [ervaren onderzoeksbureau](/wij-zijn-diversions/) kan je hierbij helpen.
+:::
+:::faq
+VRAAG: Hoe kan ik beginnen met online onderzoek?
+ANTWOORD: Begin met het definiëren van je onderzoeksvragen, kies de juiste methoden en tools, en zorg voor een representatieve steekproef.
+:::
 
-Online onderzoek is snel, kostenefficiënt en kan een breed publiek bereiken.
-
-### Hoe betrouwbaar is online onderzoek?
-
-De betrouwbaarheid hangt af van de kwaliteit van de vragen en de steekproef. Goed ontworpen onderzoek kan zeer betrouwbaar zijn. Een [ervaren onderzoeksbureau](/wij-zijn-diversions/) kan je hierbij helpen.
-
-### Hoe kan ik beginnen met online onderzoek?
-
-Begin met het definiëren van je onderzoeksvragen, kies de juiste methoden en tools, en zorg voor een representatieve steekproef.
-
-<!-- /BLOK:faqBlock -->

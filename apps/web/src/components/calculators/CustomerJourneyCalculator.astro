@@ -18,12 +18,16 @@ import "@/styles/calculators.css";
  * "Mix" toont nooit een prijs (offerte op maat). Tarieven neutraal benoemd;
  * leveranciersnamen worden nooit getoond. Marge zit in de basis + stuktarieven.
  *
- * [koppeling nog aanleveren] — knoppen dispatchen "customer-journey-calculator:submit".
+ *   Stap 3 — Bestellen: samenvatting + contactformulier, POST naar de n8n-
+ *   webhook (PUBLIC_CALCULATOR_WEBHOOK_URL). Zie n8n/README-offerte-calculators.md.
  */
 const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:2px;color:var(--primary)"><polyline points="20 6 9 17 4 12"/></svg>`;
+
+// PUBLIC_-prefix is vereist zodat de var in de static client-bundle terechtkomt.
+const webhookUrl = import.meta.env.PUBLIC_CALCULATOR_WEBHOOK_URL ?? "";
 ---
 
-<section class="qcalc" data-step="1" aria-label="Offerte-starter customer journey">
+<section class="qcalc" data-step="1" data-webhook={webhookUrl} aria-label="Offerte-starter customer journey">
   <div class="qc-card">
     {/* Topbar: merk + stappen-rail */}
     <div class="qc-topbar">
@@ -52,10 +56,10 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
         <div class="qc-panel" data-panel="1">
           <p class="qc-steplabel">Stap 1 van 3</p>
           <h2 class="qc-title">Hoe zet je het onderzoek op?</h2>
-          <p class="qc-sub">Bepaal wie de respondenten levert en hoe vaak je meet. In de volgende stap kies je het pakket.</p>
+          <p class="qc-sub">Geef aan hoe je wilt omgaan met de werving van respondenten en de frequentie van het onderzoek.</p>
 
           <div class="qc-group">
-            <p class="qc-fieldlabel">Wie leveren de respondenten?</p>
+            <p class="qc-fieldlabel">Werving respondenten</p>
             <div class="qc-choices">
               <label class="qc-choice">
                 <input type="radio" name="respondenten" value="zelf" checked />
@@ -100,7 +104,7 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
                 <span class="qc-radio" aria-hidden="true"></span>
                 <span class="qc-choicebody">
                   <span class="qc-choicetitle">Doorlopend</span>
-                  <span class="qc-choicesub">Een meethuis met dashboard dat de reis blijft volgen.</span>
+                  <span class="qc-choicesub">Volg de ontwikkelingen in de klantreis door de tijd in een dashboard.</span>
                 </span>
               </label>
             </div>
@@ -109,7 +113,6 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
           <button type="button" class="btn btn-primary btn-arrow qc-cta" data-next>
             Stel je pakket samen
           </button>
-          <p class="qc-fineprint">Geen account, geen verkoopgesprek — een eerste indicatie binnen twee minuten.</p>
         </div>
 
         {/* ---------------- STAP 2 — Pakket ---------------- */}
@@ -121,12 +124,23 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
           <p class="qc-steplabel">Stap 2 van 3</p>
           <h2 class="qc-title qc-title--sm">Stel je pakket samen</h2>
 
-          <div class="qc-expert">
-            <span class="qc-avatar" aria-hidden="true">WB</span>
-            <div>
-              <p class="qc-expertname">William Burghout · <span>Onderzoeksexpert</span></p>
-              <p class="qc-experttext" data-expert-text>We stellen je journey-onderzoek graag op volgens jouw wensen. Geef hier je voorkeuren aan.</p>
-            </div>
+          <div class="qc-expert qc-expert--photo">
+            <figure class="qc-expert-fig">
+              <picture>
+                <source srcset="/img/william-burghout.avif" type="image/avif" />
+                <source srcset="/img/william-burghout.webp" type="image/webp" />
+                <img src="/img/william-burghout.png" alt="William Burghout" width="64" height="64" loading="lazy" decoding="async" />
+              </picture>
+              <figcaption class="qc-expert-cap">
+                <b>William Burghout</b>
+                <span>Hoofd Onderzoek</span>
+              </figcaption>
+            </figure>
+            <p class="qc-experttext">
+              Stel hieronder je onderzoek naar wens samen. Heb je specifieke
+              onderzoekswensen? Neem dan contact met ons op:
+              <a href="tel:+31552032193" class="qc-phone">055 20 32 193</a>.
+            </p>
           </div>
 
           <div data-field="pakket">
@@ -138,9 +152,9 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
                 <span class="qc-choicebody">
                   <span class="qc-choicetitle">Survey</span>
                   <ul class="qc-bullets">
-                    <li><Fragment set:html={TICK} />De reis in kaart, snel</li>
-                    <li><Fragment set:html={TICK} />Emotiecurve en pijnpunten</li>
-                    <li><Fragment set:html={TICK} />Journey map met quick-wins</li>
+                    <li><Fragment set:html={TICK} />De volledige reis in kaart</li>
+                    <li><Fragment set:html={TICK} />Inzicht in emotiecurve en pijnpunten</li>
+                    <li><Fragment set:html={TICK} />Direct toepasbare optimalisatie-aanbevelingen</li>
                   </ul>
                 </span>
               </label>
@@ -150,9 +164,9 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
                 <span class="qc-choicebody">
                   <span class="qc-choicetitle">Kwalitatief</span>
                   <ul class="qc-bullets">
-                    <li><Fragment set:html={TICK} />Diepte-interviews</li>
-                    <li><Fragment set:html={TICK} />Het waarom achter het gedrag</li>
-                    <li><Fragment set:html={TICK} />De geleefde reis in beeld</li>
+                    <li><Fragment set:html={TICK} />Persoonlijke diepte-interviews</li>
+                    <li><Fragment set:html={TICK} />Focus op het waarom achter het gedrag</li>
+                    <li><Fragment set:html={TICK} />Aanbevelingen voor een geoptimaliseerde klantbeleving</li>
                   </ul>
                 </span>
               </label>
@@ -163,8 +177,8 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
                   <span class="qc-choicetitle">Combi</span>
                   <ul class="qc-bullets">
                     <li><Fragment set:html={TICK} />Survey én interviews</li>
-                    <li><Fragment set:html={TICK} />Cijfers met de verklaring erachter</li>
-                    <li><Fragment set:html={TICK} />Het complete beeld van de reis</li>
+                    <li><Fragment set:html={TICK} />Verklaring voor gedrag gevalideerd met cijfers</li>
+                    <li><Fragment set:html={TICK} />Het meest complete beeld met strategische aanbevelingen</li>
                   </ul>
                 </span>
               </label>
@@ -212,10 +226,60 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
             </div>
           </div>
 
-          <div class="qc-info">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-            <p>Specifieke onderzoekswensen, bijvoorbeeld bij de selectie van doelgroepen? <a href="tel:+31552032193">Neem contact met ons op.</a></p>
+        </div>
+
+        {/* ---------------- STAP 3 — Bestellen ---------------- */}
+        <div class="qc-panel" data-panel="3" hidden>
+          <button type="button" class="qc-back" data-goto="2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Vorige stap
+          </button>
+          <p class="qc-steplabel">Stap 3 van 3</p>
+          <h2 class="qc-title qc-title--sm" data-step3-title>Bijna klaar</h2>
+
+          <div class="qc-recap">
+            <p class="qc-recap-title">Jouw keuzes</p>
+            <ul class="qc-recap-list" data-recap></ul>
+            <p class="qc-recap-price" data-recap-price>&euro; 3.500</p>
           </div>
+
+          <form data-lead-form novalidate>
+            <div class="qc-form">
+              <div class="qc-fieldrow">
+                <label class="qc-field">
+                  <span class="qc-label">Bedrijfsnaam</span>
+                  <input class="qc-input" name="bedrijf" type="text" autocomplete="organization" required />
+                </label>
+                <label class="qc-field">
+                  <span class="qc-label">Naam</span>
+                  <input class="qc-input" name="naam" type="text" autocomplete="name" required />
+                </label>
+              </div>
+              <div class="qc-fieldrow">
+                <label class="qc-field">
+                  <span class="qc-label">E-mail</span>
+                  <input class="qc-input" name="email" type="email" autocomplete="email" required />
+                </label>
+                <label class="qc-field">
+                  <span class="qc-label">Telefoon <span class="qc-label-opt">(optioneel)</span></span>
+                  <input class="qc-input" name="telefoon" type="tel" autocomplete="tel" />
+                </label>
+              </div>
+              <label class="qc-field">
+                <span class="qc-label">Toelichting <span class="qc-label-opt">(optioneel)</span></span>
+                <textarea class="qc-textarea" name="bericht" rows="3"></textarea>
+              </label>
+              <label class="qc-consent">
+                <input type="checkbox" name="consent" required />
+                <span>Ik ga akkoord met de verwerking van mijn gegevens volgens het <a href="/privacy-statement">privacy statement</a>.</span>
+              </label>
+              <div hidden aria-hidden="true">
+                <label>Laat dit veld leeg<input class="qc-hp" type="text" name="company_website" tabindex="-1" autocomplete="off" /></label>
+              </div>
+            </div>
+            <p class="qc-status" role="status" aria-live="polite" data-status hidden></p>
+            <button type="submit" class="btn btn-primary btn-arrow qc-cta" data-submit>Verstuur offerteaanvraag</button>
+          </form>
         </div>
       </div>
 
@@ -234,7 +298,7 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
           </button>
           <button type="button" class="btn btn-outline" data-action="advies">Advies aanvragen</button>
         </div>
-        <p class="qc-sumfine">Geen account nodig. Na bestelling neemt een onderzoeker binnen één werkdag contact op.</p>
+        <p class="qc-sumfine">Na bestelling neemt een onderzoeker binnen één werkdag contact op.</p>
       </aside>
     </div>
   </div>
@@ -257,6 +321,8 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
 
 
 <script>
+  import { submitCalculatorLead } from "@/scripts/submitCalculatorLead";
+
   // --- Rekentechniek — tarieven uit Calculator-config-customer-journey.json.
   // Steekproef volgt automatisch uit pakket + doelgroepen. Bij "zelf aanleveren"
   // rekent de calculator met 1 doelgroep. Marge zit in de basis + stuktarieven.
@@ -317,6 +383,23 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
     return s.smart === "smart" ? "CORE" : "LIGHT";
   }
 
+  // Leesbare samenvatting van de keuzes — voor de recap in stap 3 én de e-mail.
+  function summaryLines(s: State): string[] {
+    const respondentenLabel = {
+      zelf: "Zelf aanleveren",
+      werven: "Respondenten werven",
+      mix: "Mix (eigen + geworven)",
+    }[s.respondenten];
+    const pakketLabel = { survey: "Survey", kwali: "Kwalitatief", combi: "Combi (survey + kwalitatief)" }[s.pakket];
+    const heeftSurvey = s.pakket === "survey" || s.pakket === "combi";
+    const lines = [respondentenLabel, s.frequentie === "doorlopend" ? "Doorlopend" : "Eenmalig", pakketLabel];
+    if (heeftSurvey) lines.push(s.smart === "smart" ? "Smart Survey" : "Traditionele survey");
+    if (s.respondenten !== "zelf") {
+      lines.push(`${s.doelgroepen} doelgroe${s.doelgroepen > 1 ? "pen" : "p"}`);
+    }
+    return lines;
+  }
+
   document.querySelectorAll<HTMLElement>(".qcalc").forEach((root) => {
     const state: State = {
       respondenten: "zelf",
@@ -326,6 +409,8 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
       doelgroepen: 1,
     };
     let step = 1;
+    let actie: "bestellen" | "advies" = "bestellen";
+    const webhookUrl = root.dataset.webhook ?? "";
 
     const panels = root.querySelectorAll<HTMLElement>("[data-panel]");
     const railsteps = root.querySelectorAll<HTMLElement>("[data-railstep]");
@@ -334,7 +419,12 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
     const b2b = root.querySelector<HTMLElement>("[data-b2b]")!;
     const smartField = root.querySelector<HTMLElement>('[data-field="smart"]')!;
     const doelgroepenField = root.querySelector<HTMLElement>('[data-field="doelgroepen"]')!;
-    const expertText = root.querySelector<HTMLElement>("[data-expert-text]")!;
+    const step3Title = root.querySelector<HTMLElement>("[data-step3-title]")!;
+    const recapList = root.querySelector<HTMLElement>("[data-recap]")!;
+    const recapPrice = root.querySelector<HTMLElement>("[data-recap-price]")!;
+    const leadForm = root.querySelector<HTMLFormElement>("[data-lead-form]")!;
+    const statusEl = root.querySelector<HTMLElement>("[data-status]")!;
+    const submitBtn = root.querySelector<HTMLButtonElement>("[data-submit]")!;
 
     const NOTE_DEFAULT = "excl. btw · richtprijs op basis van vergelijkbare onderzoeken";
     const NOTE_MIX = "We stellen graag een offerte op maat voor je op.";
@@ -369,17 +459,27 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
       orderBtns.forEach((btn) => {
         btn.textContent = isMix ? "Offerte aanvragen" : "Direct bestellen";
         btn.dataset.mode = isMix ? "offerte" : "bestellen";
+        btn.disabled = step !== 2; // alleen actief in stap 2 (stap 3 heeft z'n eigen submit-knop)
       });
+    };
+
+    const renderRecap = () => {
+      step3Title.textContent = actie === "advies" ? "Adviesaanvraag versturen" : "Bijna klaar — offerte versturen";
+      recapList.innerHTML = "";
+      summaryLines(state).forEach((line) => {
+        const li = document.createElement("li");
+        li.textContent = line;
+        recapList.appendChild(li);
+      });
+      const p = priceFor(state);
+      recapPrice.textContent = p === null ? "Prijs op aanvraag" : euro(p);
+      submitBtn.textContent = actie === "advies" ? "Vraag advies aan" : "Verstuur offerteaanvraag";
     };
 
     const renderStep2 = () => {
       const heeftSurvey = state.pakket === "survey" || state.pakket === "combi";
       smartField.hidden = !heeftSurvey;
       doelgroepenField.hidden = state.respondenten === "zelf";
-      expertText.textContent =
-        state.pakket === "kwali"
-          ? "We voeren de diepte-interviews zelf af en duiden het waarom achter het gedrag. Geef hier je voorkeuren aan."
-          : "We stellen je journey-onderzoek graag op volgens jouw wensen. Geef hier je voorkeuren aan.";
     };
 
     const goTo = (n: number) => {
@@ -387,6 +487,7 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
       root.dataset.step = String(n);
       panels.forEach((p) => (p.hidden = p.dataset.panel !== String(n)));
       if (n === 2) renderStep2();
+      if (n === 3) renderRecap();
       renderRail();
       renderPrice();
       root.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -441,20 +542,69 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
       renderPrice();
     });
 
-    // Bestellen / Advies → payload-hook [koppeling nog aanleveren]
+    // Bestellen / Advies (stap 2) → onthoud de gekozen actie en ga naar stap 3
     root.querySelectorAll<HTMLButtonElement>('[data-action="bestellen"],[data-action="advies"]').forEach((btn) => {
       btn.addEventListener("click", () => {
-        const p = priceFor(state);
-        const payload = {
-          calculator: "customer-journey",
-          actie: btn.dataset.action,
-          keuzes: { ...state },
-          tier: tierFor(state),
-          richtprijs: p,
-        };
+        actie = (btn.dataset.action as "bestellen" | "advies") ?? "bestellen";
+        goTo(3);
+      });
+    });
+
+    // Stap 3: echte verzending naar de n8n-webhook.
+    leadForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const honeypot = leadForm.elements.namedItem("company_website") as HTMLInputElement | null;
+      if (honeypot && honeypot.value.trim() !== "") {
+        statusEl.hidden = false;
+        statusEl.dataset.tone = "ok";
+        statusEl.textContent = "Bedankt! We hebben je aanvraag ontvangen.";
+        leadForm.reset();
+        return;
+      }
+
+      if (!leadForm.checkValidity()) {
+        leadForm.reportValidity();
+        return;
+      }
+
+      const fd = new FormData(leadForm);
+      const p = priceFor(state);
+      const payload = {
+        calculator: "customer-journey",
+        actie,
+        keuzes: { ...state },
+        tier: tierFor(state),
+        richtprijs: p,
+        richtprijsFormatted: p === null ? "Op aanvraag" : euro(p),
+        samenvatting: summaryLines(state),
+        bedrijf: (fd.get("bedrijf") as string) ?? "",
+        naam: (fd.get("naam") as string) ?? "",
+        email: (fd.get("email") as string) ?? "",
+        telefoon: (fd.get("telefoon") as string) ?? "",
+        bericht: (fd.get("bericht") as string) ?? "",
+        consent: fd.get("consent") === "on",
+        company_website: (fd.get("company_website") as string) ?? "",
+      };
+
+      submitBtn.disabled = true;
+      const originalLabel = submitBtn.textContent;
+      submitBtn.textContent = "Versturen…";
+      statusEl.hidden = true;
+
+      const result = await submitCalculatorLead(webhookUrl, payload);
+
+      statusEl.hidden = false;
+      statusEl.dataset.tone = result.ok ? "ok" : "error";
+      statusEl.textContent = result.message;
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+
+      if (result.ok) {
+        leadForm.reset();
         root.dispatchEvent(new CustomEvent("customer-journey-calculator:submit", { detail: payload, bubbles: true }));
         console.info("[customer-journey-calculator] submit", payload);
-      });
+      }
     });
 
     renderRail();

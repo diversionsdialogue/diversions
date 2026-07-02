@@ -32,13 +32,17 @@ Tijdens de voorbereiding leg je de basis voor de test. Het gaat om het beantwoor
 
 Er zijn twee **aandachtspunten** die extra aandacht verdienen.
 
-**1a doelen van je onderzoek**Pas op dat een gebruikerstest niet vervalt in een discussie over smaak. Er zijn altijd respondenten die een design wel/niet fraai vinden.
+**1a Doelen van je onderzoek**
+
+Pas op dat een gebruikerstest niet vervalt in een discussie over smaak. Er zijn altijd respondenten die een design wel/niet fraai vinden.
 
 Je moet vooral ontdekken of je site helpt bij het bereiken van doelen. Soms is dat het vinden van informatie. Soms wil je direct sturen op verkopen.
 
 Wat je doelen ook zijn: schrijf ze uit. En zorg dat de gebruikerstest laat zien of er verbeterkansen zijn.
 
-**1b werving van respondenten**Het liefst wil je respondenten uit de doelgroep. Zeker bij B2B-cases is dit niet altijd eenvoudig in de werving (al kan Diversions je er zeker bij helpen).
+**1b Werving van respondenten**
+
+Het liefst wil je respondenten uit de doelgroep. Zeker bij B2B-cases is dit niet altijd eenvoudig in de werving (al kan Diversions je er zeker bij helpen).
 
 Lukt het niet in het hart van de doelgroep te werven? Vraag dan vrienden-van-vrienden om aan de test mee te werken. Heb je geen tijd voor de werving? Vraag dan je buren, partner of collega’s.
 
@@ -92,4 +96,10 @@ Een gebruikerstest opzetten gaat niet vanzelf, maar de meerwaarde is enorm. Het 
 
 Voorkom deze problemen. Plan al vroeg in je ontwikkelproces een eerste gebruikerstest in.
 
-**Meer weten? Lees alles over [gebruikerstesten](/gebruikerstesten/) of bel voor meer informatie: 055 20 32 193**
+:::cta
+KOP: Meer weten over gebruikerstesten?
+TEKST: Lees alles over gebruikerstesten of vraag ons om mee te denken over jouw test.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::

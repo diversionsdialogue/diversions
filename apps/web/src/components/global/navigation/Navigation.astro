@@ -6,15 +6,12 @@
 import Search from "@/components/global/Search.astro";
 
 // Nav-hrefs verwijzen naar de WERKELIJKE bestaande routes (inventaris.json).
-//   Werk     -> /work (cases-overzicht; /cases-overzichtspagina is gederedupliceerd
-//               weg en 301't naar /work, opschoning 2026-05-31)
-//   Services -> /onze-diensten (services-overzicht, bestaande URL)
-//   Over ons -> /wij-zijn-diversions
-// "Doelgroepen" uit het design is in de intake GEDROPT (geen bestemming) en
-// daarom hier WEGGELATEN — zie rapport (FLAG).
+//   Services -> /onze-diensten · Branches -> /branches (overzicht, tegelview)
+//   Werk -> /work · Over ons -> /wij-zijn-diversions
+// "Home" is weggelaten: navigatie naar home gaat via het logo.
 const navLinks = [
-  { label: "Home", href: "/" },
   { label: "Services", href: "/onze-diensten" },
+  { label: "Branches", href: "/branches" },
   { label: "Werk", href: "/work" },
   { label: "Blog", href: "/blog" },
   { label: "Over ons", href: "/wij-zijn-diversions" },

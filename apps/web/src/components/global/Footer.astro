@@ -57,10 +57,36 @@ const legalLinks = [
 
     <div class="footer-col">
       <h4>Contact</h4>
-      <a href="mailto:hallo@diversions.nl">hallo@diversions.nl</a>
-      <a href="/project-starten">Online offerte →</a>
+      <a href="tel:+31552032193">055 20 32 193</a>
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=Prins+Willem-Alexanderlaan+705+7311+ST+Apeldoorn"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Prins Willem-Alexanderlaan 705,<br />7311 ST Apeldoorn
+      </a>
+      <a href="mailto:info@diversions.nl">info@diversions.nl</a>
     </div>
   </div>
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Diversions",
+      url: "https://diversions.nl",
+      email: "info@diversions.nl",
+      telephone: "+31552032193",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Prins Willem-Alexanderlaan 705",
+        postalCode: "7311 ST",
+        addressLocality: "Apeldoorn",
+        addressCountry: "NL",
+      },
+    })}
+  />
 
   <div class="footer-base">
     <span>© {year} Diversions. Van inzichten naar oplossingen.</span>

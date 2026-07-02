@@ -1,6 +1,8 @@
 ---
 service: "Onderzoeksbureau Fondsenwerving: in het hart van de donateur"
 description: "Diversions geeft onder andere inzicht in:"
+categories:
+  - branches
 ---
 
 <!-- CONVERT-META

@@ -78,4 +78,10 @@ Kies je voor de brainstorm, dan is een eenmalige tijdsinvestering voldoende. Bij
 
 Je ziet: het opstellen van een goede customer journey beperkt zich niet tot het invullen van een template.
 
-Wil je advies over jouw project of ondersteuning bij onderzoek, workshops of journey management? Bel direct voor vrijblijvend advies: [**(055) 20 32 193**](tel://0031-55-2032193).
+:::cta
+KOP: Advies over jouw journey?
+TEKST: Wil je advies over jouw project of ondersteuning bij onderzoek, workshops of journey management? Neem vrijblijvend contact op.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::

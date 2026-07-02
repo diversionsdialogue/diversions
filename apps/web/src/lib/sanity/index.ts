@@ -18,6 +18,7 @@ export {
   transformService,
   transformPost,
   transformLegalPage,
+  transformPage,
 } from "./transforms";
 
 // Export types

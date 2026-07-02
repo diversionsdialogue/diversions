@@ -41,20 +41,17 @@ Misschien vonden ze je website bijvoorbeeld niet gebruiksvriendelijk, maar die s
 
 Hieronder delen we een aantal ideeën om je te helpen beter in te spelen op de ervaring van je klanten.
 
-- **Wat willen jouw klanten echt?**  
-  Het beginpunt van de [optimalisatie](/customerjourney-optimalisatie-personalisatie/) van klantervaringen is je afvragen wat jouw klanten echt willen. In het geval van luchtvaartmaatschappijen willen klanten naar een specifieke locatie reizen. Dit willen ze doen zonder dat ze voortdurend hoeven over te stappen naar andere vliegtuigen of zestien uur moeten wachten op het vliegveld.
-- **Hoe komen klanten tot deze conclusie?**  
-  Dit draait niet echt om jouw merk. Dit draait om de beslissing om met de reis te beginnen.
-- **Waarom willen jouw klanten interacteren?**  
-  Zoekt jouw klant naar ervaring of goedkope luxe? Of beide? Vaak willen ze het allemaal.
-- **Wie is jouw klant?**  
-  Customer journeys verschillen per doelgroep. Hoe speel je hierop in? Richt je je op de zakelijke markt? Vergeet niet dat het mensen van vlees en bloed zijn. Ze reizen voor zaken, maar waarderen ook een personal touch. Je helpt hen wel om waar mogelijk 'doorwerken' te faciliteren.   
-    
-  Richt jij je juist op reizende gezinnen, bedenk dan hoe je het ouders naar hun zin kan maken. Is er iets wat je kunt doen om (lange) vliegreizen makkelijker te maken? Of kun je iets aanbieden om het wachten voor de vlucht makkelijker te maken?  
-    
-  De budgetreizigers doe je weer een plezier met een goedkope vlucht die zij optioneel kunnen uitbreiden aan de hand van hun wensen, maar waar ze niet verplicht moeten betalen voor iets wat ze niet gebruiken. Denk daarbij aan luchtvaartmaatschappijen bij wie je in principe alleen met handbagage reist, tenzij je extra betaalt.
+:::nummers
+TITEL: Vier vragen om de klantervaring te doorgronden
+- LABEL: Wat willen jouw klanten echt? | TEKST: Het beginpunt van de optimalisatie van klantervaringen is je afvragen wat jouw klanten echt willen. In het geval van luchtvaartmaatschappijen willen klanten naar een specifieke locatie reizen. Dit willen ze doen zonder dat ze voortdurend hoeven over te stappen naar andere vliegtuigen of zestien uur moeten wachten op het vliegveld.
+- LABEL: Hoe komen klanten tot deze conclusie? | TEKST: Dit draait niet echt om jouw merk. Dit draait om de beslissing om met de reis te beginnen.
+- LABEL: Waarom willen jouw klanten interacteren? | TEKST: Zoekt jouw klant naar ervaring of goedkope luxe? Of beide? Vaak willen ze het allemaal.
+- LABEL: Wie is jouw klant? | TEKST: Customer journeys verschillen per doelgroep. Richt je je op de zakelijke markt? Vergeet niet dat het mensen van vlees en bloed zijn; ze reizen voor zaken, maar waarderen een personal touch en hulp om door te werken. Richt je je op reizende gezinnen, bedenk dan hoe je het ouders naar hun zin maakt en lange vliegreizen makkelijker maakt. Budgetreizigers doe je een plezier met een goedkope vlucht die ze optioneel kunnen uitbreiden, zonder verplicht te betalen voor iets wat ze niet gebruiken.
+:::
 
-> Een positieve of negatieve ervaring wordt zelden bepaald door een enkel onderdeel in het proces.
+:::quote
+QUOTE: Een positieve of negatieve ervaring wordt zelden bepaald door een enkel onderdeel in het proces.
+:::
 
 ## Brengt de customer journey in kaart
 

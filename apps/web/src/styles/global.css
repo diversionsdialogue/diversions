@@ -371,6 +371,65 @@
   }
 }
 
+/* Branches-dropdown in de desktop-nav */
+.nav-has-menu { position: relative; display: flex; align-items: center; }
+.nav-menu-trigger {
+  font-family: var(--font-subtitle);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--ink);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: background var(--duration-base) var(--ease),
+    color var(--duration-base) var(--ease);
+}
+.nav-menu-trigger:hover,
+.nav-has-menu:focus-within .nav-menu-trigger {
+  background: var(--color-accent-50);
+  color: var(--color-yellow-600);
+}
+.nav-menu-trigger svg { transition: transform var(--duration-base) var(--ease); }
+.nav-has-menu:hover .nav-menu-trigger svg,
+.nav-has-menu.open .nav-menu-trigger svg { transform: rotate(180deg); }
+.nav-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 6px;
+  min-width: 240px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 8px;
+  z-index: 60;
+  display: none;
+  flex-direction: column;
+}
+.nav-menu::before { content: ""; position: absolute; top: -8px; left: 0; right: 0; height: 8px; } /* hover-brug */
+.nav-has-menu:hover .nav-menu,
+.nav-has-menu:focus-within .nav-menu,
+.nav-has-menu.open .nav-menu { display: flex; }
+.nav-menu a { padding: 9px 12px; border-radius: 8px; font-size: 14px; white-space: nowrap; }
+
+/* Mobiel: branches als subgroep in het uitklapmenu */
+.mobile-menu-heading {
+  font-family: var(--font-subtitle);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  padding: 14px 12px 6px;
+}
+.mobile-menu a.mobile-submenu-link { padding-left: 24px; }
+
 .header-actions {
   display: flex;
   align-items: center;
@@ -1218,12 +1277,16 @@
   overflow: hidden;
   background: var(--color-accent-200);
   aspect-ratio: 16 / 9;
+  max-height: 300px;
 }
 @media (min-width: 768px) {
   .sa-hero-image {
     aspect-ratio: auto;
-    min-height: 320px;
+    height: 300px;
+    max-height: 300px;
   }
+  /* Groene kaart exact even hoog als de foto: 300px inclusief padding. */
+  .sa-hero-card { height: 300px; box-sizing: border-box; }
 }
 .sa-hero-image picture {
   display: block;
@@ -1304,6 +1367,10 @@
   color: var(--ink);
   background: var(--color-accent-100);
 }
+
+/* Diensten-lijst (Doelgericht-stijl: rijen met nummer + titel + tekst, geen beeld) */
+.sa-services { padding: 0 32px; }
+@media (min-width: 1024px) { .sa-services { padding: 0 72px; } }
 
 .sa-grid {
   padding: 0 32px;

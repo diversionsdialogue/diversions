@@ -3,10 +3,6 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Picture from "@/components/global/Picture.astro";
 import { getAllServices } from "@/lib/data";
-// Neutrale placeholder-miniatuur (diensten hebben nog geen eigen thumbnail in
-// Sanity; gebruiker uploadt die later in de Studio). Geimporteerd als
-// Astro-asset zodat hij geoptimaliseerd + gebundeld wordt.
-import placeholderThumb from "@/images/assets/services.jpg";
 
 // CONVERT-META (route A, bouwen-in-astro)
 //   bron: /onze-diensten
@@ -23,7 +19,15 @@ import placeholderThumb from "@/images/assets/services.jpg";
 //   AFBEELDINGEN: kaart-miniaturen komen uit service.thumbnail (Sanity). Zolang
 //     die ontbreken tonen we een nette neutrale placeholder.
 
-const services = await getAllServices();
+const allServices = await getAllServices();
+
+// Branches staan niet meer in dit overzicht; die hebben een eigen plek in de
+// hoofdnavigatie (tussen Services en Werk).
+const services = allServices
+  .filter((s) => !(s.data.categories ?? []).includes("branches"))
+  .sort((a, b) =>
+    (a.data.service || "").localeCompare(b.data.service || "", "nl")
+  );
 
 // Categorie-filter (vaste waarden uit het service-schema). Label = weergave,
 // value = wat in service.data.categories staat.
@@ -32,7 +36,6 @@ const categoryFilters = [
   { value: "onderzoeken", label: "Onderzoeken" },
   { value: "methodes", label: "Methodes" },
   { value: "oplossingen", label: "Oplossingen" },
-  { value: "branches", label: "Branches" },
 ] as const;
 ---
 
@@ -53,12 +56,15 @@ const categoryFilters = [
         </svg>
       </span>
       <span class="sa-hero-card-text">
-        Klaar om de weg<br />naar groei te plannen
+        Scherper onderzoek, betere beslissingen.
       </span>
     </a>
     <div class="sa-hero-image">
-      {/* HANDMATIG/quality (Fase 6): hero-beeld is een design-placeholder. */}
-      <Picture src="/img/about.jpg" alt="" loading="eager" />
+      <Picture
+        src="/img/onderzoeksbureau-diversions-1.jpg"
+        alt="Het team van onderzoeksbureau Diversions"
+        loading="eager"
+      />
     </div>
   </section>
 
@@ -66,7 +72,7 @@ const categoryFilters = [
     <div class="sa-header-left">
       <span class="sa-eyebrow">— Wat we doen</span>
       <h1 class="sa-title">
-        We helpen je de weg naar groei te plannen — met onderzoek en uitvoering.
+        Hoe kunnen we je helpen?
       </h1>
     </div>
 
@@ -88,24 +94,21 @@ const categoryFilters = [
     </div>
   </header>
 
-  <div class="sa-grid" id="sa-grid">
+  <div class="services-list sa-services" id="sa-grid">
     {
-      services.map((service) => {
+      services.map((service, i) => {
         const slug = service.slug ?? service.id;
-        const thumb = service.data.thumbnail?.url ?? placeholderThumb.src;
-        const thumbAlt =
-          service.data.thumbnail?.alt || `Miniatuur voor ${service.data.service}`;
         const cats = (service.data.categories ?? []).join(" ");
         return (
           <a
-            class="sa-card"
+            class="service-row"
             href={`/services/${slug}`}
             data-categories={cats}
           >
-            <div class="sa-card-thumb">
-              <img src={thumb} alt={thumbAlt} loading="lazy" width="600" height="400" />
-            </div>
-            <h3>{service.data.service}</h3>
+            <span class="service-num">{String(i + 1).padStart(2, "0")}</span>
+            <h3 class="service-title">{service.data.service}</h3>
+            <p class="service-desc">{service.data.description}</p>
+            <span class="service-arrow" aria-hidden="true">→</span>
           </a>
         );
       })
@@ -138,18 +141,24 @@ const categoryFilters = [
   // Client-side categorie-filter (progressive enhancement).
   // Zonder JS zijn alle kaarten gewoon zichtbaar.
   const filterGroup = document.getElementById("sa-filter");
-  const cards = Array.from(
-    document.querySelectorAll<HTMLElement>("#sa-grid .sa-card")
+  const rows = Array.from(
+    document.querySelectorAll<HTMLElement>("#sa-grid .service-row")
   );
   const emptyMsg = document.getElementById("sa-grid-empty");
 
   function applyFilter(value: string) {
     let visible = 0;
-    for (const card of cards) {
-      const cats = (card.dataset.categories ?? "").split(/\s+/).filter(Boolean);
+    for (const row of rows) {
+      const cats = (row.dataset.categories ?? "").split(/\s+/).filter(Boolean);
       const show = value === "all" || cats.includes(value);
-      card.hidden = !show;
-      if (show) visible++;
+      // Inline display i.p.v. [hidden]: .service-row heeft display:grid dat
+      // het [hidden]-attribuut zou overrulen.
+      row.style.display = show ? "" : "none";
+      if (show) {
+        visible++;
+        const num = row.querySelector<HTMLElement>(".service-num");
+        if (num) num.textContent = String(visible).padStart(2, "0");
+      }
     }
     if (emptyMsg) emptyMsg.hidden = visible !== 0;
   }

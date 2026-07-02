@@ -103,11 +103,15 @@ Baseline (1): **€ 680 / € 1.675 / € 3.075**. Concepten 1/2/3 → 680/980/1
   indicatie". Prijspaneel staat er al naast (default-prijs of `– – –`).
 - **Stap 2 — Samenstellen:** expert-kaart, padspecifieke keuzes (bv.
   Survey/Kwalitatief), de schaalfactor-select (concepten/doelgroepen), infoblok.
-- **Terug kunnen:** expliciete "Vorige stap"-knop én klikbare afgeronde rail-stap.
-- **Twee acties in de prijs:** primair "Direct bestellen", secundair "Advies".
-  Beide via een **payload-hook**: `CustomEvent("pretest-calculator:submit")` met
-  `{ calculator, actie, keuzes, tier, richtprijs }`. De echte bestemming
-  (formulier/CRM/e-mail, n8n) is `[koppeling nog aanleveren]`.
+- **Terug kunnen:** expliciete "Vorige stap"-knop (ook in stap 3).
+- **Twee acties in de prijs:** primair "Direct bestellen", secundair "Advies
+  aanvragen". Beide leiden naar **stap 3 — Bestellen**: een samenvatting van
+  de keuzes/prijs + een contactformulier (bedrijf, naam, e-mail, telefoon
+  optioneel, AVG-akkoord, bericht optioneel). Submit post naar de gedeelde
+  n8n-webhook (zie §6.6) én dispatcht nog steeds een
+  `CustomEvent("pretest-calculator:submit")` met
+  `{ calculator, actie, keuzes, tier, richtprijs, richtprijsFormatted, samenvatting, ... }`
+  voor eventuele analytics.
 
 ---
 
@@ -142,7 +146,15 @@ Baseline (1): **€ 680 / € 1.675 / € 3.075**. Concepten 1/2/3 → 680/980/1
    - [ ] NL-notatie, "excl. btw" vermeld.
    - [ ] Responsief op kaartbreedte (container queries); sticky balk op mobiel.
    - [ ] `pnpm build:web` schoon; getoetst op desktop én mobiel.
-6. **Koppeling** (formulier/CRM/e-mail) is een aparte stap (forms-fase, n8n).
+6. **Koppeling** (formulier/CRM/e-mail): stap 3 ("Bestellen") verzamelt
+   bedrijf/naam/e-mail/telefoon/bericht + AVG-akkoord en post naar één
+   gedeelde n8n-webhook (`PUBLIC_CALCULATOR_WEBHOOK_URL`), met het
+   `calculator`-veld als router. Zie
+   [`n8n/README-offerte-calculators.md`](n8n/README-offerte-calculators.md) +
+   [`n8n/offerte-calculators.workflow.json`](n8n/offerte-calculators.workflow.json)
+   en de gedeelde client-helper
+   [`apps/web/src/scripts/submitCalculatorLead.ts`](apps/web/src/scripts/submitCalculatorLead.ts).
+   Een nieuwe rekenmodule hergebruikt dit patroon i.p.v. het opnieuw te bouwen.
 
 ---
 

@@ -18,6 +18,10 @@ interface Props {
   lead: string;
   image?: string;
   imageAlt?: string;
+  /** Anchor naar de "Wat is…"-kop in de body (voor de "lees alles over …"-link). */
+  leesHref?: string;
+  /** Linktekst incl. lidwoord, bv. "het klanttevredenheidsonderzoek". */
+  leesLabel?: string;
 }
 const {
   eyebrow = "Diensten · Direct een prijsopgave",
@@ -25,6 +29,8 @@ const {
   lead,
   image = "/img/onderzoeksbureau-diversions-4.jpg",
   imageAlt = "",
+  leesHref,
+  leesLabel,
 } = Astro.props;
 ---
 
@@ -35,6 +41,14 @@ const {
         <span class="pitch-eyebrow">{eyebrow}</span>
         <h1 class="pitch-title">{title}</h1>
         <p class="pitch-lead">{lead}</p>
+        {
+          leesHref && (
+            <div class="pitch-actions">
+              <a href={leesHref} class="pitch-btn pitch-btn--ghost">Over het onderzoek</a>
+              <a href="#calculator" class="pitch-btn">Prijsindicatie</a>
+            </div>
+          )
+        }
       </div>
       <div class="pitch-photo">
         <Picture src={image} alt={imageAlt} loading="eager" />
@@ -139,6 +153,67 @@ const {
     text-wrap: pretty;
   }
 
+  /* Twee snelkoppelknoppen onder de inleiding. */
+  .pitch-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 24px 0 0;
+  }
+  .pitch-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 22px;
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--ink-strong);
+    background: var(--ink-strong);
+    color: #fff;
+    font-family: var(--font-subtitle);
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1;
+    text-decoration: none;
+    transition: background var(--duration-base) var(--ease),
+      color var(--duration-base) var(--ease),
+      border-color var(--duration-base) var(--ease);
+  }
+  .pitch-btn:hover { background: var(--primary); border-color: var(--primary); }
+  .pitch-btn--ghost {
+    background: transparent;
+    color: var(--ink-strong);
+  }
+  .pitch-btn--ghost:hover {
+    background: var(--ink-strong);
+    color: #fff;
+    border-color: var(--ink-strong);
+  }
+  .pitch-btn:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+
   /* Trust strip onder de calculator (styling in TrustStrip.astro). */
   .pitch-trust-wrap { margin-top: 32px; }
 </style>
+
+<script>
+  // Tablet/mobiel: verberg de sticky prijsbalk zodra je volledig voorbij de
+  // calculator bent gescrold (onderkant van de calculator boven de viewport).
+  const calc = document.querySelector<HTMLElement>(".pitch .qcalc");
+  const bar = calc?.querySelector<HTMLElement>("[data-stickybar]") ?? null;
+  if (calc && bar) {
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const past = calc.getBoundingClientRect().bottom < 0;
+      bar.style.display = past ? "none" : "";
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    update();
+  }
+</script>

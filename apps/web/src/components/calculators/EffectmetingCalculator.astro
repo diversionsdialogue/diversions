@@ -18,13 +18,18 @@ import "@/styles/calculators.css";
  *   prijs = marge + tool×metingen + 4,50 × N + (combinatie ? 1.000 : 0)
  *   Baseline (post, 1 dg, basis, geen combinatie) = € 4.550.
  *
- * Leveranciersnamen worden nooit getoond. [koppeling nog aanleveren] — knoppen
- * dispatchen "effectmeting-calculator:submit".
+ * Leveranciersnamen worden nooit getoond.
+ *
+ * Stap 3 — Bestellen: samenvatting + contactformulier, POST naar de n8n-
+ * webhook (PUBLIC_CALCULATOR_WEBHOOK_URL). Zie n8n/README-offerte-calculators.md.
  */
 const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:2px;color:var(--primary)"><polyline points="20 6 9 17 4 12"/></svg>`;
+
+// PUBLIC_-prefix is vereist zodat de var in de static client-bundle terechtkomt.
+const webhookUrl = import.meta.env.PUBLIC_CALCULATOR_WEBHOOK_URL ?? "";
 ---
 
-<section class="qcalc" data-step="1" aria-label="Offerte-starter campagne-effectonderzoek">
+<section class="qcalc" data-step="1" data-webhook={webhookUrl} aria-label="Offerte-starter campagne-effectonderzoek">
   <div class="qc-card">
     <div class="qc-topbar">
       <span class="qc-brand">Bereken je prijsindicatie</span>
@@ -52,14 +57,14 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
         <div class="qc-panel" data-panel="1">
           <p class="qc-steplabel">Stap 1 van 3</p>
           <h2 class="qc-title">Welke metingen wil je doen?</h2>
-          <p class="qc-sub">Kies het onderzoeksdesign. In de volgende stap stel je het onderzoek verder samen.</p>
+          <p class="qc-sub">Stel het onderzoek samen zoals je wilt.</p>
 
           <div class="qc-choices">
             <label class="qc-choice">
               <input type="radio" name="design" value="post" checked />
               <span class="qc-radio" aria-hidden="true"></span>
               <span class="qc-choicebody">
-                <span class="qc-choicetitle">Alleen nameting</span>
+                <span class="qc-choicetitle">Eenmalige meting</span>
                 <ul class="qc-bullets">
                   <li><Fragment set:html={TICK} />Eén meting ná de campagne</li>
                   <li><Fragment set:html={TICK} />Kostenefficiënt en snel resultaat</li>
@@ -71,10 +76,10 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
               <input type="radio" name="design" value="prepost" />
               <span class="qc-radio" aria-hidden="true"></span>
               <span class="qc-choicebody">
-                <span class="qc-choicetitle">Nul- en nameting</span>
+                <span class="qc-choicetitle">Impactmeting</span>
                 <ul class="qc-bullets">
-                  <li><Fragment set:html={TICK} />Meting vóór én ná de campagne</li>
-                  <li><Fragment set:html={TICK} />Toont de exacte 'lift' van je campagne</li>
+                  <li><Fragment set:html={TICK} />Meting vóór en na de campagne</li>
+                  <li><Fragment set:html={TICK} />Scherp beeld van effect van je campagne</li>
                   <li><Fragment set:html={TICK} />De gouden standaard</li>
                 </ul>
               </span>
@@ -82,9 +87,8 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
           </div>
 
           <button type="button" class="btn btn-primary btn-arrow qc-cta" data-next>
-            Bereken indicatie
+            Stel je pakket samen
           </button>
-          <p class="qc-fineprint">Geen account, geen verkoopgesprek — een eerste indicatie binnen twee minuten.</p>
         </div>
 
         {/* ---------------- STAP 2 — Onderzoek ---------------- */}
@@ -96,12 +100,23 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
           <p class="qc-steplabel">Stap 2 van 3</p>
           <h2 class="qc-title qc-title--sm">Stel je onderzoek samen</h2>
 
-          <div class="qc-expert">
-            <span class="qc-avatar" aria-hidden="true">WB</span>
-            <div>
-              <p class="qc-expertname">William Burghout · <span>Onderzoeksexpert</span></p>
-              <p class="qc-experttext">We stemmen het effectonderzoek af op je campagne. Geef hier je voorkeuren aan.</p>
-            </div>
+          <div class="qc-expert qc-expert--photo">
+            <figure class="qc-expert-fig">
+              <picture>
+                <source srcset="/img/william-burghout.avif" type="image/avif" />
+                <source srcset="/img/william-burghout.webp" type="image/webp" />
+                <img src="/img/william-burghout.png" alt="William Burghout" width="64" height="64" loading="lazy" decoding="async" />
+              </picture>
+              <figcaption class="qc-expert-cap">
+                <b>William Burghout</b>
+                <span>Hoofd Onderzoek</span>
+              </figcaption>
+            </figure>
+            <p class="qc-experttext">
+              Stel hieronder je onderzoek naar wens samen. Heb je specifieke
+              onderzoekswensen? Neem dan contact met ons op:
+              <a href="tel:+31552032193" class="qc-phone">055 20 32 193</a>.
+            </p>
           </div>
 
           <div class="qc-group">
@@ -135,7 +150,7 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
           <div class="qc-group">
             <p class="qc-fieldlabel">Doelgroepen</p>
             <p class="qc-help">
-              Hoeveel doelgroepen wil je apart kunnen analyseren? Per extra
+              Hoeveel doelgroepen wil je kunnen analyseren? Per extra
               doelgroep voegen we respondenten toe voor statistisch betrouwbare
               uitspraken.
             </p>
@@ -168,17 +183,66 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
                   <span class="qc-choicetitle">Combinatie met interne data</span>
                   <ul class="qc-bullets">
                     <li><Fragment set:html={TICK} />We koppelen je eigen data (bereik, web, sales)</li>
-                    <li><Fragment set:html={TICK} />+ € 1.000</li>
                   </ul>
                 </span>
               </label>
             </div>
           </div>
 
-          <div class="qc-info">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-            <p>Specifieke onderzoekswensen? <a href="tel:+31552032193">Neem contact met ons op.</a></p>
+        </div>
+
+        {/* ---------------- STAP 3 — Bestellen ---------------- */}
+        <div class="qc-panel" data-panel="3" hidden>
+          <button type="button" class="qc-back" data-goto="2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Vorige stap
+          </button>
+          <p class="qc-steplabel">Stap 3 van 3</p>
+          <h2 class="qc-title qc-title--sm" data-step3-title>Bijna klaar</h2>
+
+          <div class="qc-recap">
+            <p class="qc-recap-title">Jouw keuzes</p>
+            <ul class="qc-recap-list" data-recap></ul>
+            <p class="qc-recap-price" data-recap-price>&euro; 4.550</p>
           </div>
+
+          <form data-lead-form novalidate>
+            <div class="qc-form">
+              <div class="qc-fieldrow">
+                <label class="qc-field">
+                  <span class="qc-label">Bedrijfsnaam</span>
+                  <input class="qc-input" name="bedrijf" type="text" autocomplete="organization" required />
+                </label>
+                <label class="qc-field">
+                  <span class="qc-label">Naam</span>
+                  <input class="qc-input" name="naam" type="text" autocomplete="name" required />
+                </label>
+              </div>
+              <div class="qc-fieldrow">
+                <label class="qc-field">
+                  <span class="qc-label">E-mail</span>
+                  <input class="qc-input" name="email" type="email" autocomplete="email" required />
+                </label>
+                <label class="qc-field">
+                  <span class="qc-label">Telefoon <span class="qc-label-opt">(optioneel)</span></span>
+                  <input class="qc-input" name="telefoon" type="tel" autocomplete="tel" />
+                </label>
+              </div>
+              <label class="qc-field">
+                <span class="qc-label">Toelichting <span class="qc-label-opt">(optioneel)</span></span>
+                <textarea class="qc-textarea" name="bericht" rows="3"></textarea>
+              </label>
+              <label class="qc-consent">
+                <input type="checkbox" name="consent" required />
+                <span>Ik ga akkoord met de verwerking van mijn gegevens volgens het <a href="/privacy-statement">privacy statement</a>.</span>
+              </label>
+              <div hidden aria-hidden="true">
+                <label>Laat dit veld leeg<input class="qc-hp" type="text" name="company_website" tabindex="-1" autocomplete="off" /></label>
+              </div>
+            </div>
+            <p class="qc-status" role="status" aria-live="polite" data-status hidden></p>
+            <button type="submit" class="btn btn-primary btn-arrow qc-cta" data-submit>Verstuur offerteaanvraag</button>
+          </form>
         </div>
       </div>
 
@@ -194,7 +258,7 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
           <button type="button" class="btn btn-primary btn-arrow" data-action="bestellen">Direct bestellen</button>
           <button type="button" class="btn btn-outline" data-action="advies">Advies aanvragen</button>
         </div>
-        <p class="qc-sumfine">Geen account nodig. Na bestelling neemt een onderzoeker binnen één werkdag contact op.</p>
+        <p class="qc-sumfine">Na bestelling neemt een onderzoeker binnen één werkdag contact op.</p>
       </aside>
     </div>
   </div>
@@ -215,6 +279,8 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
 
 
 <script>
+  import { submitCalculatorLead } from "@/scripts/submitCalculatorLead";
+
   // --- Rekentechniek (Calculator-config-effectmeting). Geen leveranciersnamen.
   const PER_RESPONDENT = 4.5;
   const RATE = {
@@ -249,16 +315,33 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
     return marge + toolPerMeting * metingen + PER_RESPONDENT * n + (s.combinatie ? RATE.combinatie : 0);
   }
 
+  // Leesbare samenvatting van de keuzes — voor de recap in stap 3 én de e-mail.
+  function summaryLines(s: State): string[] {
+    const lines = [s.design === "prepost" ? "Impactmeting (nul- en nameting)" : "Eenmalige meting"];
+    lines.push(s.vragenlijst === "smart" ? "Smart survey" : "Basis survey");
+    lines.push(`${s.doelgroepen} doelgroe${s.doelgroepen > 1 ? "pen" : "p"}`);
+    if (s.combinatie) lines.push("Combinatie met interne data");
+    return lines;
+  }
+
   document.querySelectorAll<HTMLElement>(".qcalc").forEach((root) => {
     // Alleen de effectmeting-calculator afhandelen (niet andere .qcalc-modules).
     if (!root.querySelector('input[name="design"]')) return;
 
     const state: State = { design: "post", vragenlijst: "basis", doelgroepen: 1, combinatie: false };
     let step = 1;
+    let actie: "bestellen" | "advies" = "bestellen";
+    const webhookUrl = root.dataset.webhook ?? "";
 
     const panels = root.querySelectorAll<HTMLElement>("[data-panel]");
     const railsteps = root.querySelectorAll<HTMLElement>("[data-railstep]");
     const prices = root.querySelectorAll<HTMLElement>("[data-price]");
+    const step3Title = root.querySelector<HTMLElement>("[data-step3-title]")!;
+    const recapList = root.querySelector<HTMLElement>("[data-recap]")!;
+    const recapPrice = root.querySelector<HTMLElement>("[data-recap-price]")!;
+    const leadForm = root.querySelector<HTMLFormElement>("[data-lead-form]")!;
+    const statusEl = root.querySelector<HTMLElement>("[data-status]")!;
+    const submitBtn = root.querySelector<HTMLButtonElement>("[data-submit]")!;
 
     const renderRail = () => {
       railsteps.forEach((rs) => {
@@ -278,10 +361,25 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
       prices.forEach((el) => (el.textContent = txt));
     };
 
+    const renderRecap = () => {
+      step3Title.textContent = actie === "advies" ? "Adviesaanvraag versturen" : "Bijna klaar — offerte versturen";
+      recapList.innerHTML = "";
+      summaryLines(state).forEach((line) => {
+        const li = document.createElement("li");
+        li.textContent = line;
+        recapList.appendChild(li);
+      });
+      recapPrice.textContent = euro(priceFor(state));
+      submitBtn.textContent = actie === "advies" ? "Vraag advies aan" : "Verstuur offerteaanvraag";
+    };
+
     const goTo = (n: number) => {
       step = n;
       root.dataset.step = String(n);
       panels.forEach((p) => (p.hidden = p.dataset.panel !== String(n)));
+      // "Direct bestellen" is alleen actief in stap 2 (stap 3 heeft z'n eigen submit-knop).
+      root.querySelectorAll<HTMLButtonElement>('[data-action="bestellen"]').forEach((b) => (b.disabled = n !== 2));
+      if (n === 3) renderRecap();
       renderRail();
       root.scrollIntoView({ behavior: "smooth", block: "start" });
     };
@@ -315,22 +413,74 @@ const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke
       b.addEventListener("click", () => goTo(Number(b.dataset.goto)));
     });
 
-    // Bestellen / Advies → payload-hook [koppeling nog aanleveren]
+    // Bestellen / Advies (stap 2) → onthoud de gekozen actie en ga naar stap 3
     root.querySelectorAll<HTMLButtonElement>('[data-action="bestellen"],[data-action="advies"]').forEach((btn) => {
       btn.addEventListener("click", () => {
-        const payload = {
-          calculator: "effectmeting",
-          actie: btn.dataset.action,
-          keuzes: { ...state },
-          respondenten: respondenten(state.design, state.doelgroepen),
-          richtprijs: Math.round(priceFor(state)),
-        };
+        actie = (btn.dataset.action as "bestellen" | "advies") ?? "bestellen";
+        goTo(3);
+      });
+    });
+
+    // Stap 3: echte verzending naar de n8n-webhook.
+    leadForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const honeypot = leadForm.elements.namedItem("company_website") as HTMLInputElement | null;
+      if (honeypot && honeypot.value.trim() !== "") {
+        statusEl.hidden = false;
+        statusEl.dataset.tone = "ok";
+        statusEl.textContent = "Bedankt! We hebben je aanvraag ontvangen.";
+        leadForm.reset();
+        return;
+      }
+
+      if (!leadForm.checkValidity()) {
+        leadForm.reportValidity();
+        return;
+      }
+
+      const fd = new FormData(leadForm);
+      const richtprijs = Math.round(priceFor(state));
+      const payload = {
+        calculator: "effectmeting",
+        actie,
+        keuzes: { ...state },
+        respondenten: respondenten(state.design, state.doelgroepen),
+        richtprijs,
+        richtprijsFormatted: euro(richtprijs),
+        samenvatting: summaryLines(state),
+        bedrijf: (fd.get("bedrijf") as string) ?? "",
+        naam: (fd.get("naam") as string) ?? "",
+        email: (fd.get("email") as string) ?? "",
+        telefoon: (fd.get("telefoon") as string) ?? "",
+        bericht: (fd.get("bericht") as string) ?? "",
+        consent: fd.get("consent") === "on",
+        company_website: (fd.get("company_website") as string) ?? "",
+      };
+
+      submitBtn.disabled = true;
+      const originalLabel = submitBtn.textContent;
+      submitBtn.textContent = "Versturen…";
+      statusEl.hidden = true;
+
+      const result = await submitCalculatorLead(webhookUrl, payload);
+
+      statusEl.hidden = false;
+      statusEl.dataset.tone = result.ok ? "ok" : "error";
+      statusEl.textContent = result.message;
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+
+      if (result.ok) {
+        leadForm.reset();
         root.dispatchEvent(new CustomEvent("effectmeting-calculator:submit", { detail: payload, bubbles: true }));
         console.info("[effectmeting-calculator] submit", payload);
-      });
+      }
     });
 
     renderRail();
     renderPrice();
+    // Stap 1: "Direct bestellen" uitgegrijsd tot de bezoeker naar stap 2 gaat.
+    root.querySelectorAll<HTMLButtonElement>('[data-action="bestellen"]').forEach((b) => (b.disabled = true));
   });
 </script>

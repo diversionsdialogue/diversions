@@ -231,3 +231,15 @@ export const getLegalPageByIdQuery = groq`
     ${seoProjection}
   }
 `;
+
+// Pages (losse, beheerbare pagina's zoals "Wij zijn Diversions")
+export const getAllPagesQuery = groq`
+  *[_type == "page"] | order(_createdAt desc) {
+    _id,
+    title,
+    "slug": slug.current,
+    eyebrow,
+    ${bodyProjection},
+    ${seoProjection}
+  }
+`;

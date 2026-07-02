@@ -198,10 +198,21 @@ export interface SanityLegalPage extends SanityDocument {
   seo?: SanitySeo;
 }
 
+// Page document (losse, beheerbare pagina zoals "Wij zijn Diversions")
+export interface SanityPage extends SanityDocument {
+  _type: "page";
+  title: string;
+  slug: string;
+  eyebrow?: string;
+  body: SanityBody;
+  seo?: SanitySeo;
+}
+
 // Union type of all document types
 export type SanityDocumentType =
   | SanityTeamMember
   | SanityWorkItem
   | SanityService
   | SanityPost
-  | SanityLegalPage;
+  | SanityLegalPage
+  | SanityPage;

@@ -25,7 +25,9 @@ In dit artikel leggen we uit hoe we met behulp van Customer Journey Mapping de k
 
 Om proces-blindheid te vermijden starten we bij Customer Journey mapping met een kwalitatief onderzoek. Afhankelijk van de casus in de vorm van een interview (bij persoonlijke onderwerpen) en panel. Tijdens het onderzoek gaan we op zoek naar motieven die toekomstig gedrag kunnen voorspellen.
 
-> Met behulp van kwalitatief onderzoek zoeken we motieven die toekomstig gedrag kunnen voorspellen
+:::quote
+QUOTE: Met behulp van kwalitatief onderzoek zoeken we motieven die toekomstig gedrag kunnen voorspellen.
+:::
 
 Afhankelijk van je vraagstuk voegen we extra aandachtspunten toe. Zo kunnen we een [customer journey](/customer-journey/) bedrijfstak-specifiek maken. Of we bekijken - met behulp van de [generation challenge](https://www.generationjourney.nl/generation-challenge/) - op welk terrein wensen per leeftijdsgroep verschillen.
 
@@ -35,6 +37,8 @@ Met deze inzichten stellen we een forecast op om te kunnen voorsorteren op toeko
 
 Daarna is het tijd voor de praktijk. Startpunt hierbij is om een helder beeld te krijgen van de klantreis die je biedt. Met Customer Journey Mapping brengen wij deze klantreis in kaart. Tijdens dit proces beantwoorden we een complete serie vragen:
 
+:::bullets
+TITEL: Vragen die we tijdens het mappen beantwoorden
 - Welk doel heeft een consument bij de kennismaking met uw organisatie?
 - Welke touch points kunnen worden herkend?
 - Wie is binnen uw organisatie verantwoordelijk per touch point?
@@ -42,3 +46,4 @@ Daarna is het tijd voor de praktijk. Startpunt hierbij is om een helder beeld te
 - Hoe ervaren verschillende generaties klanten de verschillende stadia in een klantreis?
 - Welke contactmomenten zijn gevoelig voor generatie-afhankelijke beoordeling?
 - Op welke terreinen kan echt een verschil worden gemaakt?
+:::

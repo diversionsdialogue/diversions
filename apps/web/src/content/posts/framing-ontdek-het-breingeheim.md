@@ -41,9 +41,10 @@ Maar zie en proef je echt verschil tussen de appels? Misschien komen ze wel van 
 
 Door verschillend te framen, spreken de marktkraamhouders verschillende doelgroepen aan. Het product verandert niet. De manier waarop voorbijgangers er tegenaan kijken wel.
 
-|  |
-| --- |
-| Framing is krachtig. Een slimme verandering in presentatie kan de perceptie van een product of boodschap sterk veranderen. Welk frame is voor jou het meest geschikt? |
+:::let-op
+LABEL: Onthoud
+TEKST: Framing is krachtig. Een slimme verandering in presentatie kan de perceptie van een product of boodschap sterk veranderen. Welk frame is voor jou het meest geschikt?
+:::
 
 ## Framing: hoe kunnen we het verklaren
 
@@ -90,9 +91,13 @@ Diversions helpt je met een mix van [onderzoek](/onderzoeksbureau/ "Onderzoeksbu
 - Betere beslissingen - betere resultaten
 - Korte doorlooptijd - budgetvriendelijk
 
-**Neem contact op en ontdek de mogelijkheden: 055 20 32 193.**
-
-<!-- BLOK:accordion (inhoudslijst, geen Q&A) -->
+:::cta
+KOP: Benieuwd naar de mogelijkheden?
+TEKST: Diversions helpt je met een mix van onderzoek en marketingadvies.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::
 
 **Ontdek meer neuromarketing technieken**
 

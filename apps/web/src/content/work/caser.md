@@ -10,16 +10,40 @@ thumbnail:
 statement: Caser — een diary study voor de mantelzorg-app
 ---
 <!-- CONVERT-META
-  bron: bestaande case "Case - Caser", herschreven naar het nieuwe case-format.
+  herzien: body opgezet met blokken (quote, nummers) + teasende intro, in lijn met Achmea/Doe-het-zelf/Trimbos
+  contact-trailer verwijderd: dubbelop met de vaste CtaHire onderaan de case-layout
 -->
 
-Europa vergrijst, en in een land als Spanje wonen ouderen en mantelzorgers vaak ver uit elkaar. Zorgverzekeraar Caser ontwikkelde daarom CaserFamily, een app waarmee mantelzorgers taken plannen, agenda's bijhouden en alarmsignalen herkennen. Gebruikers reageerden enthousiast, maar haakten na verloop van tijd weer af. Hoe keer je dat?
+Europa vergrijst, en juist waar zorg het hardst nodig is, wonen ouderen en mantelzorgers vaak ver uit elkaar. Caser bouwde een app om dat te overbruggen. Alleen: gebruikers begonnen enthousiast en haakten daarna af.
 
-Diversions koos voor een diary study. Twintig respondenten gebruikten de app twee weken lang en kregen dagelijks opdrachten. Bij elke opdracht analyseerden we hun gedrag en feedback, zodat we niet één momentopname zagen maar de hele leercurve van het gebruik.
+## De vraag
+
+In een land als Spanje wonen ouderen en mantelzorgers vaak ver uit elkaar. Zorgverzekeraar Caser ontwikkelde daarom CaserFamily: een app waarmee mantelzorgers taken plannen, agenda's bijhouden en alarmsignalen herkennen. De vraag aan Diversions:
+
+:::quote
+QUOTE: Gebruikers reageerden enthousiast, maar haakten na verloop van tijd weer af. Hoe keer je dat?
+:::
+
+## De aanpak
+
+We kozen voor een diary study, volledig online uitgevoerd. Zo zagen we niet één momentopname, maar de hele leercurve van het gebruik:
+
+:::nummers
+- LABEL: Twintig respondenten | TEKST: Mantelzorgers die de app daadwerkelijk in hun dagelijks leven gebruikten.
+- LABEL: Twee weken, dagelijkse opdrachten | TEKST: Elke dag een gerichte opdracht, zodat we het gebruik over de tijd volgden.
+- LABEL: Gedrag én feedback | TEKST: Bij elke opdracht analyseerden we wat mensen deden en wat ze ervan vonden.
+:::
+
+## Wat het opleverde
 
 Dat leverde concrete aanbevelingen op, op het niveau van concept, functionaliteit én communicatie, waarvan een deel zonder extra development door te voeren was. Minstens zo waardevol was het inzicht in de journey van de gebruikers: precies de basis om de app in de toekomst gericht uit te breiden.
 
-### Meer weten over deze case?
+## Toepassing van de resultaten
 
-Neem contact op! We vertellen je er graag alles over.
-**[055 20 32 193](tel:0552032193)**
+Op basis van deze inzichten zijn er concrete aanpassingen in de app gedaan om de gebruiksvriendelijkheid te verhogen:
+
+:::nummers
+- LABEL: Duidelijkere onboarding | TEKST: Veel aandacht voor het op weg helpen van mantelzorgers bij hun eerste stappen in de app.
+- LABEL: Diensten gekoppeld aan hulpvragen | TEKST: De af te nemen diensten zijn duidelijker verbonden met de concrete hulpvraag.
+- LABEL: Sterkere kalenderfunctie | TEKST: De kalender maakte een grote ontwikkelslag.
+:::

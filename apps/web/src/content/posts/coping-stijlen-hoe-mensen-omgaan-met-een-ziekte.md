@@ -47,7 +47,9 @@ Iedereen gaat hier op zijn eigen manier mee om. De copingstrategie van de patië
 
 Coping en patient journeys kunnen niet los van elkaar worden gezien. Een [patient journey](/patient-journey/) geeft niet alleen inzicht in hun pijnpunten en wensen, maar ook welke emoties patienten hebben gedurende de verschillende fases van het proces. Aan de hand van deze inzichten kan je onderzoeken wat je kan doen om de positieve gevoelens van je patiënt te versterken en de negatieve emoties af te zwakken.
 
-> Het goede nieuws voor patiënten en zorgverleners is dat positieve coping deels geleerd kan worden.
+:::quote
+QUOTE: Het goede nieuws voor patiënten en zorgverleners is dat positieve coping deels geleerd kan worden.
+:::
 
 Mensen kunnen dan regie houden over hun ziekteproces met bijvoorbeeld online symptomen- en klachtenchecks, toegang tot een online dossier, een app voor het handhaven van een gezonde levensstijl of spreekuur via [Teams](https://www.microsoft.com/nl-nl/microsoft-teams/log-in).
 
@@ -69,4 +71,10 @@ Communicatie en zorgverlening die daarentegen de kracht van [patiënten actief 
 
 Wil je een verbeterslag maken in effectieve communicatie? [Onderzoeksbureau voor de zorg](/onderzoeksbureau-zorg/) Diversions helpt je graag. Onze onderzoeksmethodiek is uniek in de markt en biedt directe insights om communicatie te verbeteren.
 
-Bel voor advies: **055 20 32 193**.
+:::cta
+KOP: Wil je een verbeterslag maken?
+TEKST: Diversions helpt je graag met onderzoek dat directe insights biedt om je zorgcommunicatie te verbeteren.
+KNOP: Vraag advies aan
+URL: /contact
+VARIANT: sage
+:::

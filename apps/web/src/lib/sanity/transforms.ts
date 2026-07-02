@@ -11,6 +11,7 @@ import type {
   SanityService,
   SanityPost,
   SanityLegalPage,
+  SanityPage,
   SanitySeo,
 } from "./types";
 
@@ -179,6 +180,21 @@ export function transformLegalPage(sanityDoc: SanityLegalPage) {
     data: {
       page: sanityDoc.page,
       pubDate: new Date(sanityDoc.pubDate),
+      seo: transformSeo(sanityDoc.seo),
+    },
+  };
+}
+
+export function transformPage(sanityDoc: SanityPage) {
+  return {
+    id: sanityDoc._id,
+    slug: sanityDoc.slug ?? deriveSlug(sanityDoc._id, "page"),
+    // Portable Text array; gerenderd via <PortableText>.
+    body: sanityDoc.body || [],
+    collection: "pages" as const,
+    data: {
+      title: sanityDoc.title,
+      eyebrow: sanityDoc.eyebrow,
       seo: transformSeo(sanityDoc.seo),
     },
   };

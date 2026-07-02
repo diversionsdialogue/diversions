@@ -33,14 +33,12 @@ Binnen het bedrijf is iedereen blij met de campagne. Het past goed bij het imago
 
 Met het **[onderzoeksbureau](/onderzoeksbureau/)** worden de belangrijkste doelstellingen op een rij gezet. Tijdens het onderzoek staan de volgende communicatiedoelstellingen centraal:
 
-**Kennis:**   
-voordelen bekend maken van duurzame energie + nieuwe productoplossing introduceren
-
-**Houding:**   
-doelgroep herkent de voordelen van duurzame energie + interesse tonen in innovatieve oplossing
-
-**Gedrag:**   
-aanmelden voor overstap-hulp + directe stijging van verkopen van het nieuwe product
+:::nummers
+TITEL: De communicatiedoelstellingen
+- LABEL: Kennis | TEKST: voordelen bekend maken van duurzame energie + nieuwe productoplossing introduceren
+- LABEL: Houding | TEKST: doelgroep herkent de voordelen van duurzame energie + interesse tonen in innovatieve oplossing
+- LABEL: Gedrag | TEKST: aanmelden voor overstap-hulp + directe stijging van verkopen van het nieuwe product
+:::
 
 Het onderzoek start met een snelle **survey** onder de doelgroep. Daaruit komen verontrustende signalen: de boodschap van de campagne blijkt niet goed over te komen.
 
@@ -84,4 +82,10 @@ Zonder het onderzoek zou het voor de gemeente moeilijk zijn geweest om de effect
 
 Het zijn slechts twee voorbeelden. Met pretesting kan veel meer. Ook om designs te testen, concepten te beoordelen, te benchmarken met concurrenten etc.
 
-**Meer weten? Lees alles over [pretesten](/pretest/) of bel voor meer informatie: 055 20 32 193**.
+:::cta
+KOP: Benieuwd wat pretesting voor jou kan betekenen?
+TEKST: Lees alles over pretesten of vraag vrijblijvend om meer informatie.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::

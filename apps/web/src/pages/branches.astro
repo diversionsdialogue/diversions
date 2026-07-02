@@ -1,0 +1,89 @@
+---
+// Branches-overzicht (naar het model van /onze-diensten, maar in TEGELVIEW).
+// Toont alle services met categorie "branches" als kaarten (miniatuur + titel).
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Picture from "@/components/global/Picture.astro";
+import { getAllServices } from "@/lib/data";
+// Neutrale placeholder-miniatuur zolang branchepagina's nog geen eigen thumbnail
+// in Sanity hebben.
+import placeholderThumb from "@/images/assets/services.jpg";
+
+const branches = (await getAllServices())
+  .filter((s) => (s.data.categories ?? []).includes("branches"))
+  .sort((a, b) =>
+    (a.data.service || "").localeCompare(b.data.service || "", "nl")
+  );
+---
+
+<BaseLayout
+  seo={{
+    title: "Branches | Diversions",
+    description:
+      "Onderzoek toegespitst op jouw sector. Bekijk de branches waarvoor Diversions onderzoek en oplossingen levert.",
+  }}
+>
+  <section class="sa-hero">
+    <a href="#branches" class="sa-hero-card">
+      <span class="sa-hero-spark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path
+            d="M32 8v16M32 40v16M8 32h16M40 32h16M14 14l11 11M39 39l11 11M50 14l-11 11M14 50l11-11"
+          ></path>
+        </svg>
+      </span>
+      <span class="sa-hero-card-text">
+        Onderzoek dat past bij jouw sector.
+      </span>
+    </a>
+    <div class="sa-hero-image">
+      <Picture
+        src="/img/onderzoeksbureau-diversions-2.jpg"
+        alt="Het team van onderzoeksbureau Diversions"
+        loading="eager"
+      />
+    </div>
+  </section>
+
+  <header class="sa-header" id="branches">
+    <div class="sa-header-left">
+      <span class="sa-eyebrow">— Branches</span>
+      <h1 class="sa-title">Onze oplossingen voor jou</h1>
+    </div>
+  </header>
+
+  <div class="sa-grid" id="sa-grid">
+    {
+      branches.map((service) => {
+        const slug = service.slug ?? service.id;
+        const thumb = service.data.thumbnail?.url ?? placeholderThumb.src;
+        const thumbAlt =
+          service.data.thumbnail?.alt || `Miniatuur voor ${service.data.service}`;
+        return (
+          <a class="sa-card" href={`/services/${slug}`}>
+            <div class="sa-card-thumb">
+              <img src={thumb} alt={thumbAlt} loading="lazy" width="600" height="400" />
+            </div>
+            <h3>{service.data.service}</h3>
+          </a>
+        );
+      })
+    }
+  </div>
+
+  <section class="sa-cta" style="margin-top: 96px">
+    <div class="sa-cta-text">
+      <span class="sa-cta-eyebrow">— Tijd voor groei?</span>
+      <h2 class="sa-cta-title">
+        Deel je ambities en maak<br />kennis met de mogelijkheden.
+      </h2>
+      <p class="sa-cta-body">
+        Neem contact op om te starten. We denken met je mee en komen met een concreet,
+        eerlijk voorstel terug.
+      </p>
+    </div>
+    <a href="/contact" class="sa-cta-circle">
+      Maak een afspraak
+      <span aria-hidden="true">→</span>
+    </a>
+  </section>
+</BaseLayout>

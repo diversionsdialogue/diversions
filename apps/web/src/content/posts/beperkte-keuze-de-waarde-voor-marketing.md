@@ -38,9 +38,10 @@ Je voelt je geïnformeerd en zelfverzekerd. Nu kun je een beslissing nemen, omda
 
 De stress van het doorzoeken van talloze opties is vervangen door een gestroomlijnde en prettige winkelervaring.
 
-|  |
-| --- |
-| Keuzevrijheid is mooi, maar teveel keuze kan leiden tot uitstel van het nemen van een beslissing. Kies je als marketeer ervoor het aantal opties te beperken? Zonder het gevoel op te roepen dat een klant iets mist? Dan is het beperken van keuzes een krachtige techniek. |
+:::let-op
+LABEL: Onthoud
+TEKST: Keuzevrijheid is mooi, maar teveel keuze kan leiden tot uitstel van het nemen van een beslissing. Kies je als marketeer ervoor het aantal opties te beperken, zonder het gevoel op te roepen dat een klant iets mist? Dan is het beperken van keuzes een krachtige techniek.
+:::
 
 ## Beperkte keuze: hoe kunnen we het verklaren
 
@@ -88,32 +89,13 @@ Het draait erom dat je voor je doelgroep een optimale hoeveelheid keuzes bepaald
 
 We geven vier voorbeelden.
 
-<!-- BLOK:accordion (inhoudslijst, geen Q&A) -->
-
-**Productaanbod optimaliseren**
-
-Optimaliseer het aantal aangeboden producten of opties. Kies bewust het aantal productvarianten of definieer producten in duidelijke categorieën.
-
-**Keuzeprocessen vereenvoudigen**
-
-Vereenvoudig het keuzeproces van je doelgroep. Dit kan door duidelijke en eenvoudige navigatie in webshops, effectieve filters of adviestools.
-
-**Bijdragen aan besluitvorming**
-
-Help je doelgroep om door de bomen het bos te zien.
-Dit kan door bijvoorbeeld:
-\* populaire, best geteste of aanbevolen producten te tonen;
-\* je product of dienst in een pakket aan te bieden;
-\* standaard keuzes bij een product te tonen.
-
-**Personalisatie**
-
-Een andere strategie is het personaliseren van de winkelervaring. Op basis van eerdere aankopen, zoekgedrag of klantvoorkeuren geef je jouw doelgroep op maat gemaakte aanbevelingen. Dit:
-\* vermindert het aantal opties;
-\* vereenvoudigt het keuzeproces;
-\* vergroot de kans op een aankoop.
-
-<!-- /BLOK:accordion -->
+:::nummers
+TITEL: Beperken van keuzes in de praktijk
+- LABEL: Productaanbod optimaliseren | TEKST: Optimaliseer het aantal aangeboden producten of opties. Kies bewust het aantal productvarianten of definieer producten in duidelijke categorieën.
+- LABEL: Keuzeprocessen vereenvoudigen | TEKST: Vereenvoudig het keuzeproces van je doelgroep. Dit kan door duidelijke en eenvoudige navigatie in webshops, effectieve filters of adviestools.
+- LABEL: Bijdragen aan besluitvorming | TEKST: Help je doelgroep om door de bomen het bos te zien, bijvoorbeeld door populaire of best geteste producten te tonen, je product in een pakket aan te bieden of standaard keuzes te tonen.
+- LABEL: Personalisatie | TEKST: Geef je doelgroep op maat gemaakte aanbevelingen op basis van eerdere aankopen, zoekgedrag of klantvoorkeuren. Dat vermindert het aantal opties, vereenvoudigt het keuzeproces en vergroot de kans op een aankoop.
+:::
 
 ## Meer weten?
 
@@ -125,9 +107,13 @@ Diversions helpt je graag met een mix van [onderzoek](/onderzoeksbureau/ "Onderz
 - Betere beslissingen - betere resultaten
 - Korte doorlooptijd - budgetvriendelijk
 
-**Neem contact op en ontdek de mogelijkheden: 055 20 32 193.**
-
-<!-- BLOK:accordion (inhoudslijst, geen Q&A) -->
+:::cta
+KOP: Benieuwd naar de mogelijkheden?
+TEKST: Diversions helpt je graag met een mix van onderzoek en marketingadvies.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::
 
 **Ontdek meer neuromarketing technieken**
 

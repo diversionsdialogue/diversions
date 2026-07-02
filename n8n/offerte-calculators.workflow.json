@@ -1,0 +1,276 @@
+{
+  "name": "Diversions — Offertes rekenmodules verwerken",
+  "meta": {
+    "description": "Ontvangt offerte-/adviesaanvragen vanuit stap 3 van de 4 rekenmodules op diversions.nl (Pretest, Customer Journey, Klanttevredenheid, Effectmeting) — statische Astro-site, client-side fetch POST naar één gedeelde webhook. Het 'calculator'-veld in de payload routeert de inhoud van de e-mails; er is bewust één workflow voor alle 4 rekenmodules i.p.v. 4 losse workflows. Honeypot-check tegen spam, daarna een bevestigingsmail naar de aanvrager (met samenvatting + richtprijs), een interne notificatie naar info@diversions.nl en een rij in Google Sheets als back-up/overzicht. Afzender = info@diversions.nl (zelfde conventie als het contactformulier). CORS beperkt tot https://diversions.nl.",
+    "templateCredsSetupCompleted": false
+  },
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "b3737101-9313-4c3d-a9fa-73cb22838364",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "https://diversions.nl"
+        }
+      },
+      "id": "node-webhook",
+      "name": "Webhook: offerte-calculators",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 300],
+      "webhookId": "b3737101-9313-4c3d-a9fa-73cb22838364"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "honeypot-leeg",
+              "leftValue": "={{ $json.body.company_website }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "node-honeypot",
+      "name": "Honeypot leeg? (anti-spam)",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "fromEmail": "info@diversions.nl",
+        "fromName": "Diversions",
+        "toEmail": "={{ $json.body.email }}",
+        "subject": "={{ $json.body.actie === 'advies' ? 'We hebben je adviesaanvraag ontvangen' : 'We hebben je offerteaanvraag ontvangen' }} — Diversions",
+        "text": "=Hoi {{ $json.body.naam }},\n\nBedankt voor je aanvraag via de {{ $json.body.calculator }}-rekenmodule op diversions.nl.\n\nJouw keuzes:\n- {{ $json.body.samenvatting.join('\\n- ') }}\n\nRichtprijs: {{ $json.body.richtprijsFormatted }} (excl. btw)\n\n{{ $json.body.actie === 'advies' ? 'Een van onze onderzoekers neemt binnen één werkdag contact met je op om je verder te adviseren.' : 'Een van onze onderzoekers neemt binnen één werkdag contact met je op om de offerte te bevestigen.' }}\n\nHeb je met spoed een vraag? Bel ons gerust op (055) 20 32 193.\n\nMet vriendelijke groet,\nTeam Diversions\ninfo@diversions.nl",
+        "additionalFields": {}
+      },
+      "id": "node-mail-confirm",
+      "name": "Mailjet: bevestiging naar aanvrager",
+      "type": "n8n-nodes-base.mailjet",
+      "typeVersion": 1,
+      "position": [520, 200],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "mailjetEmailApi": {
+          "id": "VERVANG_MAILJET_CRED_ID",
+          "name": "Mailjet — Diversions"
+        }
+      },
+      "notes": "Hergebruik dezelfde Mailjet-credential als het contactformulier. fromEmail moet een GEVERIFIEERDE sender/domein in Mailjet zijn."
+    },
+    {
+      "parameters": {
+        "fromEmail": "info@diversions.nl",
+        "fromName": "Diversions website",
+        "toEmail": "info@diversions.nl",
+        "subject": "=Nieuwe {{ $('Webhook: offerte-calculators').item.json.body.actie === 'advies' ? 'adviesaanvraag' : 'offerteaanvraag' }} — {{ $('Webhook: offerte-calculators').item.json.body.calculator }} ({{ $('Webhook: offerte-calculators').item.json.body.naam }})",
+        "text": "=Nieuwe {{ $('Webhook: offerte-calculators').item.json.body.actie === 'advies' ? 'adviesaanvraag' : 'offerteaanvraag' }} via de {{ $('Webhook: offerte-calculators').item.json.body.calculator }}-rekenmodule op diversions.nl.\n\nBedrijf: {{ $('Webhook: offerte-calculators').item.json.body.bedrijf }}\nNaam: {{ $('Webhook: offerte-calculators').item.json.body.naam }}\nE-mail: {{ $('Webhook: offerte-calculators').item.json.body.email }}\nTelefoon: {{ $('Webhook: offerte-calculators').item.json.body.telefoon || '—' }}\n\nKeuzes:\n- {{ $('Webhook: offerte-calculators').item.json.body.samenvatting.join('\\n- ') }}\n\nRichtprijs: {{ $('Webhook: offerte-calculators').item.json.body.richtprijsFormatted }} (excl. btw)\n\nToelichting van de aanvrager:\n{{ $('Webhook: offerte-calculators').item.json.body.bericht || '—' }}\n\n—\nAVG-consent gegeven: {{ $('Webhook: offerte-calculators').item.json.body.consent ? 'ja' : 'NEE — controleer!' }}\nVerzonden: {{ $now.toISO() }}",
+        "additionalFields": {
+          "replyTo": "={{ $('Webhook: offerte-calculators').item.json.body.email }}"
+        }
+      },
+      "id": "node-mail-notify",
+      "name": "Mailjet: interne notificatie",
+      "type": "n8n-nodes-base.mailjet",
+      "typeVersion": 1,
+      "position": [780, 200],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "mailjetEmailApi": {
+          "id": "VERVANG_MAILJET_CRED_ID",
+          "name": "Mailjet — Diversions"
+        }
+      },
+      "notes": "Reply-To = e-mail van de aanvrager, zodat 'Beantwoorden' direct naar de klant gaat. Verwijst naar de Webhook-node (niet $json) omdat de vorige Mailjet-node de payload al heeft vervangen door zijn eigen API-antwoord."
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "VERVANG_SPREADSHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Offertes",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Tijdstip": "={{ $now.toISO() }}",
+            "Calculator": "={{ $('Webhook: offerte-calculators').item.json.body.calculator }}",
+            "Actie": "={{ $('Webhook: offerte-calculators').item.json.body.actie }}",
+            "Bedrijf": "={{ $('Webhook: offerte-calculators').item.json.body.bedrijf }}",
+            "Naam": "={{ $('Webhook: offerte-calculators').item.json.body.naam }}",
+            "E-mail": "={{ $('Webhook: offerte-calculators').item.json.body.email }}",
+            "Telefoon": "={{ $('Webhook: offerte-calculators').item.json.body.telefoon }}",
+            "Tier": "={{ $('Webhook: offerte-calculators').item.json.body.tier || '' }}",
+            "Richtprijs": "={{ $('Webhook: offerte-calculators').item.json.body.richtprijsFormatted }}",
+            "Keuzes": "={{ JSON.stringify($('Webhook: offerte-calculators').item.json.body.keuzes) }}",
+            "Consent": "={{ $('Webhook: offerte-calculators').item.json.body.consent }}",
+            "Bron": "rekenmodule diversions.nl"
+          },
+          "matchingColumns": [],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "node-sheets",
+      "name": "Google Sheets: aanvraag opslaan",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [1040, 200],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "onError": "continueRegularOutput",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "VERVANG_GSHEETS_CRED_ID",
+          "name": "Google Sheets — Diversions"
+        }
+      },
+      "notes": "Secundair: als dit faalt, gaat de flow tóch door naar de 200-respons (de lead is al gemaild). Hergebruik hetzelfde Google Sheet-document als het contactformulier, met een NIEUW tabblad 'Offertes' en kopregel: Tijdstip | Calculator | Actie | Bedrijf | Naam | E-mail | Telefoon | Tier | Richtprijs | Keuzes | Consent | Bron. Selecteer na import het juiste spreadsheet + tabblad in de resource-pickers."
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { \"success\": true } }}",
+        "options": {}
+      },
+      "id": "node-respond-ok",
+      "name": "Respond 200 (OK)",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1300, 200]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { \"success\": true } }}",
+        "options": {}
+      },
+      "id": "node-respond-spam",
+      "name": "Respond 200 (spam, stil genegeerd)",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [520, 460],
+      "notes": "Honeypot ingevuld => vermoedelijk bot. We geven 200 terug (zodat de bot 'succes' ziet) maar versturen/loggen niets."
+    },
+    {
+      "parameters": {
+        "content": "### Inkomend + spamfilter\nWebhook ontvangt de JSON-POST vanuit stap 3 van elke rekenmodule (`$json.body.*`, incl. `calculator`, `actie`, `keuzes`, `richtprijsFormatted`, `samenvatting`). De honeypot-check laat alleen echte aanvragen door; bots (verborgen veld ingevuld) krijgen stil een 200.",
+        "height": 240,
+        "width": 460,
+        "color": 4
+      },
+      "id": "sticky-in",
+      "name": "Sticky: inkomend",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [-20, 100]
+    },
+    {
+      "parameters": {
+        "content": "### Verwerken (gedeeld voor alle 4 rekenmodules)\n1) Bevestigingsmail naar de aanvrager, met samenvatting + richtprijs, tekst wisselt op 'actie' (bestellen/advies).\n2) Interne notificatie naar info@diversions.nl (reply-to = aanvrager) zodat een onderzoeker kan opvolgen.\n3) Rij toevoegen in Google Sheets, tabblad 'Offertes' (secundair).\nDaarna 200 terug naar de browser.",
+        "height": 260,
+        "width": 1040,
+        "color": 5
+      },
+      "id": "sticky-process",
+      "name": "Sticky: verwerken",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [500, 40]
+    }
+  ],
+  "connections": {
+    "Webhook: offerte-calculators": {
+      "main": [
+        [
+          {
+            "node": "Honeypot leeg? (anti-spam)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Honeypot leeg? (anti-spam)": {
+      "main": [
+        [
+          {
+            "node": "Mailjet: bevestiging naar aanvrager",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond 200 (spam, stil genegeerd)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mailjet: bevestiging naar aanvrager": {
+      "main": [
+        [
+          {
+            "node": "Mailjet: interne notificatie",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mailjet: interne notificatie": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets: aanvraag opslaan",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets: aanvraag opslaan": {
+      "main": [
+        [
+          {
+            "node": "Respond 200 (OK)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

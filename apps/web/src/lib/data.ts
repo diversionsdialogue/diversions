@@ -20,6 +20,7 @@ import {
   getAllServicesQuery,
   getAllPostsQuery,
   getAllLegalPagesQuery,
+  getAllPagesQuery,
   getPostsByTagQuery,
   getAllTagsQuery,
   transformTeamMember,
@@ -27,11 +28,13 @@ import {
   transformService,
   transformPost,
   transformLegalPage,
+  transformPage,
   type SanityTeamMember,
   type SanityWorkItem,
   type SanityService,
   type SanityPost,
   type SanityLegalPage,
+  type SanityPage,
 } from "./sanity";
 
 /**
@@ -87,6 +90,19 @@ export async function getAllLegalPages() {
     return sanityData.map(transformLegalPage);
   }
   return await getCollection("legal");
+}
+
+/**
+ * Losse, beheerbare pagina's (type `page`). Sanity-only: er is geen
+ * content-collectie voor dit type (USE_SANITY staat op true). Bij content-
+ * collectie-modus valt dit terug op een lege lijst.
+ */
+export async function getAllPages() {
+  if (USE_SANITY) {
+    const sanityData = await fetchSanity<SanityPage[]>(getAllPagesQuery);
+    return sanityData.map(transformPage);
+  }
+  return [];
 }
 
 /**

@@ -66,6 +66,16 @@ De posttest laat je zien of de campagne bij je doelgroep tot een verandering in 
 
 ## Tot slot
 
-Bedenk: een pretest vraagt niet veel tijd en budget. Je kunt zelf de afweging maken: heb je 5% van je marketingbudget over voor onderzoek om de overige 95% effectief in te zetten.
+Bedenk: een pretest vraagt niet veel tijd en budget.
 
-**Wil je een pretest laten uitvoeren? Bel: 055 20 32 193.**
+:::quote
+QUOTE: Heb je 5% van je marketingbudget over voor onderzoek om de overige 95% effectief in te zetten?
+:::
+
+:::cta
+KOP: Wil je een pretest laten uitvoeren?
+TEKST: We helpen je graag de beste opzet en methode te kiezen.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::

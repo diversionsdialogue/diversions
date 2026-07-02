@@ -1,10 +1,11 @@
 import type { StructureBuilder } from "sanity/structure";
-import { 
-  UsersIcon, 
-  CaseIcon, 
-  RocketIcon, 
-  DocumentIcon, 
-  DocumentTextIcon 
+import {
+  UsersIcon,
+  CaseIcon,
+  RocketIcon,
+  DocumentIcon,
+  DocumentTextIcon,
+  DocumentsIcon
 } from "@sanity/icons";
 
 export const structure = (S: StructureBuilder) =>
@@ -40,4 +41,10 @@ export const structure = (S: StructureBuilder) =>
         .icon(DocumentTextIcon)
         .schemaType("legalPage")
         .child(S.documentTypeList("legalPage").title("Legal Pages")),
+
+      S.listItem()
+        .title("Pages")
+        .icon(DocumentsIcon)
+        .schemaType("page")
+        .child(S.documentTypeList("page").title("Pages")),
     ]);

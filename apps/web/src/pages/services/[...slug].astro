@@ -9,6 +9,7 @@ import KlanttevredenheidCalculator from "@/components/calculators/Klanttevredenh
 import ServicePitch from "@/components/calculators/ServicePitch.astro";
 import { getAllServices } from "@/lib/data";
 import { portableTextToPlainText } from "@/lib/sanity/portableText";
+import { slugify } from "@/lib/slugify";
 
 // Dienstpagina's met een richtprijs-calculator boven de hero. Slug → welke
 // calculator. Uitbreidbaar: voeg een slug + calculator toe. Promoveer dit later
@@ -32,7 +33,28 @@ export async function getStaticPaths() {
   }));
 }
 const { page } = Astro.props;
-const calculator = CALCULATORS[page.slug ?? page.id];
+const slug = page.slug ?? page.id;
+const calculator = CALCULATORS[slug];
+
+// Label voor de "lees alles over …"-anchorlink onder de inleiding (incl. lidwoord).
+const LEES: Record<string, string> = {
+  pretest: "de pretest",
+  "campagne-effectonderzoek": "het campagne-effectonderzoek",
+  "customer-journey": "het customer journey onderzoek",
+  klanttevredenheidsonderzoek: "het klanttevredenheidsonderzoek",
+  "kwantitatief-onderzoek": "het kwantitatief onderzoek",
+};
+const leesLabel = LEES[slug];
+
+// Anchor naar de "Wat is…"-kop in de body (val terug op de eerste kop).
+const textOf = (b: any) =>
+  (b?.children ?? []).map((c: any) => c?.text ?? "").join("").trim();
+const headingBlocks = (page.body ?? []).filter(
+  (b: any) => b?._type === "block" && (b.style === "h2" || b.style === "h3")
+);
+const watIs =
+  headingBlocks.find((h: any) => /^wat is/i.test(textOf(h))) ?? headingBlocks[0];
+const leesHref = watIs ? `#${slugify(textOf(watIs))}` : undefined;
 
 // Leestijd uit de platte tekst van de Portable-Text-body (reading-time, ~200 wpm).
 const plain = portableTextToPlainText(page.body);
@@ -52,7 +74,10 @@ const minutes = plain
         slot="above"
         title={page.data.service}
         lead={page.data.description}
+        leesHref={leesHref}
+        leesLabel={leesLabel}
       >
+        <div id="calculator" style="scroll-margin-top: 90px">
         {calculator === "pretest" && <PretestCalculator />}
         {calculator === "effectmeting" && <EffectmetingCalculator />}
         {calculator === "customer-journey" && <CustomerJourneyCalculator />}
@@ -76,6 +101,7 @@ const minutes = plain
             </div>
           )
         }
+        </div>
       </ServicePitch>
     )
   }

@@ -1,6 +1,8 @@
 ---
 service: "Onderzoeksbureau Reclame: pretesting & effectmeting"
 description: "optimalisatiekansen voor campagnes"
+categories:
+  - branches
 ---
 
 <!-- CONVERT-META

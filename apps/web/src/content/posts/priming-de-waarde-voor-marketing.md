@@ -49,7 +49,9 @@ Onze hersenen zijn een netwerk van verbindingen. Zintuiglijke prikkels activeren
 
 Wanneer je bijvoorbeeld een foto van een strand ziet, activeert dit delen van je brein die gaan over zee, zon en ontspanning. Als je kort daarna iets ziet dat te maken heeft met vakantie, dan reageert je brein sneller en sterker op deze informatie.
 
-> Een foto van een strand is niet slechts een plaatje, maar een portaal naar een wereld van herinneringen, verlangens en dromen.
+:::quote
+QUOTE: Een foto van een strand is niet slechts een plaatje, maar een portaal naar een wereld van herinneringen, verlangens en dromen.
+:::
 
 Dit is priming: het eerste beeld (de foto van het strand) bereidt het brein voor om sneller en sterker te reageren op gerelateerde informatie (zoals een vakantie commercial).
 
@@ -82,7 +84,13 @@ Diversions helpt je met een mix van onderzoek en marketingadvies. Voordelen voor
 - Betere beslissingen – betere resultaten
 - Korte doorlooptijd – budgetvriendelijk
 
-**Neem contact op en ontdek de mogelijkheden: 055 20 32 193.**
+:::cta
+KOP: Benieuwd wat priming voor jouw marketing kan betekenen?
+TEKST: Neem contact op en ontdek de mogelijkheden van een mix van onderzoek en marketingadvies.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::
 
 <!-- HANDMATIG: herbruikbaar WP-blok ref=71846 ontbreekt in export; live ophalen of opnieuw opbouwen -->
 > **[Inhoud handmatig aanvullen - herbruikbaar blok 71846]** De originele inhoud van dit blok zat niet in de WP-export.

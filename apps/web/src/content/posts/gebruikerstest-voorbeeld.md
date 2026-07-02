@@ -31,9 +31,11 @@ Het testen doe je vanzelfsprekend met een doel. Je wilt bijvoorbeeld de bruikbaa
 
 **Wat je doel ook is**: je kunt een [gebruikerstest](/gebruikerstesten/) om verschillende manieren vormgeven. We laten het graag zien aan de hand van drie voorbeelden:
 
-- [Gebruikerstest kwantitatief: website goed doel](#goeddoel)
-- [Gebruikerstest: prototype hypotheken website](#hypotheken)
-- [Gebruikerstest diary: study app voor docenten](#app)
+:::bullets
+- Gebruikerstest kwantitatief: website goed doel
+- Gebruikerstest: prototype hypotheken website
+- Gebruikerstest diary: study app voor docenten
+:::
 
 ### Voorbeeld 1: kwantitatieve gebruikerstest van een website van een goed doel
 
@@ -107,12 +109,22 @@ Toen de docenten meer vertrouwd raakten met de mogelijkheden, groeide ook het en
 
 Resultaat van de test: een grote verzameling verbeterideeën. Deze zijn ingedeeld in drie categorieën:
 
-1. concept: hoe maken we duidelijk wat de app doet?
-2. ontwerp: hoe maken we de app gebruiksvriendelijk?
-3. techniek: hoe verhelpen we technische fouten?
+:::nummers
+- LABEL: Concept | TEKST: hoe maken we duidelijk wat de app doet?
+- LABEL: Ontwerp | TEKST: hoe maken we de app gebruiksvriendelijk?
+- LABEL: Techniek | TEKST: hoe verhelpen we technische fouten?
+:::
 
 Naast de **optimalisaties** kwamen er verschillende goede ideeën voor de uitbreiding van de app. De diary study maakte het allemaal inzichtelijk.
 
 Wil je na het lezen van de voorbeelden zelf aan de slag? Lees dan ons artikel hoe je in vier stappen een [gebruikerstest kunt uitvoeren](/gebruikerstest-vier-stappen/).
 
-Bedenk bij het lezen dat we slechts twee voorbeelden hebben laten zien. Met een gebruikerstest kan veel meer. Wil je daar meer over weten**? Lees alles dan alles over [gebruikerstesten](/gebruikerstesten/) of bel voor meer informatie: 055 20 32 193.**
+Bedenk bij het lezen dat we slechts twee voorbeelden hebben laten zien. Met een gebruikerstest kan veel meer.
+
+:::cta
+KOP: Zelf aan de slag met een gebruikerstest?
+TEKST: Lees alles over gebruikerstesten of plan een vrijblijvende kennismaking.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::

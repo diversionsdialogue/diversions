@@ -35,6 +35,10 @@ Gevolg: mensen doorzien de trucs of raken erdoor geïrriteerd. En daarmee neemt 
 
 Daarom vonden we het tijd de 37+1 breingeheimen áchter de principes van Cialdini te beschrijven. Niet om te beïnvloeden of manipuleren. Maar juist om je publiek te helpen keuzes te maken die echt bij ze passen.
 
+:::quote
+QUOTE: Niet om te beïnvloeden of manipuleren, maar juist om je publiek te helpen keuzes te maken die echt bij ze passen.
+:::
+
 Wil je daar meer over weten? Vraag dan het [gratis inkijkexemplaar](https://www.generationjourney.nl/breingeheimen/) van ons boek aan. Van harte aanbevolen!
 
 <!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2024/03/breingeheimen-overtuiging.png -- quality-fase: downloaden+optimaliseren -->
@@ -65,7 +69,7 @@ Een voorbeeld? Klantenreviews. Deze krijgen online nog steeds heel veel waarde. 
 
 ### 4. Sympathie
 
-Het principe van sympathie is gebaseerd op het aardig gevonden worden door je doelgroep.  Mensen die we als aardig beschouwen krijgen sneller zaken voor elkaar. Je website moet ook sympathie uitstralen. Spreek dezelfde taal als je bezoeker en houdt de website persoonlijk.
+Het principe van sympathie is gebaseerd op het aardig gevonden worden door je doelgroep.  Mensen die we als aardig beschouwen krijgen sneller zaken voor elkaar. Je website moet ook sympathie uitstralen. Spreek dezelfde taal als je bezoeker en houdt de website persoonlijk.
 
 ### 5. Autoriteit
 
@@ -89,26 +93,32 @@ Het is bovendien een eenvoudige techniek om te testen. Doe het eens en merk hoe 
 
 Dit zijn de overtuigingsprincipes van Cialdini. Goed om te weten: de onderzoeken waar Cialdini zich op baseert staan niet op zich. In de afgelopen jaren verzamelden we 37 +1 [onderliggende breingeheimen](https://www.generationjourney.nl/breingeheimen/) die je helpen effectief te communiceren.
 
-Wil je weten wat de geheimen zijn en hoe je ze kunt inzetten? Wij helpen je graag je publiek te verleiden en overtuigen. We verdiepen ons in de factoren die van belang zijn voor je communicatie en verbeteren hiermee je effectiviteit. Weten wat mogelijk is? Neem contact op voor een vrijblijvende kennismaking: [**055 20 32 193**](tel:0552032193).
+Wil je weten wat de geheimen zijn en hoe je ze kunt inzetten? Wij helpen je graag je publiek te verleiden en overtuigen. We verdiepen ons in de factoren die van belang zijn voor je communicatie en verbeteren hiermee je effectiviteit.
+
+:::cta
+KOP: Weten wat mogelijk is?
+TEKST: Neem contact op voor een vrijblijvende kennismaking. We verdiepen ons in de factoren die je communicatie effectiever maken.
+KNOP: Plan een kennismaking
+URL: /contact
+VARIANT: sage
+:::
 
 ## Meest gestelde vragen
 
-<!-- BLOK:faqBlock open=0 -->
-
 ## Veelgestelde vragen
 
-### Welke voordelen biedt het toepassen van Cialdini's overtuigingsprincipes in marketing?
+:::faq
+VRAAG: Welke voordelen biedt het toepassen van Cialdini's overtuigingsprincipes in marketing?
+ANTWOORD: Zet je de overtuigingsprincipes correct in? Dan leidt dit tot een verhoogde effectiviteit in campagnes en hogere klanttevredenheid.
+:::
+:::faq
+VRAAG: Wat is de meerwaarde van kennis over de overtuigingsprincipes?
+ANTWOORD: Menselijk gedrag is soms lastig te doorgronden. Door te begrijpen hoe beslissingen tot stand komen (en welke kansen er zijn om mensen meer te motiveren) werk je aan wederzijds begrip én effectieve communicatie.
+:::
+:::faq
+VRAAG: Is er een risico dat de overtuigingsprincipes minder effectief worden?
+ANTWOORD: Zeker, mensen worden zich meer-en-meer bewust van de (vaak fantasieloze) toepassing van de principes. Dit leidt tot het negeren van boodschappen.
+:::
 
-Zet je de overtuigingsprincipes correct in? Dan leidt dit tot een verhoogde effectiviteit in campagnes en hogere klanttevredenheid.
-
-### Wat is de meerwaarde van kennis over de overtuigingsprincipes?
-
-Menselijk gedrag is soms lastig te doorgronden. Door te begrijpen hoe beslissingen tot stand komen (en welke kansen er zijn om mensen meer te motiveren) werk je aan wederzijds begrip én effectieve communicatie.
-
-### Is er een risico dat de overtuigingsprincipes minder effectief worden?
-
-Zeker, mensen worden zich meer-en-meer bewust van de (vaak fantasieloze) toepassing van de principes. Dit leidt tot het negeren van boodschappen.
-
-<!-- /BLOK:faqBlock -->
 <!-- HANDMATIG: herbruikbaar WP-blok ref=71846 ontbreekt in export; live ophalen of opnieuw opbouwen -->
 > **[Inhoud handmatig aanvullen - herbruikbaar blok 71846]** De originele inhoud van dit blok zat niet in de WP-export.

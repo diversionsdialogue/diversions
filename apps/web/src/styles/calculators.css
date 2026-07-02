@@ -156,6 +156,22 @@ button.qc-pill { cursor: pointer; }
 .qc-expertname span { color: var(--ink-mute); font-weight: 500; }
 .qc-experttext { font-family: var(--font-sans); font-size: 14px; line-height: 1.5; color: var(--ink-soft); margin: 6px 0 0; }
 
+/* Expertkaart met echte profielfoto links + onderschrift (i.p.v. initialen-avatar). */
+.qc-expert--photo { align-items: center; }
+.qc-expert--photo .qc-experttext { margin: 0; }
+.qc-expert-fig {
+  flex: none; width: 128px; margin: 0; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.qc-expert-fig picture, .qc-expert-fig img {
+  width: 64px; height: 64px; border-radius: 50%; object-fit: cover; display: block;
+}
+.qc-expert-cap { font-family: var(--font-subtitle); font-size: 12px; line-height: 1.3; }
+.qc-expert-cap b { display: block; font-weight: 700; color: var(--ink); white-space: nowrap; }
+.qc-expert-cap span { color: var(--ink-mute); }
+/* Telefoonnummer: altijd vet en op één regel. */
+.qc-phone { white-space: nowrap; font-weight: 700; }
+
 .qc-fieldlabel { font-family: var(--font-subtitle); font-weight: 600; font-size: 16px; color: var(--ink); margin: 0 0 12px; }
 .qc-choices--2 { gap: 16px; }
 @media (min-width: 560px) { .qc-choices--2 { grid-template-columns: 1fr 1fr; } }
@@ -195,6 +211,35 @@ button.qc-pill { cursor: pointer; }
 .qc-sumdivider { height: 1px; background: var(--border); }
 .qc-sumactions { display: flex; flex-direction: column; gap: 10px; }
 .qc-sumfine { font-family: var(--font-sans); font-size: 12px; color: var(--ink-mute); line-height: 1.45; text-align: center; margin: 0; }
+
+/* Stap 3 — offerte-aanvraag (contactformulier + samenvatting) */
+.qc-recap {
+  background: var(--color-accent-50); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 18px 20px; margin-bottom: 24px;
+}
+.qc-recap-title { font-family: var(--font-subtitle); font-weight: 600; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute); margin: 0 0 10px; }
+.qc-recap-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+.qc-recap-list li { font-family: var(--font-sans); font-size: 14px; line-height: 1.4; color: var(--ink); }
+.qc-recap-price { font-family: var(--font-display); font-size: 24px; color: var(--ink); margin: 12px 0 0; }
+
+.qc-form { display: flex; flex-direction: column; gap: 18px; margin-bottom: 20px; }
+.qc-fieldrow { display: grid; grid-template-columns: 1fr; gap: 18px; }
+@media (min-width: 560px) { .qc-fieldrow { grid-template-columns: 1fr 1fr; } }
+.qc-field { display: flex; flex-direction: column; gap: 6px; }
+.qc-label { font-family: var(--font-subtitle); font-weight: 600; font-size: 14px; color: var(--ink); }
+.qc-label-opt { font-weight: 500; color: var(--ink-mute); }
+.qc-input, .qc-textarea {
+  width: 100%; padding: 12px 14px; border: 1px solid var(--border-strong); border-radius: var(--radius-md);
+  background: #fff; font-family: var(--font-sans); font-size: 15px; color: var(--ink);
+}
+.qc-input:focus-visible, .qc-textarea:focus-visible { outline: 2px solid var(--ring); outline-offset: 1px; }
+.qc-textarea { resize: vertical; min-height: 88px; }
+.qc-consent { display: flex; align-items: flex-start; gap: 10px; font-family: var(--font-sans); font-size: 13px; line-height: 1.45; color: var(--ink-soft); }
+.qc-consent input { margin-top: 3px; }
+.qc-hp { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.qc-status { font-family: var(--font-sans); font-size: 14px; font-weight: 600; margin: 0 0 14px; }
+.qc-status[data-tone="ok"] { color: #15803d; }
+.qc-status[data-tone="error"] { color: #dc2626; }
 
 /* Mobiele sticky prijsbalk */
 .qc-stickybar { display: none; }

@@ -54,35 +54,33 @@ Voor marketeers biedt het veel voordelen om deze kennis te gebruiken. Het is daa
 
 Hoe kunnen we het principe van sociaal bewijs nu verklaren vanuit neurowetenschappelijk onderzoek? Het is tijd te kijken naar hoe onze hersenen reageren op sociale informatie en hoe dit invloed heeft op gedrag.
 
-> Van veel processen in ons brein zijn we ons nauwelijks bewust.
+:::quote
+QUOTE: Van veel processen in ons brein zijn we ons nauwelijks bewust.
+:::
 
 De volgende factoren spelen een rol:
 
-<!-- BLOK:accordion (inhoudslijst, geen Q&A) -->
-
-**Spiegelneuronen**
+### Spiegelneuronen
 
 Spiegelneuronen in ons brein zorgen ervoor dat we van gedrag van anderen kunnen leren en het na gaan doen. De neuronen geven ons het gevoel het gedrag van anderen aan te vullen. Zien we anderen een product gebruiken of ervan genieten? Dan kunnen spiegelneuronen in onze hersenen ons de wens geven om hetzelfde te doen.
 We schreven het eerder: dit proces verloopt meestal onbewust.
 
-**Belongingssysteem**
+### Belongingssysteem
 
 Sociale goedkeuring: daar worden we blij van. Het activeert het beloningssysteem in het brein en hierdoor komen neurotransmitters vrij; geluksstofjes zoals dopamine bijvoorbeeld. Dat werkt natuurlijk ná een aankoop, maar het kan ook een positief voor aankoop opleveren. Vergelijkbaar met het ontvangen van sociale goedkeuring.
 
-**Sociale norm**
+### Sociale norm
 
 Onze hersenen zijn geprogrammeerd om zich aan te passen aan sociale normen. Gebieden in de hersenen zoals de [prefrontale cortex](https://herseninstituut.nl/over-het-brein/prefrontale-cortex-pfc/) zijn betrokken bij het verwerken van de overeenstemming \*met\* of \*afwijking van\* sociale normen. Wanneer we merken dat iets populair is of dat velen iets doen of gebruiken, dan spoort ons brein ons aan om ook conform deze norm te handelen.
 
-**Beslissingsvermoeidheid**
+### Beslissingsvermoeidheid
 
 Elke dag worden we geconfronteerd met heel veel keuzes. Daarom maken we veel beslissingen onbewust. Dan is sociaal bewijs een ideale shortcut om besluitvorming eenvoudig te houden.
 Hebben anderen een product al gekozen of er hun goedkeuring over uitgesproken? Dat vermindert de cognitieve belasting voor de hersenen en maakt het kiezen makkelijker voor ons.
 
-**Angst voor uitsluiting**
+### Angst voor uitsluiting
 
 Uitsluiting of het gevoel afgewezen te zijn door een sociale groep kan in onze hersenen dezelfde [gebieden activeren](https://www.discovermagazine.com/mind/how-your-brain-processes-rejection) die betrokken zijn bij fysieke pijn. Mensen zijn vaak geneigd om zich aan te sluiten bij de meerderheid, om afwijzing te voorkomen.
-
-<!-- /BLOK:accordion -->
 
 ## Stappenplan: wat kun je ermee?
 
@@ -101,21 +99,12 @@ Hoe kun je nu inspelen op de onbewuste keuzes die je doelgroepen maken? Naast so
 
 Bij neuromarketing geldt sociaal bewijs als een krachtige tool. Wil je er zelf mee aan de slag gaan? Wij delen hier een aantal veelgebruikte voorbeelden.
 
-<!-- BLOK:accordion (inhoudslijst, geen Q&A) -->
-
-**Klantbeoordelingen**
-
-Creëer een sectie op je website of productpagina's waar klanten hun ervaringen kunnen delen. Moedig klanten ook actief aan om recensies te schrijven na een aankoop.
-
-**Teller**
-
-Je kunt op je site of in advertenties laten zien hoeveel mensen een product of dienst al hebben gekocht of gebruikt.
-
-**Beststeller**
-
-Markeer populaire producten op je website met het label 'bestsellers'. Zo laat je bezoekers zien dat dit de favoriete keuzes zijn.
-
-<!-- /BLOK:accordion -->
+:::nummers
+TITEL: Drie veelgebruikte vormen
+- LABEL: Klantbeoordelingen | TEKST: Creëer een sectie op je website of productpagina's waar klanten hun ervaringen kunnen delen. Moedig klanten ook actief aan om recensies te schrijven na een aankoop.
+- LABEL: Teller | TEKST: Je kunt op je site of in advertenties laten zien hoeveel mensen een product of dienst al hebben gekocht of gebruikt.
+- LABEL: Beststeller | TEKST: Markeer populaire producten op je website met het label 'bestsellers'. Zo laat je bezoekers zien dat dit de favoriete keuzes zijn.
+:::
 
 ## Meer weten?
 
@@ -127,7 +116,13 @@ Diversions helpt je met een mix van [onderzoek](/onderzoeksbureau/ "Onderzoeksbu
 - Betere beslissingen - betere resultaten
 - Korte doorlooptijd - budgetvriendelijk
 
-**Neem contact op en ontdek de mogelijkheden: 055 20 32 193.**
+:::cta
+KOP: Sociaal bewijs slim inzetten?
+TEKST: Neem contact op en ontdek de mogelijkheden van een mix van onderzoek en marketingadvies.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::
 
 <!-- BLOK:accordion (inhoudslijst, geen Q&A) -->
 

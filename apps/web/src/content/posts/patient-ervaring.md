@@ -33,23 +33,20 @@ Bij [onderzoeksbureau voor de zorg](/onderzoeksbureau-zorg/) Diversions vinden w
 
 We geloven dan ook niet in zogenaamde patient journey apps die jou een kant-een-klare oplossing bieden om je dienstverlening klantvriendelijker te maken. Voor niet elke doelgroep is bijvoorbeeld het versturen van medische informatie via de mail een verbetering. Wij geloven in oprechte interesse in patienten en de wijze waarop ze [omgaan met een ziekte](/coping-stijlen-hoe-mensen-omgaan-met-een-ziekte/).  Dat betekent dat we staan voor maatwerkoplossingen die passen bij uw patiënten en dienstverlening.
 
-> Bij Diversions zijn we van mening dat patient journey mapping ook tot interessante inzichten buiten het digitale veld kan leiden.
+:::quote
+QUOTE: Bij Diversions zijn we van mening dat patient journey mapping ook tot interessante inzichten buiten het digitale veld kan leiden.
+:::
 
 ## Patiënt journey: inzicht en vertaling
 
 Dergelijke resultaten krijg je uiteraard niet met een gestandaardiseerde vorm van patient journey mapping. Ons proces bestaat dus grofweg uit drie stappen, maar wordt aangepast aan de hand van wat past bij uw organisatie:
 
-**Verkrijgen van inzichten**
-
-We verkrijgen inzichten door middel van individuele interviews met patiënten, panelgesprekken of undercover patiënten.
-
-**Patiëntreis**
-
-In de patiëntreis markeren wij contact momenten; momenten die voor de klant belangrijk zijn.
-
-**Workshop**
-
-Verhalen van de patiënten worden verteld en medewerkers worden gevraagd de emoties van de patiënt te benoemen op bepaalde momenten in het proces.
+:::nummers
+TITEL: Ons proces in drie stappen
+- LABEL: Verkrijgen van inzichten | TEKST: We verkrijgen inzichten door middel van individuele interviews met patiënten, panelgesprekken of undercover patiënten.
+- LABEL: Patiëntreis | TEKST: In de patiëntreis markeren wij contact momenten; momenten die voor de klant belangrijk zijn.
+- LABEL: Workshop | TEKST: Verhalen van de patiënten worden verteld en medewerkers worden gevraagd de emoties van de patiënt te benoemen op bepaalde momenten in het proces.
+:::
 
 #### Verkrijgen van inzichten
 

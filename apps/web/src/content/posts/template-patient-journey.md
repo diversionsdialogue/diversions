@@ -44,4 +44,10 @@ De journey helpt om verbeterpunten in services te ontdekken. Op welke momenten i
 
 De template is een goed hulpmiddel om de eerste versie van een patient journey uit te werken. Bedenk dat verdieping van de journey (bijvoorbeeld met kwalitatief onderzoek) leidt tot betere insights.
 
-[Onderzoeksbureau voor de zorg](/onderzoeksbureau-zorg/) Diversions helpt je hier graag bij.
+:::cta
+KOP: Hulp bij je patient journey?
+TEKST: Als onderzoeksbureau voor de zorg helpt Diversions je graag verder.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::
