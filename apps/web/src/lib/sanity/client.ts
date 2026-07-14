@@ -9,7 +9,10 @@ export const client = createClient({
   projectId: import.meta.env.SANITY_PROJECT_ID || "placeholder",
   dataset: import.meta.env.SANITY_DATASET || "production",
   apiVersion: import.meta.env.SANITY_API_VERSION || "2024-01-01",
-  useCdn: true, // Use CDN for faster response times
+  // Geen CDN: de site is statisch, alle fetches gebeuren tijdens de build.
+  // De API-CDN cachet queryresultaten waardoor een build vlak na een
+  // contentwijziging deels verouderde data kan krijgen (inconsistente pagina's).
+  useCdn: false,
   perspective: "published", // Only fetch published documents
 });
 

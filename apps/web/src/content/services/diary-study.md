@@ -1,230 +1,122 @@
 ---
-service: "Diary study: de kracht van een doorlopende gebruikerstest"
-description: "herken gebruik, gedrag en gewoontes"
+service: "Diary study: inzicht in gedrag over langere tijd"
+description: "Een diary study volgt je doelgroep over een specifieke periode in hun dagelijks leven, zodat je gedrag en gewoontes leert kennen. Diversions stopt niet bij de observatie, maar zorgt voor een vertaling naar concrete verbeterkansen."
+categories:
+  - methodes
 ---
 
-<!-- CONVERT-META
-  oude_url: /diary-study
-  nieuwe_url: /services/diary-study
-  sanity_type: service
-  placeholder-afbeelding gebruikt (quality-fase: echte WP-afbeelding plaatsen)
-  - description automatisch afgeleid (geen excerpt)
--->
+## Wat is een diary study?
 
-# Diary Study krijg inzicht in journeys met een doorlopende gebruikerstest
+Wat gebeurt er als je product of dienst niet één keer, maar dag na dag wordt gebruikt? Een diary study (dagboekstudie) is een doorlopende gebruikerstest: respondenten leggen over een vooraf bepaalde periode hun ervaringen vast. Dat kan zijn met tekst, beeld, audio of video. Zo biedt het onderzoek geen momentopname of terugblik, maar een doorlopend live-verslag met relevante inzichten.
 
-### Waardevolle inzichten:
+## Hoe lang duurt het onderzoek?
 
- herken gebruik, gedrag en gewoontes  
- in het dagelijks leven  
- tijdens een zelf gekozen periode
-[Hoe het werkt](#werkt)
+De rapportageperiode stem je af op je vraag: van enkele dagen tot een maand. Zo lang als nodig om herhaalgebruik en gewoontes zichtbaar te maken. Reken daarnaast op tijd voor de voorbereiding (werving, instructie en een korte proefronde) en de analyse.
 
-## De kenmerken van een diary study
+Hoe vaak deelnemers rapporteren, bepalen we samen: bij elke relevante gebeurtenis, op vaste momenten, of na een seintje van ons. Dat hangt af van hoe vaak het gedrag voorkomt dat je wilt zien.
 
-Soms wil je dat een gebruikerstest meer is dan een momentopname. Omdat sommige processen tijd vragen. Of er sprake is van herhaalgebruik. Of op plekken plaatsvinden die je niet in een testomgeving kunt nabootsen.
+## Wanneer zet je een diary study in?
 
-In deze gevallen biedt een diary study (dagboekstudie) een uitstekende oplossing.
+Als een momentopname niet genoeg is:
 
-**Wat een diary study biedt:**
+:::bullets
+- processen die tijd vragen, of waar herhaalgebruik telt;
+- gebruik dat plaatsvindt op plekken die je niet in een testomgeving nabootst;
+- de hele journey volgen: van introductie en installatie tot onboarding en doorlopend gebruik;
+- de triggers en momenten van gebruik in het dagelijks leven herkennen;
+- veranderingen in gedrag en waardering volgen: wat is de learningcurve van je product, hoe loyaal blijven gebruikers;
+- gevoelige onderwerpen, waar een meekijkende onderzoeker het gedrag zou beïnvloeden.
+:::
 
-inzicht in journeys
+## Wanneer is een diary study minder geschikt?
 
-Een diary study geeft een duidelijk beeld van de journey van de gebruiker. Denk aan inzicht in vragen als:
+Heb je snel een antwoord nodig, of gaat het om één moment of één scherm? Dan past een gebruikerstest of pretest beter. Een diary study vraagt tijd en betrokkenheid van deelnemers, en dat moet je vraag rechtvaardigen.
 
-- Wat is de aanleiding om het product of service te gebruiken gedurende een dag, week etc.?
-- Zijn er specifieke momenten op de dag om de service of dienst te gebruiken?
-- Wat doet herhaalgebruik van de service of dienst met emotie en/of gedrag van de gebruiker?
-- Zijn er specifieke momenten dat de gebruiker afhaakt? En zijn deze context gebonden of door een technische of UX component van je product of dienst?
+## Wat levert het op?
 
-in het dagelijks leven
+Inzicht in drie stappen: Inzicht, Vertaling en Toepassing.
 
-Tijdens een gebruikerstest is de respondent puur bezig met het testen van jouw product of dienst.
+:::nummers
+- LABEL: Inzicht | TEKST: Gebruik, gedrag en gewoontes over de tijd. Een analyse van gedrag aan de afwegingen die daarbij horen.
+- LABEL: Vertaling | TEKST: Waaróm zijn mensen tevreden of juist niet? Wat leidt tot afhaken in een journey? Wat versterkt gewenst gedrag of wat zorgt voor afleiding ervan?
+- LABEL: Toepassing | TEKST: Directe aanbevelingen om de stap van onderzoek naar actie te zetten. Met concrete, geprioriteerde acties.
+:::
 
-In het 'echte leven' is deze focus er niet. Je wordt regelmatig afgeleid door kinderen, tijdsdruk of andere bezigheden om je heen.
+## Wat kost een diary study?
 
-Een diary study geeft een reële weergave van het gebruik van je product of service in het 'echte leven'.
+Bij de meeste onderzoeken bieden we je direct op de site een prijsindicatie. bij een diary study kan dat helaas niet. De variaties in onderzoek zijn te groot om een directe prijs af te geven. Weet dat de prijs afhangt van:
 
-tijdens een afgebakende periode
+:::bullets
+- de onderzoeksmethode (survey, rijke survey met AI-doorvragen of diepte-interviews);
+- het aantal fasen en touchpoints;
+- de doelgroep (je eigen klantbestand of een panel);
+- de gewenste steekproef;
+- de duur van de study.
+:::
 
-Een diary study vindt plaats over een afgebakende periode. Respondenten weten dat ze die periode meedoen aan het onderzoek.
+## Open of gestructureerd?
 
-Afhankelijk van je vraagstuk kan die periode enkele dagen, een week of enkele weken zijn.
+Bij een diary study zijn er verschillende mogelijkheden. De eeste keuze daarbij is om te werken met een open of gestructureerde study:
 
-Tijdens deze periode houden de respondenten een 'dagboek' bij over het gebruik van je product of service.
+:::bullets
+- Open diary study: we laten de gebruiker vrij. Past bij verkennend onderzoek, bijvoorbeeld in de beginfase van een product, om ideeën te genereren.
+- Gestructureerde diary study: we leiden de gebruiker met een script of vaste vragen. Past bij toetsend onderzoek, en geeft dan vaak de meest bruikbare inzichten.
+:::
 
-Ze schrijven bij elk gebruik op wanneer ze dit doen, wat ze ervaren, wat ze verwachten,  waar ze vastlopen, wat hun bedenkingen zijn of wat er beter kan.
+Hierbij zijn ook mengvormen mogelijk. Stel dat een respondent een gewenste handeling niet uitvoert tijdens een open study, dan is het mogelijk met gerichte instructies te vragen dit alsnog te doen.
 
-herkennen van gebruik, gedrag en gewoontes
+## Hoe pakt Diversions het aan?
 
-De kracht van een diary study is dat je gedrag en gebruik van de respondenten gaat herkennen.
+We doorlopen vier stappen: intake, focus, uitvoering en rapportage. We werven gericht, en bewust met marge: bij een studie van weken valt er altijd iemand uit. Daar zijn we op voorbereid.
 
-Zoals bepalende gebruiksmomenten van je product of dienst.
+De respondenten krijgen over de looptijd opdrachten, en leggen elke taak vast in een onderzoeksapp. Zo verzamelen we een verslag per respondent op het moment dan gebruik en in de juiste context. We monitoren tussentijds en vragen door terwijl de ervaring nog vers is, zodat we inzichten kunnen verdiepen. Na afloop van het totale proces sluiten we af met een kort interview per respondent, om de totaalervaring scherp te krijgen.
 
-Ook komen bevindingen aan het licht waar je product of dienst verbetering wenst. Zowel op technisch-, UX-, als conceptniveau.
+Vaak onderschat is de begeleiding van respondenten. Dat gaat in de eerste plaats om de instructie: wat verwachten we van respondenten? Daarna zorgen we voor directe hulp en reminders als het nodig is. Hiervoor is een met een vaste contactpersoon tijdens het volledige proces beschikbaar. Zo houden we respondenten scherp en zorgen we voor optimale inzichten uit het traject.
 
-Wil je weten of een diary study past bij jouw onderzoeksvraag? Tijdens een verkennende online afspraak laten we je graag zien wat mogelijk is.
+AI is de versneller bij het coderen en het herkennen van patronen in een grote stroom aantekeningen. De duiding blijft mensenwerk. Onze ervaren onderzoekers zorgen voor de vertaling naar conclusies een aanbevelingen.
 
-Bel: **055 20 32 193** of plan een online afspraak.
+Bij een diary study is borging van de privacy van cruciaal belang. Daar zorgen we voor, oa door data uitsluitend in de EU op te slaan en Big Tech te mijden.
 
-[Afspraak plannen](/contact-2/)
+## Een voorbeeld uit de praktijk
 
-#### Snel naar
+De makers van een gezondheidsapp liepen tegen een probleem aan: veel gebruikers haakten al na één of twee bezoeken af. Een survey gaf te weinig handvatten. We zetten een diary study op over drie weken, met opdrachten die we deelden in een onderzoeksapp.
 
-## Zo werkt het
+:::nummers
+- LABEL: Inzicht | TEKST: Gebruikers haakten af doordat in de introductie verkeerde verwachtingen werden gewekt, en er twijfel was over de betrouwbaarheid van de getoonde data.
+- LABEL: Vertaling | TEKST: De bouwer zocht de oplossing in UX en pushberichten, maar de sleutel lag in de onboarding en communicatie binnen de app.
+- LABEL: Toepassing | TEKST: We maakten een conceptontwerp voor de onboarding waarbij zowel praktische vragen als onderliggende onzekerheden bij de doelgroep direct werden weggenomen.
+:::
 
-Bij het opzetten van een diary study doorlopen we als [onderzoeksbureau](/onderzoeksbureau/) vier eenvoudige stappen.
+## Wat is je volgende stap?
 
-- ### 1. Intake
+Elk onderzoek eindigt met Toepassing: directe aanbevelingen om van onderzoek naar actie te gaan. Met concrete, geprioriteerde acties.
 
-  We leggen de kaders van je onderzoeksvraag vast.
-- ### 2. Focus
+:::bullets
+- Morgen: de quick-wins uit de eerste dagen.
+- Volgende maand: het afhaakmoment in de journey aanpakken.
+- Verdieping: een vervolgtraject op de hele journey.
+:::
 
-  We bepalen de doelstellingen van de diary study.
-- ### 3. Testen
+Zo biedt de diary study je een routekaart voor optimalisaties.
 
-  We voeren de diary study uit.
-- ### 4. Rapportage
+## Veelgestelde vragen
 
-   Je ontvangt opnames, rapportages en aanbevelingen.
-
-Gebruikerstesten kunnen we op verschillende manieren vormgeven. Iedere optie heeft eigen voor- en nadelen. Wij zetten ze voor je op een rij.
-
-## Soorten diary studies
-
-De diary study kent verschillende vormen. Zo kun je kiezen voor een **open** diary study, waarbij we de gebruiker geheel vrij laten tijdens het onderzoek. Of een meer **gestructureerde/gesloten** vorm, waarbij we de gebruiker volgens een script of vooraf bepaalde vragen door het product of dienst leiden.
-
-Bij een **verkennend onderzoek**, zoals in de beginfase van een product of dienst om ideeën te genereren, sluit een open diary study vaak beter aan.
-
-Is het doel van het onderzoek vooral **toetsend**? Dan zien we dat een gesloten diary study vaak de meest nuttige inzichten geeft. Samen bepalen we wat de beste opzet is voor je onderzoeksvraag.
-
-Een diary study kan **offline of online** gedaan worden. Ook dit hangt weer samen met de wensen rondom de doelen, opzet en het te testen product of dienst. Beide geven zeer waardevolle inzichten.
-
-Bij online studies maken we gebruik van een onderzoekstool met gezichts-expressie. Je kunt de voortgang daarbij goed volgen.
-
-Bij offline onderzoek moet je denken aan het bijhouden van een dagboek. De resultaten zijn zeer objectief, maar er is minder zicht op vooruitgang en begrip van het onderzoek.
-
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2023/05/diary-study.png (title: diary study) -- quality-fase: downloaden+optimaliseren -->
-![diary study](/src/images/assets/blog.jpeg)
-
-## Voorbeeld uit de praktijk
-
-De makers van een gezondheidsapp liepen tegen een probleem aan. Veel gebruikers die de app installeerden haakten al na één of twee bezoeken af. Een traditionele survey gaf te weinig handvatten om het probleem op te lossen. Reden genoeg om een diary study op te zetten.
-
-Gewenste inzichten:
-
-- primair: inzicht krijgen in de reden waarom gebruikers afhaken na de onboarding
-- secundair: ontdek verbeterkansen in de volledige journey:  
-  introductie > installatie > onboarding > doorlopend gebruik
-- inzicht krijgen in gedrag van gebruikers (triggers en tijdstippen van gebruik)
-
-**Opzet**:
-
-De study is opgezet aan de hand van een scenario voor 3 weken. De zorgvuldig geselecteerde respondenten ontvangen tijdens deze drie weken verschillende opdrachten. Met behulp van een onderzoeksapp wordt iedere uitgevoerde taak in beeld gebracht. Zo krijgen we inzicht in navigatiegedrag + gesproken feedback + gebruikersemotie.
-
-**Uitkomst:**
-
-De onderzoeksresultaten zijn op basis van het [Fogg](https://www.bjfogg.com/) behavior model in beeld gebracht, verdeeld over de thema's:
-
-- **concept:** begrijpen de gebruikers wat het doel is van de app?
-- **techniek:** werken alle onderdelen naar behoren?
-- **UX/design**: zijn er onderdelen die verwarrend zijn of foutief gebruik in de hand werken?
-
-Wat is nu het antwoord op de hoofdvraag: waarom haken gebruikers na onboarding af? Er blijken verschillende factoren een rol te spelen. Zo blijkt dat tijdens de introductiefase verkeerde verwachtingen worden gewekt. Ook zijn er bij gebruik van de app twijfels over de betrouwbaarheid van getoonde data.
-
-Terwijl de app-bouwer veel zocht naar optimalisatie van UX en pushberichten, blijkt de sleutel tot verbetering te liggen in de brede communicatie over en binnen de app.
-
-Naast de hoofdbevindingen heeft het onderzoek ook verschillende technische bevinden en suggesties van gebruikers opgeleverd.
-
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2023/05/taken-diary-study-wit.png (title: taken diary study wit) -- quality-fase: downloaden+optimaliseren -->
-![taken diary study](/src/images/assets/blog.jpeg)
-
-Benieuwd naar wat we voor jouw vraagstuk kunnen betenen? Plan een [kennismakingsafspraak](/contact/).
-
-## Alles op een rij
-
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2023/05/ervaring-diary-study.png (title: ervaring diary study) -- quality-fase: downloaden+optimaliseren -->
-![ervaring diary study](/src/images/assets/blog.jpeg)
-
-### Wat is een diary study?
-
-Een diary study of dagboekstudie is een onderzoeksmethode die wordt gebruikt om kwalitatieve gegevens te verzamelen. Het geeft inzicht in gebruik,  gedrag en gewoontes.
-
-Bij het onderzoek rapporteren respondenten zelf gegevens over een zelf te bepalen periode. Dat kan variëren van enkele dagen tot een maand of langer.
-
-Tijdens de onderzoeksperiode maken respondenten regelmatig een verslag, bijvoorbeeld in de vorm van een videoboodschap of eenvoudige gebruikerstest. Het verslag kan rond een gebruiksmoment zijn geconcentreerd (bijv. bezoek aan een arts) of op basis van opdrachten (bijv. zoek een lunch recept voor vandaag).
-
-Het grote voordeel van de diary study is de actualiteit. Respondenten geven direct feedback op verschillende ervaringen. Ook zijn trends tijdens een proces zichtbaar: hoe verandert gedrag tijdens een journey?
-
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2022/06/rapportage.png (title: rapportage) -- quality-fase: downloaden+optimaliseren -->
-![rapportage](/src/images/assets/blog.jpeg)
-
-### Wat levert een diary study op?
-
-We schreven het al: een diary study laat gebruikersgedrag in de werkelijke context zien. Respondenten voeren taken uit in hun eigen woon- of werkomgeving. Er is geen sprake van een onderzoekssetting.
-
-Zo krijg je een reëel beeld van de manier waarop respondenten producten gebruiken en/of processen ervaren.
-
-Door gebruik te maken van videoboodschappen en kleine gebruikerstesten is deze kwalitatieve onderzoeksvorm schaalbaar. Dat maakt het geschikt om om bijvoorbeeld de impact van een proces of product per doelgroep te testen.
-
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2023/05/taken-dagboek-studie.png (title: taken dagboek studie) -- quality-fase: downloaden+optimaliseren -->
-![taken dagboek studie](/src/images/assets/blog.jpeg)
-
-## Wanneer is dit een goede methode?
-
-Diary studies zijn waardevol wanneer je inzicht wilt krijgen in lange termijn gedrag, zoals:
-
-- gewoonten - op welk tijdstip en op welke plek gebruiken mensen een product?
-- scenario's - op welke manieren gebruiken mensen een product? Wat zijn hun belangrijkste taken?
-- motivatie - wat motiveert mensen om taken uit te voeren?
-- veranderingen in gedrag en waardering - hoe gemakkelijk is het om te werken met een product? Hoe loyaal zijn mensen in de loop van de tijd?
-
-Een diary study is daarnaast zeer geschikt om journeys beter te doorgronden. Denk aan patient journeys, waarbij een onderzoek tijdens een behandeltraject kan worden gestart.
-
-## Start zelf een diary study
-
-Wil je zelf een diary study starten? De experts van Diversions helpen je graag. Tijdens een kennismaking nemen we graag de kaders van je project door. Zo bepalen we samen welke onderzoeksvorm het beste aansluit bij je vraagstuk.
-
-Benieuwd naar wat we voor jouw vraagstuk kunnen betenen? Bel: 055 20 32 193 of plan een [kennismakingsafspraak](/contact/)
-
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2020/02/pic-transparant.png (title: Insights Propositie Communicatie) -- quality-fase: downloaden+optimaliseren -->
-![Insights Propositie Communicatie](/src/images/assets/blog.jpeg)
-Wat is een diary study?
-
-Een diary study is een onderzoeksmethode waarbij deelnemers gedurende een bepaalde periode hun ervaringen, gedragingen en interacties vastleggen in een dagboek of digitaal logboek.
-
-Welke inzichten biedt een diary study?
-
-Het onderzoek helpt om inzicht te krijgen in het langdurig gebruik van producten of het doorlopen van een journey. De inzichten verzamel je in het dagelijks leven. Met regelmatige check-ins breng je gewoontes, behoeften en (veranderingen in) gedrag in beeld.
-
-Wat is het verschil tussen een diary study en een veldonderzoek?
-
-Bij een diary study leggen deelnemers hun ervaringen (gedachten, gevoelens en gedragingen) vast gedurende een bepaalde periode (een paar dagen, een paar weken of langer). Een veldstudie wordt uitgevoerd in de omgeving van de gebruiker (bijvoorbeeld thuis of op kantoor). Het is dus gebaseerd op observatie.
-
-### [Onze diensten](/onderzoeksbureau/)
-
-[Kwalitatief onderzoek](/insights/)
-[Gebruikerstesten](/gebruikerstesten/)
-[Diary study](/diary-study/)  
-[Eye tracking simulatie](/eyetracking-simulatie/)
-[Pretest](/pretest/)
-[Online onderzoek](/online-onderzoek/)
-[Customer Journey](/customer-journey/)
-[Patient Journey](/patient-journey/)  
-[Generation Journey](https://www.generationjourney.nl)
-[Groepsdiscussies](/groepsdiscussie/)
-
-### Hoe kunnen wij je helpen?
-
-- Aanhef\*
-  - de heer
-  - mevrouw
-- Naam\*
-- Organisatie\*
-- E-mailadres\*
-- Telefoon
-- Waarmee kunnen we je helpen?\*
-
- 
-
-Δ
+:::faq
+VRAAG: Wat kost een diary study?
+ANTWOORD: Dat hangt af van de looptijd, het aantal respondenten en de vorm. We stellen graag in overleg een offerte op.
+:::
+:::faq
+VRAAG: Hoe lang loopt een diary study?
+ANTWOORD: Zo lang als nodig om herhaalgebruik en gewoontes zichtbaar te maken; vaak enkele weken.
+:::
+:::faq
+VRAAG: Wat is het verschil met een gebruikerstest?
+ANTWOORD: Een gebruikerstest is een momentopname van het gebruik. Een diary study volgt het gebruik over langere tijd, in de natuurlijke omgeving.
+:::
+
+## Over de onderzoeker
+
+Meer weten? Neem contact op met Ieteke de Vries, hoofd Onderzoek.
+
+Diversions is lid van het Data & Insights Network. Data wordt in de EU gehost (AVG by design).
+</content>

@@ -1,17 +1,76 @@
 ---
 // Diversions site header (omgebouwd vanuit design/components.jsx <Header/>).
-// Logo + NL-nav + zoek-icoon + "Online offerte"-CTA + mobiel hamburger-menu.
+// Logo + NL-nav + megamenu's + zoek-icoon + "Online offerte"-CTA + mobiel
+// hamburger-menu. Onderzoek / Methodes / Branches hebben een megamenu (links
+// de diensten uit Sanity per categorie, rechts een actieblok); Werk / Blog /
+// Over ons / Contact zijn gewone links.
 // Toetsenbord-/drawer-toegankelijkheid: hamburger is een echte <button> met
-// aria-expanded + aria-controls naar het mobiele menu.
+// aria-expanded + aria-controls; megamenu's openen ook op :focus-within.
 import Search from "@/components/global/Search.astro";
+import { getAllServices } from "@/lib/data";
 
-// Nav-hrefs verwijzen naar de WERKELIJKE bestaande routes (inventaris.json).
-//   Services -> /onze-diensten · Branches -> /branches (overzicht, tegelview)
-//   Werk -> /work · Over ons -> /wij-zijn-diversions
-// "Home" is weggelaten: navigatie naar home gaat via het logo.
-const navLinks = [
-  { label: "Services", href: "/onze-diensten" },
-  { label: "Branches", href: "/branches" },
+// De header staat op iedere pagina; cache de services per build zodat een
+// productiebuild niet per pagina opnieuw naar Sanity gaat. In dev geen cache,
+// zodat contentwijzigingen direct zichtbaar zijn.
+type NavServices = Awaited<ReturnType<typeof getAllServices>>;
+const g = globalThis as typeof globalThis & { __navServices?: NavServices };
+const allServices = import.meta.env.PROD
+  ? (g.__navServices ??= await getAllServices())
+  : await getAllServices();
+
+type NavService = NavServices[number];
+const labelOf = (s: NavService) => s.data.overviewTitle || s.data.service;
+const linksFor = (cats: string[]) =>
+  allServices
+    .filter((s) => (s.data.categories ?? []).some((c) => cats.includes(c)))
+    .sort((a, b) => labelOf(a).localeCompare(labelOf(b), "nl"))
+    .map((s) => ({ label: labelOf(s), href: `/services/${s.slug ?? s.id}` }));
+
+// Megamenu-items. Het actieblok (card) rechts is per menu instelbaar.
+const megaMenus = [
+  {
+    label: "Onderzoek",
+    href: "/onze-diensten",
+    overviewLabel: "Alle onderzoeken",
+    links: linksFor(["onderzoeken"]),
+    card: {
+      title: "Weet je niet welk onderzoek past?",
+      text: "Vertel ons je vraagstuk, dan denken we mee over de aanpak die het meest oplevert.",
+      cta: "Plan een adviesgesprek",
+      href: "/contact",
+      image: "/img/onderzoeksbureau-diversions-2.jpg",
+    },
+  },
+  {
+    label: "Methodes",
+    href: "/methodes",
+    overviewLabel: "Alle methodes en oplossingen",
+    links: linksFor(["methodes", "oplossingen"]),
+    card: {
+      title: "Van vraag naar aanpak",
+      text: "Iedere methode is los of gecombineerd inzetbaar. Samen kiezen we wat bij jouw vraag past.",
+      cta: "Neem contact op",
+      href: "/contact",
+      image: "/img/onderzoeksbureau-diversions-3.jpg",
+    },
+  },
+  {
+    label: "Branches",
+    href: "/branches",
+    overviewLabel: "Alle branches",
+    links: linksFor(["branches"]),
+    card: {
+      title: "Thuis in jouw sector",
+      text: "Staat je branche er niet bij? Ook dan helpen we je graag verder met passend onderzoek.",
+      cta: "Neem contact op",
+      href: "/contact",
+      image: "/img/onderzoeksbureau-diversions-1.jpg",
+    },
+  },
+];
+
+// Gewone links zonder megamenu.
+const simpleLinks = [
   { label: "Werk", href: "/work" },
   { label: "Blog", href: "/blog" },
   { label: "Over ons", href: "/wij-zijn-diversions" },
@@ -30,7 +89,59 @@ const isActive = (href: string) =>
 
   <nav class="nav-desktop" aria-label="Hoofdnavigatie">
     {
-      navLinks.map((link) => (
+      megaMenus.map((item) => (
+        <div class="nav-mega" data-mega>
+          <a
+            class="nav-mega-trigger"
+            href={item.href}
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-current={isActive(item.href) ? "page" : undefined}
+          >
+            {item.label}
+            <svg
+              class="nav-mega-chevron"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m6 9 6 6 6-6"></path>
+            </svg>
+          </a>
+          <div class="mega-menu" aria-label={`${item.label} submenu`}>
+            <div class="mega-links">
+              {item.links.map((l) => (
+                <a href={l.href}>{l.label}</a>
+              ))}
+              <a class="mega-overview" href={item.href}>
+                {item.overviewLabel} →
+              </a>
+            </div>
+            <a class="mega-card" href={item.card.href}>
+              <span class="mega-card-body">
+                <strong class="mega-card-title">{item.card.title}</strong>
+                <span class="mega-card-text">{item.card.text}</span>
+                <span class="mega-card-cta">{item.card.cta} →</span>
+              </span>
+              <img
+                class="mega-card-img"
+                src={item.card.image}
+                alt=""
+                width="150"
+                height="150"
+                loading="lazy"
+              />
+            </a>
+          </div>
+        </div>
+      ))
+    }
+    {
+      simpleLinks.map((link) => (
         <a
           href={link.href}
           aria-current={isActive(link.href) ? "page" : undefined}
@@ -86,7 +197,7 @@ const isActive = (href: string) =>
 
 <div class="mobile-menu" id="mobile-menu" data-mobile-menu>
   {
-    navLinks.map((link) => (
+    [...megaMenus, ...simpleLinks].map((link) => (
       <a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>
         {link.label}
       </a>
@@ -97,28 +208,55 @@ const isActive = (href: string) =>
 
 <script is:inline>
   (function () {
+    // ---- Mobiel hamburger-menu ----
     const toggle = document.querySelector("[data-menu-toggle]");
     const menu = document.querySelector("[data-mobile-menu]");
-    if (!toggle || !menu) return;
-    const iconOpen = toggle.querySelector("[data-icon-open]");
-    const iconClose = toggle.querySelector("[data-icon-close]");
-    let open = false;
-    const setOpen = (next) => {
-      open = next;
-      toggle.setAttribute("aria-expanded", String(next));
-      menu.classList.toggle("open", next);
-      if (iconOpen) iconOpen.style.display = next ? "none" : "";
-      if (iconClose) iconClose.style.display = next ? "" : "none";
+    if (toggle && menu) {
+      const iconOpen = toggle.querySelector("[data-icon-open]");
+      const iconClose = toggle.querySelector("[data-icon-close]");
+      let open = false;
+      const setOpen = (next) => {
+        open = next;
+        toggle.setAttribute("aria-expanded", String(next));
+        menu.classList.toggle("open", next);
+        if (iconOpen) iconOpen.style.display = next ? "none" : "";
+        if (iconClose) iconClose.style.display = next ? "" : "none";
+      };
+      toggle.addEventListener("click", () => setOpen(!open));
+      menu.querySelectorAll("a").forEach((a) =>
+        a.addEventListener("click", () => setOpen(false))
+      );
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && open) {
+          setOpen(false);
+          toggle.focus();
+        }
+      });
+    }
+
+    // ---- Megamenu's (desktop) ----
+    // Open op hover met een korte sluitvertraging, zodat de muis de ruimte
+    // tussen trigger en paneel kan oversteken zonder dat het menu dichtklapt.
+    // Toetsenbord: openen gebeurt via CSS :focus-within; hier alleen Escape.
+    const megas = Array.from(document.querySelectorAll("[data-mega]"));
+    const setMega = (item, next) => {
+      item.classList.toggle("open", next);
+      const trigger = item.querySelector(".nav-mega-trigger");
+      if (trigger) trigger.setAttribute("aria-expanded", String(next));
     };
-    toggle.addEventListener("click", () => setOpen(!open));
-    menu.querySelectorAll("a").forEach((a) =>
-      a.addEventListener("click", () => setOpen(false))
-    );
+    megas.forEach((item) => {
+      let closeTimer;
+      item.addEventListener("mouseenter", () => {
+        clearTimeout(closeTimer);
+        megas.forEach((other) => other !== item && setMega(other, false));
+        setMega(item, true);
+      });
+      item.addEventListener("mouseleave", () => {
+        closeTimer = setTimeout(() => setMega(item, false), 150);
+      });
+    });
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && open) {
-        setOpen(false);
-        toggle.focus();
-      }
+      if (e.key === "Escape") megas.forEach((item) => setMega(item, false));
     });
   })();
 </script>

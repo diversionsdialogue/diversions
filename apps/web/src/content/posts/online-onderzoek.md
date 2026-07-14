@@ -60,8 +60,7 @@ Lees hier meer: [de voor- en nadelen van online onderzoek](/online-onderzoek/).
 
 ## Het voorbeeld van Londa Care
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2024/05/Online-onderzoek-4.jpg -- quality-fase: downloaden+optimaliseren -->
-[![online onderzoek](/src/images/assets/blog.jpeg)](/wp-content/uploads/2024/05/Online-onderzoek-4.jpg)
+![online onderzoek](/src/images/blog/Online-onderzoek-4.jpg)
 
 Zorginstelling Londa Care heeft succesvol gebruik gemaakt van online onderzoek. Zij wilden de tevredenheid (link invoegen als artikeltje over klanttevredenheid online staat) van hun cliënten verbeteren en besloten een online enquête uit te voeren. De resultaten gaven inzicht in de wensen en behoeften van de cliënten. Op basis van deze informatie heeft Londa Care hun zorgdiensten aangepast, wat leidde tot een significante verhoging van de cliënttevredenheid.
 

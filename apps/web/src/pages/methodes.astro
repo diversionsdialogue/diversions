@@ -1,0 +1,174 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Picture from "@/components/global/Picture.astro";
+import { getAllServices } from "@/lib/data";
+
+// NIEUWE PAGINA (nav-herindeling Onderzoek / Methodes / Branches).
+//   Overzicht van de categorieën "methodes" en "oplossingen", als tegenhanger
+//   van /onze-diensten (alleen "onderzoeken") en /branches. Zelfde opbouw en
+//   styling als /onze-diensten (sa-hero / sa-header / services-list / sa-cta).
+//   Categorie-filter (chips) is client-side (progressive enhancement): zonder
+//   JS zijn alle rijen zichtbaar.
+//   Kaarten tonen de korte overzichtsvelden (overviewTitle/overviewIntro) met
+//   terugval op de volledige service-naam en description.
+
+const allServices = await getAllServices();
+
+const services = allServices
+  .filter((s) =>
+    (s.data.categories ?? []).some((c) => c === "methodes" || c === "oplossingen")
+  )
+  .sort((a, b) =>
+    (a.data.overviewTitle || a.data.service || "").localeCompare(
+      b.data.overviewTitle || b.data.service || "",
+      "nl"
+    )
+  );
+
+// Categorie-filter (vaste waarden uit het service-schema). Label = weergave,
+// value = wat in service.data.categories staat.
+const categoryFilters = [
+  { value: "all", label: "Alles" },
+  { value: "methodes", label: "Methodes" },
+  { value: "oplossingen", label: "Oplossingen" },
+] as const;
+---
+
+<BaseLayout
+  seo={{
+    title: "Methodes | Diversions",
+    description:
+      "De onderzoeksmethodes en oplossingen van Diversions — van diepte-interviews tot kwantitatief onderzoek. Los of gecombineerd inzetbaar voor jouw vraagstuk.",
+  }}
+>
+  <section class="sa-hero">
+    <a href="#methodes" class="sa-hero-card">
+      <span class="sa-hero-spark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path
+            d="M32 8v16M32 40v16M8 32h16M40 32h16M14 14l11 11M39 39l11 11M50 14l-11 11M14 50l11-11"
+          ></path>
+        </svg>
+      </span>
+      <span class="sa-hero-card-text">
+        Scherper onderzoek, betere beslissingen.
+      </span>
+    </a>
+    <div class="sa-hero-image">
+      <Picture
+        src="/img/onderzoeksbureau-diversions-3.jpg"
+        alt="Het team van onderzoeksbureau Diversions"
+        loading="eager"
+      />
+    </div>
+  </section>
+
+  <header class="sa-header" id="methodes">
+    <div class="sa-header-left">
+      <span class="sa-eyebrow">— Methodes</span>
+      <h1 class="sa-title">
+        Hoe we te werk gaan
+      </h1>
+    </div>
+
+    <div class="sa-header-right">
+      <div class="sa-tags" role="group" aria-label="Filter op categorie" id="sa-filter">
+        {
+          categoryFilters.map((c, i) => (
+            <button
+              type="button"
+              class:list={["sa-tag", { active: i === 0 }]}
+              data-filter={c.value}
+              aria-pressed={i === 0 ? "true" : "false"}
+            >
+              {c.label}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+  </header>
+
+  <div class="services-list sa-services" id="sa-grid">
+    {
+      services.map((service, i) => {
+        const slug = service.slug ?? service.id;
+        const cats = (service.data.categories ?? []).join(" ");
+        return (
+          <a
+            class="service-row"
+            href={`/services/${slug}`}
+            data-categories={cats}
+          >
+            <span class="service-num">{String(i + 1).padStart(2, "0")}</span>
+            <h3 class="service-title">{service.data.overviewTitle || service.data.service}</h3>
+            <p class="service-desc">{service.data.overviewIntro || service.data.description}</p>
+            <span class="service-arrow" aria-hidden="true">→</span>
+          </a>
+        );
+      })
+    }
+  </div>
+
+  <p class="sa-grid-empty" id="sa-grid-empty" hidden>
+    Geen diensten in deze categorie.
+  </p>
+
+  <section class="sa-cta" style="margin-top: 96px">
+    <div class="sa-cta-text">
+      <span class="sa-cta-eyebrow">— Tijd voor groei?</span>
+      <h2 class="sa-cta-title">
+        Deel je ambities en maak<br />kennis met de mogelijkheden.
+      </h2>
+      <p class="sa-cta-body">
+        Neem contact op om te starten. We denken met je mee en komen met een concreet,
+        eerlijk voorstel terug.
+      </p>
+    </div>
+    <a href="/contact" class="sa-cta-circle">
+      Maak een afspraak
+      <span aria-hidden="true">→</span>
+    </a>
+  </section>
+</BaseLayout>
+
+<script>
+  // Client-side categorie-filter (progressive enhancement).
+  // Zonder JS zijn alle rijen gewoon zichtbaar.
+  const filterGroup = document.getElementById("sa-filter");
+  const rows = Array.from(
+    document.querySelectorAll<HTMLElement>("#sa-grid .service-row")
+  );
+  const emptyMsg = document.getElementById("sa-grid-empty");
+
+  function applyFilter(value: string) {
+    let visible = 0;
+    for (const row of rows) {
+      const cats = (row.dataset.categories ?? "").split(/\s+/).filter(Boolean);
+      const show = value === "all" || cats.includes(value);
+      // Inline display i.p.v. [hidden]: .service-row heeft display:grid dat
+      // het [hidden]-attribuut zou overrulen.
+      row.style.display = show ? "" : "none";
+      if (show) {
+        visible++;
+        const num = row.querySelector<HTMLElement>(".service-num");
+        if (num) num.textContent = String(visible).padStart(2, "0");
+      }
+    }
+    if (emptyMsg) emptyMsg.hidden = visible !== 0;
+  }
+
+  filterGroup?.addEventListener("click", (e) => {
+    const btn = (e.target as HTMLElement).closest<HTMLButtonElement>(".sa-tag");
+    if (!btn) return;
+    const value = btn.dataset.filter ?? "all";
+
+    for (const chip of filterGroup.querySelectorAll<HTMLButtonElement>(".sa-tag")) {
+      const active = chip === btn;
+      chip.classList.toggle("active", active);
+      chip.setAttribute("aria-pressed", active ? "true" : "false");
+    }
+    applyFilter(value);
+  });
+</script>

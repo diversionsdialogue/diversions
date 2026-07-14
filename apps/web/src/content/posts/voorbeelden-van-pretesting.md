@@ -46,8 +46,7 @@ Dit roept **discussie** op bij het reclamebureau: waarom zijn de resultaten niet
 
 Het energiebedrijf besluit aanvullend **vijf individuele interviews** uit te laten voeren. Daaruit blijkt dat de doelgroep al bekend is met het belang van duurzame energie. Door aan deze boodschap te veel aandacht te geven sneeuwt het innovatieve karakter van het nieuwe product onder.
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2023/05/pretesting-voorbeeld.png -- quality-fase: downloaden+optimaliseren -->
-[![pretesting voorbeeld](/src/images/assets/blog.jpeg)](/wp-content/uploads/2023/05/pretesting-voorbeeld.png)
+![pretesting voorbeeld](/src/images/blog/pretesting-voorbeeld.png)
 
 Met de **bevindingen uit de pretest** past het energiebedrijf enkele uitingen aan. De nadruk komt op de innovatie te liggen en minder op het belang van duurzaamheid in algemene zin.
 

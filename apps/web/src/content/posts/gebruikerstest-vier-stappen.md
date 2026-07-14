@@ -70,8 +70,7 @@ Denk aan een **test op afstand** moet bijvoorbeeld Teams. Maar je kunt je respon
 
 Een test op afstand scheelt heel veel tijd, en geeft vaak een beter beeld van de situatie waarin je site wordt gebruikt.
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2023/05/taken-diary-study-1.png -- quality-fase: downloaden+optimaliseren -->
-[![gebruikerstest opzetten in 4 stappen](/src/images/assets/blog.jpeg)](/wp-content/uploads/2023/05/taken-diary-study-1.png)
+![gebruikerstest opzetten in 4 stappen](/src/images/blog/taken-diary-study-1.png)
 
 Een tweede belangrijke overweging is de **inzet van een moderator** (of niet). De respondent kan een test zonder moderator op ieder gewenst moment uitvoeren. Het is ook eenvoudig om meerdere respondenten uit te nodigen (als kost je dat wel meer tijd in de analyse).
 

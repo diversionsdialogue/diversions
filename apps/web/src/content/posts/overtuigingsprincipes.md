@@ -41,8 +41,7 @@ QUOTE: Niet om te beïnvloeden of manipuleren, maar juist om je publiek te helpe
 
 Wil je daar meer over weten? Vraag dan het [gratis inkijkexemplaar](https://www.generationjourney.nl/breingeheimen/) van ons boek aan. Van harte aanbevolen!
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2024/03/breingeheimen-overtuiging.png -- quality-fase: downloaden+optimaliseren -->
-![](/src/images/assets/blog.jpeg)
+![Overtuigingsprincipes uit Breingeheimen](/src/images/blog/breingeheimen-overtuiging.png)
 
 En dan nu snel door de overtuigingsprincipes van Cialdini:
 
@@ -62,8 +61,7 @@ Wanneer we een beslissingen nemen kunnen de ervaringen van anderen net even het 
 
 Een voorbeeld? Klantenreviews. Deze krijgen online nog steeds heel veel waarde. Niet voor niets verzamelt ook Google zelf [reviews](https://support.google.com/business/answer/3474122?hl=nl) om te tonen in de zoekresultaten.
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2019/10/influencer.jpg -- quality-fase: downloaden+optimaliseren -->
-![overtuigingsprincipes- influencer](/src/images/assets/blog.jpeg)
+![overtuigingsprincipes- influencer](/src/images/blog/influencer.jpg)
 
 "Zoveel volgers? Dan moét deze influencer wel de moeite waard zijn!"
 

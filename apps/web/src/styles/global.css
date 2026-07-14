@@ -330,6 +330,8 @@
   padding: 22px 28px;
   border-bottom: 1px solid var(--border);
   gap: 16px;
+  /* Ankerpunt voor de megamenu-panelen (volle headerbreedte). */
+  position: relative;
 }
 .brand {
   display: flex;
@@ -417,6 +419,121 @@
 .nav-has-menu:focus-within .nav-menu,
 .nav-has-menu.open .nav-menu { display: flex; }
 .nav-menu a { padding: 9px 12px; border-radius: 8px; font-size: 14px; white-space: nowrap; }
+
+/* Megamenu (Onderzoek / Methodes / Branches) — paneel over de volle
+   headerbreedte: links de dienst-links per categorie, rechts een actieblok.
+   Openen: hover (JS, met sluitvertraging) of :focus-within (toetsenbord). */
+.nav-mega {
+  display: flex;
+  align-items: center;
+}
+.nav-desktop a.nav-mega-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.nav-mega-chevron {
+  width: 12px;
+  height: 12px;
+  transition: transform var(--duration-base) var(--ease);
+}
+.nav-mega.open .nav-mega-chevron,
+.nav-mega:focus-within .nav-mega-chevron {
+  transform: rotate(180deg);
+}
+.nav-mega.open > .nav-mega-trigger,
+.nav-mega:focus-within > .nav-mega-trigger {
+  background: var(--color-accent-50);
+  color: var(--color-yellow-600);
+}
+
+.mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  display: none;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 460px);
+  gap: 40px;
+  padding: 28px;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+.nav-mega.open .mega-menu,
+.nav-mega:focus-within .mega-menu {
+  display: grid;
+}
+
+.mega-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px 24px;
+  align-content: start;
+}
+.nav-desktop .mega-links a {
+  padding: 9px 12px;
+}
+.nav-desktop .mega-links a.mega-overview {
+  color: var(--color-yellow-600);
+  font-weight: 600;
+}
+
+/* Actieblok rechts in het megamenu. Overrides op .nav-desktop a nodig omdat
+   die selector ook deze <a> raakt. */
+.nav-desktop a.mega-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 24px;
+  background: var(--accent-tint);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.nav-desktop a.mega-card:hover {
+  background: var(--color-accent-100);
+  color: var(--ink);
+}
+.mega-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.mega-card-title {
+  font-family: var(--font-subtitle);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.25;
+  color: var(--ink-strong);
+}
+.mega-card-text {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+.mega-card-cta {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-yellow-600);
+}
+.mega-card-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  flex: none;
+}
+@media (max-width: 1279px) {
+  /* Smallere desktops: actieblok zonder afbeelding houdt het paneel compact. */
+  .mega-card-img {
+    display: none;
+  }
+}
 
 /* Mobiel: branches als subgroep in het uitklapmenu */
 .mobile-menu-heading {

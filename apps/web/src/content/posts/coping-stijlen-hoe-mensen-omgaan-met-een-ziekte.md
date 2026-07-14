@@ -32,8 +32,7 @@ Boosheid over de ziekte, verdriet of ongeloof dat dit je overkomt en angst en on
 
 ## 7 copingstijlen
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2021/12/coping-.png -- quality-fase: downloaden+optimaliseren -->
-[![](/src/images/assets/blog.jpeg)](/wp-content/uploads/2021/12/coping-.png)
+![De 7 copingstijlen](/src/images/blog/coping-.png)
 
 ## De ene copingstijl is de andere niet
 

@@ -130,6 +130,8 @@ export function transformService(sanityDoc: SanityService) {
     data: {
       service: sanityDoc.service,
       description: sanityDoc.description,
+      overviewTitle: sanityDoc.overviewTitle ?? undefined,
+      overviewIntro: sanityDoc.overviewIntro ?? undefined,
       thumbnail: sanityDoc.thumbnail
         ? {
             url: safeImageUrl(sanityDoc.thumbnail),

@@ -54,8 +54,7 @@ Wat levert deze test op?
 
 De respondenten beoordelen verschillende onderdelen van de website. Het is snel zichtbaar waar **verbeterkansen** liggen. Er leven veel twijfels bij het donatieproces. Met name de **stellingen** "ik weet waarvoor ik doneer" en "dit goede doel besteed mijn geld op een goede manier" blijken op weinig bijval te kunnen rekenen.
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2024/02/kwantitatieve-gebruikerstest-1.png -- quality-fase: downloaden+optimaliseren -->
-[![Kwantitatieve gebruikerstest](/src/images/assets/blog.jpeg)](/wp-content/uploads/2024/02/kwantitatieve-gebruikerstest-1.png)
+![Kwantitatieve gebruikerstest](/src/images/blog/kwantitatieve-gebruikerstest-1.png)
 
 Met deze (en aanvullende) inzichten kunnen de marketeers aan de slag. Ze stellen een 2do lijst op bepalen de **prioriteiten** aan de hand van de onderzoeksuitkomsten. De eerste aanpassingen vragen weinig tijd. Amper een uur na het delen van de onderzoeksresultaten zijn de **eerste optimalisaties** doorgevoerd.
 
@@ -73,8 +72,7 @@ Een moderator voerde met behulp van een online tool **7 gebruikerstesten** uit. 
 
 Wat levert deze test op?
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2023/05/voorbeelden-gebruikerstest-1.png -- quality-fase: downloaden+optimaliseren -->
-[![](/src/images/assets/blog.jpeg)](/wp-content/uploads/2023/05/voorbeelden-gebruikerstest-1.png)
+![Voorbeeld gebruikerstest prototype hypotheken website](/src/images/blog/voorbeelden-gebruikerstest-1.png)
 
 Het was prettig om te zien dat de reacties op de nieuwe site in het algemeen positief waren. De gebruikers vonden snel hun weg, bleven geconcentreerd tijdens het invullen van een keuzehulp en gaven zeer **positieve feedback** op een rekentool die helpt je maximale hypotheek te berekenen.
 
@@ -94,12 +92,11 @@ Denk aan het delen van opdrachten en toetsuitslagen. Maar het is ook mogelijk **
 
 Op de app is enthousiast gereageerd, maar het **gebruik valt tegen**. Tijd voor een gebruikerstest om te kijken wat de oorzaak is.
 
-In dit geval is gekozen voor een specifieke test: de [diary study](/wp-content/uploads/2023/05/diary-study.png). Docenten werd bij de start van het nieuwe schooljaar gevraagd de app een maand te proberen.
+In dit geval is gekozen voor een specifieke test: de diary study. Docenten werd bij de start van het nieuwe schooljaar gevraagd de app een maand te proberen.
 
 Twee keer per week werd een concrete opdracht gedeeld. Zo kon de hele journey van het app-gebruik worden getest. Van **onboarding tot herhaalgebruik**.
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2023/05/app-school-gebruikerstest.png -- quality-fase: downloaden+optimaliseren -->
-[![app school gebruikerstest](/src/images/assets/blog.jpeg)](/wp-content/uploads/2023/05/app-school-gebruikerstest.png)
+![app school gebruikerstest](/src/images/blog/app-school-gebruikerstest.png)
 
 Bij de onboarding bleek direct een groot probleem te ontstaan. Veel docenten hadden moeite om verschillende functies van de app te ontdekken.
 

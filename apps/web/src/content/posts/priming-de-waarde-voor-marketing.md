@@ -28,8 +28,7 @@ Stel: je stapt een wijnwinkel binnen. Je wilt een wijntje, kopen maar weet nog n
 
 Je loopt langs de schappen en stopt bij het Franse aanbod. Je denkt even terug aan een vakantie van lang geleden, aan de mooie zomeravonden op een Frans terras.... Toen dronk je meestal Rood, dus daar ga je ook deze keer voor. Je pakt een fles en rekent af.
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2024/02/priming-1.png -- quality-fase: downloaden+optimaliseren -->
-[![Voorbeeld van priming](/src/images/assets/blog.jpeg)](/wp-content/uploads/2024/02/priming-1.png)
+![Voorbeeld van priming](/src/images/blog/priming-1.png)
 
 Voorbeeld van priming bij de slijterij
 

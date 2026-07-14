@@ -20,8 +20,12 @@ const CALCULATORS: Record<string, "pretest" | "effectmeting" | "customer-journey
   "customer-journey": "customer-journey",
   klanttevredenheidsonderzoek: "klanttevredenheid",
   // Placeholder: pagina krijgt de pitch-hero + een tijdelijk calculator-blok,
-  // tot de kwantitatief-calculator gebouwd is.
+  // tot de bijbehorende calculator gebouwd is.
   "kwantitatief-onderzoek": "placeholder",
+  "diary-study": "placeholder",
+  "kwalitatief-onderzoek": "placeholder",
+  "diepte-interviews": "placeholder",
+  waardepropositie: "placeholder",
 };
 
 export async function getStaticPaths() {
@@ -43,6 +47,10 @@ const LEES: Record<string, string> = {
   "customer-journey": "het customer journey onderzoek",
   klanttevredenheidsonderzoek: "het klanttevredenheidsonderzoek",
   "kwantitatief-onderzoek": "het kwantitatief onderzoek",
+  "diary-study": "de diary study",
+  "kwalitatief-onderzoek": "het kwalitatief onderzoek",
+  "diepte-interviews": "de diepte-interviews",
+  waardepropositie: "het waardepropositie-onderzoek",
 };
 const leesLabel = LEES[slug];
 
@@ -94,7 +102,7 @@ const minutes = plain
                 Bereken je prijsindicatie, binnenkort
               </p>
               <p style="font-family:var(--font-sans);font-size:15px;line-height:1.5;color:var(--ink-soft);margin:0 auto;max-width:46ch;">
-                De prijscalculator voor kwantitatief onderzoek staat hier binnenkort.
+                De prijscalculator voor dit onderzoek staat hier binnenkort.
                 Wil je nu al een indicatie? <a href="/contact">Neem contact op</a>, we
                 rekenen het vrijblijvend voor je uit.
               </p>

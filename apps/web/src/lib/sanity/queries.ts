@@ -126,6 +126,8 @@ export const getAllServicesQuery = groq`
     service,
     "slug": slug.current,
     description,
+    overviewTitle,
+    overviewIntro,
     thumbnail {
       asset->,
       alt
@@ -142,6 +144,8 @@ export const getServiceByIdQuery = groq`
     service,
     "slug": slug.current,
     description,
+    overviewTitle,
+    overviewIntro,
     thumbnail {
       asset->,
       alt

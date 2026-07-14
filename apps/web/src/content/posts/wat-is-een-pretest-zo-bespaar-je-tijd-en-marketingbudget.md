@@ -49,8 +49,7 @@ Van een [pretest](/pretest/) kun je veel leren. De inzichten geven je de kans om
 
 De opzet van een pretest is eenvoudig. In drie stappen zet je het onderzoek op.
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2023/05/pretest-1024x200.png -- quality-fase: downloaden+optimaliseren -->
-[![Wat is een pretest?](/src/images/assets/blog.jpeg)](/wp-content/uploads/2023/05/pretest.png)
+![Wat is een pretest?](/src/images/blog/pretest.png)
 
 Afhankelijk van de doelen kun je verschillende onderzoeksmethoden inzetten. Variëren van AI (razendsnel en goedkoop) tot expertreviews. En van kwalitatief tot kwantitatief onderzoek. Als [onderzoeksbureau](/onderzoeksbureau/) helpen we je graag de beste keuze te maken.
 

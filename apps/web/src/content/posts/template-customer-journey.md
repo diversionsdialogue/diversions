@@ -34,8 +34,7 @@ Vaak is er in customer journey templates vooral aandacht voor contactmomenten tu
 
 De journey van klanten wordt onder andere beïnvloed door persoonlijke motieven, meningen van derden en informatie die concullega’s bieden.
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2021/12/Klantbeleving.jpg -- quality-fase: downloaden+optimaliseren -->
-![](/src/images/assets/blog.jpeg)
+![Klantbeleving in de customer journey](/src/images/blog/Klantbeleving.jpg)
 
 Door gericht onderzoek uit te voeren kun je deze totale journey in kaart brengen. Het blijkt in veel gevallen dé sleutel tot verbeteringen die echt onderscheidend zijn. Diversions helpt je graag met dit soort kwalitatief onderzoek.
 
@@ -43,8 +42,7 @@ Door gericht onderzoek uit te voeren kun je deze totale journey in kaart brengen
 
 ### Ervaringen versus onderzoek
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2021/12/paingains-onderzoek.png -- quality-fase: downloaden+optimaliseren -->
-![](/src/images/assets/blog.jpeg)
+![Paingains onderzoek](/src/images/blog/paingains-onderzoek.png)
 
 Journeys worden vaak ingevuld vanuit de ervaring van een organisatie. Sales, support en marketing gaan op de stoel van een klant zitten en geven zo invulling aan een journey.
 
@@ -56,8 +54,7 @@ Bij dit soort oefeningen speelt buikgevoel een grote rol. Door te starten met on
 
 Vaak vergeten, maar zeer waardevol: als je een customer journey hebt opgesteld, dan kun je op zoek naar relevante data die tonen hoe de processen nu verlopen.
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2021/12/KPI.jpg -- quality-fase: downloaden+optimaliseren -->
-![](/src/images/assets/blog.jpeg)
+![KPI in de customer journey](/src/images/blog/KPI.jpg)
 
 Wil je de journey optimaliseren? Dan is het verstandig binnen de beschikbare dataset KPI (key performance indicators) aan te wijzen. Zo wordt het effect van optimalisaties te monitoren en rapporteren.
 
@@ -67,8 +64,7 @@ Wil je de journey optimaliseren? Dan is het verstandig binnen de beschikbare dat
 
 Wil je een journey template invullen bij wijze van brainstorm? Of wil je werk maken van customer journey management?
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2021/12/Brainstorm.jpg -- quality-fase: downloaden+optimaliseren -->
-![](/src/images/assets/blog.jpeg)
+![Brainstorm customer journey template](/src/images/blog/Brainstorm.jpg)
 
 Kies je voor de brainstorm, dan is een eenmalige tijdsinvestering voldoende. Bij managent vertaal je klantreizen naar processen, stuurinformatie en houd je doorlopend de vinger aan de pols bij veranderingen. Dit vraagt aandacht vanaf de eerste stap van het opstellen van de journey.
 

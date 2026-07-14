@@ -169,6 +169,9 @@ export interface SanityService extends SanityDocument {
   service: string;
   slug: string;
   description: string;
+  // Korte titel + inleiding voor het diensten-overzicht (optioneel/additief).
+  overviewTitle?: string;
+  overviewIntro?: string;
   thumbnail?: SanityImageAsset;
   categories?: string[];
   body: SanityBody;

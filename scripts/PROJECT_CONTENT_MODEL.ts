@@ -95,6 +95,8 @@ export const PROJECT_COLLECTIONS = {
       service: { type: "string", required: true },
       slug: { type: "slug", required: true }, // URL segment under /services/
       description: { type: "text", required: true },
+      overviewTitle: { type: "string", required: false }, // Optioneel — korte titel voor het diensten-overzicht
+      overviewIntro: { type: "text", required: false }, // Optioneel — korte inleiding voor het diensten-overzicht
       body: { type: "portableText", required: true }, // Portable Text array (rich text + shared blocks)
       thumbnail: {
         type: "object",

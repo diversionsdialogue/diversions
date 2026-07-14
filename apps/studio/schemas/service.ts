@@ -31,6 +31,23 @@ export const service = defineType({
       description: "Brief description of the service",
       validation: (rule) => rule.required(),
     }),
+    // Optionele, korte varianten voor de kaart op het diensten-overzicht.
+    // Additief: leeg gelaten valt de site terug op Service Name / Description.
+    defineField({
+      name: "overviewTitle",
+      title: "Titel overzichtspagina",
+      type: "string",
+      description:
+        "Korte naam van het onderzoek, getoond op het diensten-overzicht. Leeg = Service Name.",
+    }),
+    defineField({
+      name: "overviewIntro",
+      title: "Inleidingstekst overzichtspagina",
+      type: "text",
+      rows: 3,
+      description:
+        "Korte inleiding, getoond op het diensten-overzicht. Leeg = Description.",
+    }),
     bodyField({ required: true }),
     // Optionele velden voor de diensten-overzichtspagina (kaart + tag-filter).
     // Additief: bestaande services zonder deze velden blijven geldig.

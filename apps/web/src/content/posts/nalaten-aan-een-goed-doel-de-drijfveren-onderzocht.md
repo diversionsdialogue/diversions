@@ -18,8 +18,7 @@ tags:
   - description automatisch afgeleid (geen excerpt)
 -->
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2019/06/nalatenschap-header-1024x535.jpg -- quality-fase: downloaden+optimaliseren -->
-![nalatenschap onderzoek goede doelen](/src/images/assets/blog.jpeg)
+![nalatenschap onderzoek goede doelen](/src/images/blog/nalatenschap-header.jpg)
 
 **Het belang van nalatenschappen groeit voor goede doelen. Niet voor niets wordt het onderwerp vanuit de landelijke “toegift” campagne ook gezamenlijk geagendeerd. Toch blijft er veel rond de keuzes voor nalaten aan een goed doel onduidelijk. Tijd voor onderzoek.**
 

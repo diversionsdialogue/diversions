@@ -33,8 +33,8 @@ De journey helpt om verbeterpunten te ontdekken en zo gericht te werken aan opti
 
 Klik op de afbeelding om de template te downloaden. Wil je hulp bij het opstellen van een patient journey? Onze experts helpen je graag.
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2021/12/Patient-jouney-pdf.png -- quality-fase: downloaden+optimaliseren -->
-[![](/src/images/assets/blog.jpeg)](/wp-content/uploads/2021/12/template-customer-journey.pdf)
+<!-- TODO quality-fase: downloadbare PDF (template-customer-journey.pdf) ontbreekt nog, afbeelding is alleen de cover -->
+![Template patient journey](/src/images/blog/Patient-jouney-pdf.png)
 
 ## Over de template
 

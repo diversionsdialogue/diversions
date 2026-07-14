@@ -1,209 +1,141 @@
 ---
-service: "Customer journey: de waarde voor jouw organisatie"
-description: "De customer journey methodiek helpt je te denken en innoveren vanuit het perspectief van de klant. Een krachtig startpunt om je dienstverlening te optimaliseren. Hoe het werkt"
+service: "Customer journey onderzoek: bekijk de klantreis door de ogen van je klant"
+description: "Hoe vlekkeloos is de reis van jouw klant? Met een customer journey-onderzoek breng je de volledige klantreis in kaart: van eerste oriëntatie tot terugkomen of afhaken. Diversions laat zien waar de klantbeleving stokt, waarom dat gebeurt en vooral welke verbeteringen direct impact maken."
+categories:
+  - onderzoeken
 ---
 
-<!-- CONVERT-META
-  oude_url: /customer-journey
-  nieuwe_url: /services/customer-journey
-  sanity_type: service
-  placeholder-afbeelding gebruikt (quality-fase: echte WP-afbeelding plaatsen)
-  - 2 CTA('s) gedetecteerd -> ctaBlock-marker
-  - description automatisch afgeleid (geen excerpt)
--->
+## Wat is customer journey-onderzoek?
 
-# Customer journey
+Hoe beleeft jouw klant de hele reis, niet alleen het moment van aankoop? Een customer journey brengt de totale ervaring in kaart: vanaf het eerste contact met je merk of product tot de vraag of iemand klant blijft of afhaakt. We onderzoeken niet alleen de verschillende touchpoints, maar ook de momenten waarop je minder directe invloed hebt én de redenen achter het gedrag van klanten.
 
-<!-- BLOK:ctaBlock heading="De waarde voor jouw organisatie" buttonLabel="Advies op maat" buttonHref=/contact-2/ variant=default -->
-### De waarde voor jouw organisatie
+Zo ontstaat een compleet beeld van de klantbeleving. Met inzicht in de emoties, verwachtingen en drempels die per fase bepalen of iemand doorgaat of juist afhaakt.
 
-De customer journey methodiek helpt je te denken en innoveren vanuit het perspectief van de klant. Een krachtig startpunt om je dienstverlening te optimaliseren. [Hoe het werkt](#info)
+## Wat bepaalt bij het onderzoek de aanpak en prijs?
 
-[Advies op maat](/contact-2/)
-<!-- /BLOK:ctaBlock -->
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2021/12/customer-journey.jpg (title: customer-journey) -- quality-fase: downloaden+optimaliseren -->
-![customer journey](/src/images/assets/blog.jpeg)
+Elke klantreis is anders. Dat geldt ook voor de manier waarop we die onderzoeken. Met een paar keuzes bepaal je zelf welke aanpak het beste past:
 
-[aioseo\_breadcrumbs]
+:::bullets
+- Lever je zelf respondenten aan uit je eigen klantbestand of werven wij ze via een panel?
+- Kies je voor een eenmalige meting of doorlopend onderzoek?
+- Wil je kwantitatief onderzoek met een survey, kwalitatieve diepte-interviews of een combinatie van beide?
+:::
 
-Hoe maak je van een klant een tevreden klant? Iedere relatie heeft eigen wensen en behoeften. Daarom is het bieden van een optimale klantervaring niet eenvoudig.
+Deze keuzes bepalen niet alleen de aanpak, maar ook de prijs. Dat zie je direct terug in de calculator bovenaan de pagina.
 
-## Een stap verder
+Een eenmalige meting geeft een scherp beeld van de huidige situatie. Maar klantreizen veranderen mee met je organisatie, dienstverlening en de markt. Organisaties die continu willen verbeteren kiezen daarom vaak voor doorlopend onderzoek, zodat ze kunnen toetsen of verbeteringen daadwerkelijk effect hebben.
 
-Onze experts kijken bij de uitwerking van customer journeys niet alleen naar de reis en touchpoints. We onderzoeken de totaalbeleving van klanten. Onder andere met behulp van:
+## Wanneer zet je het in?
 
-- kwalitatief onderzoek
-- data analyse
-- optimalisatie testen.
+Customer journey-onderzoek is waardevol wanneer je bijvoorbeeld:
 
-Zo krijgt de klantreis een stevig fundament. Een ideaal startpunt voor verbetering van dienstverlening en innovatie.
+:::bullets
+- retentie wilt verhogen en churn wilt verminderen;
+- onboarding wilt verbeteren;
+- dienstverlening over meerdere kanalen en afdelingen wilt optimaliseren;
+- silo's wilt doorbreken met een gedeeld klantbeeld;
+- wilt innoveren vanuit echte klantbehoeften.
+:::
 
-<!-- IMG originele bron: https://www.generationjourney.nl/wp-content/uploads/2019/08/customer-journey.gif (title: customer-journey) -- quality-fase: downloaden+optimaliseren -->
-![customer journey mapping](/src/images/assets/blog.jpeg)
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2021/12/breingeheimen.png (title: breingeheimen) -- quality-fase: downloaden+optimaliseren -->
-![breingeheimen](/src/images/assets/blog.jpeg)
+## Wanneer is het minder geschikt?
 
-## Kennis & ervaring
+Wil je één losse uiting testen? Dan is een pretest meestal geschikter. Wil je een specifiek scherm of een flow beoordelen op gebruiksgemak? Dan past een gebruikerstest beter. Customer journey-onderzoek kijkt naar de volledige klantreis, niet naar één afzonderlijk moment.
 
-Sinds 2000 hebben we ervaring met het gebruik van de customer journey-methodiek.
+## Wat levert het op?
 
-Over het onderwerp schreven we onder andere het boek [*Breingeheimen*](https://www.bol.com/nl/p/breingeheimen/9200000123892152/) en expert Joep van Rensch is mede-auto van het *[Basisboek Customer Journey](https://managementboek.nl/zoeken/cat:managementboeken?q=joep+van+rensch)*.
+Bij Diversions stopt onderzoek niet bij het inzicht. Een customer journey heeft pas waarde als de inzichten leiden tot concrete verbeteringen. Daarom werken we altijd in drie stappen:
 
-Wil je weten hoe onze kennis ervaring jouw organisatie verder kan helpen? Plan dan een gratis online inspiratiesessie. Bel **055 20 32 193.**
+:::nummers
+- LABEL: Inzicht | TEKST: Een journey map met de verschillende fasen, de emotiecurve, touchpoints en pijnpunten.
+- LABEL: Vertaling | TEKST: Waarom stokt de klantbeleving op deze momenten? Welke fasen bieden de grootste kans op verbetering?
+- LABEL: Toepassing | TEKST: Concrete, geprioriteerde aanbevelingen waarmee je de stap zet van inzicht naar actie.
+:::
 
-<!-- BLOK:ctaBlock heading="Groei binnen handbereik" buttonLabel="Afspraak maken" buttonHref=/contact-2/ variant=default -->
-### Groei binnen handbereik
+De journey map is daarbij de visualisatie van het onderzoek, vergelijkbaar met de heatmap binnen een pretest.
 
-[055 20 32 193](tel://0031-55-2032193)
+Een goed beeld van de customer journey heeft veel waarde. Het vertaalt zich in de praktijk bijvoorbeeld naar minder supportvragen, een hogere klanttevredenheid, meer conversie en een betere klantbinding.
 
-[Afspraak maken](/contact-2/)
-<!-- /BLOK:ctaBlock -->
-## Customer Journey: door de ogen van uw klant!
+Wij helpen bij de vertaling van onderzoeksresultaten naar concrete optimalisaties.
 
-### Definitie: customer journey
+## Wat kost customer journey-onderzoek?
 
-Wat is een customer journey? Deze vraag staat in een groeiend aantal boeken en online artikelen centraal. Het antwoord op de vraag verschilt echter regelmatig.
+Veel onderzoeksbureaus werken met offertes op aanvraag. Wij bieden je graag direct een prijsindicatie.
 
-Marketeers hebben soms de neiging een klantreis te vereenvoudigen tot het traject dat een klant aflegt wanneer hij of zij een product gaat kopen, maar deze beschrijving schiet vaak tekort.
+Geef je wensen aan in de calculator en zie welke invloed je keuzes hebben op de prijs. Heb je een mix gevonden die je aanspreekt? Dan stemmen we graag de gemaakte keuzes met je af en stellen de definitieve offerte op. Helder en snel.
 
-Journeys zijn meer dan een verkoopfunnel. Je neemt klantwensen echt serieus als je kijkt naar de totale klantbeleving. Die wens speelt niet alleen een rol tijdens het verkoopproces, maar ook bij bijvoorbeeld levering, service & support en retentie.
+De prijs van een customer journey onderzoek hangt af van je exacte wensen. Wat de prijs beïnvloedt zijn de keuzes voor:
 
-Deze totaalbeleving wordt steeds belangrijker. Het is dan ook niet vreemd dat de customer journey op steeds meer plekken zijn intrede doet. In B2C en B2B, bij profit & non-profit.
+:::bullets
+- de onderzoeksmethode (survey, rijke survey met AI-doorvragen of diepte-interviews);
+- het aantal fasen en touchpoints;
+- de doelgroep (je eigen klantbestand of een panel);
+- de gewenste steekproef;
+- een eenmalig of doorlopend onderzoeksprogramma.
+:::
 
-### Gewenst gedrag en je invloed daarop
+Indicatief voor de Nederlandse markt (excl. btw) ligt een eenmalige survey met eigen respondenten vanaf ongeveer € 3.500 en een uitgebreider kwantitatief traject rond € 15.000. Werk je liever kwalitatief met diepte-interviews, dan ligt de investering meestal tussen € 3.000 en € 12.000.
 
-Als organisatie heb je doelstellingen. Om die te realiseren is het belangrijk je klanten te verleiden tot specifiek gedrag. Maar hoe komt gedrag tot stand? Dankzij het onderzoekswerk van [dr. BJ Fogg](http://behaviormodel.org/) weten we daar veel over.
+## Customer journey vs. pretest of gebruikerstest?
 
-Kortgezegd komt gedrag voort uit een mix van 3 elementen: motivatie, gelegenheid en triggers (zie het [voorbeeld](#voorbeeld)). Een customer journey helpt je te ontdekken welke van de drie elementen extra aandacht nodig heeft.
+Een customer journey onderzoekt de volledige klantreis en de beleving per fase. Een pretest toetst één uiting voordat deze live gaat. Een gebruikerstest richt zich op het gebruiksgemak van een specifieke interface, pagina of flow. De onderzoeken vullen elkaar aan, maar beantwoorden verschillende onderzoeksvragen.
 
-### Meer dan touchpoints
+## Hoe pakt Diversions het onderzoek aan?
 
-Lees je over customer journeys, dan valt al snel het woord "touchpoints" (zoals beschreven door [Bruce D. Temkin](http://crowdsynergy.wdfiles.com/local--files/customer-journey-mapping/mapping_customer_journey.pdf)).
+We beginnen niet buiten je organisatie, maar binnen. Eerst verzamelen we de signalen die je al hebt: analytics, klantvragen en de kennis van medewerkers die dagelijks met klanten spreken. Daarmee vormen we een stevige basis voor de onderzoeksopzet.
 
-Het gaat dan om alle momenten waarop je contact hebt met klanten. In journeys geef je (tijdens de [mapping](https://www.generationjourney.nl/customer-journey/customer-journey-mapping/)-fase) aan welke touchpoints er zijn. Daar kleeft echter wel een risico aan.
+Tijdens het onderzoek brengen we per fase en per touchpoint in beeld hoe klanten de reis ervaren. We kijken naar emoties, moeite, verwachtingen en de verschillen tussen verwachting en werkelijkheid. Zo ontdekken we welke momenten de sterkste invloed hebben op de totale klantbeleving.
 
-Het zijn niet alleen de contactmomenten met je eigen organisatie die een rol spelen bij keuzes die klanten maken. Daarom stellen we customer journeys breder op. Zo wordt ook duidelijk op welke processen je zelf invloed hebt. En op welke minder.
+Het waarom achter het gedrag duiden we met gedragswetenschappelijke modellen, zoals het Fogg Behavior Model en inzichten uit de breinwetenschap.
 
-### In het hoofd van je klant
+Bij het onderzoek speelt AI een waardevolle rol. Het maakt smart surveys mogelijk, waarbij gericht kan worden doorgevraagd op antwoorden die respondenten geven. Daarnaast helpt AI bij transcripties en analyses.
 
-Customer journeys zijn er in verschillende vormen. Soms worden ze weergegeven als een vrijwel uniform proces: van awareness tot retention. In andere gevallen worden emotiecurves toegevoegd, die laten zien welk gevoel iedere stap in de klantreis oproept.
+AI is een waardevol hulpmiddel, maar onderzoek blijft mensenwerk. Een ervaren onderzoeker zet het onderzoek op en duidt de uitkomsten. Steeds met hetzelfde doel: niet alleen begrijpen wat er gebeurt, maar vooral weten wat je morgen kunt verbeteren.
 
-Wij gaan nog een stap verder. We verdiepen ons in de heuristieken die ten grondslag liggen aan emoties en handelingen. Die noemen we breingeheimen, het zijn de vaste denkstrategieën die mensen toepassen.
+## Een voorbeeld uit de praktijk
 
-Zo'n strategie is een short cut die ons helpt om snel te denken en handelen. Cialdini beschreef er een aantal in zijn bekende werk "[Invloed, de 6 geheimen van het overtuigen.](https://www.managementboek.nl/boek/9789052617152/invloed-robert-cialdini)" Wij verzamelden 42 breingeheimen, die we nu toepassen in ons werk.
+In Nederland is de doorstroming op de woningmarkt een uitdaging. Een organisatie vroeg ons te onderzoeken hoe mensen geïnteresseerd raken in woonvormen die passen bij het ouder worden en welke drempels hen daarbij tegenhouden.
 
-### De customer journey als specialisme
+Vaak wordt vooral gekeken naar het beschikbare woonaanbod. Het customer journey-onderzoek liet echter zien dat het probleem veel breder was. Senioren zochten actief naar informatie, maar moesten langs verschillende loketten die bovendien verschilden voor huurders en kopers.
 
-De customer journey methodiek is niet moeilijk. Het principe van de klantreis is zo laagdrempelig dat veel organisaties er zelf mee aan de slag gaan. Waarom zou je kiezen voor de hulp van experts?
+Niet de motivatie vormde de grootste drempel, maar het gebrek aan overzicht en regie tijdens de klantreis.
 
-Onze kennis en ervaring brengt je journey insights naar een hoger niveau. We helpen je blinde vlekken te ontdekken en omzeilen. Geven extra context bij het "waarom" van klantgedrag. En helpen insights te vertalen naar concrete [optimalisaties](https://www.generationjourney.nl/customer-journey/journey-optimalisatie-personalisatie/).
+:::nummers
+- LABEL: Inzicht | TEKST: Senioren zoeken actief naar informatie, maar lopen vast in versnipperde en ongelijk georganiseerde loketten.
+- LABEL: Vertaling | TEKST: Niet (alleen) het woningaanbod hield mensen tegen, maar het ontbreken van overzicht en regie tijdens de klantreis.
+- LABEL: Toepassing | TEKST: Door informatie beter aan te laten sluiten op de verschillende fasen van de klantreis en communicatie te personaliseren, nam het contact met woonconsulenten toe.
+:::
 
-Specialist in Customer Journeys
+## Wat is je volgende stap?
 
-Meer weten? We vertellen je graag alles over de mogelijkheden van de customer journey-methodiek.
+Elk onderzoek eindigt met Toepassing: concrete aanbevelingen, geprioriteerd naar impact, zodat je niet met een rapport blijft zitten, maar direct aan de slag kunt.
 
-[Vrijblijvende kennismaking](/contact-2/) 
+:::bullets
+- Morgen: quick wins op de grootste pijnpunten.
+- Volgende maand: de fase met de grootste verbeterkansen optimaliseren.
+- Daarna: aanpassen van werk- en feedbackprocessen.
+:::
 
-### Lees ook
+Wil je de vertaalslag niet alleen op papier maken, maar ook samen met je team? Dan begeleiden we een werksessie waarin we de inzichten vertalen naar een concreet actieplan.
 
-- [Customer journey mapping](https://www.generationjourney.nl/customer-journey/customer-journey-mapping/)
-- [Optimalisatie & personalisatie](https://www.generationjourney.nl/customer-journey/journey-optimalisatie-personalisatie/)
-- [De volledige journey](/uitdaging-voor-het-begrijpen-van-de-customer-journey/)
-- [Template: customer journey](https://www.generationjourney.nl/customer-journey/customer-journey-downloaden/)
+Onderzoek van Diversions levert geen dik rapport op dat in een la verdwijnt. We bieden een routekaart waarmee je direct verder kunt.
 
-### Extra: het verhaal achter klantgedrag
+## Veelgestelde vragen
 
-Hoe komt gedrag van mensen tot stand? Dr. BJ Fogg (van de Stanford University) deed er uitgebreid onderzoek naar. Hij stelde vast dat drie factoren een rol spelen bij klantgedrag:
+:::faq
+VRAAG: Wat kost een customer journey-onderzoek?
+ANTWOORD: Vanaf € 3.500 wanneer je zelf respondenten aanlevert voor een eenmalige survey. De uiteindelijke prijs hangt af van je keuzes: eenmalig of doorlopend, kwalitatief of kwantitatief en eigen respondenten of een panel. Met de calculator op onze site bereken je direct een prijsindicatie.
+:::
+:::faq
+VRAAG: Werken jullie met onze eigen klanten?
+ANTWOORD: Meestal wel. Customer journey-onderzoek draait vaak om mensen die de klantreis recent hebben doorlopen. Voor prospect journeys of specifieke doelgroepen werken we met een panel of een maatwerksteekproef. Altijd in overleg.
+:::
+:::faq
+VRAAG: Wat is het verschil met een pretest?
+ANTWOORD: Een pretest toetst één uiting voordat deze live gaat. Een customer journey brengt de volledige klantreis en de beleving per fase in kaart. Beide onderzoeken vullen elkaar aan, maar hebben een ander doel.
+:::
 
-motivatie x gelegenheid x trigger
+## Over de onderzoeker
 
-Hoe werkt dit nu in de praktijk? We leggen het graag uit aan de hand van een eenvoudig voorbeeld.
+William Burghout is onderzoeker en innovatiespecialist.
 
-**Case:** je telefoon gaat. Neem je op of niet?
-
-Drie scenario's:
-
-<!-- IMG originele bron: https://www.generationjourney.nl/wp-content/uploads/2019/06/gedrag-fogg.png -- quality-fase: downloaden+optimaliseren -->
-![Customer journey gedrag](/src/images/assets/blog.jpeg)
-
- [1: Motivatie](#) 
- [2: Trigger](#) 
- [3: Gelegenheid](#) 
-1: Motivatie
-
-Je voelt je telefoon trillen (trigger), stopt even met werken en pakt je telefoon (gelegenheid) en ziet het nummer van de opdringerige verkoper die je maar blijft benaderen.
-
-Je laat het  gesprek onbeantwoord: de **motivatie** ontbreekt om op te nemen.
-
-2: Trigger
-
-je wandelt rustig naar de koffieautomaat (gelegenheid). Op dat moment gaat je telefoon: het is de leverancier die je dringend moet spreken (motivatie).
-
-Omdat je telefoon nog op je werkplek ligt, mis je de gespreksoproep. Daardoor ontbreekt de **trigger** om actie te ondernemen.
-
-3: Gelegenheid
-
-Je wordt gebeld door een klant die je graag wilt spreken (motivatie). Je ziet de oproep in je scherm verschijnen (trigger), maar zit net in een belangrijke afspraak.
-
-De **gelegenheid** ontbreekt om de beller te woord te staan.
-
-Let op: in het laatste geval zou je waarschijnlijk wel opnemen als bijvoorbeeld de school van je kinderen belt. De motivatie neemt dan dermate toe dat je het gebrek aan gelegenheid even voor lief neemt.
-
-### De les uit dit voorbeeld
-
-Helaas beperken marketing en sales zich vaak tot het testen van verschillende triggers. Investeren in vindbaarheid, social media en advertenties, het is allemaal weinig zinvol wanneer de motivatie en gelegenheid bij je doelgroep ontbreken om in actie te komen.
-
-Een goede customer journey toont je waar de uitdaging voor jouw organisatie ligt. We vertellen je er graag meer over, zodat motivatie, gelegenheid en trigger bij jouw verkoopproces wél samenkomen.
-
-## Starten met customer journeys: de voorbereiding
-
-### De voorbereiding
-
-Een goede voorbereiding is onmisbaar bij het opstellen van een klantreis. Te vaak lijkt het optekenen van de journey een doel op zich te zijn. 'Als we alles in kaart hebben gebracht, komen de ideeën vanzelf.'
-
-Het biedt zeker inspiratie om aan de hand van een customer journey te brainstormen. Maar met meer inspanning vooraf verbeter je de resultaten en met name de toepasbaarheid van ideeën.
-
-Om je op weg te helpen hebben we een aantal startvragen opgesteld. Ze helpen om met de juiste verwachtingen en voorbereiding te starten met je project.
-
-### Bepaal het doel
-
-We zijn groot fan van de customer journey. Maar het is niet in alle gevallen de beste methodiek. Stel vooraf vast wat je wilt bereiken. Check daarna of het opstellen van de klantreis de beste methode is om te gebruiken. Toets hierbij op scope, budget en de benodigde inzet van jou en je collega's.
-
-Doelen die je kunt nastreven met customer journeys zijn (vrij naar [Custellence](https://custellence.com/)):
-
-**A) Verzamelen van insights.**   
-Hoe denken klanten over jouw dienstverlening? Wat remt ze om bij je te kopen? Op welke momenten tijdens de klantreis voelen ze positieve of negatieve emoties? Etc.  
-Bedenk dat je verschillende insights kunt verzamelen. Zowel tijdens de reis van 'klant worden', 'onboarding' als 'klant blijven'. Ook het onder de loep nemen van het proces 'beeindigen relatie' blijkt vaak een bron voor verrassende inzichten.
-
-**B) Interne focus op de klant.**  
-Het overkomt iedere organisatie: vroeg of laat ontstaat het risico dat eigen werkprocessen de aandacht voor klanten overschaduwen. Door met je team de wereld door een klantbril te bekijken doorbreek je dit. Het is leerzaam. Laat zien waarom je elkaar nodig hebt. En ook belangrijk: leuk om te doen.
-
-**C) Customer journeys helpen bij innovatie.**  
-Door met frisse blik naar je dienstverlening te kijken ontstaan de beste ideeën. En doordat ze niet technisch of vanuit procesoptimalisatie gedreven zijn, is de slagingskans van deze innovaties hoger dan gemiddeld.
-
-**D) Bepaal prioriteiten.**  
-In vrijwel iedere organisatie zijn er meer verbeterideeën dan capaciteit om deze te realiseren. Wie bepaalt de prioriteiten en op basis van welke criteria? Door te oordelen aan de hand van de klantreis voorkom je dat hiërarchie of discussievaardigheid bepalend is bij het opstellen van een veranderkalender. Je zet de klant op 1.
-
-### Volgende stap
-
-Heb je een goed beeld van de doelen die je wilt bereiken? Dan zul je zien dat ook je beeld over het klantreisproject wijzigt. Wil je de beste innovaties of een organisatie in beweging krijgen? Weet je voldoende van klantwensen of is onderzoek nodig? Etc.
-
-De ambities die je hebt zijn bepalend voor het project dat je start.
-
-## Meest gestelde vragen
-
-Wat is een customer journey?
-
-Stel: een klant wil een product of dienst afnemen. Dan vraagt het bij de meeste producten en diensten tijd om een besluit over de aanschaf te nemen. De reis die een consument aflegt van interesse / eerste oriëntatie tot de aankoop noemen we de "customer journey".
-
-Welke soorten customer journeys zijn er?
-
-Vaak wordt onderscheid gemaakt tussen drie fasen: klant worden (sales), klant ontvangst (introductie met of levering van je product) en klant blijven (retentie). Het is ook mogelijk journeys per werkgebied in te delen. Denk hierbij aan een patient journey, employee journey etc.
-
-Hoe gaat customer journey mapping in zijn werk?
-
-Een klantreis is een sterke metafoor. Je kunt visueel vastleggen hoe een reis / journey eruit ziet. Hiervoor zijn verschillende tools beschikbaar. Maar in workshops werkt het minstens zo goed om schetsen te maken. Bedenk: het mappen van de journey is geen doel op zich. De map moet je helpen om gerichte optimalisaties te bedenken.
-
-Wat is de meest gemaakte journey-fout?
-
-Te vaak starten organisaties bij het eigen perspectief in plaats van bij het belang van de klant. Je moet geen klanten in jouw verkoopfunnel persen. Maar je funnel laten aansluiten op de wensen van je doelgroep. Onderzoek is hierbij van groot belang.
+Diversions is lid van het Data & Insights Network. Data wordt in de EU gehost (AVG by design).

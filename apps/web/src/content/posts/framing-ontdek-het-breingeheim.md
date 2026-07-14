@@ -28,8 +28,7 @@ Stel: je loopt op de markt.
 
 Je wilt een zak appels kopen. Er staan verschillende fruitkramen. Bij de eerste kraam staat een bord: "Appels: boordevol vitamines!"
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2024/02/framing-1.png -- quality-fase: downloaden+optimaliseren -->
-[![Framing voorbeeld: gezond of duurzaam](/src/images/assets/blog.jpeg)](/wp-content/uploads/2024/02/framing-1.png)
+![Framing voorbeeld: gezond of duurzaam](/src/images/blog/framing-1.png)
 
 Gezond of duurzaam
 

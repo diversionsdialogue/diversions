@@ -29,8 +29,7 @@ Je vindt al snel tientallen modellen. Elk met eigen specificaties, prijsklasse e
 
 Gelukkig vind je een slimme gids. Door enkele eenvoudige vragen te beantwoorden over je gebruik en voorkeuren, brengt de gids het aanbod terug tot een beheersbare hoeveelheid.
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2024/02/keuze-beperken.png -- quality-fase: downloaden+optimaliseren -->
-[![Beperkte keuze: neuromarketing](/src/images/assets/blog.jpeg)](/wp-content/uploads/2024/02/keuze-beperken.png)
+![Beperkte keuze: neuromarketing](/src/images/blog/keuze-beperken.png)
 
 Beperkte keuze: kies je uit de top 3 of overweeg je alle modellen?
 

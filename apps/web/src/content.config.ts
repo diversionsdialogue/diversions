@@ -71,6 +71,10 @@ const services = defineCollection({
   schema: z.object({
     service: z.string(),
     description: z.string(),
+    // Optioneel: korte titel + inleiding voor het diensten-overzicht.
+    // Additief — bestaande .md zonder deze velden blijven valideren.
+    overviewTitle: z.string().optional(),
+    overviewIntro: z.string().optional(),
     // Optioneel: miniatuur + filtercategorieën voor het diensten-overzicht.
     // Additief — bestaande .md zonder deze velden blijven valideren. `url` is
     // een plain string (kan een remote/Sanity CDN-URL zijn), net als

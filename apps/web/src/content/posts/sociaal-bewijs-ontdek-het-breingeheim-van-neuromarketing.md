@@ -29,8 +29,7 @@ Na afloop van een training raak je aan de praat met andere sporters. Ze blijken 
 
 Je checkt snel de website van het product en ontdekt hier veel enthousiaste reviews. Allemaal van sporters zoals jij. De shake is duur, maar een keer proberen kan geen kwaad toch?
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2024/02/sociaal-bewijs.png -- quality-fase: downloaden+optimaliseren -->
-[![Voorbeeld van sociaal bewijs](/src/images/assets/blog.jpeg)](/wp-content/uploads/2024/02/sociaal-bewijs.png)
+![Voorbeeld van sociaal bewijs](/src/images/blog/sociaal-bewijs.png)
 
 Sociaal bewijs in de sportschool.
 
