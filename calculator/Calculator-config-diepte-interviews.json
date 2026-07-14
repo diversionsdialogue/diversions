@@ -1,0 +1,153 @@
+{
+  "calculator": "diepte-interviews",
+  "versie": "2026-07-14a",
+  "titel": "Bereken je prijsindicatie diepte-interviews",
+  "disclaimer": "Een betrouwbare prijsindicatie op basis van vergelijkbare onderzoeken. Geen bindende offerte.",
+  "basisVan": "customer-journey",
+  "verschilMetBasis": "Geen pakketkeuze: diepte-interviews zijn altijd kwalitatief (tier PLUS). De survey-/combi-posten en de Smart Survey-vraag vervallen. Alle overige keuzes (respondenten, frequentie, doelgroepen) en tarieven zijn gelijk aan customer-journey.",
+  "aannames": {
+    "valuta": "EUR",
+    "exclBtw": true,
+    "margeInbegrepen": true,
+    "margeOpmerking": "Marge zit verwerkt in de basisprijs en de stuktarieven; geen aparte margepost.",
+    "pakketVast": "kwali",
+    "zelfAanleverenDoelgroepen": 1,
+    "zelfAanleverenOpmerking": "Bij 'Zelf aanleveren' is het doelgroepen-veld verborgen en rekent de calculator met 1 doelgroep.",
+    "wervingDoelgroep": "B2C-consumentendoelgroep",
+    "wervingDisclaimer": "Tarief op basis van consumentendoelgroepen (B2C). B2B-doelgroepen op aanvraag."
+  },
+  "klanttekst": {
+    "_opmerking": "Afgeleid van de customer-journey-copy; teksten toegespitst op diepte-interviews.",
+    "merk": "Bereken je prijsindicatie",
+    "introOnderTitel": "Bereken in een paar klikken een richtprijs voor je diepte-interviews.",
+    "expert": {
+      "naam": "William Burghout",
+      "rol": "Hoofd Onderzoek",
+      "tekst": "We nemen de interviews graag af volgens jouw wensen. Geef hier je voorkeuren aan."
+    },
+    "watJeKrijgt": {
+      "titel": "Wat je krijgt",
+      "features": [
+        "Persoonlijke diepte-interviews",
+        "Focus op het waarom achter het gedrag",
+        "Aanbevelingen voor een geoptimaliseerde klantbeleving"
+      ]
+    },
+    "respondenten": {
+      "vraag": "Wie leveren de respondenten?",
+      "zelf": { "titel": "Zelf aanleveren", "uitleg": "Je nodigt je eigen klanten uit voor een gesprek." },
+      "werven": { "titel": "Respondenten werven", "uitleg": "Wij werven de deelnemers via ons panel." },
+      "mix": { "titel": "Mix", "uitleg": "Deels eigen klanten, deels geworven. Hiervoor stellen we een offerte op maat op." }
+    },
+    "frequentie": {
+      "vraag": "Hoe vaak meet je?",
+      "eenmalig": { "titel": "Eenmalig", "uitleg": "Eén ronde diepte-interviews op dit moment." },
+      "doorlopend": { "titel": "Doorlopend", "uitleg": "We blijven periodiek interviews afnemen en volgen de ontwikkelingen." }
+    },
+    "doelgroepen": {
+      "vraag": "Hoeveel doelgroepen?",
+      "help": "Elke doelgroep interviewen we apart, zodat je de inzichten per groep kunt vergelijken."
+    },
+    "resultaat": {
+      "prijslabel": "Jouw indicatie",
+      "disclaimer": "excl. btw · richtprijs op basis van vergelijkbare onderzoeken",
+      "mixTekst": "We stellen graag een offerte op maat voor je op.",
+      "b2bDisclaimer": "Tarief op basis van consumentendoelgroepen. B2B-doelgroepen op aanvraag.",
+      "knoppen": [
+        { "id": "bestellen", "label": "Direct bestellen", "stijl": "primair" },
+        { "id": "advies", "label": "Advies aanvragen", "stijl": "secundair" }
+      ],
+      "fineprint": "Geen account nodig. Na bestelling neemt een onderzoeker binnen één werkdag contact op.",
+      "contactblok": "Specifieke onderzoekswensen, bijvoorbeeld bij de selectie van doelgroepen? Neem contact op: (055) 20 32 193."
+    }
+  },
+  "inputs": [
+    {
+      "id": "respondenten",
+      "stap": 1,
+      "label": "Wie leveren de respondenten?",
+      "type": "segmented",
+      "eersteKeuze": true,
+      "default": "zelf",
+      "opties": [
+        { "value": "zelf", "label": "Zelf aanleveren" },
+        { "value": "werven", "label": "Respondenten werven" },
+        { "value": "mix", "label": "Mix" }
+      ],
+      "toelichting": "Bij 'Zelf aanleveren' gebruik je je eigen klantbase. Bij 'Mix' stellen we een offerte op maat op."
+    },
+    {
+      "id": "frequentie",
+      "stap": 1,
+      "label": "Hoe vaak meet je?",
+      "type": "segmented",
+      "default": "eenmalig",
+      "opties": [
+        { "value": "eenmalig", "label": "Eenmalig" },
+        { "value": "doorlopend", "label": "Doorlopend" }
+      ],
+      "toelichting": "Doorlopend bouwt een meethuis voor herhaalde interviewrondes."
+    },
+    {
+      "id": "doelgroepen",
+      "stap": 2,
+      "label": "Hoeveel doelgroepen?",
+      "type": "select",
+      "toonAls": "respondenten != 'zelf'",
+      "default": 1,
+      "opties": [
+        { "value": 1, "label": "1 doelgroep" },
+        { "value": 2, "label": "2 doelgroepen" },
+        { "value": 3, "label": "3 doelgroepen" }
+      ]
+    }
+  ],
+  "tier": {
+    "_intern": true,
+    "_opmerking": "INTERN — vaste tier PLUS (kwalitatief). Nooit klantgericht tonen.",
+    "waarde": "PLUS"
+  },
+  "steekproef": {
+    "_opmerking": "Automatisch ingevuld op basis van het aantal doelgroepen. Kwalitatief: verzadiging.",
+    "kwali": { "1": 7, "2": 12, "3": 16 },
+    "regel": "Kwali: verzadiging, 7/12/16 interviews bij 1/2/3 doelgroepen."
+  },
+  "tarievenIntern": {
+    "_let_op": "INTERN — leveranciersnamen (panelpartner, kwali-platform) nooit klantgericht tonen. Gelijk aan customer-journey.",
+    "basis": 3000,
+    "doorlopendOpslag": 6000,
+    "wervingKwaliPerInterview": 100,
+    "interviewPerStuk": 200,
+    "handlingEigenRespondenten": 250,
+    "opmerking": "Basis (3000) dekt opstart, projectmanagement en eindrapportage, inclusief marge. Doorlopend (+6000) = meethuis; overige posten blijven gelijk. Werving kwali (100) = rekrutering + incentive (40-50) van de respondent. Interview (200) = afnemen + uitwerken/transcriberen/analyseren. Handling (250) = vaste fee bij aanleveren eigen database; vervangt de wervingskosten."
+  },
+  "prijslogica": {
+    "geldigeDoelgroepen": "respondenten == 'zelf' ? 1 : doelgroepen",
+    "posten": [
+      { "post": "basis", "wanneer": "altijd", "bedrag": "basis" },
+      { "post": "doorlopendOpslag", "wanneer": "frequentie == 'doorlopend'", "bedrag": "doorlopendOpslag" },
+      { "post": "wervingKwali", "wanneer": "respondenten == 'werven'", "bedrag": "wervingKwaliPerInterview * steekproef.kwali[geldigeDoelgroepen]" },
+      { "post": "interviews", "wanneer": "altijd", "bedrag": "interviewPerStuk * steekproef.kwali[geldigeDoelgroepen]" },
+      { "post": "handling", "wanneer": "respondenten == 'zelf'", "bedrag": "handlingEigenRespondenten" }
+    ],
+    "mix": "respondenten == 'mix' => geen prijs tonen; toon '– –' + 'We stellen graag een offerte op maat voor je op.'"
+  },
+  "voorbeelden": [
+    { "respondenten": "zelf", "frequentie": "eenmalig", "doelgroepen": 1, "berekening": "3000 + 250 handling + (200 x 7)", "richtprijs": 4650, "default": true },
+    { "respondenten": "zelf", "frequentie": "doorlopend", "doelgroepen": 1, "berekening": "3000 + 6000 doorlopend + 250 handling + (200 x 7)", "richtprijs": 10650 },
+    { "respondenten": "werven", "frequentie": "eenmalig", "doelgroepen": 1, "berekening": "3000 + (100 x 7) + (200 x 7)", "richtprijs": 5100 },
+    { "respondenten": "werven", "frequentie": "eenmalig", "doelgroepen": 2, "berekening": "3000 + (100 x 12) + (200 x 12)", "richtprijs": 6600 },
+    { "respondenten": "werven", "frequentie": "eenmalig", "doelgroepen": 3, "berekening": "3000 + (100 x 16) + (200 x 16)", "richtprijs": 7800 },
+    { "respondenten": "werven", "frequentie": "doorlopend", "doelgroepen": 2, "berekening": "6600 + 6000 doorlopend", "richtprijs": 12600 },
+    { "respondenten": "mix", "berekening": "geen prijs", "richtprijs": null }
+  ],
+  "guardrails": [
+    "Leveranciersnamen (panelpartner, kwali-platform) nooit klantgericht tonen.",
+    "Geen pakketkeuze tonen: diepte-interviews zijn altijd kwalitatief.",
+    "Mix toont nooit een prijs; altijd '– –' + offerte-op-maat-tekst.",
+    "Bij 'Zelf aanleveren' is het doelgroepen-veld verborgen en rekent de calculator met 1 doelgroep.",
+    "Handling-fee (250) vervangt de wervingskosten; ze worden nooit samen geteld.",
+    "Werving-tarief is B2C; toon de B2B-disclaimer onder de prijs bij 'werven'.",
+    "Prijs is een richtprijs excl. btw, geen bindende offerte."
+  ]
+}

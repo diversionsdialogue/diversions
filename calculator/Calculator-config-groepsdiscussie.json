@@ -1,0 +1,147 @@
+{
+  "calculator": "groepsdiscussie",
+  "versie": "2026-07-14a",
+  "titel": "Bereken je prijsindicatie groepsdiscussie",
+  "disclaimer": "Een betrouwbare prijsindicatie op basis van vergelijkbare onderzoeken. Geen bindende offerte.",
+  "basisVan": "diepte-interviews",
+  "verschilMetBasis": "Geen frequentiekeuze (eenmalig/doorlopend vervalt) en geen interviewkosten per stuk. In plaats daarvan: een vaste opslag per ronde (groepsdiscussie), een locatiekeuze (online/op locatie) en een vaste groepsgrootte van 6 deelnemers. Werving per respondent = kwalitatief tarief (100); op locatie +100% (200).",
+  "aannames": {
+    "valuta": "EUR",
+    "exclBtw": true,
+    "margeInbegrepen": true,
+    "margeOpmerking": "Marge zit verwerkt in de basisprijs en de rondeprijs; geen aparte margepost.",
+    "groepsgrootte": 6,
+    "groepsgrootteOpmerking": "Vast 6 deelnemers per groepsdiscussie. Geen klantkeuze (uitbreiding naar 6/8/10 is bewust uitgesteld).",
+    "completeGroep": "Bij werving door ons zorgen wij voor een complete groep; no-shows worden niet apart benoemd of doorberekend.",
+    "locatiekosten": "Zaalhuur en reiskosten zitten NIET in de indicatie. Bij 'Op locatie' toont het prijspaneel de notitie 'excl. zaalhuur en reiskosten'.",
+    "wervingDoelgroep": "B2C-consumentendoelgroep",
+    "wervingDisclaimer": "Tarief op basis van consumentendoelgroepen (B2C). B2B-doelgroepen op aanvraag."
+  },
+  "klanttekst": {
+    "merk": "Bereken je prijsindicatie",
+    "introOnderTitel": "Bereken in een paar klikken een richtprijs voor je groepsdiscussie.",
+    "expert": {
+      "naam": "William Burghout",
+      "rol": "Hoofd Onderzoek",
+      "tekst": "We begeleiden de groepsdiscussie graag volgens jouw wensen. Geef hier je voorkeuren aan."
+    },
+    "watJeKrijgt": {
+      "titel": "Wat je krijgt",
+      "features": [
+        "Groepsdiscussie met 6 deelnemers, professioneel gemodereerd",
+        "Interactie die meningen, twijfels en ideeën scherp maakt",
+        "Concrete aanbevelingen voor je vervolgstappen"
+      ]
+    },
+    "respondenten": {
+      "vraag": "Wie leveren de deelnemers?",
+      "zelf": { "titel": "Zelf aanleveren", "uitleg": "Je nodigt je eigen klanten of doelgroep uit." },
+      "werven": { "titel": "Deelnemers werven", "uitleg": "Wij werven via ons panel en zorgen voor een complete groep." },
+      "mix": { "titel": "Mix", "uitleg": "Deels eigen deelnemers, deels geworven. Hiervoor stellen we een offerte op maat op." }
+    },
+    "locatie": {
+      "vraag": "Waar vindt de groepsdiscussie plaats?",
+      "online": { "titel": "Online", "uitleg": "Via videoverbinding. Sneller te organiseren en voordeliger." },
+      "locatie": { "titel": "Op locatie", "uitleg": "Fysiek bijeen, bij jou of op een centrale plek. Rijkere interactie." }
+    },
+    "rondes": {
+      "vraag": "Hoeveel groepsdiscussies?",
+      "help": "Elke groep bestaat uit 6 deelnemers. Meerdere rondes zijn zinvol bij meerdere doelgroepen, of om uitkomsten te verdiepen en te toetsen."
+    },
+    "resultaat": {
+      "prijslabel": "Jouw indicatie",
+      "disclaimer": "excl. btw · richtprijs op basis van vergelijkbare onderzoeken",
+      "locatieDisclaimer": "excl. zaalhuur en reiskosten",
+      "mixTekst": "We stellen graag een offerte op maat voor je op.",
+      "b2bDisclaimer": "Tarief op basis van consumentendoelgroepen. B2B-doelgroepen op aanvraag.",
+      "knoppen": [
+        { "id": "bestellen", "label": "Direct bestellen", "stijl": "primair" },
+        { "id": "advies", "label": "Advies aanvragen", "stijl": "secundair" }
+      ],
+      "fineprint": "Na bestelling neemt een onderzoeker binnen één werkdag contact op."
+    }
+  },
+  "inputs": [
+    {
+      "id": "respondenten",
+      "stap": 1,
+      "label": "Wie leveren de deelnemers?",
+      "type": "radio",
+      "eersteKeuze": true,
+      "default": "zelf",
+      "opties": [
+        { "value": "zelf", "label": "Zelf aanleveren" },
+        { "value": "werven", "label": "Deelnemers werven" },
+        { "value": "mix", "label": "Mix" }
+      ]
+    },
+    {
+      "id": "locatie",
+      "stap": 1,
+      "label": "Waar vindt de groepsdiscussie plaats?",
+      "type": "radio",
+      "default": "online",
+      "opties": [
+        { "value": "online", "label": "Online" },
+        { "value": "locatie", "label": "Op locatie" }
+      ],
+      "toelichting": "Op locatie verdubbelt het wervingstarief per deelnemer (hogere vergoeding en opkomstdrempel). Zaalhuur en reiskosten vallen buiten de indicatie."
+    },
+    {
+      "id": "rondes",
+      "stap": 2,
+      "label": "Hoeveel groepsdiscussies?",
+      "type": "select",
+      "default": 1,
+      "opties": [
+        { "value": 1, "label": "1 groepsdiscussie" },
+        { "value": 2, "label": "2 groepsdiscussies" },
+        { "value": 3, "label": "3 groepsdiscussies" }
+      ]
+    }
+  ],
+  "tier": {
+    "_intern": true,
+    "_opmerking": "INTERN — vaste tier PLUS (kwalitatief). Nooit klantgericht tonen.",
+    "waarde": "PLUS"
+  },
+  "tarievenIntern": {
+    "_let_op": "INTERN — leveranciersnamen (panelpartner) nooit klantgericht tonen.",
+    "basis": 3000,
+    "rondePerStuk": 500,
+    "deelnemersPerGroep": 6,
+    "wervingPerDeelnemerOnline": 100,
+    "wervingPerDeelnemerLocatie": 200,
+    "handlingEigenRespondenten": 250,
+    "opmerking": "Basis (3000) dekt opstart, draaiboek, projectmanagement en eindrapportage, inclusief marge. Ronde (500) = moderatie + uitwerking per groepsdiscussie; OOK de eerste ronde telt mee (1 ronde = 3500 + deelnemers). Werving online (100) = kwalitatief wervingstarief incl. incentive; op locatie +100% (200) vanwege hogere vergoeding en opkomstdrempel. Handling (250) = vaste eenmalige fee bij aanleveren eigen deelnemers; vervangt de wervingskosten en geldt niet per ronde."
+  },
+  "prijslogica": {
+    "posten": [
+      { "post": "basis", "wanneer": "altijd", "bedrag": "basis" },
+      { "post": "rondes", "wanneer": "altijd", "bedrag": "rondePerStuk * rondes" },
+      { "post": "werving", "wanneer": "respondenten == 'werven'", "bedrag": "rondes * deelnemersPerGroep * (locatie == 'locatie' ? wervingPerDeelnemerLocatie : wervingPerDeelnemerOnline)" },
+      { "post": "handling", "wanneer": "respondenten == 'zelf'", "bedrag": "handlingEigenRespondenten (eenmalig, niet per ronde)" }
+    ],
+    "mix": "respondenten == 'mix' => geen prijs tonen; toon '– –' + 'We stellen graag een offerte op maat voor je op.'"
+  },
+  "voorbeelden": [
+    { "respondenten": "zelf", "locatie": "online", "rondes": 1, "berekening": "3000 + 500 + 250 handling", "richtprijs": 3750, "default": true },
+    { "respondenten": "werven", "locatie": "online", "rondes": 1, "berekening": "3000 + 500 + (6 x 100)", "richtprijs": 4100 },
+    { "respondenten": "werven", "locatie": "locatie", "rondes": 1, "berekening": "3000 + 500 + (6 x 200)", "richtprijs": 4700 },
+    { "respondenten": "werven", "locatie": "online", "rondes": 2, "berekening": "3000 + 1000 + (12 x 100)", "richtprijs": 5200 },
+    { "respondenten": "werven", "locatie": "locatie", "rondes": 3, "berekening": "3000 + 1500 + (18 x 200)", "richtprijs": 8100 },
+    { "respondenten": "zelf", "locatie": "locatie", "rondes": 2, "berekening": "3000 + 1000 + 250 handling", "richtprijs": 4250 },
+    { "respondenten": "mix", "berekening": "geen prijs", "richtprijs": null }
+  ],
+  "guardrails": [
+    "Leveranciersnamen (panelpartner) nooit klantgericht tonen.",
+    "Groepsgrootte is vast 6; geen klantkeuze tonen.",
+    "Mix toont nooit een prijs; altijd '– –' + offerte-op-maat-tekst.",
+    "Handling-fee (250) vervangt de wervingskosten; ze worden nooit samen geteld. Eenmalig, niet per ronde.",
+    "Bij 'Op locatie' altijd de notitie 'excl. zaalhuur en reiskosten' tonen in het prijspaneel en de samenvatting; bij 'Online' niet.",
+    "No-shows niet benoemen; wél de belofte dat wij bij werving voor een complete groep zorgen.",
+    "Werving-tarief is B2C; toon de B2B-disclaimer onder de prijs bij 'werven'.",
+    "Prijs is een richtprijs excl. btw, geen bindende offerte.",
+    "Geen frequentiekeuze (eenmalig/doorlopend) tonen."
+  ]
+}

@@ -1,6 +1,6 @@
 ---
 // Diversions site footer (omgebouwd vanuit design/components.jsx <Footer/>).
-// Merk-kolom (logo + tagline + socials), kolommen Studio/Werk/Contact, basisbalk.
+// Merk-kolom (logo + tagline + socials), kolommen Meest gelezen/Werk/Contact, basisbalk.
 //
 // Links verwijzen naar WERKELIJKE bestaande routes (inventaris.json). Design-items
 // zonder bestemming zijn WEGGELATEN en GEFLAGD in het rapport:
@@ -8,7 +8,14 @@
 //   - Social-URL's (#) + telefoon/adres -> design-placeholders, eigenaar vult aan.
 const year = new Date().getFullYear();
 
-const studioLinks = [{ name: "Over ons", href: "/wij-zijn-diversions" }];
+// "Meest gelezen": de vier onderzoeken uit de services-sectie op de home
+// (apps/web/src/pages/index.astro). Labels + routes 1-op-1 met de home gehouden.
+const mostReadLinks = [
+  { name: "Klanttevredenheid", href: "/services/klanttevredenheidsonderzoek" },
+  { name: "Customer journey", href: "/services/customer-journey" },
+  { name: "Campagne-effect", href: "/services/campagne-effectonderzoek" },
+  { name: "Pretest", href: "/services/pretest" },
+];
 const workLinks = [
   { name: "Cases", href: "/work" },
   { name: "Services", href: "/onze-diensten" },
@@ -46,8 +53,8 @@ const legalLinks = [
     </div>
 
     <div class="footer-col">
-      <h4>Studio</h4>
-      {studioLinks.map((l) => <a href={l.href}>{l.name}</a>)}
+      <h4>Meest gelezen</h4>
+      {mostReadLinks.map((l) => <a href={l.href}>{l.name}</a>)}
     </div>
 
     <div class="footer-col">

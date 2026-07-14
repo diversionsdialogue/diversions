@@ -1,0 +1,169 @@
+{
+  "calculator": "kwantitatief-onderzoek",
+  "versie": "2026-07-14a",
+  "titel": "Bereken je prijsindicatie kwantitatief onderzoek",
+  "disclaimer": "Een betrouwbare prijsindicatie op basis van vergelijkbare onderzoeken. Geen bindende offerte.",
+  "basisVan": "customer-journey",
+  "verschilMetBasis": "Geen pakketkeuze: kwantitatief onderzoek is altijd een survey (pakket vast op 'survey', interne tier LIGHT/CORE). De kwalitatieve/combi-posten (interviews, werving-kwali) vervallen. De Smart Survey-vraag BLIJFT (die hoort bij survey). Alle overige keuzes (respondenten, frequentie, doelgroepen) en tarieven zijn gelijk aan customer-journey.",
+  "aannames": {
+    "valuta": "EUR",
+    "exclBtw": true,
+    "margeInbegrepen": true,
+    "margeOpmerking": "Marge zit verwerkt in de basisprijs en de stuktarieven; geen aparte margepost.",
+    "pakketVast": "survey",
+    "zelfAanleverenDoelgroepen": 1,
+    "zelfAanleverenOpmerking": "Bij 'Zelf aanleveren' is het doelgroepen-veld verborgen en rekent de calculator met 1 doelgroep.",
+    "wervingDoelgroep": "B2C-consumentendoelgroep",
+    "wervingDisclaimer": "Tarief op basis van consumentendoelgroepen (B2C). B2B-doelgroepen op aanvraag."
+  },
+  "klanttekst": {
+    "_opmerking": "Afgeleid van de customer-journey-copy; teksten toegespitst op kwantitatief onderzoek.",
+    "merk": "Bereken je prijsindicatie",
+    "introOnderTitel": "Bereken in een paar klikken een richtprijs voor je kwantitatieve onderzoek.",
+    "expert": {
+      "naam": "William Burghout",
+      "rol": "Hoofd Onderzoek",
+      "tekst": "We stellen je survey graag op volgens jouw wensen. Geef hier je voorkeuren aan."
+    },
+    "respondenten": {
+      "vraag": "Wie leveren de respondenten?",
+      "zelf": { "titel": "Zelf aanleveren", "uitleg": "Je nodigt je eigen klanten of relaties uit." },
+      "werven": { "titel": "Respondenten werven", "uitleg": "Wij werven de deelnemers via ons panel." },
+      "mix": { "titel": "Mix", "uitleg": "Deels eigen klanten, deels geworven. Hiervoor stellen we een offerte op maat op." }
+    },
+    "frequentie": {
+      "vraag": "Hoe vaak meet je?",
+      "eenmalig": { "titel": "Eenmalig", "uitleg": "Eén meting op dit moment." },
+      "doorlopend": { "titel": "Doorlopend", "uitleg": "Een meethuis met dashboard voor herhaalde metingen door de tijd." }
+    },
+    "smartSurvey": {
+      "vraag": "Wil je gebruikmaken van een Smart Survey?",
+      "uitleg": "Met AI maken we de vragenlijst interactief: respondenten krijgen gerichte vervolgvragen op hun antwoorden. Scherpere inzichten, zonder extra doorlooptijd.",
+      "traditioneel": "Traditionele survey",
+      "smart": "Smart Survey"
+    },
+    "doelgroepen": {
+      "vraag": "Hoeveel doelgroepen?",
+      "help": "Elke doelgroep onderzoeken we apart, zodat je de resultaten per groep kunt vergelijken."
+    },
+    "resultaat": {
+      "prijslabel": "Jouw indicatie",
+      "disclaimer": "excl. btw · richtprijs op basis van vergelijkbare onderzoeken",
+      "mixTekst": "We stellen graag een offerte op maat voor je op.",
+      "b2bDisclaimer": "Tarief op basis van consumentendoelgroepen. B2B-doelgroepen op aanvraag.",
+      "knoppen": [
+        { "id": "bestellen", "label": "Direct bestellen", "stijl": "primair" },
+        { "id": "advies", "label": "Advies aanvragen", "stijl": "secundair" }
+      ],
+      "fineprint": "Geen account nodig. Na bestelling neemt een onderzoeker binnen één werkdag contact op.",
+      "contactblok": "Specifieke onderzoekswensen, bijvoorbeeld bij de selectie van doelgroepen? Neem contact op: (055) 20 32 193."
+    }
+  },
+  "inputs": [
+    {
+      "id": "respondenten",
+      "stap": 1,
+      "label": "Wie leveren de respondenten?",
+      "type": "segmented",
+      "eersteKeuze": true,
+      "default": "zelf",
+      "opties": [
+        { "value": "zelf", "label": "Zelf aanleveren" },
+        { "value": "werven", "label": "Respondenten werven" },
+        { "value": "mix", "label": "Mix" }
+      ],
+      "toelichting": "Bij 'Zelf aanleveren' gebruik je je eigen klantbase. Bij 'Mix' stellen we een offerte op maat op."
+    },
+    {
+      "id": "frequentie",
+      "stap": 1,
+      "label": "Hoe vaak meet je?",
+      "type": "segmented",
+      "default": "eenmalig",
+      "opties": [
+        { "value": "eenmalig", "label": "Eenmalig" },
+        { "value": "doorlopend", "label": "Doorlopend" }
+      ],
+      "toelichting": "Doorlopend bouwt een meethuis met dashboard voor herhaalde metingen."
+    },
+    {
+      "id": "smartSurvey",
+      "stap": 2,
+      "label": "Wil je gebruikmaken van een Smart Survey?",
+      "type": "segmented",
+      "default": "traditioneel",
+      "opties": [
+        { "value": "traditioneel", "label": "Traditionele survey" },
+        { "value": "smart", "label": "Smart Survey" }
+      ],
+      "toelichting": "Met AI maken we de vragenlijst interactief: respondenten krijgen gerichte vervolgvragen op hun antwoorden."
+    },
+    {
+      "id": "doelgroepen",
+      "stap": 2,
+      "label": "Hoeveel doelgroepen?",
+      "type": "select",
+      "toonAls": "respondenten != 'zelf'",
+      "default": 1,
+      "opties": [
+        { "value": 1, "label": "1 doelgroep" },
+        { "value": 2, "label": "2 doelgroepen" },
+        { "value": 3, "label": "3 doelgroepen" }
+      ]
+    }
+  ],
+  "tierMapping": {
+    "_intern": true,
+    "_opmerking": "INTERN — vaste survey; tier LIGHT (traditioneel) of CORE (smart). Nooit klantgericht tonen.",
+    "survey + traditioneel": "LIGHT",
+    "survey + smart": "CORE"
+  },
+  "steekproef": {
+    "_opmerking": "Automatisch ingevuld op basis van het aantal doelgroepen.",
+    "kwanti": { "1": 400, "2": 550, "3": 700 },
+    "regel": "Kwanti: 400 basis + 150 per extra doelgroep."
+  },
+  "tarievenIntern": {
+    "_let_op": "INTERN — leveranciersnamen (surveytool, panelpartner) nooit klantgericht tonen. Gelijk aan customer-journey.",
+    "basis": 3000,
+    "doorlopendOpslag": 6000,
+    "wervingKwantiPerRespondent": 4.5,
+    "surveyToolTraditioneelPerDoelgroep": 250,
+    "surveyToolSmartPerDoelgroep": 500,
+    "handlingEigenRespondenten": 250,
+    "opmerking": "Basis (3000) dekt opstart, projectmanagement, dashboardinrichting en eindrapportage, inclusief marge. Doorlopend (+6000) = meethuis met dashboard; alle overige posten blijven gelijk. Werving kwanti is B2C-tarief incl. incentive. Handling (250) = vaste fee bij aanleveren eigen database; vervangt de wervingskosten."
+  },
+  "prijslogica": {
+    "geldigeDoelgroepen": "respondenten == 'zelf' ? 1 : doelgroepen",
+    "posten": [
+      { "post": "basis", "wanneer": "altijd", "bedrag": "basis" },
+      { "post": "doorlopendOpslag", "wanneer": "frequentie == 'doorlopend'", "bedrag": "doorlopendOpslag" },
+      { "post": "surveyTool", "wanneer": "altijd", "bedrag": "(smartSurvey == 'smart' ? surveyToolSmartPerDoelgroep : surveyToolTraditioneelPerDoelgroep) * geldigeDoelgroepen" },
+      { "post": "wervingKwanti", "wanneer": "respondenten == 'werven'", "bedrag": "wervingKwantiPerRespondent * steekproef.kwanti[geldigeDoelgroepen]" },
+      { "post": "handling", "wanneer": "respondenten == 'zelf'", "bedrag": "handlingEigenRespondenten" }
+    ],
+    "mix": "respondenten == 'mix' => geen prijs tonen; toon '– –' + 'We stellen graag een offerte op maat voor je op.'"
+  },
+  "voorbeelden": [
+    { "respondenten": "zelf", "frequentie": "eenmalig", "smart": false, "doelgroepen": 1, "berekening": "3000 + 250 tool + 250 handling", "richtprijs": 3500, "default": true },
+    { "respondenten": "zelf", "frequentie": "eenmalig", "smart": true, "doelgroepen": 1, "berekening": "3000 + 500 tool + 250 handling", "richtprijs": 3750 },
+    { "respondenten": "zelf", "frequentie": "doorlopend", "smart": false, "doelgroepen": 1, "berekening": "3000 + 6000 doorlopend + 250 tool + 250 handling", "richtprijs": 9500 },
+    { "respondenten": "werven", "frequentie": "eenmalig", "smart": false, "doelgroepen": 1, "berekening": "3000 + 250 tool + (4,50 x 400)", "richtprijs": 5050 },
+    { "respondenten": "werven", "frequentie": "eenmalig", "smart": false, "doelgroepen": 2, "berekening": "3000 + 500 tool + (4,50 x 550)", "richtprijs": 5975 },
+    { "respondenten": "werven", "frequentie": "eenmalig", "smart": false, "doelgroepen": 3, "berekening": "3000 + 750 tool + (4,50 x 700)", "richtprijs": 6900 },
+    { "respondenten": "werven", "frequentie": "eenmalig", "smart": true, "doelgroepen": 1, "berekening": "3000 + 500 tool + (4,50 x 400)", "richtprijs": 5300 },
+    { "respondenten": "werven", "frequentie": "eenmalig", "smart": true, "doelgroepen": 2, "berekening": "3000 + 1000 tool + (4,50 x 550)", "richtprijs": 6475 },
+    { "respondenten": "werven", "frequentie": "eenmalig", "smart": true, "doelgroepen": 3, "berekening": "3000 + 1500 tool + (4,50 x 700)", "richtprijs": 7650 },
+    { "respondenten": "werven", "frequentie": "doorlopend", "smart": true, "doelgroepen": 2, "berekening": "6475 + 6000 doorlopend", "richtprijs": 12475 },
+    { "respondenten": "mix", "berekening": "geen prijs", "richtprijs": null }
+  ],
+  "guardrails": [
+    "Leveranciersnamen (surveytool, panelpartner) nooit klantgericht tonen.",
+    "Geen pakketkeuze tonen: kwantitatief onderzoek is altijd een survey.",
+    "Mix toont nooit een prijs; altijd '– –' + offerte-op-maat-tekst.",
+    "Bij 'Zelf aanleveren' is het doelgroepen-veld verborgen en rekent de calculator met 1 doelgroep.",
+    "Handling-fee (250) vervangt de wervingskosten; ze worden nooit samen geteld.",
+    "Werving-tarief is B2C; toon de B2B-disclaimer onder de prijs bij 'werven'.",
+    "Prijs is een richtprijs excl. btw, geen bindende offerte."
+  ]
+}

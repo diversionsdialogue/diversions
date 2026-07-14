@@ -1,0 +1,512 @@
+---
+import "@/styles/calculators.css";
+/**
+ * GroepsdiscussieCalculator — gestapte offerte-starter voor groepsdiscussies.
+ * Afgeleid van DiepteInterviewsCalculator, met drie verschillen:
+ *   - GEEN frequentiekeuze (eenmalig/doorlopend vervalt) en geen kosten per
+ *     interview; in plaats daarvan een vaste opslag per ronde (groepsdiscussie).
+ *   - Locatiekeuze (online / op locatie): op locatie verdubbelt het wervings-
+ *     tarief per deelnemer én toont het prijspaneel "excl. zaalhuur en
+ *     reiskosten".
+ *   - Vaste groepsgrootte van 6 deelnemers (geen klantkeuze).
+ *
+ * Bronwaarheid logica/tarieven/copy:
+ *   calculator/Calculator-config-groepsdiscussie.json
+ *
+ *   Stap 1 — Opzet:        Deelnemers (zelf / werven / mix) + Locatie (online / op locatie)
+ *   Stap 2 — Samenstellen: "Wat je krijgt" + aantal groepsdiscussies (1/2/3)
+ *   Stap 3 — Bestellen:    samenvatting + contactformulier, POST naar de n8n-
+ *                          webhook (PUBLIC_CALCULATOR_WEBHOOK_URL).
+ *
+ * Rekentechniek: basis + rondeprijs per groepsdiscussie (óók de eerste ronde).
+ * Werving per deelnemer = kwalitatief tarief; op locatie +100%. "Mix" toont
+ * nooit een prijs (offerte op maat). Marge zit in de basis + rondeprijs.
+ */
+const TICK = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:2px;color:var(--primary)"><polyline points="20 6 9 17 4 12"/></svg>`;
+
+// PUBLIC_-prefix is vereist zodat de var in de static client-bundle terechtkomt.
+const webhookUrl = import.meta.env.PUBLIC_CALCULATOR_WEBHOOK_URL ?? "";
+---
+
+<section class="qcalc" data-step="1" data-webhook={webhookUrl} aria-label="Offerte-starter groepsdiscussie">
+  <div class="qc-card">
+    {/* Topbar: merk + stappen-rail */}
+    <div class="qc-topbar">
+      <span class="qc-brand">Bereken je prijsindicatie</span>
+      <ol class="qc-rail">
+        <li class="qc-railstep" data-railstep="1">
+          <button type="button" class="qc-pill" data-goto="1"><span class="qc-pillnum">1</span></button>
+          <span class="qc-pilllabel">Opzet</span>
+        </li>
+        <li class="qc-railsep" aria-hidden="true"></li>
+        <li class="qc-railstep" data-railstep="2">
+          <span class="qc-pill"><span class="qc-pillnum">2</span></span>
+          <span class="qc-pilllabel">Samenstellen</span>
+        </li>
+        <li class="qc-railsep" aria-hidden="true"></li>
+        <li class="qc-railstep" data-railstep="3">
+          <span class="qc-pill"><span class="qc-pillnum">3</span></span>
+          <span class="qc-pilllabel">Bestellen</span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="qc-body">
+      <div class="qc-main">
+        {/* ---------------- STAP 1 — Opzet ---------------- */}
+        <div class="qc-panel" data-panel="1">
+          <p class="qc-steplabel">Stap 1 van 3</p>
+          <h2 class="qc-title">Hoe zet je het onderzoek op?</h2>
+          <p class="qc-sub">Geef aan wie de deelnemers leveren en waar de groepsdiscussie plaatsvindt.</p>
+
+          <div class="qc-group">
+            <p class="qc-fieldlabel">Wie leveren de deelnemers?</p>
+            <div class="qc-choices">
+              <label class="qc-choice">
+                <input type="radio" name="respondenten" value="zelf" checked />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Zelf aanleveren</span>
+                  <span class="qc-choicesub">Je nodigt je eigen klanten of doelgroep uit.</span>
+                </span>
+              </label>
+              <label class="qc-choice">
+                <input type="radio" name="respondenten" value="werven" />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Deelnemers werven</span>
+                  <span class="qc-choicesub">Wij werven via ons panel en zorgen voor een complete groep.</span>
+                </span>
+              </label>
+              <label class="qc-choice">
+                <input type="radio" name="respondenten" value="mix" />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Mix</span>
+                  <span class="qc-choicesub">Deels eigen deelnemers, deels geworven. Hiervoor stellen we een offerte op maat op.</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="qc-group">
+            <p class="qc-fieldlabel">Waar vindt de groepsdiscussie plaats?</p>
+            <div class="qc-choices qc-choices--2">
+              <label class="qc-choice">
+                <input type="radio" name="locatie" value="online" checked />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Online</span>
+                  <span class="qc-choicesub">Via videoverbinding. Sneller te organiseren en voordeliger.</span>
+                </span>
+              </label>
+              <label class="qc-choice">
+                <input type="radio" name="locatie" value="locatie" />
+                <span class="qc-radio" aria-hidden="true"></span>
+                <span class="qc-choicebody">
+                  <span class="qc-choicetitle">Op locatie</span>
+                  <span class="qc-choicesub">Fysiek bijeen, bij jou of op een centrale plek. Rijkere interactie.</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-primary btn-arrow qc-cta" data-next>
+            Stel je onderzoek samen
+          </button>
+        </div>
+
+        {/* ---------------- STAP 2 — Samenstellen ---------------- */}
+        <div class="qc-panel" data-panel="2" hidden>
+          <button type="button" class="qc-back" data-goto="1">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Vorige stap
+          </button>
+          <p class="qc-steplabel">Stap 2 van 3</p>
+          <h2 class="qc-title qc-title--sm">Stel je onderzoek samen</h2>
+
+          <div class="qc-expert qc-expert--photo">
+            <figure class="qc-expert-fig">
+              <picture>
+                <source srcset="/img/william-burghout.avif" type="image/avif" />
+                <source srcset="/img/william-burghout.webp" type="image/webp" />
+                <img src="/img/william-burghout.png" alt="William Burghout" width="64" height="64" loading="lazy" decoding="async" />
+              </picture>
+              <figcaption class="qc-expert-cap">
+                <b>William Burghout</b>
+                <span>Hoofd Onderzoek</span>
+              </figcaption>
+            </figure>
+            <p class="qc-experttext">
+              We begeleiden de groepsdiscussie graag volgens jouw wensen. Heb je
+              specifieke onderzoekswensen? Neem dan contact met ons op:
+              <a href="tel:+31552032193" class="qc-phone">055 20 32 193</a>.
+            </p>
+          </div>
+
+          {/* Vast: wat de groepsdiscussie oplevert (geen keuze) */}
+          <div class="qc-group">
+            <p class="qc-fieldlabel">Wat je krijgt</p>
+            <ul class="qc-bullets">
+              <li><Fragment set:html={TICK} />Groepsdiscussie met 6 deelnemers, professioneel gemodereerd</li>
+              <li><Fragment set:html={TICK} />Interactie die meningen, twijfels en ideeën scherp maakt</li>
+              <li><Fragment set:html={TICK} />Concrete aanbevelingen voor je vervolgstappen</li>
+            </ul>
+          </div>
+
+          {/* Aantal rondes — altijd zichtbaar (rondeprijs geldt ook bij eigen deelnemers) */}
+          <div>
+            <p class="qc-fieldlabel">Hoeveel groepsdiscussies?</p>
+            <p class="qc-help">
+              Elke groep bestaat uit 6 deelnemers. Meerdere rondes zijn zinvol bij
+              meerdere doelgroepen, of om uitkomsten te verdiepen en te toetsen.
+            </p>
+            <div class="qc-select-wrap">
+              <select class="qc-select" data-input="rondes" aria-label="Aantal groepsdiscussies">
+                <option value="1">1 groepsdiscussie</option>
+                <option value="2">2 groepsdiscussies</option>
+                <option value="3">3 groepsdiscussies</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+        {/* ---------------- STAP 3 — Bestellen ---------------- */}
+        <div class="qc-panel" data-panel="3" hidden>
+          <button type="button" class="qc-back" data-goto="2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Vorige stap
+          </button>
+          <p class="qc-steplabel">Stap 3 van 3</p>
+          <h2 class="qc-title qc-title--sm" data-step3-title>Bijna klaar</h2>
+
+          <div class="qc-recap">
+            <p class="qc-recap-title">Jouw keuzes</p>
+            <ul class="qc-recap-list" data-recap></ul>
+            <p class="qc-recap-price" data-recap-price>&euro; 3.750</p>
+          </div>
+
+          <form data-lead-form novalidate>
+            <div class="qc-form">
+              <div class="qc-fieldrow">
+                <label class="qc-field">
+                  <span class="qc-label">Bedrijfsnaam</span>
+                  <input class="qc-input" name="bedrijf" type="text" autocomplete="organization" required />
+                </label>
+                <label class="qc-field">
+                  <span class="qc-label">Naam</span>
+                  <input class="qc-input" name="naam" type="text" autocomplete="name" required />
+                </label>
+              </div>
+              <div class="qc-fieldrow">
+                <label class="qc-field">
+                  <span class="qc-label">E-mail</span>
+                  <input class="qc-input" name="email" type="email" autocomplete="email" required />
+                </label>
+                <label class="qc-field">
+                  <span class="qc-label">Telefoon <span class="qc-label-opt">(optioneel)</span></span>
+                  <input class="qc-input" name="telefoon" type="tel" autocomplete="tel" />
+                </label>
+              </div>
+              <label class="qc-field">
+                <span class="qc-label">Toelichting <span class="qc-label-opt">(optioneel)</span></span>
+                <textarea class="qc-textarea" name="bericht" rows="3"></textarea>
+              </label>
+              <label class="qc-consent">
+                <input type="checkbox" name="consent" required />
+                <span>Ik ga akkoord met de verwerking van mijn gegevens volgens het <a href="/privacy-statement">privacy statement</a>.</span>
+              </label>
+              <div hidden aria-hidden="true">
+                <label>Laat dit veld leeg<input class="qc-hp" type="text" name="company_website" tabindex="-1" autocomplete="off" /></label>
+              </div>
+            </div>
+            <p class="qc-status" role="status" aria-live="polite" data-status hidden></p>
+            <button type="submit" class="btn btn-primary btn-arrow qc-cta" data-submit>Verstuur offerteaanvraag</button>
+          </form>
+        </div>
+      </div>
+
+      {/* Zijpaneel met prijsindicatie — zichtbaar in beide stappen (desktop) */}
+      <aside class="qc-summary">
+        <div>
+          <p class="qc-sumlabel">Jouw indicatie</p>
+          <p class="qc-sumprice" data-price>&euro; 3.750</p>
+          <p class="qc-sumnote" data-note>excl. btw · richtprijs op basis van vergelijkbare onderzoeken</p>
+          <p class="qc-sumnote" data-locatienote hidden>excl. zaalhuur en reiskosten</p>
+          <p class="qc-sumnote" data-b2b hidden>Tarief op basis van consumentendoelgroepen. B2B-doelgroepen op aanvraag.</p>
+        </div>
+        <div class="qc-sumdivider"></div>
+        <div class="qc-sumactions">
+          <button type="button" class="btn btn-primary btn-arrow" data-action="bestellen">
+            Direct bestellen
+          </button>
+          <button type="button" class="btn btn-outline" data-action="advies">Advies aanvragen</button>
+        </div>
+        <p class="qc-sumfine">Na bestelling neemt een onderzoeker binnen één werkdag contact op.</p>
+      </aside>
+    </div>
+  </div>
+
+  {/* Mobiel: sticky prijsbalk onderaan het scherm */}
+  <div class="qc-stickybar" data-stickybar>
+    <div class="qc-stickyprice">
+      <p class="qc-sumlabel">Jouw indicatie</p>
+      <p class="qc-stickyamount" data-price>&euro; 3.750</p>
+    </div>
+    <span class="qc-stickyexcl">excl. btw · richtprijs</span>
+    <div class="qc-stickyactions">
+      <button type="button" class="btn btn-primary btn-arrow" data-action="bestellen">
+        Direct bestellen
+      </button>
+      <button type="button" class="btn btn-outline" data-action="advies">Advies</button>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  import { submitCalculatorLead } from "@/scripts/submitCalculatorLead";
+
+  // --- Rekentechniek — tarieven uit Calculator-config-groepsdiscussie.json.
+  // Basis + rondeprijs per groepsdiscussie (óók de eerste ronde). Werving per
+  // deelnemer = kwalitatief tarief; op locatie +100%. Groepsgrootte vast 6.
+  // Handling (zelf aanleveren) is eenmalig en vervangt de werving. Zaalhuur en
+  // reiskosten vallen buiten de indicatie (notitie bij "op locatie").
+  const RATE = {
+    basis: 3000,
+    rondePerStuk: 500,
+    deelnemersPerGroep: 6,
+    wervingPerDeelnemerOnline: 100,
+    wervingPerDeelnemerLocatie: 200,
+    handlingEigen: 250,
+  };
+
+  const nf = new Intl.NumberFormat("nl-NL");
+  const euro = (n: number) => `€ ${nf.format(Math.round(n))}`;
+
+  type State = {
+    respondenten: "zelf" | "werven" | "mix";
+    locatie: "online" | "locatie";
+    rondes: number;
+  };
+
+  // Mix => geen prijs (offerte op maat) => null.
+  function priceFor(s: State): number | null {
+    if (s.respondenten === "mix") return null;
+
+    let total = RATE.basis + RATE.rondePerStuk * s.rondes;
+    if (s.respondenten === "werven") {
+      const perDeelnemer =
+        s.locatie === "locatie" ? RATE.wervingPerDeelnemerLocatie : RATE.wervingPerDeelnemerOnline;
+      total += s.rondes * RATE.deelnemersPerGroep * perDeelnemer;
+    }
+    if (s.respondenten === "zelf") total += RATE.handlingEigen; // eenmalig, vervangt werving
+    return total;
+  }
+
+  // Interne tier (nooit klantgericht tonen) — groepsdiscussies zijn altijd PLUS.
+  function tierFor(_s: State): string {
+    return "PLUS";
+  }
+
+  // Leesbare samenvatting van de keuzes — voor de recap in stap 3 én de e-mail.
+  function summaryLines(s: State): string[] {
+    const respondentenLabel = {
+      zelf: "Deelnemers zelf aanleveren",
+      werven: "Deelnemers werven",
+      mix: "Mix (eigen + geworven)",
+    }[s.respondenten];
+    return [
+      "Groepsdiscussie (kwalitatief)",
+      respondentenLabel,
+      s.locatie === "locatie" ? "Op locatie (excl. zaalhuur en reiskosten)" : "Online",
+      `${s.rondes} groepsdiscussie${s.rondes > 1 ? "s" : ""} × 6 deelnemers`,
+    ];
+  }
+
+  document.querySelectorAll<HTMLElement>(".qcalc").forEach((root) => {
+    const state: State = {
+      respondenten: "zelf",
+      locatie: "online",
+      rondes: 1,
+    };
+    let step = 1;
+    let actie: "bestellen" | "advies" = "bestellen";
+    const webhookUrl = root.dataset.webhook ?? "";
+
+    const panels = root.querySelectorAll<HTMLElement>("[data-panel]");
+    const railsteps = root.querySelectorAll<HTMLElement>("[data-railstep]");
+    const prices = root.querySelectorAll<HTMLElement>("[data-price]");
+    const note = root.querySelector<HTMLElement>("[data-note]")!;
+    const locatieNote = root.querySelector<HTMLElement>("[data-locatienote]")!;
+    const b2b = root.querySelector<HTMLElement>("[data-b2b]")!;
+    const step3Title = root.querySelector<HTMLElement>("[data-step3-title]")!;
+    const recapList = root.querySelector<HTMLElement>("[data-recap]")!;
+    const recapPrice = root.querySelector<HTMLElement>("[data-recap-price]")!;
+    const leadForm = root.querySelector<HTMLFormElement>("[data-lead-form]")!;
+    const statusEl = root.querySelector<HTMLElement>("[data-status]")!;
+    const submitBtn = root.querySelector<HTMLButtonElement>("[data-submit]")!;
+
+    const NOTE_DEFAULT = "excl. btw · richtprijs op basis van vergelijkbare onderzoeken";
+    const NOTE_MIX = "We stellen graag een offerte op maat voor je op.";
+
+    const renderRail = () => {
+      railsteps.forEach((rs) => {
+        const n = Number(rs.dataset.railstep);
+        const pill = rs.querySelector<HTMLElement>(".qc-pill")!;
+        const num = pill.querySelector<HTMLElement>(".qc-pillnum")!;
+        let st: "done" | "active" | "todo";
+        if (n < step) st = "done";
+        else if (n === step) st = "active";
+        else st = "todo";
+        rs.dataset.state = st;
+        num.innerHTML =
+          st === "done"
+            ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
+            : String(n);
+      });
+    };
+
+    const orderBtns = root.querySelectorAll<HTMLButtonElement>('[data-action="bestellen"]');
+
+    const renderPrice = () => {
+      const p = priceFor(state);
+      const isMix = p === null;
+      prices.forEach((el) => (el.textContent = isMix ? "– –" : euro(p as number)));
+      note.textContent = isMix ? NOTE_MIX : NOTE_DEFAULT;
+      // Zaalhuur/reiskosten vallen buiten de indicatie — alleen melden bij "op locatie".
+      locatieNote.hidden = isMix || state.locatie !== "locatie";
+      // B2B-disclaimer alleen tonen wanneer wij werven (B2C-tarief van toepassing).
+      b2b.hidden = state.respondenten !== "werven";
+      // Zonder prijs is "Direct bestellen" zinloos → offerte aanvragen.
+      orderBtns.forEach((btn) => {
+        btn.textContent = isMix ? "Offerte aanvragen" : "Direct bestellen";
+        btn.dataset.mode = isMix ? "offerte" : "bestellen";
+        btn.disabled = step !== 2; // alleen actief in stap 2 (stap 3 heeft z'n eigen submit-knop)
+      });
+    };
+
+    const renderRecap = () => {
+      step3Title.textContent = actie === "advies" ? "Adviesaanvraag versturen" : "Bijna klaar — offerte versturen";
+      recapList.innerHTML = "";
+      summaryLines(state).forEach((line) => {
+        const li = document.createElement("li");
+        li.textContent = line;
+        recapList.appendChild(li);
+      });
+      const p = priceFor(state);
+      recapPrice.textContent = p === null ? "Prijs op aanvraag" : euro(p);
+      submitBtn.textContent = actie === "advies" ? "Vraag advies aan" : "Verstuur offerteaanvraag";
+    };
+
+    const goTo = (n: number) => {
+      step = n;
+      root.dataset.step = String(n);
+      panels.forEach((p) => (p.hidden = p.dataset.panel !== String(n)));
+      if (n === 3) renderRecap();
+      renderRail();
+      renderPrice();
+      root.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    // Stap 1: deelnemers
+    root.querySelectorAll<HTMLInputElement>('input[name="respondenten"]').forEach((inp) => {
+      inp.addEventListener("change", () => {
+        state.respondenten = inp.value as State["respondenten"];
+        renderPrice();
+      });
+    });
+
+    // Stap 1: locatie
+    root.querySelectorAll<HTMLInputElement>('input[name="locatie"]').forEach((inp) => {
+      inp.addEventListener("change", () => {
+        state.locatie = inp.value as State["locatie"];
+        renderPrice();
+      });
+    });
+
+    // "Stel je onderzoek samen" → stap 2
+    root.querySelector<HTMLButtonElement>("[data-next]")!.addEventListener("click", () => goTo(2));
+
+    // Rail terug
+    root.querySelectorAll<HTMLButtonElement>("[data-goto]").forEach((b) => {
+      b.addEventListener("click", () => goTo(Number(b.dataset.goto)));
+    });
+
+    // Stap 2: aantal rondes
+    const rondes = root.querySelector<HTMLSelectElement>('[data-input="rondes"]')!;
+    rondes.addEventListener("change", () => {
+      state.rondes = Number(rondes.value);
+      renderPrice();
+    });
+
+    // Bestellen / Advies (stap 2) → onthoud de gekozen actie en ga naar stap 3
+    root.querySelectorAll<HTMLButtonElement>('[data-action="bestellen"],[data-action="advies"]').forEach((btn) => {
+      btn.addEventListener("click", () => {
+        actie = (btn.dataset.action as "bestellen" | "advies") ?? "bestellen";
+        goTo(3);
+      });
+    });
+
+    // Stap 3: echte verzending naar de n8n-webhook.
+    leadForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const honeypot = leadForm.elements.namedItem("company_website") as HTMLInputElement | null;
+      if (honeypot && honeypot.value.trim() !== "") {
+        statusEl.hidden = false;
+        statusEl.dataset.tone = "ok";
+        statusEl.textContent = "Bedankt! We hebben je aanvraag ontvangen.";
+        leadForm.reset();
+        return;
+      }
+
+      if (!leadForm.checkValidity()) {
+        leadForm.reportValidity();
+        return;
+      }
+
+      const fd = new FormData(leadForm);
+      const p = priceFor(state);
+      const payload = {
+        calculator: "groepsdiscussie",
+        actie,
+        keuzes: { ...state },
+        tier: tierFor(state),
+        richtprijs: p,
+        richtprijsFormatted: p === null ? "Op aanvraag" : euro(p),
+        samenvatting: summaryLines(state),
+        bedrijf: (fd.get("bedrijf") as string) ?? "",
+        naam: (fd.get("naam") as string) ?? "",
+        email: (fd.get("email") as string) ?? "",
+        telefoon: (fd.get("telefoon") as string) ?? "",
+        bericht: (fd.get("bericht") as string) ?? "",
+        consent: fd.get("consent") === "on",
+        company_website: (fd.get("company_website") as string) ?? "",
+      };
+
+      submitBtn.disabled = true;
+      const originalLabel = submitBtn.textContent;
+      submitBtn.textContent = "Versturen…";
+      statusEl.hidden = true;
+
+      const result = await submitCalculatorLead(webhookUrl, payload);
+
+      statusEl.hidden = false;
+      statusEl.dataset.tone = result.ok ? "ok" : "error";
+      statusEl.textContent = result.message;
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+
+      if (result.ok) {
+        leadForm.reset();
+        root.dispatchEvent(new CustomEvent("groepsdiscussie-calculator:submit", { detail: payload, bubbles: true }));
+        console.info("[groepsdiscussie-calculator] submit", payload);
+      }
+    });
+
+    renderRail();
+    renderPrice();
+  });
+</script>

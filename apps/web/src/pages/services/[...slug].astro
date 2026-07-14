@@ -6,6 +6,12 @@ import PretestCalculator from "@/components/calculators/PretestCalculator.astro"
 import EffectmetingCalculator from "@/components/calculators/EffectmetingCalculator.astro";
 import CustomerJourneyCalculator from "@/components/calculators/CustomerJourneyCalculator.astro";
 import KlanttevredenheidCalculator from "@/components/calculators/KlanttevredenheidCalculator.astro";
+import DiepteInterviewsCalculator from "@/components/calculators/DiepteInterviewsCalculator.astro";
+import GroepsdiscussieCalculator from "@/components/calculators/GroepsdiscussieCalculator.astro";
+import DoelgroepOnderzoekCalculator from "@/components/calculators/DoelgroepOnderzoekCalculator.astro";
+import KwantitatiefCalculator from "@/components/calculators/KwantitatiefCalculator.astro";
+import KwalitatiefCalculator from "@/components/calculators/KwalitatiefCalculator.astro";
+import WaardepropositieCalculator from "@/components/calculators/WaardepropositieCalculator.astro";
 import ServicePitch from "@/components/calculators/ServicePitch.astro";
 import { getAllServices } from "@/lib/data";
 import { portableTextToPlainText } from "@/lib/sanity/portableText";
@@ -14,18 +20,20 @@ import { slugify } from "@/lib/slugify";
 // Dienstpagina's met een richtprijs-calculator boven de hero. Slug → welke
 // calculator. Uitbreidbaar: voeg een slug + calculator toe. Promoveer dit later
 // eventueel naar een Sanity-schemaveld.
-const CALCULATORS: Record<string, "pretest" | "effectmeting" | "customer-journey" | "klanttevredenheid" | "placeholder"> = {
+const CALCULATORS: Record<string, "pretest" | "effectmeting" | "customer-journey" | "klanttevredenheid" | "diepte-interviews" | "groepsdiscussie" | "doelgroeponderzoek" | "kwantitatief-onderzoek" | "kwalitatief-onderzoek" | "waardepropositie" | "placeholder"> = {
   pretest: "pretest",
   "campagne-effectonderzoek": "effectmeting",
   "customer-journey": "customer-journey",
   klanttevredenheidsonderzoek: "klanttevredenheid",
+  "diepte-interviews": "diepte-interviews",
+  groepsdiscussies: "groepsdiscussie",
+  doelgroeponderzoek: "doelgroeponderzoek",
+  "kwantitatief-onderzoek": "kwantitatief-onderzoek",
+  "kwalitatief-onderzoek": "kwalitatief-onderzoek",
+  waardepropositie: "waardepropositie",
   // Placeholder: pagina krijgt de pitch-hero + een tijdelijk calculator-blok,
   // tot de bijbehorende calculator gebouwd is.
-  "kwantitatief-onderzoek": "placeholder",
   "diary-study": "placeholder",
-  "kwalitatief-onderzoek": "placeholder",
-  "diepte-interviews": "placeholder",
-  waardepropositie: "placeholder",
 };
 
 export async function getStaticPaths() {
@@ -46,10 +54,12 @@ const LEES: Record<string, string> = {
   "campagne-effectonderzoek": "het campagne-effectonderzoek",
   "customer-journey": "het customer journey onderzoek",
   klanttevredenheidsonderzoek: "het klanttevredenheidsonderzoek",
+  doelgroeponderzoek: "het doelgroeponderzoek",
   "kwantitatief-onderzoek": "het kwantitatief onderzoek",
   "diary-study": "de diary study",
   "kwalitatief-onderzoek": "het kwalitatief onderzoek",
   "diepte-interviews": "de diepte-interviews",
+  groepsdiscussies: "de groepsdiscussie",
   waardepropositie: "het waardepropositie-onderzoek",
 };
 const leesLabel = LEES[slug];
@@ -90,6 +100,12 @@ const minutes = plain
         {calculator === "effectmeting" && <EffectmetingCalculator />}
         {calculator === "customer-journey" && <CustomerJourneyCalculator />}
         {calculator === "klanttevredenheid" && <KlanttevredenheidCalculator />}
+        {calculator === "diepte-interviews" && <DiepteInterviewsCalculator />}
+        {calculator === "groepsdiscussie" && <GroepsdiscussieCalculator />}
+        {calculator === "doelgroeponderzoek" && <DoelgroepOnderzoekCalculator />}
+        {calculator === "kwantitatief-onderzoek" && <KwantitatiefCalculator />}
+        {calculator === "kwalitatief-onderzoek" && <KwalitatiefCalculator />}
+        {calculator === "waardepropositie" && <WaardepropositieCalculator />}
         {
           calculator === "placeholder" && (
             <div

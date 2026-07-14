@@ -985,7 +985,7 @@
 }
 @media (min-width: 768px) {
   .service-row {
-    grid-template-columns: 80px 1.2fr 2fr 100px;
+    grid-template-columns: 80px 1.7fr 1.9fr 100px;
     align-items: center;
     padding: 32px 4px;
   }
@@ -1005,10 +1005,12 @@
   color: var(--ink-strong);
   margin: 0;
   /* Lange samenstellingen (bv. "Klanttevredenheidsonderzoek") netjes binnen het
-     contentvlak houden: hyphens (lang=nl) voor nette breuk + anywhere als
-     vangnet dat ook de min-content-breedte verkleint (zodat niets overflowt). */
+     contentvlak houden. hyphens (lang=nl) breekt op lettergrepen met een
+     koppelteken; break-word is enkel vangnet voor een woord dat zelfs na
+     afbreken niet past. NIET "anywhere": dat drukt de min-content plat en breekt
+     midden in een lettergreep zonder koppelteken (lelijk). */
   hyphens: auto;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 .service-desc {
   font-family: var(--font-sans);

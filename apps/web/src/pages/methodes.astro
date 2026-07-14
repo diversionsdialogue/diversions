@@ -3,6 +3,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Picture from "@/components/global/Picture.astro";
 import { getAllServices } from "@/lib/data";
+import { zachtAfbreken } from "@/lib/afbreken";
 
 // NIEUWE PAGINA (nav-herindeling Onderzoek / Methodes / Branches).
 //   Overzicht van de categorieën "methodes" en "oplossingen", als tegenhanger
@@ -45,10 +46,8 @@ const categoryFilters = [
   <section class="sa-hero">
     <a href="#methodes" class="sa-hero-card">
       <span class="sa-hero-spark" aria-hidden="true">
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
-          <path
-            d="M32 8v16M32 40v16M8 32h16M40 32h16M14 14l11 11M39 39l11 11M50 14l-11 11M14 50l11-11"
-          ></path>
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 33l10 11 22-24"></path>
         </svg>
       </span>
       <span class="sa-hero-card-text">
@@ -102,7 +101,7 @@ const categoryFilters = [
             data-categories={cats}
           >
             <span class="service-num">{String(i + 1).padStart(2, "0")}</span>
-            <h3 class="service-title">{service.data.overviewTitle || service.data.service}</h3>
+            <h3 class="service-title">{zachtAfbreken(service.data.overviewTitle || service.data.service)}</h3>
             <p class="service-desc">{service.data.overviewIntro || service.data.description}</p>
             <span class="service-arrow" aria-hidden="true">→</span>
           </a>

@@ -50,10 +50,13 @@ const pageUrl = (n: number) => (n === 1 ? "/blog" : `/blog/${n}`);
   </section>
   <section>
     <div class="bg-white 2xl:max-w-7xl mx-auto overflow-hidden relative">
+      {/* Decoratief: pointer-events-none, anders vangt deze absoluut
+          gepositioneerde afbeelding de klikken op de paginering af. */}
       <img
         src="/shapes/2.svg"
-        class="absolute w-full h-full opacity-[0.1] z-0 -left-64 sm:-left-96 -bottom-96"
-        alt="your alt"
+        class="absolute w-full h-full opacity-[0.1] z-0 -left-64 sm:-left-96 -bottom-96 pointer-events-none"
+        alt=""
+        aria-hidden="true"
       />
       <div class="px-8 py-12 mx-auto max-w-6xl md:px-16 space-y-24">
         <div

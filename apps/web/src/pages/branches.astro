@@ -1,17 +1,20 @@
 ---
-// Branches-overzicht (naar het model van /onze-diensten, maar in TEGELVIEW).
-// Toont alle services met categorie "branches" als kaarten (miniatuur + titel).
+// Branches-overzicht. Zelfde opbouw en styling als /onze-diensten en /methodes
+// (sa-hero / sa-header / services-list / sa-cta): één rij per branche, de hele
+// rij linkt naar /services/<slug>. Toont de categorie "branches".
+// Kaarten tonen de korte overzichtsvelden (overviewTitle/overviewIntro) met
+// terugval op de volledige service-naam en description.
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Picture from "@/components/global/Picture.astro";
 import { getAllServices } from "@/lib/data";
-// Neutrale placeholder-miniatuur zolang branchepagina's nog geen eigen thumbnail
-// in Sanity hebben.
-import placeholderThumb from "@/images/assets/services.jpg";
 
 const branches = (await getAllServices())
   .filter((s) => (s.data.categories ?? []).includes("branches"))
   .sort((a, b) =>
-    (a.data.service || "").localeCompare(b.data.service || "", "nl")
+    (a.data.overviewTitle || a.data.service || "").localeCompare(
+      b.data.overviewTitle || b.data.service || "",
+      "nl"
+    )
   );
 ---
 
@@ -25,10 +28,8 @@ const branches = (await getAllServices())
   <section class="sa-hero">
     <a href="#branches" class="sa-hero-card">
       <span class="sa-hero-spark" aria-hidden="true">
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
-          <path
-            d="M32 8v16M32 40v16M8 32h16M40 32h16M14 14l11 11M39 39l11 11M50 14l-11 11M14 50l11-11"
-          ></path>
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 33l10 11 22-24"></path>
         </svg>
       </span>
       <span class="sa-hero-card-text">
@@ -51,19 +52,16 @@ const branches = (await getAllServices())
     </div>
   </header>
 
-  <div class="sa-grid" id="sa-grid">
+  <div class="services-list sa-services" id="sa-grid">
     {
-      branches.map((service) => {
+      branches.map((service, i) => {
         const slug = service.slug ?? service.id;
-        const thumb = service.data.thumbnail?.url ?? placeholderThumb.src;
-        const thumbAlt =
-          service.data.thumbnail?.alt || `Miniatuur voor ${service.data.service}`;
         return (
-          <a class="sa-card" href={`/services/${slug}`}>
-            <div class="sa-card-thumb">
-              <img src={thumb} alt={thumbAlt} loading="lazy" width="600" height="400" />
-            </div>
-            <h3>{service.data.service}</h3>
+          <a class="service-row" href={`/services/${slug}`}>
+            <span class="service-num">{String(i + 1).padStart(2, "0")}</span>
+            <h3 class="service-title">{service.data.overviewTitle || service.data.service}</h3>
+            <p class="service-desc">{service.data.overviewIntro || service.data.description}</p>
+            <span class="service-arrow" aria-hidden="true">→</span>
           </a>
         );
       })
