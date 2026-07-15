@@ -22,6 +22,8 @@ interface Props {
   leesHref?: string;
   /** Linktekst incl. lidwoord, bv. "het klanttevredenheidsonderzoek". */
   leesLabel?: string;
+  /** Zet uit op maatwerk-pagina's zonder calculator (bv. diary study). */
+  showPriceButton?: boolean;
 }
 const {
   eyebrow = "Diensten · Direct een prijsopgave",
@@ -31,6 +33,7 @@ const {
   imageAlt = "",
   leesHref,
   leesLabel,
+  showPriceButton = true,
 } = Astro.props;
 ---
 
@@ -45,7 +48,9 @@ const {
           leesHref && (
             <div class="pitch-actions">
               <a href={leesHref} class="pitch-btn pitch-btn--ghost">Over het onderzoek</a>
-              <a href="#calculator" class="pitch-btn">Prijsindicatie</a>
+              {showPriceButton && (
+                <a href="#calculator" class="pitch-btn">Prijsindicatie</a>
+              )}
             </div>
           )
         }

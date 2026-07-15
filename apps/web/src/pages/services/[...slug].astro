@@ -20,7 +20,7 @@ import { slugify } from "@/lib/slugify";
 // Dienstpagina's met een richtprijs-calculator boven de hero. Slug → welke
 // calculator. Uitbreidbaar: voeg een slug + calculator toe. Promoveer dit later
 // eventueel naar een Sanity-schemaveld.
-const CALCULATORS: Record<string, "pretest" | "effectmeting" | "customer-journey" | "klanttevredenheid" | "diepte-interviews" | "groepsdiscussie" | "doelgroeponderzoek" | "kwantitatief-onderzoek" | "kwalitatief-onderzoek" | "waardepropositie" | "placeholder"> = {
+const CALCULATORS: Record<string, "pretest" | "effectmeting" | "customer-journey" | "klanttevredenheid" | "diepte-interviews" | "groepsdiscussie" | "doelgroeponderzoek" | "kwantitatief-onderzoek" | "kwalitatief-onderzoek" | "waardepropositie" | "placeholder" | "maatwerk"> = {
   pretest: "pretest",
   "campagne-effectonderzoek": "effectmeting",
   "customer-journey": "customer-journey",
@@ -31,9 +31,20 @@ const CALCULATORS: Record<string, "pretest" | "effectmeting" | "customer-journey
   "kwantitatief-onderzoek": "kwantitatief-onderzoek",
   "kwalitatief-onderzoek": "kwalitatief-onderzoek",
   waardepropositie: "waardepropositie",
-  // Placeholder: pagina krijgt de pitch-hero + een tijdelijk calculator-blok,
-  // tot de bijbehorende calculator gebouwd is.
-  "diary-study": "placeholder",
+  // Maatwerk: pitch-hero zonder prijsindicatie-knop + een blok dat uitlegt dat
+  // er voor deze dienst geen calculator is (prijs op aanvraag).
+  "diary-study": "maatwerk",
+};
+
+// Copy per maatwerk-dienst. anchorLabel/anchorRegex: link naar de prijs-alinea
+// in de body (kop wordt live opgezocht, zodat het anker klopt zolang er een
+// "Wat kost…"-kop bestaat).
+const MAATWERK: Record<string, { kop: string; anchorLabel: string; anchorRegex: RegExp }> = {
+  "diary-study": {
+    kop: "Diary study vraagt om maatwerk",
+    anchorLabel: "Wat kost een diary study",
+    anchorRegex: /^wat kost/i,
+  },
 };
 
 export async function getStaticPaths() {
@@ -74,6 +85,15 @@ const watIs =
   headingBlocks.find((h: any) => /^wat is/i.test(textOf(h))) ?? headingBlocks[0];
 const leesHref = watIs ? `#${slugify(textOf(watIs))}` : undefined;
 
+// Maatwerk-blok (geen calculator): zoek de "Wat kost…"-kop voor de anchorlink
+// naar de prijs-alinea. Kop live opgezocht zodat het anker blijft kloppen als
+// de redactie de tekst licht wijzigt (zolang hij met "Wat kost" begint).
+const maatwerkInfo = calculator === "maatwerk" ? MAATWERK[slug] : undefined;
+const watKost = maatwerkInfo
+  ? headingBlocks.find((h: any) => maatwerkInfo.anchorRegex.test(textOf(h)))
+  : undefined;
+const maatwerkAnchor = watKost ? `#${slugify(textOf(watKost))}` : undefined;
+
 // Leestijd uit de platte tekst van de Portable-Text-body (reading-time, ~200 wpm).
 const plain = portableTextToPlainText(page.body);
 const minutes = plain
@@ -94,6 +114,7 @@ const minutes = plain
         lead={page.data.description}
         leesHref={leesHref}
         leesLabel={leesLabel}
+        showPriceButton={calculator !== "maatwerk"}
       >
         <div id="calculator" style="scroll-margin-top: 90px">
         {calculator === "pretest" && <PretestCalculator />}
@@ -106,6 +127,31 @@ const minutes = plain
         {calculator === "kwantitatief-onderzoek" && <KwantitatiefCalculator />}
         {calculator === "kwalitatief-onderzoek" && <KwalitatiefCalculator />}
         {calculator === "waardepropositie" && <WaardepropositieCalculator />}
+        {
+          calculator === "maatwerk" && maatwerkInfo && (
+            <div
+              style="border:1px solid color-mix(in oklch, var(--accent-deep) 30%, transparent);border-radius:var(--radius-xl,20px);background:#fff;padding:32px;text-align:center;"
+            >
+              <p style="font-family:var(--font-subtitle);font-weight:600;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-mute);margin:0 0 8px;">
+                Prijsindicatie
+              </p>
+              <p style="font-family:var(--font-display);font-size:clamp(20px,2.4vw,26px);line-height:1.15;color:var(--ink);margin:0 0 8px;">
+                {maatwerkInfo.kop}
+              </p>
+              <p style="font-family:var(--font-sans);font-size:15px;line-height:1.5;color:var(--ink-soft);margin:0 auto 12px;max-width:52ch;">
+                Voor dit product kunnen we geen prijscalculator aanbieden. Wil je
+                een prijsindicatie? <a href="/contact">Neem contact op</a> en we
+                rekenen het vrijblijvend voor je uit.
+              </p>
+              {maatwerkAnchor && (
+                <p style="font-family:var(--font-sans);font-size:15px;line-height:1.5;color:var(--ink-soft);margin:0 auto;max-width:52ch;">
+                  Wil je weten welke factoren de prijs beïnvloeden? We laten het
+                  je zien bij <a href={maatwerkAnchor}>{maatwerkInfo.anchorLabel}</a>.
+                </p>
+              )}
+            </div>
+          )
+        }
         {
           calculator === "placeholder" && (
             <div
