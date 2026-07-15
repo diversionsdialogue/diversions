@@ -1,149 +1,116 @@
 ---
-service: "AI onderzoek: hoe het werkt"
-description: "bredere en diepere inzichten"
+service: "AI-onderzoek: de diepgang van een interview, op de schaal van een survey"
+description: "AI-onderzoek combineert de snelheid en schaal van een survey met de diepgang van een interview. Respondenten spreken hun antwoord in, een AI-agent stelt gericht door, en jij krijgt niet alleen wát mensen vinden, maar ook waarom."
+categories:
+  - methodes
 ---
 
-<!-- CONVERT-META
-  oude_url: /ai-onderzoek
-  nieuwe_url: /services/ai-onderzoek
-  sanity_type: service
-  placeholder-afbeelding gebruikt (quality-fase: echte WP-afbeelding plaatsen)
-  - description automatisch afgeleid (geen excerpt)
--->
+## Wat is AI-onderzoek?
 
-# AI Onderzoek: hoe het werkt Dynamische vragen voor diepere inzichten
+Een traditionele survey registreert een antwoord en categoriseert het. AI-onderzoek gaat door waar de survey stopt: de respondent krijgt geen vaste vragenlijst voorgeschoteld, maar voert een chatdialoog met een AI-agent, gesproken in plaats van getypt. Op elk antwoord volgt een gerichte vervolgvraag, afgestemd op de doelstelling van het onderzoek. Zo combineer je de breedte van kwantitatief onderzoek met de diepgang van kwalitatief onderzoek, in één traject.
 
-#### De voordelen van AI onderzoek
+## Hoe lang duurt het onderzoek?
 
- efficiënt en snel  
- gunstig geprijsd  
- bredere en diepere inzichten
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2023/07/MOA-diversions.png (title: MOA-diversions) -- quality-fase: downloaden+optimaliseren -->
-![Lid van MOA Data & Insights Network](/src/images/assets/blog.jpeg)
+Dat hangt af van de opzet. Een indicatie:
 
-#### Voor startups & marktleiders
+:::nummers
+- LABEL: Compacte AI-meting via je eigen achterban | TEKST: Korte vragenlijst, 3 dieptevragen per vraag. Doorlooptijd: 2 – 3 weken.
+- LABEL: Standaard AI-survey met panelwerving | TEKST: 15-25 vragen, brede doelgroep. Doorlooptijd: 4 – 6 weken.
+- LABEL: Uitgebreid onderzoek | TEKST: Meerdere doelgroepen of een herhaalmeting. Doorlooptijd: 6 – 8 weken.
+:::
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2023/03/trimbos-1.png -- quality-fase: downloaden+optimaliseren -->
-![https://www.diversions.nl/wp-content/uploads/2023/03/trimbos-1.png](/src/images/assets/blog.jpeg)
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2023/03/zka-1.png -- quality-fase: downloaden+optimaliseren -->
-![Zilveren Kruis](/src/images/assets/blog.jpeg)
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2023/03/mkbnl-1.png -- quality-fase: downloaden+optimaliseren -->
-![https://www.diversions.nl/wp-content/uploads/2023/03/mkbnl-1.png](/src/images/assets/blog.jpeg)
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2023/03/rk.png -- quality-fase: downloaden+optimaliseren -->
-![Rode Kruis](/src/images/assets/blog.jpeg)
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2023/03/remeha-1-1.png -- quality-fase: downloaden+optimaliseren -->
-![Remeha](/src/images/assets/blog.jpeg)
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2023/03/dmnv-1.png -- quality-fase: downloaden+optimaliseren -->
-![https://www.diversions.nl/wp-content/uploads/2023/03/dmnv-1.png](/src/images/assets/blog.jpeg)
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2023/03/Anur-1.png -- quality-fase: downloaden+optimaliseren -->
-![https://www.diversions.nl/wp-content/uploads/2023/03/Anur-1.png](/src/images/assets/blog.jpeg)
-Next
-Previous
+## Wanneer zet je AI-onderzoek in?
 
-## Bredere en diepere inzichten
+Als je een van deze vraagstukken herkent:
 
-Wil je beter begrijpen wat je medewerkers **denken, voelen en doen**? AI-onderzoek biedt de oplossing! Met AI ontdek je niet alleen patronen en trends, maar krijg je ook inzicht in de motieven en drijfveren die erachter schuilgaan.
+:::bullets
+- je wilt niet alleen wéten wat mensen vinden, maar ook waaróm, en dat op schaal;
+- een medewerkers- of klantonderzoek waarin persoonlijke, soms gevoelige onderwerpen spelen;
+- verschillen tussen groepen (afdelingen, generaties, klantsegmenten) die je met een vaste vragenlijst zou missen;
+- je wilt kwalitatieve diepgang, maar hebt niet de tijd of het budget voor losse interviews.
+:::
 
-Zo combineer je de kracht van **kwantitatief en kwalitatief** onderzoek.  
-Razendsnel en voor een beperkt budget.
+## Wanneer is het minder geschikt?
 
-## Hoe het werkt
+Wil je alleen tellen: hoeveel procent kiest voor A of B? Dan is een gewone survey sneller en goedkoper. En bij zeer gevoelige onderwerpen waar vertrouwen en menselijk contact vooropstaan, geeft een geschoolde interviewer soms meer ruimte dan een AI-agent dat kan.
 
-Ai onderzoek werkt heel eenvoudig: respondenten ontvangen een uitnodiging voor het onderzoek. Deelname leidt niet tot een standaard vragenlijst, maar tot een chatdialoog met een AI-agent. Typen is niet nodig. De respondent spreekt antwoorden eenvoudig in.
+## Wat levert het op?
 
-De AI-agent analyseert ieder antwoord en stelt gerichte vervolgvragen. Specifiek afgestemd op de doelstellingen van het onderzoek.
+Inzicht in drie stappen: Inzicht, Vertaling en Toepassing.
 
-Respondenten beoordelen het onderzoek als interactief en persoonlijk. Terwijl opdrachtgevers kunnen rekenen op betere en diepere inzichten dan traditionele surveys kunnen bieden.
+:::nummers
+- LABEL: Inzicht | TEKST: Niet alleen het gecategoriseerde antwoord, maar de context erachter: wanneer speelt dit, bij wie, en hoe uit het zich.
+- LABEL: Vertaling | TEKST: De impact: hoe het onderliggende gevoel doorwerkt in motivatie, betrokkenheid of gedrag, en waar dat verschilt tussen groepen.
+- LABEL: Toepassing | TEKST: Directe aanbevelingen om de stap van onderzoek naar actie te zetten. Concreet en geprioriteerd naar belang.
+:::
 
-- ### 1. Fundament
+Dat maakt AI-onderzoek een toegankelijk alternatief voor dure kwalitatieve interviews: je krijgt de verdiepende inzichten die je in een standaard vragenlijst zonder vervolgvragen mist, tegen een fractie van de tijd en kosten. Waar een survey je vertelt dát een vacaturetekst als "zakelijk" wordt ervaren, laat AI-onderzoek zien welk beeld die tekst precies oproept, hoe dat afwijkt van de werkelijke sfeer, en op welk moment in de candidate journey dat verschil om de hoek komt kijken.
 
-  Bepalen van doelstellingen en onderzoekspijlers.
-- ### 2. Keuze doelgroep
+## Wat kost AI-onderzoek?
 
-  Uitnodigen van de juiste doelgroep.
-- ### 3. Uitvoering & analyse
+De prijs van onderzoek is voor klanten niet altijd inzichtelijk: "vraag een offerte aan", en dan zie je wel. Zo werken wij niet. Je ziet vooraf wat onderzoek kost, met de calculator bovenaan deze pagina. Geen verrassingen achteraf.
 
-  Bij AI onderzoek gaan uitvoering en analyse hand-in-hand.
+De prijs hangt af van:
 
-Benieuwd hoe het werkt? Bekijk het voorbeeld hieronder.
+:::bullets
+- de steekproef en de doelgroep;
+- het aantal onderwerpen of onderzoekspijlers;
+- de gewenste diepgang van de analyse.
+:::
 
-Liever advies? Bel voor een intake: **055 20 32 193**.
+## AI-onderzoek vs. survey of kwalitatieve interviews?
 
-## Survey versus AI Onderzoek
+Een survey is snel en schaalbaar, maar blijft aan de oppervlakte: je krijgt een categorie, geen verhaal. Kwalitatieve interviews geven juist die diepgang, maar zijn arbeidsintensief en daardoor kleinschalig. AI-onderzoek zit ertussenin: de schaal van een survey, met vervolgvragen die per respondent meebewegen, zoals een goede interviewer dat ook zou doen.
 
-In dit voorbeeld kijken we naar een medewerkerstevredenheidsonderzoek. Het onderzoek gaat oa in op de samenwerking tussen medewerkers en hun manager. Hoe krijgt dit vorm in een AI-onderzoek in vergelijking met een traditionele survey?
+## Hoe pakt Diversions het aan?
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2024/09/onderzoek-kwantitatief-ai-1.png (title: onderzoek traditioneel vs ai) -- quality-fase: downloaden+optimaliseren -->
-![onderzoek traditioneel vs ai](/src/images/assets/blog.jpeg)
+We beginnen bij het fundament: welke doelstellingen en onderzoekspijlers staan centraal? Daarna bepalen we de juiste doelgroep en nodigen we hen uit. Bij de uitvoering lopen dataverzameling en analyse gelijk op: de AI-agent analyseert elk antwoord en stelt een vervolgvraag die gericht is op context, impact en perspectief, per respondent net weer anders, afhankelijk van wat iemand antwoordt.
 
-Stel: de medewerker ontvangt een traditionele survey. Hierin beantwoord de medewerker de vraag *Wat kan beter in de samenwerking met je manager?* met: *Mijn manager heeft geen oog voor mij als persoon.*
+AI is de versneller, niet de respondent. We werken met echte mensen die hun antwoord inspreken, geen synthetische respondenten. Een onderzoeker tekent de conclusies af, en data staat in de EU.
 
-De reactie zou dan worden geregistreerd en gecategoriseerd als een behoefte aan "persoonlijke aandacht" of "empathie." Uit de verzamelde antwoorden van alle surveys kan dan bijvoorbeeld een conclusie worden getrokken als:
+## Een voorbeeld uit de praktijk
 
-*Werknemers verwachten dat managers meer persoonlijke aandacht en empathie tonen.*
+Voor een accountantskantoor was het lastig om geschikte kandidaten te vinden voor openstaande vacatures. Met een candidate journey brachten we in kaart hoe potentiële kandidaten zoeken naar een interessante werkgever. Via AI-onderzoek stelden we vragen aan medewerkers en kandidaten, waarbij AI gericht doorvroeg op hun antwoorden. Daarnaast beoordeelden kandidaten verschillende wervingsuitingen, van het kantoor zelf en van lokale concullega's, op aantrekkelijkheid: wat sprak aan, en wat niet?
 
-**De meerwaarde van AI onderzoek**
+:::nummers
+- LABEL: Inzicht | TEKST: Medewerkers prezen de persoonlijke sfeer, maar werden daar tijdens het sollicitatieproces juist door verrast: de vacatures riepen een zakelijk, traditioneel beeld op. Toetsing bij kandidaten bevestigde dit: de vacatures wekten niet het beeld van een energieke, persoonlijke werkgever.
+- LABEL: Vertaling | TEKST: Niet het werkgeverschap zelf was het probleem, maar de vacatureteksten schetsten een beeld dat niet overeenkwam met de werkelijke sfeer op kantoor.
+- LABEL: Toepassing | TEKST: De arbeidsmarktcommunicatie personaliseren, zodat de online uitstraling aansloot bij de werkelijke sfeer. Dit resulteerde direct in meer sollicitaties en betere kandidaten.
+:::
 
-Met AI onderzoek zou hetzelfde antwoord (*Mijn manager heeft geen oog voor mij als persoon.*) leiden tot dynamische vervolgvragen. Bijvoorbeeld:
+## Wat is je volgende stap?
 
-- "Kun je een voorbeeld geven van een situatie waarin je voelde dat je manager geen oog had voor jou als persoon?"
-- "Wat kan je manager doen om de situatie te verbeteren?"
-- "Hoe beïnvloedt het jouw werkplezier en prestaties wanneer je het gevoel hebt dat je manager je als persoon ziet?"
+Elk onderzoek eindigt met Toepassing: directe aanbevelingen om van onderzoek naar actie te gaan, concreet en geprioriteerd naar belang.
 
-Je ziet dat AI zo meer inzichten in beeld brengt, onder andere:
+:::bullets
+- Morgen: de duidelijkste signalen oppakken in het eerstvolgende teamoverleg.
+- Volgende maand: gericht beleid ontwikkelen op de afdeling of groep waar het probleem het grootst is.
+- Verdieping: een vervolgonderzoek of -traject om de aanpak te toetsen.
+:::
 
-- **Context**  
-  AI kan ontdekken dat medewerkers met name tijdens werkoverleg vaker aandacht voor de persoonlijke situatie vragen.
-- **Impact**   
-  De vervolgvragen kunnen laten zien hoe het gevoel van persoonlijke aandacht invloed heeft op de motivatie, loyaliteit en productiviteit.
-- **Perspectieven**  
-  AI kan opmerken dat verwachtingen verschillen tussen afdelingen of demografische groepen.
+Geen rapport. Een routekaart.
 
-Vergeet hierbij niet: de vervolgvragen veranderen als de respondent een ander antwoord geeft. Welk antwoord ook gegeven wordt: AI is erop gericht om context, impact en perspectief in beeld te brengen.
+## Veelgestelde vragen
 
-### Inzichten
+:::faq
+VRAAG: Wat is het verschil met een gewone survey?
+ANTWOORD: Een survey registreert en categoriseert een antwoord. AI-onderzoek stelt op basis van dat antwoord een gerichte vervolgvraag, zodat je ook de context, impact en het waarom te weten komt.
+:::
+:::faq
+VRAAG: Werken jullie met AI-respondenten?
+ANTWOORD: Nee. Respondenten zijn altijd echte mensen die hun antwoord inspreken. AI verwerkt en verdiept de antwoorden, het geeft ze niet.
+:::
+:::faq
+VRAAG: Is dit geschikt voor gevoelige onderwerpen?
+ANTWOORD: Vaak wel, respondenten ervaren de chatdialoog als persoonlijk en laagdrempelig. Bij zeer gevoelige thema's waar menselijk contact voorop moet staan, denken we graag mee of een andere methode beter past.
+:::
+:::faq
+VRAAG: Wat kost AI-onderzoek?
+ANTWOORD: Dat hangt af van de steekproef, het aantal onderwerpen en de gewenste diepgang. Bereken je prijs met de calculator bovenaan deze pagina.
+:::
 
-Vergelijken we nu de inzichten per onderzoeksvorm, dan is het verschil duidelijk:
+## Over de onderzoeker
 
-- **Survey inzicht**  
-  "Medewerkers verwachten dat managers meer persoonlijke aandacht en empathie tonen."
-- **AI inzicht**  
-  "Medewerkers verwachten dat managers meer persoonlijke aandacht en empathie tonen. Dit verhoogt het werkplezier en motivatie aanzienlijk, vooral in afdelingen waar stress en werkdruk hoog zijn. Een goed moment om aandacht te hebben voor privébelangen is het wekelijkse werkoverleg."
+Meer weten? Neem contact op met Ieteke de Vries, hoofd Onderzoek.
 
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2022/06/ongemodereerd.png (title: ongemodereerd) -- quality-fase: downloaden+optimaliseren -->
-![ongemodereerd](/src/images/assets/blog.jpeg)
-
-## Vervolgstap
-
-Het voorbeeld illustreert hoe AI onderzoek meer doet dan het registreren van antwoorden. Er wordt gericht gezocht naar achterliggende edenen en gevolgen.
-
-Zo levert AI rijkere en actiegerichte inzichten op die je kunnen helpen gerichter beleid te ontwikkelen.
-
-Meer weten? Bel voor een intake: **055 20 32 193**.
-
-### [Onze diensten](/onderzoeksbureau/)
-
-[Kwalitatief onderzoek](/insights/)
-[Gebruikerstesten](/gebruikerstesten/)
-[Diary study](/diary-study/)  
-[Eye tracking simulatie](/eyetracking-simulatie/)
-[Pretest](/pretest/)
-[Online onderzoek](/online-onderzoek/)
-[Customer Journey](/customer-journey/)
-[Patient Journey](/patient-journey/)  
-[Generation Journey](https://www.generationjourney.nl)
-[Groepsdiscussies](/groepsdiscussie/)
-
-### Hoe kunnen wij je helpen?
-
-Heb je een vraag? We denken graag met je mee over innovatie- en onderzoeksvraagstukken!
-
-- Naam\*
-- Organisatie\*
-- E-mailadres\*
-- Telefoon
-- Waarmee kunnen we je helpen?\*
-
- 
-
-Δ
+Diversions is lid van het Data & Insights Network. Data wordt in de EU gehost (AVG by design).

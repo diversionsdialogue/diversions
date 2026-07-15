@@ -1,186 +1,135 @@
 ---
-service: "Patient Journey: insights voor betere zorg"
-description: "Hoe verbeter je de zorg? Door te kijken door de ogen van een patiënt. De patiënt journey geef inzicht in onbewuste verwachtingen, motieven en emoties. Deze inzichten helpen je om…"
+service: "Patient journey onderzoek: bekijk de zorg door de ogen van je patiënt"
+description: "Hoe ervaart je patiënt de héle zorgreis, niet alleen het medische traject? Met een patient journey-onderzoek breng je de volledige beleving in kaart: van de eerste klachten en de diagnose tot langdurig leven met een aandoening. Diversions laat zien waar de zorgbeleving stokt, waarom dat gebeurt en welke verbeteringen echt verschil maken."
+categories:
+  - onderzoeken
 ---
 
-<!-- CONVERT-META
-  oude_url: /patient-journey
-  nieuwe_url: /services/patient-journey
-  sanity_type: service
-  placeholder-afbeelding gebruikt (quality-fase: echte WP-afbeelding plaatsen)
-  - 2 CTA('s) gedetecteerd -> ctaBlock-marker
-  - description automatisch afgeleid (geen excerpt)
--->
+## Wat is patient journey-onderzoek?
 
-# Patient journey:
+Hoe beleeft je patiënt de hele reis, niet alleen het medische moment? Een patient journey brengt de totale ervaring in kaart: van de eerste klachten en de diagnose tot het langdurig leven met een aandoening. We onderzoeken niet alleen de contactmomenten met je organisatie (de touchpoints), maar juist ook de fasen waarin je minder directe invloed hebt, en de emoties, verwachtingen en drijfveren die het gedrag van patiënten bepalen.
 
-<!-- BLOK:ctaBlock heading="insights voor betere zorg" buttonLabel="Advies op maat" buttonHref=/contact-2/ variant=default -->
-### insights voor betere zorg
+Zo ontstaat een compleet beeld van de zorgbeleving: waar het proces soepel loopt, waar het stokt en waarom mensen op bepaalde momenten afhaken of juist zelf de regie pakken.
 
-Hoe verbeter je de zorg? Door te kijken door de ogen van een patiënt. De patiënt journey geef inzicht in onbewuste verwachtingen, motieven en emoties. Deze inzichten helpen je om zorgverlening beter en persoonlijker te maken. [Hoe het werkt](#info)
+## Wat bepaalt bij het onderzoek de aanpak en prijs?
 
-[Advies op maat](/contact-2/)
-<!-- /BLOK:ctaBlock -->
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2021/12/patient-journey.jpg (title: patient-journey) -- quality-fase: downloaden+optimaliseren -->
-![patient journey](/src/images/assets/blog.jpeg)
+Elke patiëntreis is anders, en dus ook de manier waarop we die onderzoeken. Met een paar keuzes bepaal je zelf welke aanpak het beste past:
 
-[aioseo\_breadcrumbs]
+:::bullets
+- Lever je zelf respondenten aan uit je eigen achterban of werven wij ze via een panel?
+- Kies je voor een eenmalige meting of doorlopend onderzoek?
+- Wil je kwantitatief onderzoek met een survey, kwalitatieve diepte-interviews of een combinatie van beide?
+:::
 
-## Door het oog van de patiënt
+Deze keuzes bepalen niet alleen de aanpak, maar ook de prijs. Dat zie je direct terug in de calculator bovenaan de pagina.
 
-Onzekerheid over je gezondheid kan tot spanningen leiden. Niet voor niets lopen emoties vaak hoog op als het gaat om het niveau van geboden zorg. Hoe ga je daarmee om?
+Een eenmalige meting geeft een scherp beeld van de huidige situatie. Maar zorg en patiëntbehoeften veranderen mee met de tijd. Organisaties die continu willen verbeteren kiezen daarom vaak voor doorlopend onderzoek, zodat ze kunnen toetsen of verbeteringen daadwerkelijk effect hebben.
 
-Belangrijk is om niet alleen te luisteren naar *wat* patiënten zeggen. Maar vooral om te zoeken naar de achterliggende drijfveren en motieven. Dat is de sleutel tot verbetering. Voor patiënt en zorgpersoneel.
+## Wanneer zet je het in?
 
-## Startpunt: verzamelen insights
+Patient journey-onderzoek is waardevol wanneer je bijvoorbeeld:
 
-De eerste stap in ons proces is het verkrijgen van inzichten. We zetten hier verschillende middelen voor in. Variërend van individuele interviews tot kwantitatief onderzoek.
+:::bullets
+- de zorgbeleving persoonlijker en menselijker wilt maken;
+- de communicatie tussen patiënt en organisatie wilt verbeteren;
+- de zelfredzaamheid en eigen regie van patiënten wilt vergroten;
+- e-health of andere innovatie beter wilt laten aansluiten op de patiënt;
+- wilt begrijpen waarom patiënten dezelfde aandoening zo verschillend beleven.
+:::
 
-De inzichten die we verzamelen krijgen een plek in de patiëntreis.
+## Wanneer is het minder geschikt?
 
-<!-- IMG originele bron: https://www.generationjourney.nl/wp-content/uploads/2020/10/patientjourney-insights.gif (title: patientjourney-insights) -- quality-fase: downloaden+optimaliseren -->
-![insights patient journey](/src/images/assets/blog.jpeg)
-<!-- IMG originele bron: https://www.generationjourney.nl/wp-content/uploads/2020/10/journey-mapping.png (title: journey-mapping) -- quality-fase: downloaden+optimaliseren -->
-![Patient reis](/src/images/assets/blog.jpeg)
+Wil je alleen de tevredenheid over één contactmoment meten? Dan is een gericht tevredenheids- of NPS-onderzoek sneller. Wil je één uiting of scherm toetsen? Dan past een pretest of gebruikerstest beter. Een patient journey kijkt naar de volledige reis en de beleving per fase, niet naar één los moment.
 
-## Vertaling naar patiëntreis
+## Wat levert het op?
 
-De patiëntreis brengt in beeld hoe 'ziek zijn' wordt ervaren. Bij Diversions kijken we dan niet alleen naar contactmomenten met jouw organisatie (de zogenaamde touchpoints).
+Bij Diversions stopt onderzoek niet bij het inzicht. Een patient journey heeft pas waarde als de inzichten leiden tot concrete verbeteringen. Daarom werken we altijd in drie stappen:
 
-Het is de totale ervaring die kleurt hoe zorg ervaren wordt. Wij brengen dit totaalbeeld in kaart.
+:::nummers
+- LABEL: Inzicht | TEKST: Een journey map met de fasen van de patiëntreis, de emotiecurve, touchpoints en de momenten waarop de beleving stokt.
+- LABEL: Vertaling | TEKST: Waarom stokt de zorgbeleving op die momenten, en welke fasen bieden de grootste kans op verbetering?
+- LABEL: Toepassing | TEKST: Concrete, geprioriteerde aanbevelingen waarmee je de stap zet van inzicht naar actie.
+:::
 
-## Optimalisatie
+De journey map maakt het onderzoek zichtbaar en bespreekbaar binnen je organisatie. In de praktijk vertaalt een goed beeld van de patiëntreis zich naar betere communicatie, meer zelfredzaamheid, hogere tevredenheid en soms een afname van onnodige contactmomenten of heropnames.
 
-Aan de hand van de patiënt journey gaan we op zoek naar verbeterpunten. Op welke terreinen kunnen we echt een verschil maken. En welke mensen & middelen zijn daarvoor nodig?
+## Wat kost patient journey-onderzoek?
 
-We bereiken het beste resultaat door kennis over generaties, copingstijlen en gedragspsychologie te combineren.
+Veel onderzoeksbureaus werken met offertes op aanvraag. Wij bieden je graag direct een prijsindicatie. Geef je wensen aan in de calculator bovenaan de pagina en zie welke invloed je keuzes hebben op de prijs. Spreekt een mix je aan? Dan stemmen we die samen af en stellen we de definitieve offerte op. Helder en snel.
 
-<!-- IMG originele bron: https://www.generationjourney.nl/wp-content/uploads/2019/06/gedrag-fogg.png (title: Gewenst gedrag) -- quality-fase: downloaden+optimaliseren -->
-![Gewenst gedrag](/src/images/assets/blog.jpeg)
+De prijs hangt af van je keuzes voor:
 
-<!-- BLOK:ctaBlock heading="Aan de slag met de patient journey" buttonLabel="Afspraak maken" buttonHref=/contact-2/ variant=default -->
-### Aan de slag met de patient journey
+:::bullets
+- de onderzoeksmethode (survey, rijke survey met AI-doorvragen of diepte-interviews);
+- het aantal fasen en touchpoints;
+- de doelgroep (je eigen achterban of een panel);
+- de gewenste steekproef;
+- een eenmalig of doorlopend onderzoeksprogramma.
+:::
 
-[055 20 32 193](tel://0031-55-2032193)
+Indicatief voor de Nederlandse markt (excl. btw) ligt een eenmalige survey met eigen respondenten vanaf ongeveer € 3.500 en een uitgebreider kwantitatief traject rond € 15.000. Werk je liever kwalitatief met diepte-interviews, dan ligt de investering meestal tussen € 3.000 en € 12.000.
 
-[Afspraak maken](/contact-2/)
-<!-- /BLOK:ctaBlock -->
-### generatiesBij een patient journey geldt het uitgangspunt dat elke patiënt uniek is.
+## Patient journey vs. customer journey of tevredenheidsonderzoek?
 
-- ### Maak zorg persoonlijk
+Een patient journey is in feite een customer journey toegepast op de zorg, met extra aandacht voor ziektebeleving, coping en kwetsbaarheid. Een tevredenheids- of NPS-onderzoek meet hoe tevreden mensen op een bepaald moment zijn; de patient journey laat zien hoe de héle reis wordt beleefd en waaróm. De onderzoeken vullen elkaar aan, maar beantwoorden verschillende vragen.
 
-## Patiënt journey
+## Hoe pakt Diversions het onderzoek aan?
 
-Jouw zorginstelling of organisatie is uniek en je patiënten zijn dat ook. We denken vaak te weten hoe patiënten de zorg ervaren, maar dit blijkt in de praktijk lastiger dan gedacht.
+We beginnen bij goed luisteren. Niet alleen naar wat patiënten zeggen, maar naar de achterliggende motieven, onzekerheden en emoties. Eerst verzamelen we de signalen die je al hebt, van de kennis van medewerkers die dagelijks contact hebben tot bestaande data. Daarna halen we via kwalitatief onderzoek en gerichte interviews op hoe patiënten de contactmomenten écht doorlopen.
 
-- ### Het belang van goed luisteren
+Het waarom achter het gedrag duiden we met wetenschappelijke modellen uit de gezondheidspsychologie: ziekteperceptie, persoonlijkheidskenmerken en copingstijlen bepalen mede hoe iemand de reis beleeft. Die verdieping geven we mee aan de persona's in de journey.
 
-Laat er geen twijfel over bestaan: goed inzicht in de patiënt journey begint bij luisteren. Alleen dan kom je te weten wat er binnen jouw organisatie belangrijk is en hoe patiënten de zorgverlening ervaren. Elke zorginstelling en dus is ook elke patiënt journey uniek.
+We hebben daarbij extra aandacht voor de verschillen tussen generaties: de wensen van een tachtigjarige patiënt zijn niet gelijk aan die van een twintiger met dezelfde aandoening. En we kijken bewust niet alleen naar digitale dienstverlening; juist de mix van online en persoonlijke contactmomenten maakt vaak het verschil.
 
-We weten hoe belangrijk het voor je organisatie is om inzicht te krijgen in de [beleving](https://www.generationjourney.nl/patient-journey/patientbeleving-verbeteren/) en het gedrag van je patiënten. Er is meer voor nodig dan een tevredenheidsonderzoek om de onbewuste verwachtingen, onzekerheden en emoties van patiënten boven tafel te krijgen.
+AI speelt een waardevolle rol: smart surveys maken het mogelijk om gericht door te vragen, en AI helpt bij transcriptie en analyse. Maar onderzoek blijft mensenwerk. Een ervaren onderzoeker zet het onderzoek op en duidt de uitkomsten, steeds met hetzelfde doel: niet alleen begrijpen wat er gebeurt, maar vooral weten wat je morgen kunt verbeteren.
 
-Met onze kennis over [het omgaan met gezondheidsproblemen](https://www.generationjourney.nl/patient-journey/hoe-mensen-omgaan-met-ziekte/) en de patiënt journey hebben we bij Diversions een krachtige methode in huis om deze bloot te leggen. Echt luisteren is meer dan alleen aanhoren. Door onderzoekend te luisteren brengen we waardevolle contactmomenten tussen je organisatie en de patiënt in kaart. Door middel van kwalitatief onderzoek en onze gerichte interviewmethode komen we te weten hoe patiënten deze contactmomenten doorlopen.
+## Een voorbeeld uit de praktijk
 
-Zo maken we aan de hand van de door jouw geformuleerde doelen elk contactmoment tussen organisatie en patiënt waardevol.
+Een patiëntenvereniging voor mensen met een chronische aandoening vroeg ons de reis van haar achterban in kaart te brengen. In de zorg ligt de nadruk vaak op het stellen van de diagnose en het op gang brengen van de eerste behandeling. Maar juist dáárna komen de vragen die het dagelijks leven raken: vragen die niet zozeer medisch zijn, maar gaan over langdurig leven met beperkingen.
 
-- ### Kom verder met onderzoek
+:::nummers
+- LABEL: Inzicht | TEKST: De patient journey liet zien dat de nadruk tijdens het behandelproces te veel op de medische kant ligt en te weinig op het leven met de ziekte. Mensen hebben juist méér hulp nodig op het moment dat de medische vragen beantwoord zijn.
+- LABEL: Vertaling | TEKST: De vereniging wil nieuwe manieren zoeken naast het bestaande patiëntencontact, waar niet iedereen behoefte aan heeft: een informatievoorziening die uitgaat van de brede kijk op de aandoening, niet alleen het medische.
+- LABEL: Toepassing | TEKST: De website is hierop aangepast. Ervaringen delen kan nu niet meer alleen tijdens groepsbijeenkomsten, maar ook door verhalen online te plaatsen. Zo komen ook mensen die een drempel voelen om naar een bijeenkomst te gaan, toch bij de juiste informatie.
+:::
 
-Omdat we ervan overtuigd zijn dat je dieper moet gaan om menselijk gedrag binnen een organisatie te verklaren, doen we zelf veel onderzoek naar de processen en modellen die ten grondslag liggen aan patiëntgedrag.
+## Wat is je volgende stap?
 
-De gezondheidszorgpsychologie biedt relevante wetenschappelijke inzichten die uw patiënt journey nog effectiever maken.
+Elk onderzoek eindigt met Toepassing: concrete aanbevelingen, geprioriteerd naar impact, zodat je niet met een rapport blijft zitten maar direct aan de slag kunt.
 
-- Waarom is een deel van de patiënten actief betrokken bij de behandeling en laten anderen het over zich heen komen?
-- Hoe komt het dat de ene patiënt dezelfde ziekte totaal anders beleeft dan de andere patiënt?
-- En hoe moet de zorg eruit zien vanuit het perspectief van de patiënt?
+:::bullets
+- Morgen: quick wins op de grootste pijnpunten in de patiëntreis.
+- Volgende maand: de fase met de grootste verbeterkansen aanpakken.
+- Daarna: informatievoorziening, communicatie en werkprocessen structureel aanpassen.
+:::
 
-Binnen de patiënt journey spelen vele individuele factoren een rol. Ziekteperceptie, persoonlijkheidskenmerken van de patiënt en coping hebben allen invloed op hoe patiënten de journey doorlopen. Dit [mappen](https://www.generationjourney.nl/patient-journey/patient-journey-mapping/) we in de journey.
+Wil je de vertaalslag samen met je team maken? Dan begeleiden we een werksessie waarin we de inzichten omzetten in een concreet actieplan. Onderzoek van Diversions levert geen dik rapport op dat in een la verdwijnt, maar een routekaart waarmee je direct verder kunt.
 
-Door in kaart te brengen welke psychologische modellen binnen jouw organisatie van toepassing zijn, geven we de verschillende persona's die we opstellen extra verdieping mee. Hierdoor krijgen we nog beter inzicht in de ervaringen die mensen doormaken binnen jouw organisatie.
-
-Door deze inzichten te koppelen aan creatieve oplossingen, maken we de reis die patiënten afleggen effectiever.
-
-- ### Jouw doelen voorop
-
-Jouw organisatie heeft hart voor patiënten. Je wilt dan ook dat de zorg die je voor ogen hebt op de juiste manier terecht komt bij mensen die het nodig hebben. Er zijn vele inzichten mogelijk als uitkomst van een patiënt journey. Deze vertalen wij samen met jou naar concrete doelen.
-
-Een aantal belangrijke resultaten van een patiënt journey die je direct in jouw organisatie kunt toepassen zijn:
-
-1. Verbeteren van de communicatie tussen patiënt en organisatie
-2. Empowerment en vergroten van zelfredzaamheid van patiënten.
-3. Hogere tevredenheid van patiënten over de geleverde zorg
-4. Effectief toepassen van [e-health](https://www.zorgvisie.nl/thema/e-health/) en innovatie binnen de zorg
-5. Afname van het aantal heropnames
-
-### generaties*Het slagen van innovatie binnen de zorg is afhankelijk van hoe de patiënt deze ervaart.*
-
-*Lucien Engelen, Directeur [RadboudUMC REshape Center](https://radboudreshapecenter.com/)*
-
-- ### Goede zorg begint bij de patiënt
-
-De zorg is continu in beweging. Innovatie binnen de zorg heeft het meeste effect wanneer deze patiëntgericht is. Een online dossier, apps die patiënten ondersteunen tijdens het ziekteproces, spreekuur via [skype](https://www.skype.com/nl/) of een online community voor lotgenoten. Allemaal voorbeelden van e-health die de zorg niet alleen efficiënter en beter maken, maar er ook voor zorgen dat de patiënt meer controle krijgt over zijn eigen ziekteproces.
-
-Empowerment van de patient is een belangrijke pijler binnen de zorg. Om ervoor te zorgen dat patiënten optimaal profiteren van innovatie in de zorg, is het van essentieel belang te weten hoe patiënten uw zorg en innovatie ervaren. Dit onderzoeken we tijdens de patiënt journey.
-
-Welke factoren en processen van patiënt en organisatie spelen een rol bij het optimaal toepassen van de middelen die je binnen jouw organisatie gebruikt? Zo zorgen we ervoor dat innovatieve middelen nog beter binnen uw organisatie worden ingezet.
-
-Naast alle digitale ontwikkelingen, blijven de 'echte' contactmomenten binnen de zorg van grote toegevoegde waarde. Een goede mix van online en 'offline' middelen maakt het verschil binnen de patiënt journey.
-
-Van intensieve zorg op de Intensive Care tot een warm welkom bij de receptie of een 'buddy' die samen met de patiënt het gesprek met een specialist voorbereid. Je kunt ervoor zorgen dat deze belangrijke momenten tellen voor je patiënten.
-
-## NIET ALLEEN DIGITALE DIENSTVERLENING
-
-Veel partijen die een patient journey aanbieden betrekken dit specifiek op de digitale dienstverlening van je organisatie. Dit vanuit de gedachte dat de smartphone de nieuwe agenda is en patiënten online zoeken naar informatie over hun aandoeningen.Echter zijn wij bij Diversions overtuigd dat de patient journey zich niet uitsluitend dient te richten op digitale dienstverlening.Als u een patient journey maakt dan kan één van de inzichten zijn dat uw patiënten het prettig zouden vinden om bijvoorbeeld een sms te krijgen ter herinnering van een afspraak, maar er kunnen ook inzichten naar voren komen die zich richten op andere elementen van het proces.
-
-Een patient journey kan resulteren in talloze verbeteringen binnen jouw organisatie. Een aantal resultaten van een patient journey zijn:
-
-- ### Betere communicatie tussen patiënt en zorgverlener
-- ### Inzicht hoe de organisatie bij kan dragen aan de zelfredzaamheid van patiënten
-- ### Een afname van het aantal heropnames
-- ### Een preventie van het leveren van inefficiënte zorg
-
-- ### Tijd voor maatwerk
-
-De patiënt journey is meer dan een digitale kant-en-klare oplossing voor organisaties binnen de zorg. Een patiënt journey draait om zoveel meer. Het uitgangspunt is dat elke patiënt uniek is, net als ieder zorgvraagstuk binnen jouw organisatie.
-
-Dat betekent dat de oplossing die voor journey 1 effectief is, niet hoeft te werken voor journey 2 en andersom. De patient journey resulteert dus niet in kant-en-klare oplossingen.
-
-Bij Diversions hebben we daarbij extra aandacht voor de verschillen tussen de diverse generaties. Want de wensen van een tachtigjarige patiënt zijn niet gelijk aan die van een twintiger met dezelfde ziekte. En de zestiger van nu heeft ook niet dezelfde wensen als de zestiger van twintig jaar geleden of de zestiger van de toekomst.
-
-Onze expertise op het gebied van generatie-onderzoek onderbouwen we door zelf onderzoek uit te voeren naar generaties en verschillen binnen de zorg. Deze combinatie van aandachtsgebieden geeft meerwaarde aan jouw patiënt journey.
-
-[Leestips](javascript:void(0);)
-[*Expand*](#)
-
-- - [De juiste informatie op het juiste moment](https://patientjourneyapp.com/thesis-patient-empowerment-through-timely-information)
-
-- - [Het keuzeproces van patiënten](https://www.nivel.nl/sites/default/files/bestanden/1004044.pdf)
-
-- - [Design in health care](https://online-learning.tudelft.nl/courses/design-in-healthcare-using-patient-journey-mapping/)
-
-### Meer weten over onze werkwijze?
-
-Wilt je weten wat de patiënt journey voor jouw organisatie kan betekenen? Neem vrijblijvend contact op voor meer informatie.
-
-[Kennismaken](/contact-2/)
-
-**Gerelateerd**
-
-- [Patient journey mapping](https://www.generationjourney.nl/patient-journey/patient-journey-mapping/)
-- [Patientbeleving optimaliseren](https://www.generationjourney.nl/patient-journey/patientbeleving-verbeteren/)
-- [Hoe mensen omgaan met ziekte](https://www.generationjourney.nl/patient-journey/hoe-mensen-omgaan-met-ziekte/)
-- [Patient journey template](https://www.generationjourney.nl/patient-journey/template-patient-journey-downloaden/)
-- [Onderzoeksbureau Zorg](/onderzoeksbureau-zorg/)
-
-## Veel gestelde vragen
-
-Wat is een Patient Journey?
-
-In een Patient Journey leg je vast hoe patiënten een zorgproces doorlopen en ervaren. De 'reis' toont dus niet alleen gebeurtenissen. Het gaat om de combinatie van behandelstappen + gedrag en emoties van patienten.
-
-Hoe werkt Patient Journey mapping?
-
-Bij mapping gaat het om de vastlegging van de patiëntreis. Hierbij breng je niet alleen verschillende processtappen in beeld. De meerwaarde zit in de vastlegging van gedrag, emoties, betrokken personen etc.
-
-Wat is de waarde van een Patient Journey?
-
-Door een Patient Journey in kaart te brengen, ontdek je snel verbeterkansen binnen het zorgproces. Deze kunnen helpen de ervaring van patiënten te verbeteren, maar ook waardevol zijn bij het optimaliseren van wekprocessen binnen zorginstellingen.
+## Onderzoek starten
+
+:::cta
+KOP: Even sparren over je onderzoeksvraag?
+TEKST: Stel je vragen gerust vooraf. We denken vrijblijvend met je mee over de opzet die bij jouw patiëntreis past.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::
+
+## Veelgestelde vragen
+
+:::faq
+VRAAG: Wat is een patient journey?
+ANTWOORD: In een patient journey leg je vast hoe patiënten een zorgproces doorlopen én ervaren. De reis toont niet alleen de behandelstappen, maar juist de combinatie van gebeurtenissen, gedrag en emoties per fase.
+:::
+:::faq
+VRAAG: Wat kost een patient journey-onderzoek?
+ANTWOORD: Vanaf € 3.500 wanneer je zelf respondenten aanlevert voor een eenmalige survey. De uiteindelijke prijs hangt af van je keuzes: eenmalig of doorlopend, kwalitatief of kwantitatief, eigen achterban of een panel. Met de calculator bovenaan de pagina bereken je direct een prijsindicatie.
+:::
+:::faq
+VRAAG: Werken jullie met onze eigen patiënten?
+ANTWOORD: Meestal wel; de patient journey draait vaak om mensen die het zorgproces recent hebben doorlopen. Voor specifieke of kwetsbare doelgroepen werken we met een panel of een maatwerksteekproef, altijd in overleg en met zorg voor privacy.
+:::
+:::faq
+VRAAG: Kijken jullie alleen naar digitale dienstverlening?
+ANTWOORD: Nee. Digitale middelen zijn belangrijk, maar de patient journey kijkt naar de hele beleving. Juist de mix van online en persoonlijke contactmomenten bepaalt vaak hoe zorg wordt ervaren.
+:::
