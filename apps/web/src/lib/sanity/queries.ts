@@ -14,6 +14,7 @@ const bodyProjection = groq`
     ...,
     _type == "image" => { ..., asset-> },
     _type == "ctaBlock" => { ..., image { ..., asset-> } },
+    _type == "quoteBlock" => { ..., image { ..., asset-> } },
     _type == "videoBlock" => { ..., poster { ..., asset-> } }
   }
 `;

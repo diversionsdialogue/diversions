@@ -86,7 +86,9 @@ ROL: Onderzoeker
 :::
 ```
 - `QUOTE` verplicht. `AUTEUR` en `ROL` optioneel.
-- Sanity-type: `quoteBlock` (`quote`, `author?`, `role?`).
+- **Afbeelding (optioneel):** kan niet in markdown; zet je in de Studio op het
+  Quote-blok (veld "Afbeelding"). Die wordt rond, rechts naast de quote getoond.
+- Sanity-type: `quoteBlock` (`quote`, `author?`, `role?`, `image?`).
 
 ### 3.2 Opsomming / bullets — `:::bullets`
 ```

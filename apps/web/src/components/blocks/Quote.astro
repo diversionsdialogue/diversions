@@ -8,37 +8,83 @@
  *   quote   string  — the quote text
  *   author? string  — name
  *   role?   string  — role / company
+ *   image?  { url, alt? } — optionele afbeelding, rond weergegeven rechts naast
+ *           de quote. Zonder afbeelding blijft de gecentreerde opmaak behouden.
  */
 interface Props {
   quote: string;
   author?: string;
   role?: string;
+  image?: { url: string; alt?: string };
   class?: string;
 }
 
-const { quote, author, role, class: className = "" } = Astro.props;
+const { quote, author, role, image, class: className = "" } = Astro.props;
+const hasImage = !!image?.url;
 ---
 
-<figure class:list={["my-10 py-2 text-center", className]}>
-  <span
-    class="mb-3 block font-display text-5xl leading-[0.6] text-yellow-500"
-    aria-hidden="true">&ldquo;</span
-  >
-  <blockquote
-    class="mx-auto max-w-[36ch] font-quote text-[clamp(20px,2.3vw,26px)] italic leading-snug text-balance text-base-700"
-  >
-    {quote}
-  </blockquote>
-  {
-    (author || role) && (
-      <figcaption class="mt-4 font-subtitle text-[13px] font-semibold tracking-wide text-base-700">
-        {author}
-        {role && (
-          <span class="mt-0.5 block font-sans font-normal tracking-normal text-base-400">
-            {role}
-          </span>
+{
+  hasImage ? (
+    <figure
+      class:list={[
+        "my-10 flex flex-col items-center gap-6 py-2 text-center sm:flex-row sm:items-center sm:justify-center sm:gap-10 sm:text-left",
+        className,
+      ]}
+    >
+      <div class="sm:max-w-[42ch]">
+        <span
+          class="mb-3 block font-display text-5xl leading-[0.6] text-yellow-500"
+          aria-hidden="true"
+        >
+          &ldquo;
+        </span>
+        <blockquote class="font-quote text-[clamp(20px,2.3vw,26px)] italic leading-snug text-balance text-base-700">
+          {quote}
+        </blockquote>
+        {(author || role) && (
+          <figcaption class="mt-4 font-subtitle text-[13px] font-semibold tracking-wide text-base-700">
+            {author}
+            {role && (
+              <span class="mt-0.5 block font-sans font-normal tracking-normal text-base-400">
+                {role}
+              </span>
+            )}
+          </figcaption>
         )}
-      </figcaption>
-    )
-  }
-</figure>
+      </div>
+      <div class="shrink-0">
+        <img
+          src={image!.url}
+          alt={image!.alt ?? author ?? ""}
+          width={160}
+          height={160}
+          loading="lazy"
+          decoding="async"
+          class="size-32 rounded-full bg-pink-200 object-cover sm:size-40"
+        />
+      </div>
+    </figure>
+  ) : (
+    <figure class:list={["my-10 py-2 text-center", className]}>
+      <span
+        class="mb-3 block font-display text-5xl leading-[0.6] text-yellow-500"
+        aria-hidden="true"
+      >
+        &ldquo;
+      </span>
+      <blockquote class="mx-auto max-w-[36ch] font-quote text-[clamp(20px,2.3vw,26px)] italic leading-snug text-balance text-base-700">
+        {quote}
+      </blockquote>
+      {(author || role) && (
+        <figcaption class="mt-4 font-subtitle text-[13px] font-semibold tracking-wide text-base-700">
+          {author}
+          {role && (
+            <span class="mt-0.5 block font-sans font-normal tracking-normal text-base-400">
+              {role}
+            </span>
+          )}
+        </figcaption>
+      )}
+    </figure>
+  )
+}

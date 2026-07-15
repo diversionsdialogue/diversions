@@ -24,8 +24,25 @@ export const quoteBlock = defineType({
       title: "Role",
       type: "string",
     }),
+    defineField({
+      name: "image",
+      title: "Afbeelding (optioneel)",
+      type: "image",
+      description:
+        "Optionele afbeelding, wordt rond (in een cirkel) rechts naast de quote getoond.",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: "alt",
+          type: "string",
+          title: "Alternatieve tekst",
+        },
+      ],
+    }),
   ],
   preview: {
-    select: { title: "quote", subtitle: "author" },
+    select: { title: "quote", subtitle: "author", media: "image" },
   },
 });

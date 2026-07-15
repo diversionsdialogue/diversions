@@ -125,6 +125,7 @@ const ctaImageFor = (image: any): { url: string; alt?: string } | undefined => {
         quote={seg.node.quote}
         author={seg.node.author}
         role={seg.node.role}
+        image={ctaImageFor(seg.node.image)}
       />
     ) : seg.node._type === "bulletList" ? (
       <BulletList
