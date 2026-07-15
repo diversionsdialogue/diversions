@@ -191,3 +191,34 @@ verplichte velden, overgeslagen items). Loop die handmatig na.
 - **Verplichte velden** altijd invullen, anders valt een blok terug op platte tekst.
 - **Markdown is de bron**, Sanity is afgeleid. Wijzig content in de `.md` en schrijf
   opnieuw weg, niet andersom (anders loopt de git-bron achter op Sanity).
+
+---
+
+## 6. Standaardafsluiting: "Onderzoek starten"
+
+Dienst-, methode- en branchepagina's sluiten **standaard** af met een
+"Onderzoek starten"-CTA. Dit vervangt het oude "Over de onderzoeker"-blok
+(met teksten als "William Burghout, Onderzoek & Innovatie" en de
+"Data & Insights Network / AVG"-alinea); gebruik dat blok niet meer.
+
+Plak onderaan de body exact dit:
+
+```
+## Onderzoek starten
+
+:::cta
+KOP: Even sparren over je onderzoeksvraag?
+TEKST: Stel je vragen gerust vooraf. We denken vrijblijvend met je mee over de opzet die bij jouw onderzoeksvraag past.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::
+```
+
+- Vaste opzet: kop "Even sparren over je onderzoeksvraag?", knop "Neem contact op"
+  naar `/contact`, `VARIANT: sage`.
+- De afbeelding bij het CTA-blok (`image`) staat niet in markdown; die wordt in de
+  Studio gezet (asset `image-…`). Bij nieuwe pagina's dezelfde contact-afbeelding
+  aanhouden als de andere onderzoekspagina's.
+- Wil je een pagina toch persoonlijker afsluiten, doe dat dán vóór deze CTA
+  (bijv. een `:::quote` van de onderzoeker), maar de CTA blijft de laatste sectie.

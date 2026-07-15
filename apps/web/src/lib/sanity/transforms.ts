@@ -197,6 +197,12 @@ export function transformPage(sanityDoc: SanityPage) {
     data: {
       title: sanityDoc.title,
       eyebrow: sanityDoc.eyebrow,
+      image: sanityDoc.image
+        ? {
+            url: safeImageUrl(sanityDoc.image),
+            alt: sanityDoc.image.alt || "",
+          }
+        : undefined,
       seo: transformSeo(sanityDoc.seo),
     },
   };

@@ -20,6 +20,7 @@ const description =
 <ArticleLayout
   title={title}
   eyebrow={eyebrow}
+  image={page?.data.image}
   seo={{ title: `${title} | over ons`, description }}
 >
   <PortableText value={page?.body ?? []} />

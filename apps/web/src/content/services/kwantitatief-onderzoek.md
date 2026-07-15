@@ -116,10 +116,12 @@ VRAAG: Werken jullie met AI-respondenten?
 ANTWOORD: Nee. AI versnelt de analyse en het doorvragen, maar we werken altijd met echte respondenten. Bedenk dat AI insights zich altijd baseren op openbare informatie waarbij de doelgroep en achtergrond onduidelijk zijn. Eigen onderzoek laat je zien wat voor jou relevant is.
 :::
 
-## Over de onderzoeker
+## Onderzoek starten
 
-Ieteke de Vries - Hoofd Onderzoek
-
-Diversions is lid van het Data & Insights Network. Data wordt in de EU gehost (AVG by design).
-</content>
-</invoke>
+:::cta
+KOP: Even sparren over je onderzoeksvraag?
+TEKST: Stel je vragen gerust vooraf. We denken vrijblijvend met je mee over de opzet die bij jouw onderzoeksvraag past.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::

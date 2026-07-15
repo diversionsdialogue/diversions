@@ -16,6 +16,8 @@ interface Props {
   title: string;
   eyebrow?: string;
   date?: Date | string;
+  /** Optionele uitgelichte afbeelding in de header (zoals bij blogartikelen). */
+  image?: { url: any; alt?: string };
   /** Drop-cap op de eerste paragraaf van de body. Default: false (rustig). */
   dropcap?: boolean;
   seo?: {
@@ -29,7 +31,7 @@ interface Props {
   };
 }
 import BaseLayout from "@/layouts/BaseLayout.astro";
-const { title, eyebrow, date, dropcap = false, seo } = Astro.props;
+const { title, eyebrow, date, image, dropcap = false, seo } = Astro.props;
 
 const dateText = date
   ? new Date(date).toLocaleDateString("nl-NL", {
@@ -54,6 +56,21 @@ const dateIso = date ? new Date(date).toISOString() : undefined;
         )
       }
     </header>
+
+    {
+      image?.url && (
+        <div class="post-cover">
+          <img
+            src={image.url}
+            alt={image.alt ?? ""}
+            width={1280}
+            height={720}
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      )
+    }
 
     <div class:list={["post-body", { "post-body--dropcap": dropcap }]}>
       <slot />

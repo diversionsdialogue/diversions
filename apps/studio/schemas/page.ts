@@ -32,6 +32,23 @@ export const page = defineType({
       type: "string",
       description: "Kleine bovenkop boven de titel (optioneel).",
     }),
+    defineField({
+      name: "image",
+      title: "Uitgelichte afbeelding",
+      type: "image",
+      description:
+        "Optionele afbeelding in de header van de pagina (zoals bij blogartikelen).",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: "alt",
+          type: "string",
+          title: "Alternatieve tekst",
+        },
+      ],
+    }),
     bodyField({ required: true }),
     seoField(),
   ],

@@ -243,6 +243,10 @@ export const getAllPagesQuery = groq`
     title,
     "slug": slug.current,
     eyebrow,
+    image {
+      asset->,
+      alt
+    },
     ${bodyProjection},
     ${seoProjection}
   }

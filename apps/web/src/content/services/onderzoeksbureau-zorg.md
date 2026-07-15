@@ -88,6 +88,12 @@ VRAAG: Hoe gaan jullie om met gevoelige zorgdata?
 ANTWOORD: Data staat volledig in de EU (AVG by design). We werken met echte respondenten en houden AI bewust licht in de zorg.
 :::
 
-## Over de onderzoeker
+## Onderzoek starten
 
-Diversions is lid van het Data & Insights Network. Data wordt in de EU gehost (AVG by design).
+:::cta
+KOP: Even sparren over je onderzoeksvraag?
+TEKST: Stel je vragen gerust vooraf. We denken vrijblijvend met je mee over de opzet die bij jouw onderzoeksvraag past.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::

@@ -207,6 +207,7 @@ export interface SanityPage extends SanityDocument {
   title: string;
   slug: string;
   eyebrow?: string;
+  image?: SanityImageAsset;
   body: SanityBody;
   seo?: SanitySeo;
 }

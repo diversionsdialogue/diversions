@@ -97,6 +97,12 @@ VRAAG: Kunnen we doorlopend meten?
 ANTWOORD: Ja. Dat is de Ledenradar: vaste meetmomenten in de ledenreis, met een dashboard of kwartaalupdate.
 :::
 
-## Over de onderzoeker
+## Onderzoek starten
 
-Diversions is lid van het Data & Insights Network. Data wordt in de EU gehost (AVG by design).
+:::cta
+KOP: Even sparren over je onderzoeksvraag?
+TEKST: Stel je vragen gerust vooraf. We denken vrijblijvend met je mee over de opzet die bij jouw onderzoeksvraag past.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::

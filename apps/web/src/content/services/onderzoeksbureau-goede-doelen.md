@@ -97,6 +97,12 @@ VRAAG: Kunnen we doorlopend meten?
 ANTWOORD: Ja. Dat is de Donateurmonitor: doorlopend zicht op betrokkenheid, geefbereidheid en opzegsignalen.
 :::
 
-## Over de onderzoeker
+## Onderzoek starten
 
-Diversions is lid van het Data & Insights Network. Data wordt in de EU gehost (AVG by design).
+:::cta
+KOP: Even sparren over je onderzoeksvraag?
+TEKST: Stel je vragen gerust vooraf. We denken vrijblijvend met je mee over de opzet die bij jouw onderzoeksvraag past.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::

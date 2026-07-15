@@ -134,8 +134,12 @@ VRAAG: Wat is het verschil met een pretest?
 ANTWOORD: Een pretest toetst één uiting voordat deze live gaat. Een customer journey brengt de volledige klantreis en de beleving per fase in kaart. Beide onderzoeken vullen elkaar aan, maar hebben een ander doel.
 :::
 
-## Over de onderzoeker
+## Onderzoek starten
 
-William Burghout is onderzoeker en innovatiespecialist.
-
-Diversions is lid van het Data & Insights Network. Data wordt in de EU gehost (AVG by design).
+:::cta
+KOP: Even sparren over je onderzoeksvraag?
+TEKST: Stel je vragen gerust vooraf. We denken vrijblijvend met je mee over de opzet die bij jouw onderzoeksvraag past.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::

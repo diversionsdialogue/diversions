@@ -109,8 +109,12 @@ VRAAG: Hoe verschilt dit onderzoek van 'gewone' klanttevredenheidsonderzoeken?
 ANTWOORD: Klanttevredenheid meet vooral hoe goed je het nu doet. Behoefteonderzoek gaat een laag dieper: het draait om taken, doelen, motivaties en context van je doelgroep, ook los van jouw organisatie. Waar tevredenheidsonderzoeken vaak kijken naar scores op bestaande contactmomenten, richt behoeftenonderzoek zich op wat mensen eigenlijk willen bereiken en welke oplossingen ze zoeken. Met of zonder jou.
 :::
 
-## Over de onderzoeker
+## Onderzoek starten
 
-Meer weten? Neem contact op met Ieteke de Vries, hoofd Onderzoek.
-
-Diversions is lid van het Data & Insights Network. Data wordt in de EU gehost (AVG by design).
+:::cta
+KOP: Even sparren over je onderzoeksvraag?
+TEKST: Stel je vragen gerust vooraf. We denken vrijblijvend met je mee over de opzet die bij jouw onderzoeksvraag past.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::

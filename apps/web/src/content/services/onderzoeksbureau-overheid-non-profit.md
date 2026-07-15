@@ -90,6 +90,12 @@ VRAAG: Hoe meten jullie campagne-effect?
 ANTWOORD: Met een nul- en éénmeting op kennis, houding en gedrag, gekoppeld aan het feitelijke gedrag van de doelgroep.
 :::
 
-## Over de onderzoeker
+## Onderzoek starten
 
-Diversions is lid van het Data & Insights Network. Data wordt in de EU gehost (AVG by design).
+:::cta
+KOP: Even sparren over je onderzoeksvraag?
+TEKST: Stel je vragen gerust vooraf. We denken vrijblijvend met je mee over de opzet die bij jouw onderzoeksvraag past.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::

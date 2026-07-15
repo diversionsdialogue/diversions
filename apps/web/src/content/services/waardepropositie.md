@@ -108,8 +108,12 @@ VRAAG: Wat is het verschil tussen een waardepropositie en een USP?
 ANTWOORD: Een USP (unique selling point) is één onderscheidend kenmerk van je product. Een waardepropositie is de volledige belofte aan je doelgroep: welk probleem los je op, welke pijn verzacht je, welke winst lever je?
 :::
 
-## Over de onderzoeker
+## Onderzoek starten
 
-Meer weten? Neem contact op met Ieteke de Vries, hoofd Onderzoek.
-
-Diversions is lid van het Data & Insights Network. Data wordt in de EU gehost (AVG by design).
+:::cta
+KOP: Even sparren over je onderzoeksvraag?
+TEKST: Stel je vragen gerust vooraf. We denken vrijblijvend met je mee over de opzet die bij jouw onderzoeksvraag past.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::

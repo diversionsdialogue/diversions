@@ -109,8 +109,12 @@ VRAAG: Wat kost AI-onderzoek?
 ANTWOORD: Dat hangt af van de steekproef, het aantal onderwerpen en de gewenste diepgang. Bereken je prijs met de calculator bovenaan deze pagina.
 :::
 
-## Over de onderzoeker
+## Onderzoek starten
 
-Meer weten? Neem contact op met Ieteke de Vries, hoofd Onderzoek.
-
-Diversions is lid van het Data & Insights Network. Data wordt in de EU gehost (AVG by design).
+:::cta
+KOP: Even sparren over je onderzoeksvraag?
+TEKST: Stel je vragen gerust vooraf. We denken vrijblijvend met je mee over de opzet die bij jouw onderzoeksvraag past.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::

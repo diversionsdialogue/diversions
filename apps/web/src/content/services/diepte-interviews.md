@@ -118,8 +118,12 @@ VRAAG: Werken jullie met AI-respondenten?
 ANTWOORD: Nee. AI versnelt de uitwerking en analyse, maar we spreken altijd echte mensen.
 :::
 
-## Over de onderzoeker
+## Onderzoek starten
 
-Meer weten? Neem contact op met Ieteke de Vries, hoofd Onderzoek.
-
-Diversions is lid van het Data & Insights Network. Data wordt in de EU gehost (AVG by design).
+:::cta
+KOP: Even sparren over je onderzoeksvraag?
+TEKST: Stel je vragen gerust vooraf. We denken vrijblijvend met je mee over de opzet die bij jouw onderzoeksvraag past.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::

@@ -128,8 +128,12 @@ VRAAG: Gebruiken jullie AI-respondenten?
 ANTWOORD: Nee. AI versnelt onze analyse, maar we werken altijd met echte respondenten en een onderzoeker die de conclusie schrijft.
 :::
 
-## Over de onderzoeker
+## Onderzoek starten
 
-William Burghout, Onderzoek & Innovatie.
-
-Diversions is lid van het Data & Insights Network. Data wordt in de EU gehost (AVG by design).
+:::cta
+KOP: Even sparren over je onderzoeksvraag?
+TEKST: Stel je vragen gerust vooraf. We denken vrijblijvend met je mee over de opzet die bij jouw onderzoeksvraag past.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::

@@ -109,9 +109,12 @@ VRAAG: Werken jullie met AI-respondenten?
 ANTWOORD: Kort antwoord: nee. We zetten AI weliswaar in als versneller (bijvoorbeeld bij transcriptie en analyse) maar we vervangen echte respondenten nooit. AI-inzichten baseren zich namelijk op openbare, algemene data waarvan de exacte achtergrond en doelgroep onduidelijk zijn. In kwalitatief onderzoek draait alles om nuance en context; zonder echte mensen trek je simpelweg niet de juiste conclusies.
 :::
 
-## Over de onderzoeker
+## Onderzoek starten
 
-Meer weten? Neem contact op met Ieteke de Vries, hoofd Onderzoek.
-
-Diversions is lid van het Data & Insights Network. Data wordt in de EU gehost (AVG by design).
-</content>
+:::cta
+KOP: Even sparren over je onderzoeksvraag?
+TEKST: Stel je vragen gerust vooraf. We denken vrijblijvend met je mee over de opzet die bij jouw onderzoeksvraag past.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::
