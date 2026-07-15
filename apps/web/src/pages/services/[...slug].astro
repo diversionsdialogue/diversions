@@ -35,6 +35,8 @@ const CALCULATORS: Record<string, "pretest" | "effectmeting" | "customer-journey
   // Maatwerk: pitch-hero zonder prijsindicatie-knop + een blok dat uitlegt dat
   // er voor deze dienst geen calculator is (prijs op aanvraag).
   "diary-study": "maatwerk",
+  "micro-journey-de-waardevolle-verdieping-op-customer-journeys": "maatwerk",
+  "nps-enquete": "maatwerk",
 };
 
 // Copy per maatwerk-dienst. anchorLabel/anchorRegex: link naar de prijs-alinea
@@ -44,6 +46,16 @@ const MAATWERK: Record<string, { kop: string; anchorLabel: string; anchorRegex: 
   "diary-study": {
     kop: "Diary study vraagt om maatwerk",
     anchorLabel: "Wat kost een diary study",
+    anchorRegex: /^wat kost/i,
+  },
+  "micro-journey-de-waardevolle-verdieping-op-customer-journeys": {
+    kop: "Micro journey vraagt om maatwerk",
+    anchorLabel: "Wat kost een micro journey",
+    anchorRegex: /^wat kost/i,
+  },
+  "nps-enquete": {
+    kop: "NPS-enquête vraagt om maatwerk",
+    anchorLabel: "Wat kost een NPS-enquête",
     anchorRegex: /^wat kost/i,
   },
 };
@@ -66,6 +78,8 @@ const LEES: Record<string, string> = {
   "campagne-effectonderzoek": "het campagne-effectonderzoek",
   "customer-journey": "het customer journey onderzoek",
   "patient-journey": "het patient journey onderzoek",
+  "micro-journey-de-waardevolle-verdieping-op-customer-journeys": "de micro journey",
+  "nps-enquete": "de NPS-enquête",
   klanttevredenheidsonderzoek: "het klanttevredenheidsonderzoek",
   doelgroeponderzoek: "het doelgroeponderzoek",
   "kwantitatief-onderzoek": "het kwantitatief onderzoek",

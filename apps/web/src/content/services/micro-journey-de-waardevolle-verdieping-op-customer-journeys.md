@@ -1,151 +1,111 @@
 ---
-service: "Micro journey: de waardevolle verdieping op customer journeys"
-description: "Customer journeys blijven winnen aan populariteit. Logisch. Wie kijkt vanuit het perspectief van de klant, boekt betere resultaten. Toch is het niet altijd nodig een volledige…"
+service: "Micro journey: de waardevolle verdieping op je customer journey"
+description: "Soms hoef je niet de hele klantreis in kaart te brengen. Met een micro journey zoom je in op één specifieke stap, door de ogen van je klant, en vind je gericht verbeterkansen. Diversions vertaalt die inzichten snel naar concrete acties, met een klein team en een korte doorlooptijd."
+categories:
+  - onderzoeken
 ---
 
-<!-- CONVERT-META
-  oude_url: /micro-journey-de-waardevolle-verdieping-op-customer-journeys
-  nieuwe_url: /services/micro-journey-de-waardevolle-verdieping-op-customer-journeys
-  sanity_type: service
-  placeholder-afbeelding gebruikt (quality-fase: echte WP-afbeelding plaatsen)
-  - 1 CTA('s) gedetecteerd -> ctaBlock-marker
-  - description automatisch afgeleid (geen excerpt)
--->
+## Wat is een micro journey?
 
-# Micro journey:
+Customer journeys winnen aan populariteit, en terecht: wie kijkt vanuit het perspectief van de klant, boekt betere resultaten. Maar het is niet altijd nodig de volledige klantreis in kaart te brengen. Soms levert focus op één specifiek onderdeel meer op. Dan biedt een micro journey uitkomst.
 
-<!-- BLOK:ctaBlock heading="Focus vanuit klantperspectief" buttonLabel="Advies op maat" buttonHref=/contact-2/ variant=default -->
-### Focus vanuit klantperspectief
+Een micro journey gebruikt dezelfde methodiek als een volledige customer journey, kijken door de ogen van de klant, maar richt zich op één episode met een hoog detailniveau. Je analyseert de touchpoints binnen die stap en ontdekt gericht waar de beleving afwijkt van de bedoeling.
 
-Customer journeys blijven winnen aan populariteit. Logisch. Wie kijkt vanuit het perspectief van de klant, boekt betere resultaten. Toch is het niet altijd nodig een volledige klantreis in kaart te brengen. Soms is het goed te focussen op een specifiek onderdeel. In deze gevallen biedt de micro journey uitkomst. [Hoe het werkt](#info)
+## Wanneer zet je een micro journey in?
 
-[Advies op maat](/contact-2/)
-<!-- /BLOK:ctaBlock -->
-<!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2021/12/microjourney.jpg -- quality-fase: downloaden+optimaliseren -->
-![micro journey](/src/images/assets/blog.jpeg)
+Een micro journey gebruiken we vooral om te verdiepen of te versnellen:
 
-[aioseo\_breadcrumbs]
+:::bullets
+- verdiepen: je hebt al een volledige customer journey en wilt één kansrijke stap grondiger onderzoeken;
+- versnellen: je wilt snel en gericht verbeteren, met een klein team en een korte doorlooptijd;
+- een specifieke stap met organisatorische knelpunten of wisselende klantfeedback aanpakken;
+- klantgericht denken doorlopend op de agenda houden, bijvoorbeeld met elk kwartaal een nieuwe micro journey.
+:::
 
-## Wanneer kies je voor een micro journey?
+## Wanneer is het minder geschikt?
 
-Een micro journey gebruiken we vaak om te verdiepen of te versnellen.
+Ken je de klantreis nog niet, of speelt je vraag over meerdere fasen en afdelingen tegelijk? Dan is een volledige customer journey een beter startpunt. Een micro journey is juist sterk als je de reis al kent en gericht op één episode wilt inzoomen.
 
-*Verdiepen* is aantrekkelijk wanneer al een volledige customer journey in beeld is gebracht. Blijkt dat een specifiek onderdeel van de journey extra ruimte biedt voor verbetering? Dan helpt een micro journey deze kansen in beeld te brengen.
+## Wat levert het op?
 
-Een micro journey biedt daarnaast de mogelijkheid om snel te werken. Een volledige customer journey opstellen vraagt een brede betrokkenheid binnen een organisatie. Door te focussen op een specifieke episode kan met een kleiner team worden gewerkt aan een relatief klein aantal optimalisaties. Daardoor blijft de tijd tussen de start van een project en vertaling naar de praktijk kort.
+Bij Diversions stopt onderzoek niet bij het inzicht. Een micro journey heeft pas waarde als de inzichten leiden tot concrete verbeteringen. Daarom werken we altijd in drie stappen:
 
-## Hoe we werken
+:::nummers
+- LABEL: Inzicht | TEKST: Een gedetailleerd beeld van één episode: de touchpoints, het gewenste gevoel en waar de beleving afwijkt van de bedoeling.
+- LABEL: Vertaling | TEKST: Waaróm stokt het op deze stap, en welke (organisatie)processen liggen daaraan ten grondslag?
+- LABEL: Toepassing | TEKST: Concrete, geprioriteerde verbeteringen die je met een klein team snel kunt doorvoeren en testen.
+:::
 
-De eerste stap in ons proces is het verkrijgen van inzichten. We zetten hier verschillende middelen voor in. Variërend van individuele interviews tot kwantitatief onderzoek.
+Belangrijk om te weten: de totale customer journey kleurt het oordeel over elke episode. Verloopt het einde goed, dan worden eerdere irritaties snel vergeten; een teleurstellend einde kleurt juist ook de eerdere stappen. Die context nemen we altijd mee.
 
-De inzichten die we verzamelen krijgen een plek in de micor journey.
+## Wat kost een micro journey?
 
-<!-- IMG originele bron: https://www.generationjourney.nl/wp-content/uploads/2020/10/patientjourney-insights.gif (title: patientjourney-insights) -- quality-fase: downloaden+optimaliseren -->
-![insights patient journey](/src/images/assets/blog.jpeg)
-<!-- IMG originele bron: https://www.generationjourney.nl/wp-content/uploads/2019/06/gedrag-fogg.png (title: Gewenst gedrag) -- quality-fase: downloaden+optimaliseren -->
-![Gewenst gedrag](/src/images/assets/blog.jpeg)
+Bij de meeste onderzoeken bieden we je direct op de site een prijsindicatie. Bij een micro journey kan dat niet: de opzet verschilt te sterk per vraag om vooraf één prijs te noemen. Wel weet je dat de prijs afhangt van:
 
-## Optimalisatie
+:::bullets
+- de gekozen episode en het aantal touchpoints;
+- de onderzoeksmethode (interviews, survey of een combinatie);
+- de doelgroep (je eigen klanten of een panel);
+- de gewenste steekproef en diepgang.
+:::
 
-Aan de hand van inzichten gaan we op zoek naar verbeterpunten. Op welke terreinen kunnen we echt een verschil maken. En welke mensen & middelen zijn daarvoor nodig?
+Wil je een indicatie? Neem contact op, dan rekenen we het vrijblijvend voor je uit.
 
-We bereiken het beste resultaat door kennis over klantbehoeften en het organisatieproces te combineren.
+## Micro journey vs. customer journey?
 
-## Starten met de micro journey
+Een volledige customer journey brengt de hele klantreis in beeld en vraagt brede betrokkenheid binnen de organisatie. Een micro journey gebruikt dezelfde methodiek, maar richt zich op één episode met een hoog detailniveau. Daardoor werk je sneller, met een kleiner team, aan een afgebakende set verbeteringen. De twee vullen elkaar aan: de micro journey is vaak de verdieping op een volledige journey.
 
-[Afspraak maken](/contact-2/)
-[055 20 32 193](tel://0031-55-2032193)
+## Hoe pakt Diversions het onderzoek aan?
 
-- ### Wanneer een micro journey?
+We beginnen bij het gewenste gevoel: welke ervaring wil je de klant bij deze stap bezorgen? Vervolgens verzamelen we inzichten met de middelen die passen, van individuele interviews tot kwantitatief onderzoek, en brengen we de touchpoints binnen de episode in kaart, door de ogen van de klant.
 
-Het maken van een volledige customer journey is waardevol. Maar het kan ook verstandig zijn op een specifiek onderdeel van dejourney te focussen. Bijvoorbeeld omdat er organisatorische problemen zijn. Of omdat een processtap stapsgewijs geoptimaliseerd moet worden.
+Daarna zoeken we samen de verbeterpunten: waar maken we echt verschil, en welke mensen en middelen zijn daarvoor nodig? We combineren kennis over klantbehoeften met het organisatieproces, want een knelpunt in de beleving heeft vaak een oorzaak in de interne werkwijze.
 
-In deze gevallen biedt een micro journey uitkomst. Hierbij combineren we de methodiek van de customer journey (kijken vanuit klantperspectief) met een praktijkgerichte focus.
+We houden daarbij de hele klantreis in het oog: de context van de omliggende fasen bepaalt mede hoe een episode wordt beleefd, zodat de verdieping in verhouding blijft tot het geheel. AI helpt ons bij het verwerken en analyseren van de input, maar de duiding blijft mensenwerk: een ervaren onderzoeker vertaalt de inzichten naar concrete verbeteringen.
 
-- ### Startpunt
+## Een voorbeeld uit de praktijk
 
-Voor je start met een micro journey is het van belang te bepalen welke gewenste ervaring je voor klanten wilt creëren. Is dit bekend? Dan is ook mogelijk te beoordelen hoe sterk de huidige situatie van deze gewenste situatie verschilt. Dit inzicht vormt de basis voor optimalisatie ideeën.
+Bij de analyse van een customer journey bleek dat voor een organisatie veel te winnen was in de onboarding van een dienst binnen organisaties. De dienst moest door verschillende medewerkers worden gebruikt, maar slechts een beperkt aantal kon de training volgen. Daardoor werkten er ook veel mensen met het systeem die de werking niet kenden, wat leidde tot praktische problemen en twijfel over de waarde ervan. Met een micro journey zoomden we in op wat er precies speelde: welke processen zorgden ervoor dat kennis niet van de getrainde medewerkers naar hun collega's stroomde?
 
-Kenmerkend voor een micro journey is:
+:::nummers
+- LABEL: Inzicht | TEKST: Het beschikbare trainingsmateriaal raakte vaak kwijt of werd door medewerkers voor zichzelf gehouden, waardoor kennis niet breed beschikbaar kwam.
+- LABEL: Vertaling | TEKST: De afhankelijkheid van alleen de getrainde medewerkers was te groot. Naast het train-de-trainer-principe was een laagdrempelige route voor iedereen nodig.
+- LABEL: Toepassing | TEKST: Er kwam een korte algemene introductie van een kwartier voor iedereen die met het systeem werkt, alle leermiddelen werden digitaal beschikbaar gesteld en de statische handleidingen maakten plaats voor een dynamische leeromgeving met te behalen certificaten. Zo werd instappen laagdrempelig, en pakten ook nieuwe medewerkers direct hun plek.
+:::
 
-- keuze voor een specifieke stap in de customer journey
-- analyse door de ogen van de klant
-- hoog detailniveau
-- focus op touchpoints, de contactmomenten met de klant en hun effect
+## Wat is je volgende stap?
 
-- ### Een micro journey maken
+Elk onderzoek eindigt met Toepassing: concrete aanbevelingen, geprioriteerd naar impact, zodat je niet met een rapport blijft zitten maar direct aan de slag kunt.
 
-Wil je meer weten over het maken van een micro journey? Neem contact op voor vrijblijvend advies. We denken graag met je mee over doelen, onderzoeksopzet en vertaling naar de praktijk.
+:::bullets
+- Morgen: de quick wins binnen de onderzochte episode oppakken.
+- Volgende maand: de belangrijkste verbetering doorvoeren en testen in de praktijk.
+- Daarna: een volgende episode oppakken, of opschalen naar de volledige journey.
+:::
 
-Verwacht op deze laatste stap onze extra aandacht. Het in beeld brengen van een micro journey is geen doel op zich. Het moet een startpunt zijn voor betere dienstverlening en hogere klantwaardering. Wij helpen je dit te bereiken.
+Onderzoek van Diversions levert geen dik rapport op dat in een la verdwijnt, maar een routekaart waarmee je direct verder kunt.
 
-### generaties*Het slagen van innovatie binnen de zorg is afhankelijk van hoe de patiënt deze ervaart.*
+## Onderzoek starten
 
-- ### Micro journey in de praktijk
+:::cta
+KOP: Even sparren over je onderzoeksvraag?
+TEKST: Stel je vragen gerust vooraf. We denken vrijblijvend met je mee over de opzet die bij jouw klantreis past.
+KNOP: Neem contact op
+URL: /contact
+VARIANT: sage
+:::
 
-Om de waarde (en beperkingen) van een micro journey te tonen, hebben we een voorbeeld opgesteld. Het gaat hierbij om de afhandeling van schade bij een autoverzekering.
+## Veelgestelde vragen
 
-We vereenvoudigen het proces tot 5 episodes (hoofdonderdelen).
-
-- Aanrijding eerste melding
-- Vervangend vervoer
-- Schade bepalen
-- Afhandeling
-- Nazorg
-
-<!-- IMG originele bron: https://www.generationjourney.nl/wp-content/uploads/2021/11/schade-melden-journey.png (title: schade-melden-journey) -- quality-fase: downloaden+optimaliseren -->
-![journey schade melden](/src/images/assets/blog.jpeg)
-
-Stel dat uit reviews blijkt dat met name de episode "Schade bepalen" laag wordt gewaardeerd. Dan is dit een goede aanleiding op een micro journey op te stellen.
-
-- ### Focus binnen de klantreis
-
-De micro journey start met het bepalen van het gewenste gevoel dat de stap oplevert. Gewenst gevoel is dat een klant zich geholpen voelt. De schadebepaling vormt immers de basis voor het oplossen van het probleem. Als de huidige ervaring is: "de verzekeraar probeert vooral om de schadelast laag te houden" dan is duidelijk welke uitdaging er ligt. Gevoel moet zijn: verzekerde en verzekeraar hebben hetzelfde belang.
-
-Door naar de micro journey. Wat gebeurt er in de stap "schade bepalen"? Hier kunnen verschillende stappen worden onderkend. Touchpoints zijn:
-
-- maken afspraak voor bepalen schade (telefonisch, e-mail, online)
-- de schouw van de schade-expert (bevestiging: schouw gestart, afronding schouw)
-- terugkoppeling van de schouw (persoonlijke terugkoppeling, rapport per post)
-
-<!-- IMG originele bron: https://www.generationjourney.nl/wp-content/uploads/2021/11/microjourney.png (title: microjourney) -- quality-fase: downloaden+optimaliseren -->
-![micro journey focus](/src/images/assets/blog.jpeg)
-
-Hoe ervaren klanten de verschillende stappen? Is het een koude machine waar zonder toelichting een eindoordeel komt? Of is er een gevoel van betrokkenheid bij het proces?
-
-Een micro journey geeft goede inzichten. Maar bedenk: de totale customer journey kleurt de mening over iedere episode. Verloopt de afhandeling van de schade goed, dan worden problemen in eerdere stappen snel vergeten. Andersom is ook waar: een onbevredigende afloop kleurt het oordeel over de schade-expert.
-
-- ### Verdiepen of versnellen
-
-Wanneer een volledige customer journey in kaart is gebracht, levert een micro journey gericht nieuwe optimalisatie ideeën op. Het is daarmee een uitstekend middel om het klantperspectief doorlopend op de agenda binnen de organisatie te houden.
-
-Naast deze verdiepingsslag kan een micro journey ook zorgen voor versnelling. Een gedegen customer journey opstellen vraagt een brede betrokkenheid binnen een organisatie. Door te focussen op een specifieke episode kan met een kleiner team worden gewerkt aan een relatief klein aantal optimalisaties. De tijd tussen de start van het project en testen in de praktijk wordt daarmee verkort.
-
-### Meer weten over onze werkwijze?
-
-Wilt je weten wat de micro journey voor jouw organisatie kan betekenen? Neem vrijblijvend contact op voor meer informatie.
-
-[Kennismaken](https://www.generationjourney.nl/kennis-maken/)
-
-- [customer journey](/customer-journey/)
-- [generation journey](https://www.generationjourney.nl/generationjourney/)
-- [patient journey](/patient-journey/)
-
-## Veel gestelde vragen
-
-Wat is een Micro Journey?
-
-Een Micro Journey behandelt een specifiek onderdeel van de totale customer journey. Door vanuit het perspectief van de klant naar een processtap te kijken worden verbeterkansen ontdekt. Dit vormt de basis voor optimalisatie.
-
-Wat is het startpunt bij het opstellen van een Micro Journey?
-
-Binnen de totale journey wordt een specifieke stap gekozen om nader uit te werken. De stap kies je door bijvoorbeeld te kijken naar:
-
-- het belang binnen de totale journey
-- organisatieproblemen rond de stap
-- negatieve of wisselende klantfeedback
-- etc
-
-Wat is de waarde van een Micro Journey?
-
-De Micro Journey biedt gerichte inzichten. Het is mogelijk snel met een klein team verbeterkansen op te sporen. En deze te vertalen naar de praktijk. Een Micro Journey geldt ook als uitstekend hulpmiddel om klantgericht denken op de agenda te houden, bijvoorbeeld door ieder kwartaal een nieuwe Micro Journey uit te werken.
+:::faq
+VRAAG: Wat kost een micro journey?
+ANTWOORD: Dat hangt af van de gekozen episode, het aantal touchpoints, de onderzoeksmethode en de steekproef. We stellen graag in overleg een offerte op; neem contact op voor een vrijblijvende indicatie.
+:::
+:::faq
+VRAAG: Wat is het verschil met een volledige customer journey?
+ANTWOORD: Een customer journey brengt de hele klantreis in kaart; een micro journey zoomt in op één specifieke stap of episode, met een hoog detailniveau. Vaak zetten we een micro journey in als verdieping ná een volledige journey, of als je snel gericht wilt verbeteren.
+:::
+:::faq
+VRAAG: Wat is het startpunt van een micro journey?
+ANTWOORD: We kiezen samen een specifieke stap, bijvoorbeeld op basis van het belang binnen de journey, organisatorische knelpunten of wisselende klantfeedback. Vervolgens bepalen we het gewenste gevoel bij die stap en meten we hoe klanten die nu ervaren.
+:::
