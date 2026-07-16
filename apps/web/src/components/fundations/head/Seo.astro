@@ -44,8 +44,15 @@ const defaultOgImage = new URL(
   siteUrl,
 ).toString();
 
-// Use page-specific values or fall back to site defaults
-const title = pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle;
+// Use page-specific values or fall back to site defaults.
+// Voeg " | Diversions" alleen toe als de paginatitel het merk nog niet bevat,
+// zodat titels als "Contact | Diversions" niet "Contact | Diversions | Diversions"
+// worden en een homepage-title die het merk al bevat exact blijft.
+const title = pageTitle
+  ? pageTitle.includes(siteTitle)
+    ? pageTitle
+    : `${pageTitle} | ${siteTitle}`
+  : siteTitle;
 const description = pageDescription || siteDescription;
 // Canonical: expliciete override (seo.canonicalUrl) — relatief pad absoluut
 // maken t.o.v. siteUrl — anders de eigen absolute pagina-URL.
