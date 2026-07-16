@@ -39,8 +39,9 @@ const siteDescription =
 const siteUrl = import.meta.env.SITE || "https://diversions.nl";
 
 // Default deel-/og-afbeelding op site-niveau (absolute URL t.o.v. siteUrl).
+// Echte 1200x630 raster (JPEG); social platforms renderen geen SVG-previews.
 const defaultOgImage = new URL(
-  "/assets/diversions-logo.svg",
+  "/img/og-default.jpg",
   siteUrl,
 ).toString();
 

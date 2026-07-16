@@ -61,7 +61,7 @@ const absImage = ogImageUrl
   ? ogImageUrl.startsWith("http")
     ? ogImageUrl
     : new URL(ogImageUrl, siteUrl).toString()
-  : new URL("/assets/diversions-logo.svg", siteUrl).toString();
+  : new URL("/img/og-default.jpg", siteUrl).toString();
 
 const blogPostingSchema = {
   "@context": "https://schema.org",
