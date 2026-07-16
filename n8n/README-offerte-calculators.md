@@ -1,128 +1,115 @@
 # Offerte-/adviesaanvragen rekenmodules → n8n
 
-Handover voor stap 3 ("Bestellen") van de 4 rekenmodules op diversions.nl:
-Pretest, Customer Journey, Klanttevredenheid en Effectmeting
+Handover voor stap 3 ("Bestellen") van de **10 rekenmodules** op diversions.nl
 (`apps/web/src/components/calculators/*.astro`). De Astro-kant is af; dit
 document beschrijft de n8n-kant die jij in je **eigen n8n** importeert,
 koppelt, test en publiceert. Zelfde werkwijze als
 [`README-contactformulier.md`](README-contactformulier.md).
 
-**Eén gedeelde workflow voor alle 4 rekenmodules** (niet 4 losse workflows):
-één webhook, het `calculator`-veld in de payload bepaalt welke rekenmodule
-de aanvraag stuurde en wordt gebruikt in de e-mailteksten.
+**Eén gedeelde workflow voor alle 10 rekenmodules** (niet 10 losse workflows):
+één webhook; het `calculator`-veld in de payload bepaalt de nette naam in de
+e-mails via de labelmap in de node **"Valideer en label"**.
 
-## Webhook-URL
+> **Versie 2026-07-16** — vervangt de versie van 2026-07-01 die op de
+> n8n-instantie draait (workflow-id `y0MY3XYKhQT2rqsB`). Wijzigingen:
+> (1) labelmap voor alle 10 calculator-id's (was: ruwe id in de mailtekst);
+> (2) volgorde robuuster: eerst **opslaan**, dan **200 naar de bezoeker**,
+> dan pas mailen — een mailstoring kost zo geen leads en de bezoeker wacht
+> niet op Mailjet; (3) servervalidatie van verplichte velden (400 + details);
+> (4) staging-origin in CORS voor de livegang-test; (5) mail-retries naar
+> 3× met 5s tussenpauze.
 
-Deze workflow gebruikt een **al aangemaakte productie-webhook**:
+## Webhook-URL (ongewijzigd)
 
 ```
 https://diversions-connect-u67534.vm.elestio.app/webhook/b3737101-9313-4c3d-a9fa-73cb22838364
 ```
 
-Die URL staat al in `apps/web/.env` als `PUBLIC_CALCULATOR_WEBHOOK_URL`. Het
-webhook-`path` in `offerte-calculators.workflow.json` is bewust op dit exacte
-ID gezet, zodat de workflow na import op deze URL uitkomt — je hoeft de
-site-env niet aan te passen.
+Staat al in `apps/web/.env` als `PUBLIC_CALCULATOR_WEBHOOK_URL`; het
+webhook-`path` in de JSON is hetzelfde gebleven, dus de site-env hoeft niet
+te wijzigen.
 
 ## Wat de workflow doet
 
 `n8n/offerte-calculators.workflow.json` — flow:
 
 ```
-Webhook (POST, CORS: https://diversions.nl)
+Webhook (POST, CORS: diversions.nl + www + staging)
   └─ Honeypot leeg? ── nee (bot) → Respond 200 (stil genegeerd)
-                    └─ ja → Mailjet bevestiging naar de aanvrager (samenvatting + richtprijs)
-                            → Mailjet interne notificatie naar info@diversions.nl
-                            → Google Sheets: rij toevoegen (tabblad "Offertes", secundair)
-                            → Respond 200 { success: true }
+      └─ ja → Valideer en label (Code: verplichte velden + labelmap)
+          └─ Geldig? ── nee → Respond 400 { details }
+              └─ ja → Google Sheets: rij "Offertes" (lead veilig; retry 2x,
+                      faalt door bij storing)
+                      → Respond 200 { success: true }  ← bezoeker klaar
+                      → Mailjet bevestiging naar aanvrager (retry 3x/5s)
+                      → Mailjet interne notificatie naar info@ (retry 3x/5s,
+                        reply-to = aanvrager)
 ```
 
-- **Afzender:** `info@diversions.nl`, zelfde als het contactformulier.
-  Notificatie heeft **reply-to = de aanvrager**.
-- **Google Sheets** is secundair: faalt dit, dan gaat de flow tóch door naar
-  de 200-respons. `onError: continueRegularOutput`.
-- **Spam:** honeypotveld `company_website` — verborgen voor mensen, bots
-  vullen het. Ingevuld ⇒ stil 200, niets verstuurd/opgeslagen.
-- **Bestellen vs. advies:** de e-mailteksten wisselen op `{{ $json.body.actie }}`
-  (`"bestellen"` of `"advies"`) — geen aparte nodes per actie nodig.
+- **Calculator-id's** (labelmap): `pretest`, `effectmeting`,
+  `customer-journey`, `klanttevredenheid`, `diepte-interviews`,
+  `groepsdiscussie`, `doelgroeponderzoek`, `kwantitatief-onderzoek`,
+  `kwalitatief-onderzoek`, `waardepropositie`. **Onbekende id's worden niet
+  geweigerd**: ze krijgen een generiek label en de interne mail markeert ze,
+  zodat een vergeten labelregel nooit leads kost. Nieuwe rekenmodule op de
+  site = één regel toevoegen in "Valideer en label".
+- **Verplicht:** `bedrijf`, `naam`, geldig `email`, `consent: true`.
+  Ontbreekt iets (directe POST buiten de site om), dan 400 met `details`.
+- `richtprijs` kan `null` zijn; de mails gebruiken altijd
+  `richtprijsFormatted` (dan `"Op aanvraag"`).
 
-## Payload die de site stuurt
+## Stap 1 — Oude workflow vervangen
 
-Alle 4 calculators posten dezelfde vorm. Onder `$json.body`:
+De vorige versie draait al (actief) op de instantie:
 
-```json
-{
-  "calculator": "pretest",
-  "actie": "bestellen",
-  "keuzes": { "voorkeur": "verdiepend", "aanpak": "survey", "concepten": 1, "doelgroepen": 2 },
-  "tier": "Core",
-  "richtprijs": 2425,
-  "richtprijsFormatted": "€ 2.425",
-  "samenvatting": ["Verdiepend inzicht", "Survey", "2 doelgroepen"],
-  "bedrijf": "Acme BV",
-  "naam": "Jansen",
-  "email": "jansen@acme.nl",
-  "telefoon": "0612345678",
-  "bericht": "",
-  "consent": true,
-  "company_website": ""
-}
-```
+1. n8n → open *"Diversions — Offertes rekenmodules verwerken"* →
+   zet **Inactive** (anders claimen twee workflows hetzelfde webhook-pad).
+   Archiveer of hernoem hem (bv. "… (oud, 2026-07-01)").
+2. **Workflows → Import from File** → `offerte-calculators.workflow.json`.
+   De import staat op inactive.
 
-- `calculator` ∈ `pretest | customer-journey | klanttevredenheid | effectmeting`.
-- `richtprijs` kan `null` zijn (customer-journey "mix" heeft geen vaste
-  prijs); gebruik in dat geval altijd `richtprijsFormatted` (dan `"Op aanvraag"`)
-  in de e-mailteksten — die is door de site al netjes geformatteerd, dus
-  n8n hoeft geen NL-valutaformattering te doen.
-- `samenvatting` is een array met leesbare regels (geen ruwe enum-waardes),
-  klaar om te tonen of te joinen in een e-mail.
-- Verplicht: `bedrijf`, `naam`, `email`, `consent`. Optioneel: `telefoon`, `bericht`.
+## Stap 2 — Credentials koppelen (secrets horen NIET in tekst/JSON)
 
-## Stap 1 — Importeren
+Zelfde credentials als voorheen/het contactformulier:
 
-n8n → **Workflows → Import from File** → kies `offerte-calculators.workflow.json`.
-De workflow heet *"Diversions — Offertes rekenmodules verwerken"* en staat
-op **inactive**.
+| Node | Credential-type |
+|---|---|
+| Mailjet: bevestiging naar aanvrager | **Mailjet Email API** |
+| Mailjet: interne notificatie | **Mailjet Email API** (zelfde) |
+| Google Sheets: aanvraag opslaan | **Google Sheets OAuth2 API** |
 
-## Stap 2 — Credentials koppelen (jij — secrets horen NIET in tekst/JSON)
+> ⚠️ Open **elke** node en bevestig dat de juiste credential geselecteerd is
+> (n8n koppelt bij twijfel de "laatst bewerkte"). Controleer op de twee
+> Mailjet-nodes ook dat **Settings → Retry On Fail** aan staat (3×, 5000 ms)
+> en dat het HTML-veld leeg is.
 
-Hergebruik dezelfde credentials als het contactformulier (geen nieuwe nodig):
+## Stap 3 — Google Sheet selecteren
 
-| Node | Credential-type | Aanmaken met |
-|---|---|---|
-| Mailjet: bevestiging naar aanvrager | **Mailjet Email API** | zelfde credential als contactformulier |
-| Mailjet: interne notificatie | **Mailjet Email API** | zelfde credential |
-| Google Sheets: aanvraag opslaan | **Google Sheets OAuth2 API** | zelfde credential |
+Zelfde tabblad **"Offertes"** en kolommen als voorheen (geen wijziging):
+`Tijdstip | Calculator | Actie | Bedrijf | Naam | E-mail | Telefoon | Tier | Richtprijs | Keuzes | Consent | Bron`.
+In de node *"Google Sheets: aanvraag opslaan"*: selecteer via de pickers het
+spreadsheet en het tabblad (vervangt de `VERVANG_SPREADSHEET_ID`-stub).
 
-> ⚠️ Open **elke** node en bevestig dat de juiste credential staat
-> geselecteerd (n8n koppelt bij twijfel automatisch de "laatst bewerkte").
+## Stap 4 — Error workflow instellen
 
-## Stap 3 — Google Sheet: nieuw tabblad "Offertes"
+Workflow-instellingen (⚙ rechtsboven) → **Error Workflow** → kies
+*"N8N Error trigger"*. Faalt een mail na 3 pogingen, dan is de lead al
+opgeslagen én krijg je een melding.
 
-De kolommen wijken af van het contactformulier ("Inzendingen"), dus:
+## Stap 5 — Testen (VERPLICHT vóór activeren)
 
-1. Open hetzelfde Google Spreadsheet als het contactformulier (of een nieuw
-   document — jouw keuze).
-2. Maak een tabblad **`Offertes`** met als kopregel (rij 1):
-   `Tijdstip | Calculator | Actie | Bedrijf | Naam | E-mail | Telefoon | Tier | Richtprijs | Keuzes | Consent | Bron`
-3. In de node *"Google Sheets: aanvraag opslaan"*: selecteer via de pickers
-   het **spreadsheet** en het tabblad **Offertes** (vervangt de
-   `VERVANG_SPREADSHEET_ID`-stub).
-
-## Stap 4 — Testen (VERPLICHT vóór livegang)
-
-**4a. Snelle test los van de site (curl), via de test-URL:**
+**5a. Succespad (curl, via de test-URL — klik eerst "Listen for test event"):**
 ```bash
 curl -i -X POST "https://diversions-connect-u67534.vm.elestio.app/webhook-test/b3737101-9313-4c3d-a9fa-73cb22838364" \
   -H "Content-Type: application/json" \
   -d '{
-    "calculator": "pretest",
+    "calculator": "diepte-interviews",
     "actie": "bestellen",
-    "keuzes": {"voorkeur":"snel","aanpak":"","concepten":2,"doelgroepen":1},
-    "tier": "Direct",
-    "richtprijs": 980,
-    "richtprijsFormatted": "€ 980",
-    "samenvatting": ["Snel inzicht", "2 concepten"],
+    "keuzes": {"respondenten":"zelf","frequentie":"eenmalig","doelgroepen":1},
+    "tier": "PLUS",
+    "richtprijs": 4650,
+    "richtprijsFormatted": "€ 4.650",
+    "samenvatting": ["Diepte-interviews (kwalitatief)", "Zelf aanleveren", "Eenmalig"],
     "bedrijf": "Test BV",
     "naam": "Test Jansen",
     "email": "JOUW-eigen@mail.nl",
@@ -132,46 +119,42 @@ curl -i -X POST "https://diversions-connect-u67534.vm.elestio.app/webhook-test/b
     "company_website": ""
   }'
 ```
-Verwacht: `HTTP/1.1 200` + `{"success":true}`, een bevestiging op
-JOUW-eigen@mail.nl, een interne notificatie op info@diversions.nl, en een
-nieuwe rij in het tabblad "Offertes".
+Verwacht: `200` + `{"success":true}`, rij in "Offertes", bevestiging op je
+eigen mail ("… voor de diepte-interviews …"), interne notificatie op info@.
 
-**4b. Honeypot-test:** zelfde curl maar `"company_website":"bot"` → 200, maar
-**geen** mail en **geen** sheet-rij.
+**5b. Honeypot:** zelfde curl met `"company_website":"bot"` → 200, geen rij,
+geen mail.
 
-**4c. Herhaal kort voor de overige 3 calculators** (`customer-journey`,
-`klanttevredenheid`, `effectmeting`) en voor `"actie": "advies"`, zodat je
-beide e-mailvarianten hebt gezien.
+**5c. Validatie:** zelfde curl zonder `"email"` → **400** met
+`{"success":false,"details":["geldig e-mailadres ontbreekt"]}`.
 
-**4d. CORS/preflight-test:**
-```bash
-curl -i -X OPTIONS "https://diversions-connect-u67534.vm.elestio.app/webhook/b3737101-9313-4c3d-a9fa-73cb22838364" \
-  -H "Origin: https://diversions.nl" \
-  -H "Access-Control-Request-Method: POST"
-```
-Verwacht een `Access-Control-Allow-Origin: https://diversions.nl` header.
+**5d. Labelmap-dekking:** herhaal 5a kort met elk nieuw id
+(`groepsdiscussie`, `doelgroeponderzoek`, `kwantitatief-onderzoek`,
+`kwalitatief-onderzoek`, `waardepropositie`) en één oud id (`pretest`), plus
+één keer `"actie": "advies"`. Check dat de mails nette namen tonen, geen
+ruwe id's.
 
-**4e. Echte formuliertest op staging:** publiceer de workflow (stap 5), build
-de site (env staat al goed), en doorloop op de staging-URL minimaal één
-calculator volledig (stap 1 → 2 → 3 → versturen). Staat de staging-site op
-een andere origin dan `https://diversions.nl`, dan blokkeert CORS — voeg die
-origin tijdelijk toe aan de Webhook-node, of test pas op het echte domein.
+**5e. Echte formuliertest op staging:** activeer (stap 6), doorloop op de
+ploi.link-staging minimaal één calculator volledig (stap 1 → 2 → 3 →
+versturen). De staging-origin staat al in de CORS-lijst van de Webhook-node.
 
-## Stap 5 — Publiceren
+## Stap 6 — Activeren + opruimen
 
-Pas **nadat 4a–4d slagen**: zet de workflow op **Active**. De
-productie-webhook-URL (zie boven) is dan live.
+1. Zet de workflow op **Active** (productie-URL is dan live).
+2. Verwijder of archiveer de oude workflow definitief.
+3. **Na livegang:** haal `https://friendly-dust-xs6wxtya91.ploi.link` uit
+   `allowedOrigins` van de Webhook-node.
 
-## Aandachtspunten / bekend
+## Aandachtspunten
 
-- **Geen MCP-validatie gebeurd hier.** Controleer bij het openen van elke
-  node dat de velden netjes laden.
-- **Error-workflow:** overweeg een globale *Error Workflow* in te stellen
-  (zoals bij andere Diversions-projecten al gebeurt) zodat je een seintje
-  krijgt als een mail faalt.
-- **Geen secret-header.** Deze workflow beveiligt met CORS + honeypot,
-  bewust dezelfde aanpak als het contactformulier — géén gedeeld
-  `x-webhook-secret`-patroon (zoals in sommige andere projecten). Bij een
-  statische site staat de env-var toch in de client-bundle, dus een
-  "geheime" header voegt daar geen echte beveiliging aan toe.
-- **Niet gepusht/gedeployed** vanuit dit project — alles staat lokaal.
+- **Volgorde niet wijzigen** (Sheets → Respond → mails): opslaan vóór alles
+  is de leadgarantie; de spam-tak (nep-200) en de 400-tak horen intact te
+  blijven.
+- Sheets heeft bewust `onError: continueRegularOutput`: een Sheets-storing
+  blokkeert bezoeker en mails niet, maar de error workflow ziet hem wel.
+- **Geen secret-header** — bewuste keuze bij een statische site (env-var
+  staat toch in de client-bundle); bescherming = CORS + honeypot +
+  servervalidatie. Zie ook README-contactformulier.md.
+- Handmatige wijzigingen in de n8n-UI: controleer daarna dat expressies in
+  Expression-modus staan (waarde begint met `=` in de export) en dat de
+  retry-instellingen op de mailnodes bewaard zijn gebleven.
