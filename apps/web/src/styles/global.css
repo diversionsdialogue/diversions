@@ -12,28 +12,28 @@
    ========================================================================= */
 @font-face {
   font-family: "Bungee";
-  src: url("/fonts/Bungee-Regular.ttf") format("truetype");
+  src: url("/fonts/Bungee-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Source Sans 3";
-  src: url("/fonts/SourceSans3-VariableFont_wght.ttf") format("truetype-variations");
+  src: url("/fonts/SourceSans3-VariableFont_wght.woff2") format("woff2");
   font-weight: 200 900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Source Sans 3";
-  src: url("/fonts/SourceSans3-Italic-VariableFont_wght.ttf") format("truetype-variations");
+  src: url("/fonts/SourceSans3-Italic-VariableFont_wght.woff2") format("woff2");
   font-weight: 200 900;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Anek Latin";
-  src: url("/fonts/AnekLatin-VariableFont.ttf") format("truetype-variations");
+  src: url("/fonts/AnekLatin-VariableFont.woff2") format("woff2");
   font-weight: 100 800;
   font-style: normal;
   font-display: swap;
