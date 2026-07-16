@@ -894,8 +894,8 @@
     "titel": "Customer journey: passend bij iedere generatie",
     "type": "pagina",
     "bestemming": "importeren-naar-sanity",
-    "nieuwe_url": "/services/customer-journey-passend-bij-iedere-generatie",
-    "sanity_type": "service",
+    "nieuwe_url": "/blog/customer-journey-passend-bij-iedere-generatie",
+    "sanity_type": "post",
     "seo": {
       "verkeer_12mnd": 0,
       "vertoningen": 33,
@@ -903,7 +903,7 @@
       "backlinks": null,
       "keep_reden": null
     },
-    "redirect_naar": "/services/customer-journey-passend-bij-iedere-generatie",
+    "redirect_naar": "/blog/customer-journey-passend-bij-iedere-generatie",
     "status": {
       "intake": "klaar",
       "convert": "klaar"
@@ -1085,8 +1085,8 @@
     "titel": "Propositie ontwikkeling: zo maak je de start [checklist]",
     "type": "pagina",
     "bestemming": "importeren-naar-sanity",
-    "nieuwe_url": "/services/propositie-creatie-van-concept-naar-succes",
-    "sanity_type": "service",
+    "nieuwe_url": "/blog/propositie-ontwikkeling-checklist",
+    "sanity_type": "post",
     "seo": {
       "verkeer_12mnd": 17,
       "vertoningen": 10098,
@@ -1094,7 +1094,7 @@
       "backlinks": null,
       "keep_reden": null
     },
-    "redirect_naar": "/services/propositie-creatie-van-concept-naar-succes",
+    "redirect_naar": "/blog/propositie-ontwikkeling-checklist",
     "status": {
       "intake": "klaar",
       "convert": "klaar"
@@ -1106,8 +1106,8 @@
     "titel": "Generation journey",
     "type": "pagina",
     "bestemming": "importeren-naar-sanity",
-    "nieuwe_url": "/services/generation-journey",
-    "sanity_type": "service",
+    "nieuwe_url": "/blog/generation-journey",
+    "sanity_type": "post",
     "seo": {
       "verkeer_12mnd": 0,
       "vertoningen": 53,
@@ -1115,7 +1115,7 @@
       "backlinks": null,
       "keep_reden": null
     },
-    "redirect_naar": "/services/generation-journey",
+    "redirect_naar": "/blog/generation-journey",
     "status": {
       "intake": "klaar",
       "convert": "klaar"
@@ -1233,8 +1233,8 @@
     "titel": "Kwalitatief onderzoek: de basis voor succes",
     "type": "pagina",
     "bestemming": "importeren-naar-sanity",
-    "nieuwe_url": "/services/insights",
-    "sanity_type": "service",
+    "nieuwe_url": "/blog/kwalitatief-onderzoek-de-basis-voor-succes",
+    "sanity_type": "post",
     "seo": {
       "verkeer_12mnd": 0,
       "vertoningen": 128,
@@ -1242,7 +1242,7 @@
       "backlinks": null,
       "keep_reden": null
     },
-    "redirect_naar": "/services/insights",
+    "redirect_naar": "/blog/kwalitatief-onderzoek-de-basis-voor-succes",
     "status": {
       "intake": "klaar",
       "convert": "klaar"
@@ -1402,9 +1402,9 @@
     "oude_url": "/onderzoeksbureau",
     "titel": "Onderzoeksbureau Diversions: onderzoek met meerwaarde",
     "type": "pagina",
-    "bestemming": "importeren-naar-sanity",
-    "nieuwe_url": "/services/onderzoeksbureau",
-    "sanity_type": "service",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
     "seo": {
       "verkeer_12mnd": 1,
       "vertoningen": 936,
@@ -1412,12 +1412,12 @@
       "backlinks": null,
       "keep_reden": null
     },
-    "redirect_naar": "/services/onderzoeksbureau",
+    "redirect_naar": "/wij-zijn-diversions",
     "status": {
       "intake": "klaar",
       "convert": "klaar"
     },
-    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service"
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). 2026-07-16: service-concept verwijderd (geen eigen pagina), 301 -> /wij-zijn-diversions (Over ons)."
   },
   {
     "oude_url": "/micro-journey-de-waardevolle-verdieping-op-customer-journeys",
@@ -1995,9 +1995,9 @@
     "oude_url": "/onderzoek",
     "titel": "Onderzoek Doe-Het-Zelf",
     "type": "pagina",
-    "bestemming": "importeren-naar-sanity",
-    "nieuwe_url": "/services/onderzoek",
-    "sanity_type": "service",
+    "bestemming": "alleen-redirect",
+    "nieuwe_url": null,
+    "sanity_type": null,
     "seo": {
       "verkeer_12mnd": 0,
       "vertoningen": 47,
@@ -2005,7 +2005,7 @@
       "backlinks": null,
       "keep_reden": null
     },
-    "redirect_naar": "/services/onderzoek",
+    "redirect_naar": "/onze-diensten",
     "status": {
       "intake": "klaar",
       "convert": "klaar"
@@ -3295,12 +3295,12 @@
       "backlinks": null,
       "keep_reden": null
     },
-    "redirect_naar": "/services/onderzoeksbureau",
+    "redirect_naar": "/wij-zijn-diversions",
     "status": {
       "intake": "klaar",
       "convert": "klaar"
     },
-    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /services/onderzoeksbureau.",
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg. 2026-07-16: doel /services/onderzoeksbureau bestaat niet meer (concept verwijderd), 301 -> /wij-zijn-diversions.",
     "gone": false
   },
   {
