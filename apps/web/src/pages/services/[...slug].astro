@@ -16,6 +16,7 @@ import ServicePitch from "@/components/calculators/ServicePitch.astro";
 import { getAllServices } from "@/lib/data";
 import { portableTextToPlainText } from "@/lib/sanity/portableText";
 import { slugify } from "@/lib/slugify";
+import { crumbForCategories } from "@/lib/serviceCrumb";
 
 // Dienstpagina's met een richtprijs-calculator boven de hero. Slug → welke
 // calculator. Uitbreidbaar: voeg een slug + calculator toe. Promoveer dit later
@@ -115,6 +116,11 @@ const plain = portableTextToPlainText(page.body);
 const minutes = plain
   ? Math.max(1, Math.round(readingTime(plain).minutes))
   : undefined;
+
+// Kruimelpad voor de pitch-hero (de artikel-hero berekent dit zelf in
+// ServicesLayout uit frontmatter.categories).
+const crumb = crumbForCategories(page.data.categories);
+const crumbCurrent = page.data.overviewTitle || page.data.service;
 ---
 <ServicesLayout
   frontmatter={page.data}
@@ -128,6 +134,8 @@ const minutes = plain
         slot="above"
         title={page.data.service}
         lead={page.data.description}
+        crumb={crumb}
+        crumbCurrent={crumbCurrent}
         leesHref={leesHref}
         leesLabel={leesLabel}
         showPriceButton={calculator !== "maatwerk"}

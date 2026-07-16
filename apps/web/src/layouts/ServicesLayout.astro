@@ -9,11 +9,16 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ArticleTOC from "@/components/global/article/ArticleTOC.astro";
 import { buildPageSeo, type DocumentSeo } from "@/lib/seo/pageSeo";
+import { crumbForCategories } from "@/lib/serviceCrumb";
 
 interface Props {
   frontmatter: {
     service: string;
     description: string;
+    /** Korte naam voor het kruimelpad (overviewTitle); valt terug op service. */
+    overviewTitle?: string;
+    /** Sanity-categorieën; bepalen de kruimelpad-ouder (Onderzoek/Methodes/Branches). */
+    categories?: string[];
     seo?: DocumentSeo;
   };
   /** Slug van deze dienst, voor canonical/breadcrumb (zie [...slug].astro). */
@@ -35,7 +40,16 @@ interface Props {
 }
 const { frontmatter, id, readingMinutes, showHero = false, hidePageHero = false } = Astro.props;
 
-// --- Structured data: BreadcrumbList (Home > Diensten > deze dienst) ---------
+// --- Kruimelpad: Home > categorie-overzicht > deze dienst --------------------
+// Zichtbaar bij de titel én als BreadcrumbList (Schema.org). De ouder volgt
+// uit de Sanity-categorieën; zonder categorie valt de trail terug op Onderzoek.
+const crumb =
+  crumbForCategories(frontmatter.categories) ?? {
+    label: "Onderzoek",
+    href: "/onze-diensten",
+  };
+const crumbCurrent = frontmatter.overviewTitle || frontmatter.service;
+
 const siteUrl = import.meta.env.SITE || "https://diversions.nl";
 const breadcrumbSchema = id
   ? {
@@ -51,8 +65,8 @@ const breadcrumbSchema = id
         {
           "@type": "ListItem",
           position: 2,
-          name: "Diensten",
-          item: new URL("/services", siteUrl).toString(),
+          name: crumb.label,
+          item: new URL(crumb.href, siteUrl).toString(),
         },
         {
           "@type": "ListItem",
@@ -88,7 +102,13 @@ const pageSeo = buildPageSeo(frontmatter.seo, {
         {
           !hidePageHero && (
             <>
-              <span class="article-eyebrow">Diensten</span>
+              <nav class="crumbs" aria-label="Kruimelpad">
+                <a href="/">Home</a>
+                <span class="crumbs-sep" aria-hidden="true">›</span>
+                <a href={crumb.href}>{crumb.label}</a>
+                <span class="crumbs-sep" aria-hidden="true">›</span>
+                <span class="crumbs-current" aria-current="page">{crumbCurrent}</span>
+              </nav>
               <h1>{frontmatter.service}</h1>
               <p class="article-lead">{frontmatter.description}</p>
               <div class="article-meta">

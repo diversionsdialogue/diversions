@@ -23,8 +23,13 @@ interface Props {
 }
 const { frontmatter, id, readingMinutes } = Astro.props;
 
-// Eerste tag als label, anders generiek "Artikel".
-const tagLabel = frontmatter.tags?.[0] ?? "Artikel";
+// Eerste tag als label, anders generiek "Artikel". Met een echte tag is het
+// label klikbaar naar het tag-overzicht (/blog/tags/<tag>/).
+const firstTag = frontmatter.tags?.[0];
+const tagLabel = firstTag ?? "Artikel";
+const tagHref = firstTag
+  ? `/blog/tags/${encodeURIComponent(firstTag)}/`
+  : undefined;
 
 // Datum in NL-notatie.
 const dateText = new Date(frontmatter.pubDate).toLocaleDateString("nl-NL", {
@@ -120,7 +125,13 @@ const pageSeo = buildPageSeo(frontmatter.seo, {
   <div class="blog-template">
     <article id="post" class="post-shell">
       <header class="post-header">
-        <span class="post-tag">{tagLabel}</span>
+        {
+          tagHref ? (
+            <a class="post-tag" href={tagHref}>{tagLabel}</a>
+          ) : (
+            <span class="post-tag">{tagLabel}</span>
+          )
+        }
         <h1 class="post-title">{frontmatter.title}</h1>
         <p class="post-deck">{frontmatter.description}</p>
         <div class="post-byline">

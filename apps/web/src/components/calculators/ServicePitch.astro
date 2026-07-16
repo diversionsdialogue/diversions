@@ -12,8 +12,13 @@
  */
 import Picture from "@/components/global/Picture.astro";
 import TrustStrip from "@/components/global/TrustStrip.astro";
+import type { ServiceCrumb } from "@/lib/serviceCrumb";
 interface Props {
   eyebrow?: string;
+  /** Kruimelpad-ouder (Onderzoek/Methodes/Branches); vervangt de eyebrow. */
+  crumb?: ServiceCrumb;
+  /** Korte paginanaam voor het kruimelpad (overviewTitle). */
+  crumbCurrent?: string;
   title: string;
   lead: string;
   image?: string;
@@ -27,6 +32,8 @@ interface Props {
 }
 const {
   eyebrow = "Diensten · Direct een prijsopgave",
+  crumb,
+  crumbCurrent,
   title,
   lead,
   image = "/img/onderzoeksbureau-diversions-4.jpg",
@@ -41,7 +48,19 @@ const {
   <div class="pitch-inner">
     <div class="pitch-head">
       <div class="pitch-copy">
-        <span class="pitch-eyebrow">{eyebrow}</span>
+        {
+          crumb ? (
+            <nav class="crumbs crumbs--pitch" aria-label="Kruimelpad">
+              <a href="/">Home</a>
+              <span class="crumbs-sep" aria-hidden="true">›</span>
+              <a href={crumb.href}>{crumb.label}</a>
+              <span class="crumbs-sep" aria-hidden="true">›</span>
+              <span class="crumbs-current" aria-current="page">{crumbCurrent ?? title}</span>
+            </nav>
+          ) : (
+            <span class="pitch-eyebrow">{eyebrow}</span>
+          )
+        }
         <h1 class="pitch-title">{title}</h1>
         <p class="pitch-lead">{lead}</p>
         {
