@@ -1761,8 +1761,8 @@
     "titel": "Onderzoeksbureau Fondsenwerving: in het hart van de donateur",
     "type": "pagina",
     "bestemming": "importeren-naar-sanity",
-    "nieuwe_url": "/services/onderzoeksbureau-fondsenwerving",
-    "sanity_type": "service",
+    "nieuwe_url": "/blog/onderzoeksbureau-fondsenwerving",
+    "sanity_type": "post",
     "seo": {
       "verkeer_12mnd": 1,
       "vertoningen": 71,
@@ -1770,12 +1770,12 @@
       "backlinks": null,
       "keep_reden": null
     },
-    "redirect_naar": "/services/onderzoeksbureau-fondsenwerving",
+    "redirect_naar": "/blog/onderzoeksbureau-fondsenwerving",
     "status": {
       "intake": "klaar",
       "convert": "klaar"
     },
-    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service"
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service | 2026-07-15: verplaatst van branches (service) naar blog (post), herschreven als artikel; 301 oud + /services/onderzoeksbureau-fondsenwerving -> /blog/onderzoeksbureau-fondsenwerving."
   },
   {
     "oude_url": "/pretest",
@@ -1803,8 +1803,8 @@
     "titel": "Onderzoeksbureau Reclame: pretesting & effectmeting",
     "type": "pagina",
     "bestemming": "importeren-naar-sanity",
-    "nieuwe_url": "/services/onderzoeksbureau-reclame",
-    "sanity_type": "service",
+    "nieuwe_url": "/blog/onderzoeksbureau-reclame",
+    "sanity_type": "post",
     "seo": {
       "verkeer_12mnd": 0,
       "vertoningen": 161,
@@ -1812,12 +1812,12 @@
       "backlinks": null,
       "keep_reden": null
     },
-    "redirect_naar": "/services/onderzoeksbureau-reclame",
+    "redirect_naar": "/blog/onderzoeksbureau-reclame",
     "status": {
       "intake": "klaar",
       "convert": "klaar"
     },
-    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service"
+    "notities": "301 oud->nieuw (URL-pariteit; geindexeerd-opschoning, akkoord gebruiker 2026-05-31). dienst/long-form -> service | 2026-07-15: verplaatst van branches (service) naar blog (post), herschreven als artikel; 301 oud + /services/onderzoeksbureau-reclame -> /blog/onderzoeksbureau-reclame."
   },
   {
     "oude_url": "/cases-overzichtspagina/case-caser",
@@ -3338,12 +3338,12 @@
       "backlinks": null,
       "keep_reden": null
     },
-    "redirect_naar": "/services/onderzoeksbureau-fondsenwerving",
+    "redirect_naar": "/blog/onderzoeksbureau-fondsenwerving",
     "status": {
       "intake": "klaar",
       "convert": "klaar"
     },
-    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /services/onderzoeksbureau-fondsenwerving.",
+    "notities": "VERWIJDERD (geindexeerd-opschoning, akkoord gebruiker 2026-05-31); content weg, 301 -> /services/onderzoeksbureau-fondsenwerving. | 2026-07-15: doel aangepast naar /blog/onderzoeksbureau-fondsenwerving (pagina verplaatst naar blog).",
     "gone": false
   },
   {

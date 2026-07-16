@@ -74,7 +74,7 @@ Hoe kun je nu inspelen op de onbewuste keuzes die je doelgroepen maken? Naast fr
 
 ## Hoe maak je er werk van?
 
-[Onderzoek](/onderzoeksbureau-reclame/ "Onderzoeksbureau Reclame: pretesting & effectmeting") helpt je om te begrijpen hoe breingeheimen (zoals framing) de beeldvorming en besluitvorming van *jouw* doelgroep beïnvloeden.
+[Onderzoek](/blog/onderzoeksbureau-reclame "Reclameonderzoek in de praktijk: pretesting en effectmeting") helpt je om te begrijpen hoe breingeheimen (zoals framing) de beeldvorming en besluitvorming van *jouw* doelgroep beïnvloeden.
 
 Leer welke aspecten van je product of dienst het meest aanspreken. Gebruik deze kennis vervolgens om frames te ontwikkelen die inspelen op specifieke emoties of behoeften.
 

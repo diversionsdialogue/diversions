@@ -186,7 +186,7 @@ Onze werkwijze is flexibel. Heb je expertise in huis om het onderzoeksproces sam
 
 Insights verzamelen en vertalen naar concrete oplossingen. Dat is marktonderzoek met meerwaarde.
 
-Goed om te weten: wij werken onder andere voor klanten in de [zorg](/onderzoeksbureau-zorg/), overheid, [fondsenwerving](/onderzoeksbureau-fondsenwerving/), advocatuur, sociaal domein, energie, verzekeringen en [reclame/communicatie](/onderzoeksbureau-reclame/). Je profiteert van onze brede ervaring!
+Goed om te weten: wij werken onder andere voor klanten in de [zorg](/services/onderzoeksbureau-zorg), overheid, [fondsenwerving](/blog/onderzoeksbureau-fondsenwerving), advocatuur, sociaal domein, energie, verzekeringen en [reclame/communicatie](/blog/onderzoeksbureau-reclame). Je profiteert van onze brede ervaring!
 
 <!-- IMG originele bron: https://www.diversions.nl/wp-content/uploads/2021/12/breingeheimen.png (title: breingeheimen) -- quality-fase: downloaden+optimaliseren -->
 ![breingeheimen](/src/images/assets/blog.jpeg)
