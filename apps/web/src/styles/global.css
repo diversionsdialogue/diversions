@@ -2162,6 +2162,57 @@
   height: auto;
 }
 
+/* --- Afbeelding met bijschrift ---------------------------------------------
+   Design "Afbeelding in context", variant 1c (plaat met bijschriftbalk).
+   Gerenderd door PortableText.astro zodra een body-afbeelding in Sanity een
+   bijschrift heeft. Staat hier (global) omdat de figuur via set:html wordt
+   geïnjecteerd en dus buiten Astro's scoped CSS valt. Bron:
+   context "Diversions/design/Afbeelding in context.dc.html". */
+.figure-context {
+  margin: 32px 0;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--shadow-md);
+}
+.figure-context-media {
+  background: color-mix(in oklch, var(--color-pink-400) 22%, #fff);
+  padding: 24px 24px 26px;
+  border-bottom: 1px solid var(--border);
+}
+.figure-context-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fff;
+}
+.figure-context figcaption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+}
+.figure-context-dash {
+  width: 18px;
+  height: 2px;
+  background: var(--color-yellow-500);
+  flex: none;
+}
+.figure-context-cap {
+  flex: 1;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-mute);
+}
+.figure-context-cap b {
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
 /* --- Drop-cap: blogartikelen altijd; proza alleen met --dropcap --- */
 .blog-template .post-body > p:first-child,
 .post-body.post-body--dropcap > p:first-child {

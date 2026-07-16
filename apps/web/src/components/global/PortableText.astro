@@ -42,6 +42,24 @@ const CUSTOM = new Set([
 const blockText = (b: any): string =>
   (b?.children || []).map((c: any) => c?.text || "").join("");
 
+// HTML-escape voor attribuut- en tekstwaarden in de raw-HTML-serializers.
+const esc = (s: string) =>
+  s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+
+// Bijschrift-HTML: het deel t/m het eerste gedachtestreepje ("Figuur 5 —")
+// wordt vet, conform design "Afbeelding in context" (1c). Zonder streepje
+// blijft het hele bijschrift regulier.
+const captionHtml = (caption: string): string => {
+  const i = caption.indexOf("—");
+  return i > 0
+    ? `<b>${esc(caption.slice(0, i + 1))}</b>${esc(caption.slice(i + 1))}`
+    : esc(caption);
+};
+
 const htmlComponents: PortableTextComponents = {
   // Koppen krijgen een slug-id zodat anchors (bv. "lees alles over …") werken.
   block: {
@@ -51,10 +69,24 @@ const htmlComponents: PortableTextComponents = {
   types: {
     image: ({ value }) => {
       const url = value?.asset ? urlFor(value).url() : value?.url || "";
-      const alt = value?.alt || "";
-      return url
-        ? `<img src="${url}" alt="${alt}" loading="lazy" decoding="async" />`
-        : "";
+      if (!url) return "";
+      const alt = esc(value?.alt || "");
+      const img = `<img src="${url}" alt="${alt}" loading="lazy" decoding="async" />`;
+      // Zonder bijschrift: kale afbeelding (bestaand gedrag). Mét bijschrift:
+      // figuur met bijschriftbalk — design "Afbeelding in context", variant 1c.
+      // Styling staat in global.css (.figure-context): set:html-HTML valt
+      // buiten Astro's scoped CSS.
+      const caption = String(value?.caption || "").trim();
+      if (!caption) return img;
+      return (
+        `<figure class="figure-context">` +
+        `<div class="figure-context-media">${img}</div>` +
+        `<figcaption>` +
+        `<span class="figure-context-dash" aria-hidden="true"></span>` +
+        `<span class="figure-context-cap">${captionHtml(caption)}</span>` +
+        `</figcaption>` +
+        `</figure>`
+      );
     },
   },
   marks: {

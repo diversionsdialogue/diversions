@@ -58,7 +58,19 @@ export function bodyField(opts: { required?: boolean } = {}) {
       {
         type: "image",
         options: { hotspot: true },
-        fields: [{ name: "alt", type: "string", title: "Alternative text" }],
+        fields: [
+          { name: "alt", type: "string", title: "Alternative text" },
+          {
+            name: "caption",
+            type: "string",
+            title: "Bijschrift",
+            description:
+              "Optioneel. Met bijschrift krijgt de afbeelding automatisch het " +
+              "kader met bijschriftbalk (design 'Afbeelding in context', 1c). " +
+              "Tip: 'Figuur 5 — omschrijving' maakt het deel vóór het " +
+              "gedachtestreepje vet.",
+          },
+        ],
       },
       ...customBlockNames.map((name) => ({ type: name })),
     ],

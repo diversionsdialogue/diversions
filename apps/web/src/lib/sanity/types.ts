@@ -20,6 +20,9 @@ export interface SanityImageAsset {
     _type: "reference";
   };
   alt?: string;
+  /** Optioneel bijschrift (alleen gebruikt bij inline body-afbeeldingen);
+      mét bijschrift rendert de afbeelding als figuur met bijschriftbalk. */
+  caption?: string;
 }
 
 // --- Shared reusable objects ------------------------------------------------

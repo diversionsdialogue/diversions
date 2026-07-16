@@ -10,6 +10,19 @@ import Notice from "@/components/blocks/Notice.astro";
 import Video from "@/components/blocks/Video.astro";
 import NumberedList from "@/components/blocks/NumberedList.astro";
 import BulletList from "@/components/blocks/BulletList.astro";
+import PortableText from "@/components/global/PortableText.astro";
+
+// Demo voor de afbeelding-met-bijschrift-figuur (design "Afbeelding in
+// context", 1c). Gerenderd via de echte PortableText-serializer, met de
+// url-fallback (geen Sanity-asset nodig voor deze referentiepagina).
+const figureDemo = [
+  {
+    _type: "image",
+    url: "/assets/work1.png",
+    alt: "Voorbeeldafbeelding met bijschrift",
+    caption: "Figuur 5 — waardering en vindkanalen uit het lezersonderzoek 2026.",
+  },
+];
 
 const faqItems = [
   {
@@ -115,6 +128,11 @@ const venn = [
 
         <h2 class="pt-8 font-display text-2xl text-base-700">FAQ (toetsenbord + JSON-LD)</h2>
         <Faq items={faqItems} />
+
+        <h2 class="pt-8 font-display text-2xl text-base-700">
+          Afbeelding met bijschrift (design 1c)
+        </h2>
+        <PortableText value={figureDemo} />
       </div>
     </Wrapper>
   </section>
