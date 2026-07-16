@@ -1,7 +1,7 @@
 ---
 // Diversions site header (omgebouwd vanuit design/components.jsx <Header/>).
-// Logo + NL-nav + megamenu's + zoek-icoon + "Online offerte"-CTA + mobiel
-// hamburger-menu. Onderzoek / Methodes / Branches hebben een megamenu (links
+// Logo + NL-nav + megamenu's + zoek-icoon + "Contact"-CTA (alleen desktop) +
+// mobiel hamburger-menu. Onderzoek / Methodes / Branches hebben een megamenu (links
 // de diensten uit Sanity per categorie, rechts een actieblok); Werk / Blog /
 // Over ons / Contact zijn gewone links.
 // Toetsenbord-/drawer-toegankelijkheid: hamburger is een echte <button> met
@@ -154,8 +154,10 @@ const isActive = (href: string) =>
 
   <div class="header-actions">
     <Search />
-    <a href="/project-starten" class="btn btn-primary btn-arrow header-cta-desktop">
-      Online offerte
+    {/* Alleen op desktop (>=1024px, .header-cta-desktop): op mobiel blijft de
+        ruimte voor het logo; de drawer heeft z'n eigen links. */}
+    <a href="/contact" class="btn btn-primary btn-arrow header-cta-desktop">
+      Contact
     </a>
     <button
       class="icon-btn menu-btn"

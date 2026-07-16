@@ -585,11 +585,14 @@
   }
 }
 
-.header-cta-desktop {
+/* Extra specificiteit (.header-actions ervoor) is nodig: de latere
+   .btn-regel zet display:inline-flex en won anders de cascade, waardoor de
+   CTA op mobiel tóch zichtbaar was en het logo werd platgedrukt. */
+.header-actions .header-cta-desktop {
   display: none;
 }
 @media (min-width: 1024px) {
-  .header-cta-desktop {
+  .header-actions .header-cta-desktop {
     display: inline-flex;
   }
 }
