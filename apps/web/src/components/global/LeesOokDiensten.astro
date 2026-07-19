@@ -1,0 +1,90 @@
+---
+/**
+ * LeesOokDiensten — "Lees ook"-blok onderaan dienstpagina's (onderzoeken +
+ * methodes). Zes kaarten: vijf logisch gerelateerde diensten uit het schema in
+ * @/lib/leesOok.ts, plus een vaste zesde kaart naar /kosten-marktonderzoek.
+ *
+ * Hergebruikt de bestaande .related-kaartstijl (zie RelatedPosts + global.css),
+ * maar zonder thumbnail: het services-schema heeft geen afbeeldingsveld.
+ */
+import { getAllServices } from "@/lib/data";
+import { LEES_OOK, KOSTEN_ITEM } from "@/lib/leesOok";
+import { zachtAfbreken } from "@/lib/afbreken";
+
+interface Props {
+  /** Slug van de huidige dienst; bepaalt welke lijst uit het schema geldt. */
+  currentSlug: string;
+}
+const { currentSlug } = Astro.props;
+
+// Zelfde build-cache-patroon als Navigation.astro: dit blok staat op iedere
+// dienstpagina; voorkom dat een productiebuild per pagina naar Sanity gaat.
+type Services = Awaited<ReturnType<typeof getAllServices>>;
+const g = globalThis as typeof globalThis & { __leesOokServices?: Services };
+const allServices = import.meta.env.PROD
+  ? (g.__leesOokServices ??= await getAllServices())
+  : await getAllServices();
+
+const bySlug = new Map(allServices.map((s) => [s.slug ?? s.id, s]));
+
+const metaFor = (cats: string[] = []) =>
+  cats.includes("onderzoeken") ? "Onderzoek" : cats.includes("methodes") ? "Methode" : "Dienst";
+
+// Korte omschrijving, afgekapt op een woordgrens (à la het Markteffect-voorbeeld).
+const kort = (t = "", max = 150) =>
+  t.length <= max ? t : t.slice(0, t.lastIndexOf(" ", max)).replace(/[,.;:]$/, "") + "…";
+
+const slugs = LEES_OOK[currentSlug] ?? [];
+const cards = slugs
+  .map((slug) => {
+    const s = bySlug.get(slug);
+    if (!s) return undefined; // slug (nog) niet in Sanity: kaart stil overslaan
+    return {
+      href: `/services/${slug}`,
+      title: s.data.overviewTitle || s.data.service,
+      description: kort(s.data.overviewIntro || s.data.description),
+      meta: metaFor(s.data.categories),
+    };
+  })
+  .filter((c): c is NonNullable<typeof c> => Boolean(c));
+---
+
+{
+  cards.length > 0 && (
+    <section class="related" aria-label="Lees ook">
+      <div class="related-inner">
+        <div class="related-head">
+          <h2>Lees ook</h2>
+          <a href="/onze-diensten">Alle onderzoeken en methodes →</a>
+        </div>
+        <div class="related-grid">
+          {cards.map((c) => (
+            <a href={c.href} class="related-card">
+              <div class="body">
+                <span class="meta">{c.meta}</span>
+                <h3>{zachtAfbreken(c.title)}</h3>
+                <p class="excerpt">{c.description}</p>
+                <div class="read-more">
+                  <span>Meer info</span>
+                  <span>→</span>
+                </div>
+              </div>
+            </a>
+          ))}
+          {/* Vaste zesde kaart: kostenpagina (afspraak: gereserveerde plek). */}
+          <a href={KOSTEN_ITEM.href} class="related-card">
+            <div class="body">
+              <span class="meta">{KOSTEN_ITEM.meta}</span>
+              <h3>{KOSTEN_ITEM.title}</h3>
+              <p class="excerpt">{KOSTEN_ITEM.description}</p>
+              <div class="read-more">
+                <span>Kosten verkennen</span>
+                <span>→</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  )
+}

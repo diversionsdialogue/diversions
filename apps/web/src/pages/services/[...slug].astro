@@ -13,6 +13,7 @@ import KwantitatiefCalculator from "@/components/calculators/KwantitatiefCalcula
 import KwalitatiefCalculator from "@/components/calculators/KwalitatiefCalculator.astro";
 import WaardepropositieCalculator from "@/components/calculators/WaardepropositieCalculator.astro";
 import ServicePitch from "@/components/calculators/ServicePitch.astro";
+import LeesOokDiensten from "@/components/global/LeesOokDiensten.astro";
 import { getAllServices } from "@/lib/data";
 import { portableTextToPlainText } from "@/lib/sanity/portableText";
 import { slugify } from "@/lib/slugify";
@@ -200,4 +201,8 @@ const crumbCurrent = page.data.overviewTitle || page.data.service;
     )
   }
   <PortableText value={page.body} />
+  {/* "Lees ook": 5 gerelateerde diensten (schema in lib/leesOok.ts) + vaste
+      kaart /kosten-marktonderzoek. Alleen op onderzoeken/methodes: branches
+      hebben geen key in het schema en renderen dus niets. */}
+  <LeesOokDiensten slot="below" currentSlug={slug} />
 </ServicesLayout>

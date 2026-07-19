@@ -141,5 +141,9 @@ const pageSeo = buildPageSeo(frontmatter.seo, {
         </div>
       </article>
     </div>
+
+    {/* Volle-breedte blok onder het artikel (bv. "Lees ook"-diensten).
+        Gevuld via slot="below" in [...slug].astro; leeg op overige pagina's. */}
+    <slot name="below" />
   </div>
 </BaseLayout>
