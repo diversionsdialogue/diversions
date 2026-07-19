@@ -2,14 +2,18 @@
 /**
  * SEO-hubpagina "Wat kost marktonderzoek?" (built-in Astro).
  * Doel: bezoeker zelf een richtprijs laten berekenen met de calculators op de
- * dienstpagina's. Structuur: intro -> kort antwoord -> tools -> uitleg van de
- * zes prijsknoppen -> ROI -> FAQ -> CTA. Bron van de tekst: door de klant
- * aangeleverd/geredigeerd (zie kosten-marktonderzoek-concept.md in de repo).
- * Richtprijzen (vanaf) afgeleid uit calculator/Calculator-config-*.json.
+ * dienstpagina's. Gebruikt dezelfde leeslayout als de dienst-/methodepagina's
+ * (.article-template + ArticleTOC): sticky inhoudsopgave links, content rechts.
+ * Structuur: intro -> kort antwoord -> tools -> uitleg van de zes prijsknoppen
+ * -> ROI -> FAQ -> CTA. Bron van de tekst: door de klant aangeleverd/geredigeerd
+ * (zie kosten-marktonderzoek-concept.md). Richtprijzen (vanaf) afgeleid uit
+ * calculator/Calculator-config-*.json.
  */
+import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import ArticleTOC from "@/components/global/article/ArticleTOC.astro";
 import Faq from "@/components/blocks/Faq.astro";
+import kostenImg from "@/images/kosten-marktonderzoek.png";
 
 // Hero-tools: naam, korte omschrijving, vanaf-prijs (excl. btw) en link naar de
 // calculator op de dienstpagina (#calculator). Slugs geverifieerd tegen de
@@ -55,7 +59,7 @@ const heroTools = [
 // De zes prijsknoppen (kern van de pagina).
 const knoppen = [
   {
-    titel: "1. De methode: kwalitatief, kwantitatief of allebei",
+    titel: "De methode: kwalitatief, kwantitatief of allebei",
     alineas: [
       "De onderzoeksmethode die je kiest heeft grote invloed op de prijs.",
       "Kies je voor kwantitatief onderzoek (zoals een enquête)? Dan meet je op schaal en krijg je goed inzicht in wat er speelt. De kosten per respondent zijn relatief laag.",
@@ -65,7 +69,7 @@ const knoppen = [
     richting: "kwantitatief < kwalitatief < combinatie.",
   },
   {
-    titel: "2. Eigen respondenten of laten werven",
+    titel: "Eigen respondenten of laten werven",
     alineas: [
       "Heb je zelf respondenten binnen handbereik, zoals klanten, medewerkers, studenten of leden? Dan bespaar je aanzienlijk op wervingskosten. Je betaalt in dat geval alleen een vaste verwerkingsfee voor de opzet en uitvoering van het onderzoek.",
       "Maar pas op: je moet er zeker van zijn dat deze groep je onderzoeksvragen goed kan beantwoorden. Eigen medewerkers zijn bijvoorbeeld vaak positiever over de organisatie dan externe doelgroepen. Krijg je met eigen respondenten de informatie die je zoekt?",
@@ -75,14 +79,14 @@ const knoppen = [
     richting: "eigen respondenten < werven; algemeen profiel < specifiek profiel.",
   },
   {
-    titel: "3. Aantal doelgroepen",
+    titel: "Aantal doelgroepen",
     alineas: [
       "Wil je één groep begrijpen, of meerdere groepen met elkaar vergelijken? Elke doelgroep onderzoeken we apart, met een eigen steekproef en een eigen analyse. Zo weet je zeker dat je appels met appels vergelijkt. Eén doelgroep is de basis. De toevoeging van extra doelgroepen vraagt meer werk, dus meer kosten.",
     ],
     richting: "meer doelgroepen = hogere prijs.",
   },
   {
-    titel: "4. De steekproef: hoeveel deelnemers",
+    titel: "De steekproef: hoeveel deelnemers",
     alineas: [
       "Hoe meer deelnemers, hoe betrouwbaarder de uitkomsten. Maar hoeveel respondenten heb je nodig? In de praktijk hoef je dit zelden zelf te berekenen: de benodigde steekproef volgt uit je onderzoeksvraag en methode.",
       "Kwantitatief onderzoek werkt met grotere aantallen respondenten. Bij kwalitatief onderzoek draait het om verzadiging: het punt waarop extra interviews geen nieuwe inzichten meer opleveren. In de praktijk ligt dit vaak tussen de 7 en 16 interviews, afhankelijk van de doelgroep en complexiteit. Wij checken altijd met je of de juiste keuze in aantal deelnemers is gemaakt.",
@@ -90,14 +94,14 @@ const knoppen = [
     richting: "grotere steekproef = hogere prijs.",
   },
   {
-    titel: "5. Eenmalig of doorlopend",
+    titel: "Eenmalig of doorlopend",
     alineas: [
       "Een eenmalige meting geeft je een scherp beeld van dit moment. Kies je voor doorlopend, dan richten we een meethuis met dashboard in dat je onderzoek door de tijd blijft volgen. Het is ideaal om ontwikkelingen te volgen in plaats van te sturen op één momentopname. Doorlopend onderzoek vraagt wel meer voorwerk en vaste kosten in onderhoud.",
     ],
     richting: "eenmalig < doorlopend.",
   },
   {
-    titel: "6. Slimme vragenlijst of traditioneel",
+    titel: "Slimme vragenlijst of traditioneel",
     alineas: [
       "Bij een enquête kun je kiezen voor een Smart Survey. Met behulp van AI krijgt elke respondent gerichte vervolgvragen op basis van eerdere antwoorden.",
       "Geeft iemand bijvoorbeeld aan: “De medewerker was onprofessioneel,” dan vraagt de survey automatisch door: “Wat was er onprofessioneel en welke houding had je verwacht?”",
@@ -149,236 +153,174 @@ const breadcrumbSchema = {
       "Wat kost marktonderzoek? Ontdek welke keuzes de prijs bepalen en bereken direct een richtprijs voor jouw onderzoek. Transparant, excl. btw, geen offerte nodig.",
   }}
 >
-  <section class="bg-white">
-    <Wrapper variant="standard" class="py-16 lg:py-24">
-      <div class="km-shell">
-        {/* ---------------- Intro ---------------- */}
-        <header class="km-hero">
-          <span class="km-eyebrow">Prijzen &amp; tools</span>
-          <h1 class="km-h1">Wat kost marktonderzoek?</h1>
-          <p class="km-lead">
-            Wat kost marktonderzoek eigenlijk? Het is een logische vraag als je
-            wilt starten met onderzoek, maar de vraag beantwoorden is niet zo
-            eenvoudig. De meeste onderzoeksbureaus geven online geen
-            prijsindicatie. Het is tijd om dat te veranderen.
-          </p>
-          <p class="km-lead">
-            Bij Diversions bieden we richtprijzen en tools om zelf te berekenen
-            wat marktonderzoek in jouw situatie kost.
-          </p>
+  <div class="article-template">
+    <div class="article-shell">
+      <ArticleTOC title="Op deze pagina" />
+
+      <article id="article" class="article">
+        <span class="article-eyebrow">Prijzen &amp; tools</span>
+        <h1>Wat kost marktonderzoek?</h1>
+        <p>
+          Wat kost marktonderzoek eigenlijk? Het is een logische vraag als je wilt
+          starten met onderzoek, maar de vraag beantwoorden is niet zo eenvoudig. De
+          meeste onderzoeksbureaus geven online geen prijsindicatie. Het is tijd om
+          dat te veranderen.
+        </p>
+        <p>
+          Bij Diversions bieden we richtprijzen en tools om zelf te berekenen wat
+          marktonderzoek in jouw situatie kost.
+        </p>
+        <p>
           <a href="#tools" class="btn btn-primary btn-arrow km-cta">Bereken je prijs</a>
-        </header>
+        </p>
 
-        {/* ---------------- Het korte antwoord ---------------- */}
-        <section class="km-section">
-          <h2 class="km-h2">Het korte antwoord</h2>
-          <p class="km-p">
-            Een marktonderzoek bij Diversions kost grofweg tussen <strong>€ 680</strong>
-            voor een compacte pretest en <strong>€ 12.000 of meer</strong> voor een
-            uitgebreid, doorlopend traject met meerdere doelgroepen. De meeste
-            eenmalige onderzoeken voor één doelgroep vallen tussen
-            <strong>€ 3.500 en € 6.500</strong>, exclusief btw.
-          </p>
-          <p class="km-p">
-            De verschillen zijn groot, en dat heeft een reden. Een korte enquête
-            onder je eigen respondenten is iets heel anders dan het organiseren van
-            diepte-interviews onder verschillende doelgroepen met een specifiek
-            profiel (bijvoorbeeld sollicitanten op een specifiek vakgebied).
-          </p>
-          <p class="km-p">
-            Hieronder tonen we richtprijzen van onderzoek. Daarnaast geven we je de
-            mogelijkheid een prijsindicatie op maat te berekenen. Wil je weten waar
-            prijsverschillen vandaan komen? Onder de tools leggen we uit welke zes
-            keuzes je prijs bewegen.
-          </p>
-        </section>
+        <h2>Het korte antwoord</h2>
+        <p>
+          Een marktonderzoek bij Diversions kost grofweg tussen <strong>€ 680</strong>
+          voor een compacte pretest en <strong>€ 12.000 of meer</strong> voor een
+          uitgebreid, doorlopend traject met meerdere doelgroepen. De meeste
+          eenmalige onderzoeken voor één doelgroep vallen tussen
+          <strong>€ 3.500 en € 6.500</strong>, exclusief btw.
+        </p>
+        <p>
+          De verschillen zijn groot, en dat heeft een reden. Een korte enquête onder
+          je eigen respondenten is iets heel anders dan het organiseren van
+          diepte-interviews onder verschillende doelgroepen met een specifiek profiel
+          (bijvoorbeeld sollicitanten op een specifiek vakgebied).
+        </p>
+        <p>
+          Hieronder tonen we richtprijzen van onderzoek. Daarnaast geven we je de
+          mogelijkheid een prijsindicatie op maat te berekenen. Wil je weten waar
+          prijsverschillen vandaan komen? Onder de tools leggen we uit welke zes
+          keuzes je prijs bewegen.
+        </p>
 
-        {/* ---------------- Bereken direct je prijs (tools) ---------------- */}
-        <section class="km-section" id="tools" style="scroll-margin-top: 90px">
-          <h2 class="km-h2">Bereken direct je prijs</h2>
-          <p class="km-p">
-            Kies het onderzoek dat bij je vraag past en bereken in een paar klikken
-            een richtprijs. Alle bedragen zijn exclusief btw en gebaseerd op
-            vergelijkbare onderzoeken. Je hoeft niets in te vullen om te beginnen.
-          </p>
+        <h2 id="tools" style="scroll-margin-top: 90px">Bereken direct je prijs</h2>
+        <p>
+          Kies het onderzoek dat bij je vraag past en bereken in een paar klikken een
+          richtprijs. Alle bedragen zijn exclusief btw en gebaseerd op vergelijkbare
+          onderzoeken. Je hoeft niets in te vullen om te beginnen.
+        </p>
 
-          <div class="km-tools">
-            {
-              heroTools.map((t) => (
-                <a class="km-tool" href={t.href}>
-                  <span class="km-tool-head">
-                    <span class="km-tool-title">
-                      {t.titel}
-                      {t.sub && <span class="km-tool-sub">{t.sub}</span>}
-                    </span>
-                    <span class="km-tool-vanaf">vanaf {t.vanaf}</span>
-                  </span>
-                  <span class="km-tool-text">{t.tekst}</span>
-                  <span class="km-tool-link">Bereken je prijs →</span>
-                </a>
-              ))
-            }
+        <figure class="figure-context km-figure">
+          <div class="figure-context-media">
+            <Image
+              src={kostenImg}
+              alt="Prijsindicatie-calculator van Diversions voor marktonderzoek"
+              widths={[480, 760, 1520]}
+              sizes="(min-width: 900px) 720px, 100vw"
+              quality={72}
+              loading="lazy"
+            />
           </div>
+          <figcaption>
+            <span class="figure-context-dash" aria-hidden="true"></span>
+            <span class="figure-context-cap">
+              Bereken eenvoudig een prijsindicatie voor jouw marktonderzoek.
+            </span>
+          </figcaption>
+        </figure>
 
-          <p class="km-p km-muted">
-            Ander onderzoek voor ogen? Bereken ook de prijs van een
-            <a href="/services/customer-journey/#calculator">customer journey onderzoek</a>,
-            <a href="/services/doelgroeponderzoek/#calculator">doelgroeponderzoek</a>,
-            <a href="/services/waardepropositie/#calculator">waardepropositie-onderzoek</a>
-            of
-            <a href="/services/campagne-effectonderzoek/#calculator">campagne-effectonderzoek</a>.
-          </p>
-        </section>
-
-        {/* ---------------- De zes knoppen ---------------- */}
-        <section class="km-section">
-          <h2 class="km-h2">Welke keuzes bepalen de kosten van marktonderzoek?</h2>
-          <p class="km-p">
-            De prijs van marktonderzoek wordt bepaald door de keuzes die je maakt.
-            Dit zijn de zes knoppen die je prijs beïnvloeden. In onze calculators
-            zie je meteen wat hun invloed is. Zo kun je zelf een oplossing
-            samenstellen die past bij je vraagstuk en budget.
-          </p>
-
+        <div class="km-tools">
           {
-            knoppen.map((k) => (
-              <div class="km-knop">
-                <h3 class="km-h3">{k.titel}</h3>
-                {k.alineas.map((a) => (
-                  <p class="km-p">{a}</p>
-                ))}
-                <p class="km-richting">
-                  <span>Prijsrichting:</span> {k.richting}
-                </p>
-              </div>
+            heroTools.map((t) => (
+              <a class="km-tool" href={t.href}>
+                <span class="km-tool-head">
+                  <span class="km-tool-title">
+                    {t.titel}
+                    {t.sub && <span class="km-tool-sub">{t.sub}</span>}
+                  </span>
+                  <span class="km-tool-vanaf">vanaf {t.vanaf}</span>
+                </span>
+                <span class="km-tool-text">{t.tekst}</span>
+                <span class="km-tool-link">Bereken je prijs →</span>
+              </a>
             ))
           }
+        </div>
 
-          <p class="km-p">
-            Dat zijn de zes knoppen die de prijs van marktonderzoek bepalen. Elke
-            combinatie leidt tot een andere prijs. Met onze calculators bereken je
-            eenvoudig wat dat betekent voor jouw situatie.
-          </p>
-          <p class="km-p">
-            Besluit je om het onderzoek daadwerkelijk uit te voeren? Dan lopen we
-            altijd samen de uitgangspunten door om te zorgen dat alles klopt.
-          </p>
-          <p class="km-p">
-            De prijs is belangrijk, maar uiteindelijk draait het om één ding: een
-            betrouwbaar antwoord op je onderzoeksvraag.
-          </p>
+        <p class="km-muted">
+          Ander onderzoek voor ogen? Bereken ook de prijs van een
+          <a href="/services/customer-journey/#calculator">customer journey onderzoek</a>,
+          <a href="/services/doelgroeponderzoek/#calculator">doelgroeponderzoek</a>,
+          <a href="/services/waardepropositie/#calculator">waardepropositie-onderzoek</a>
+          of
+          <a href="/services/campagne-effectonderzoek/#calculator">campagne-effectonderzoek</a>.
+        </p>
+
+        <h2>Welke keuzes bepalen de kosten van marktonderzoek?</h2>
+        <p>
+          De prijs van marktonderzoek wordt bepaald door de keuzes die je maakt. Dit
+          zijn de zes knoppen die je prijs beïnvloeden. In onze calculators zie je
+          meteen wat hun invloed is. Zo kun je zelf een oplossing samenstellen die
+          past bij je vraagstuk en budget.
+        </p>
+
+        {
+          knoppen.map((k, i) => (
+            <div class="km-knop">
+              <h3>{`${i + 1}. ${k.titel}`}</h3>
+              {k.alineas.map((a) => (
+                <p>{a}</p>
+              ))}
+              <p class="km-richting">
+                <span>Prijsrichting:</span> {k.richting}
+              </p>
+            </div>
+          ))
+        }
+
+        <p>
+          Dat zijn de zes knoppen die de prijs van marktonderzoek bepalen. Elke
+          combinatie leidt tot een andere prijs. Met onze calculators bereken je
+          eenvoudig wat dat betekent voor jouw situatie.
+        </p>
+        <p>
+          Besluit je om het onderzoek daadwerkelijk uit te voeren? Dan lopen we altijd
+          samen de uitgangspunten door om te zorgen dat alles klopt.
+        </p>
+        <p>
+          De prijs is belangrijk, maar uiteindelijk draait het om één ding: een
+          betrouwbaar antwoord op je onderzoeksvraag.
+        </p>
+        <p>
           <a href="#tools" class="btn btn-outline btn-arrow">Naar de calculators</a>
-        </section>
+        </p>
 
-        {/* ---------------- ROI ---------------- */}
-        <section class="km-section">
-          <h2 class="km-h2">Wanneer is marktonderzoek de investering waard?</h2>
-          <p class="km-p">
-            De echte vraag moet niet zijn "wat kost het onderzoek", maar "wat kost
-            een verkeerde beslissing". Een propositie die niet aanslaat, een campagne
-            die niet landt of een dienst die niet doet wat klanten verwachten kost al
-            snel een veelvoud van het onderzoek dat het had kunnen voorkomen.
-            Marktonderzoek levert het meeste op waar de inzet het hoogst is: vóór een
-            lancering, een herpositionering of een grote investering. Zie het niet als
-            een kostenpost, maar als de goedkoopste manier om een dure misser te
-            vermijden.
-          </p>
-        </section>
+        <h2>Wanneer is marktonderzoek de investering waard?</h2>
+        <p>
+          De echte vraag moet niet zijn "wat kost het onderzoek", maar "wat kost een
+          verkeerde beslissing". Een propositie die niet aanslaat, een campagne die
+          niet landt of een dienst die niet doet wat klanten verwachten kost al snel
+          een veelvoud van het onderzoek dat het had kunnen voorkomen. Marktonderzoek
+          levert het meeste op waar de inzet het hoogst is: vóór een lancering, een
+          herpositionering of een grote investering. Zie het niet als een kostenpost,
+          maar als de goedkoopste manier om een dure misser te vermijden.
+        </p>
 
-        {/* ---------------- FAQ (met FAQPage-schema) ---------------- */}
-        <section class="km-section">
-          <h2 class="km-h2">Veelgestelde vragen</h2>
-          <Faq items={faqItems} />
-        </section>
+        <h2>Veelgestelde vragen</h2>
+        <Faq items={faqItems} />
 
-        {/* ---------------- CTA ---------------- */}
-        <section class="km-cta-block">
-          <h2 class="km-h2">Nog vragen over de opzet of de prijs?</h2>
-          <p class="km-p">
-            Kom je er met de calculator niet helemaal uit, of wil je sparren over de
-            opzet van je onderzoek? Een van onze onderzoekers denkt vrijblijvend met
-            je mee.
-          </p>
+        <h2>Nog vragen over de opzet of de prijs?</h2>
+        <p>
+          Kom je er met de calculator niet helemaal uit, of wil je sparren over de
+          opzet van je onderzoek? Een van onze onderzoekers denkt vrijblijvend met je
+          mee.
+        </p>
+        <p>
           <a href="/contact" class="btn btn-primary btn-arrow">Neem contact op</a>
-        </section>
-      </div>
-    </Wrapper>
-  </section>
+        </p>
+      </article>
+    </div>
+  </div>
 </BaseLayout>
 
 <style>
-  .km-shell {
-    max-width: 820px;
-    margin: 0 auto;
-  }
-  .km-eyebrow {
-    font-family: var(--font-subtitle);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--color-yellow-600);
-  }
-  .km-h1 {
-    font-family: var(--font-display);
-    font-size: clamp(34px, 5vw, 52px);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    color: var(--ink-strong);
-    margin: 12px 0 20px;
-    text-wrap: balance;
-  }
-  .km-lead {
-    font-family: var(--font-subtitle);
-    font-weight: 400;
-    font-size: clamp(17px, 1.6vw, 20px);
-    line-height: 1.6;
-    color: var(--ink);
-    margin: 0 0 16px;
-    max-width: 62ch;
-  }
   .km-cta {
-    margin-top: 12px;
+    margin-top: 8px;
   }
-  .km-section {
-    margin-top: 56px;
-  }
-  .km-h2 {
-    font-family: var(--font-display);
-    font-size: clamp(26px, 3vw, 34px);
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-    color: var(--ink-strong);
-    margin: 0 0 20px;
-    text-wrap: balance;
-  }
-  .km-h3 {
-    font-family: var(--font-display);
-    font-size: 21px;
-    line-height: 1.15;
-    color: var(--ink-strong);
-    margin: 0 0 12px;
-  }
-  .km-p {
-    font-family: var(--font-sans);
-    font-size: 17px;
-    line-height: 1.7;
-    color: var(--ink-soft);
-    margin: 0 0 16px;
-  }
-  .km-p a {
-    color: var(--primary);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    font-weight: 600;
-  }
-  .km-muted {
-    font-size: 15px;
-    color: var(--ink-mute);
-  }
-  .km-knop {
-    padding: 24px 0;
-    border-top: 1px solid var(--border);
+  .km-figure {
+    margin: 24px 0 0;
   }
   .km-richting {
     font-family: var(--font-subtitle);
@@ -388,10 +330,17 @@ const breadcrumbSchema = {
     background: var(--color-accent-100);
     border-radius: 10px;
     padding: 10px 14px;
-    margin: 4px 0 0;
+    margin: 12px 0 0;
   }
   .km-richting span {
     color: var(--color-yellow-600);
+  }
+  .km-muted {
+    font-size: 15px;
+    color: var(--ink-mute);
+  }
+  .km-knop {
+    padding-top: 8px;
   }
 
   /* Tool-kaarten */
@@ -399,9 +348,9 @@ const breadcrumbSchema = {
     display: grid;
     grid-template-columns: 1fr;
     gap: 14px;
-    margin: 24px 0;
+    margin: 24px 0 0;
   }
-  @media (min-width: 640px) {
+  @media (min-width: 560px) {
     .km-tools {
       grid-template-columns: 1fr 1fr;
     }
@@ -410,7 +359,7 @@ const breadcrumbSchema = {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    padding: 22px;
+    padding: 20px;
     border: 1px solid var(--border);
     border-radius: 16px;
     background: #fff;
@@ -428,12 +377,12 @@ const breadcrumbSchema = {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
   }
   .km-tool-title {
     font-family: var(--font-display);
-    font-size: 19px;
+    font-size: 18px;
     line-height: 1.15;
     color: var(--ink-strong);
   }
@@ -468,12 +417,5 @@ const breadcrumbSchema = {
   }
   .km-tool:hover .km-tool-link {
     color: var(--primary);
-  }
-
-  .km-cta-block {
-    margin-top: 64px;
-    padding: 40px;
-    background: var(--color-accent-100);
-    border-radius: 20px;
   }
 </style>
